@@ -100,7 +100,20 @@ Mac 记得下载.gz
 为了方便 我设置了环境变量
 123456mac 命令1.vim .bash_profile2.export PATH=$&amp;#123;PATH&amp;#125;:你的路径/apache-tomcat-9.0.0/bin3.保存退出 :wq4.生效 source .bash_profile5.启动 startup.sh
 查看Tomca">
-<meta property="og:updated_time" content="2016-08-22T04:56:44.000Z">
+<meta property="og:image" content="http://www.jincanshen.com/Users/sky/blog/source/images/jenkins/1.png">
+<meta property="og:image" content="http://www.jincanshen.com/Users/sky/blog/source/images/jenkins/2.png">
+<meta property="og:image" content="http://www.jincanshen.com/Users/sky/blog/source/images/jenkins/4.png">
+<meta property="og:image" content="http://www.jincanshen.com/Users/sky/blog/source/images/jenkins/3.png">
+<meta property="og:image" content="http://www.jincanshen.com/Users/sky/blog/source/images/jenkins/6.png">
+<meta property="og:image" content="http://www.jincanshen.com/Users/sky/blog/source/images/jenkins/7.png">
+<meta property="og:image" content="http://www.jincanshen.com/Users/sky/blog/source/images/jenkins/8.png">
+<meta property="og:image" content="http://www.jincanshen.com/Users/sky/blog/source/images/jenkins/9.png">
+<meta property="og:image" content="http://www.jincanshen.com/Users/sky/blog/source/images/jenkins/10.png">
+<meta property="og:image" content="http://www.jincanshen.com/Users/sky/blog/source/images/jenkins/11.png">
+<meta property="og:image" content="http://www.jincanshen.com/Users/sky/blog/source/images/jenkins/12.png">
+<meta property="og:image" content="http://www.jincanshen.com/Users/sky/blog/source/images/jenkins/13.png">
+<meta property="og:image" content="http://www.jincanshen.com/Users/sky/blog/source/images/jenkins/14.png">
+<meta property="og:updated_time" content="2016-08-22T09:43:38.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Mac + Jenkins + Gradle + Git = 可持续集成架构搭建">
 <meta name="twitter:description" content="说白了，就是自动化打包~ 
@@ -109,6 +122,7 @@ Mac 记得下载.gz
 为了方便 我设置了环境变量
 123456mac 命令1.vim .bash_profile2.export PATH=$&amp;#123;PATH&amp;#125;:你的路径/apache-tomcat-9.0.0/bin3.保存退出 :wq4.生效 source .bash_profile5.启动 startup.sh
 查看Tomca">
+<meta name="twitter:image" content="http://www.jincanshen.com/Users/sky/blog/source/images/jenkins/1.png">
 
 
 
@@ -314,9 +328,25 @@ Mac 记得下载.gz
 <p>为了方便 我设置了环境变量</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">mac 命令</div><div class="line">1.vim .bash_profile</div><div class="line">2.export PATH=$&#123;PATH&#125;:你的路径/apache-tomcat-9.0.0/bin</div><div class="line">3.保存退出 :wq</div><div class="line">4.生效 source .bash_profile</div><div class="line">5.启动 startup.sh</div></pre></td></tr></table></figure>
 <p><a href="http://localhost:8080" target="_blank" rel="external">查看Tomcat是否启动</a></p>
-<h3 id="Jenkins安装与配置"><a href="#Jenkins安装与配置" class="headerlink" title="Jenkins安装与配置"></a>Jenkins安装与配置</h3><p><a href="http://mirrors.jenkins-ci.org/war/latest/jenkins.war" target="_blank" rel="external">下载地址</a></p>
+<a id="more"></a>
+<h3 id="Jenkins安装"><a href="#Jenkins安装" class="headerlink" title="Jenkins安装"></a>Jenkins安装</h3><p><a href="http://mirrors.jenkins-ci.org/war/latest/jenkins.war" target="_blank" rel="external">下载地址</a></p>
 <p>将下载的jenkins.war包直接放到tomcat下的webapps目录，启动tomcat即可安装完成</p>
 <p><a href="http://localhost:8080/jenkins/" target="_blank" rel="external">查看Jenins</a></p>
+<p>如果显示一下内容<br><img src="/Users/sky/blog/source/images/jenkins/1.png" alt="图1"></p>
+<p>按照提示我们执行<code>cat /var/lib/jenkins/secrets/initialAdminPassword</code> 得到Administrator password，输入后点击Continue，如下：<br><img src="/Users/sky/blog/source/images/jenkins/2.png" alt="图"></p>
+<p>剩下的等 安装好插件就好～</p>
+<h3 id="Jenkins设置"><a href="#Jenkins设置" class="headerlink" title="Jenkins设置"></a>Jenkins设置</h3><p><img src="/Users/sky/blog/source/images/jenkins/4.png" alt="图"></p>
+<h4 id="系统设置-gt-SDK"><a href="#系统设置-gt-SDK" class="headerlink" title="系统设置 -&gt; SDK"></a>系统设置 -&gt; SDK</h4><p><img src="/Users/sky/blog/source/images/jenkins/3.png" alt="图"></p>
+<h4 id="管理插件-安装插件"><a href="#管理插件-安装插件" class="headerlink" title="管理插件 - 安装插件"></a>管理插件 - 安装插件</h4><p><img src="/Users/sky/blog/source/images/jenkins/6.png" alt="图"></p>
+<h4 id="编辑插件内容"><a href="#编辑插件内容" class="headerlink" title="编辑插件内容"></a>编辑插件内容</h4><p><img src="/Users/sky/blog/source/images/jenkins/7.png" alt="图"></p>
+<h3 id="开始构建"><a href="#开始构建" class="headerlink" title="开始构建"></a>开始构建</h3><h4 id="1-新建"><a href="#1-新建" class="headerlink" title="1.新建"></a>1.新建</h4><p><img src="/Users/sky/blog/source/images/jenkins/8.png" alt="图"></p>
+<h4 id="2-设置参数"><a href="#2-设置参数" class="headerlink" title="2.设置参数"></a>2.设置参数</h4><p><img src="/Users/sky/blog/source/images/jenkins/9.png" alt="图"></p>
+<h4 id="3-设置源码"><a href="#3-设置源码" class="headerlink" title="3.设置源码"></a>3.设置源码</h4><p>说明：这里我主要是用了github和SSH密钥，如果使用svn 或者 git 账号和密码方式，自行增加，不会的留言提问哈。。<br><img src="/Users/sky/blog/source/images/jenkins/10.png" alt="图"></p>
+<h4 id="4-设置源码"><a href="#4-设置源码" class="headerlink" title="4.设置源码"></a>4.设置源码</h4><p><img src="/Users/sky/blog/source/images/jenkins/11.png" alt="图"></p>
+<h4 id="5-输出内容过滤"><a href="#5-输出内容过滤" class="headerlink" title="5.输出内容过滤"></a>5.输出内容过滤</h4><p><img src="/Users/sky/blog/source/images/jenkins/12.png" alt="图"></p>
+<h4 id="6-开始构建"><a href="#6-开始构建" class="headerlink" title="6.开始构建"></a>6.开始构建</h4><p><img src="/Users/sky/blog/source/images/jenkins/13.png" alt="图1"></p>
+<h4 id="7-查看构建内容"><a href="#7-查看构建内容" class="headerlink" title="7.查看构建内容"></a>7.查看构建内容</h4><p><img src="/Users/sky/blog/source/images/jenkins/14.png" alt="图1"></p>
+<h3 id="待更新"><a href="#待更新" class="headerlink" title="待更新"></a>待更新</h3><p>1.多渠道打包配置 -（使用python 往APK添加渠道文件）<br>2.svn 构建配置<br>3.构建成功后发送邮件配置</p>
 
       
     </div>
@@ -479,7 +509,7 @@ Mac 记得下载.gz
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#Tomact"><span class="nav-number">1.</span> <span class="nav-text">Tomact</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Jenkins安装与配置"><span class="nav-number">2.</span> <span class="nav-text">Jenkins安装与配置</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#Tomact"><span class="nav-number">1.</span> <span class="nav-text">Tomact</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Jenkins安装"><span class="nav-number">2.</span> <span class="nav-text">Jenkins安装</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Jenkins设置"><span class="nav-number">3.</span> <span class="nav-text">Jenkins设置</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#系统设置-gt-SDK"><span class="nav-number">3.1.</span> <span class="nav-text">系统设置 -> SDK</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#管理插件-安装插件"><span class="nav-number">3.2.</span> <span class="nav-text">管理插件 - 安装插件</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#编辑插件内容"><span class="nav-number">3.3.</span> <span class="nav-text">编辑插件内容</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#开始构建"><span class="nav-number">4.</span> <span class="nav-text">开始构建</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-新建"><span class="nav-number">4.1.</span> <span class="nav-text">1.新建</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-设置参数"><span class="nav-number">4.2.</span> <span class="nav-text">2.设置参数</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-设置源码"><span class="nav-number">4.3.</span> <span class="nav-text">3.设置源码</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4-设置源码"><span class="nav-number">4.4.</span> <span class="nav-text">4.设置源码</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#5-输出内容过滤"><span class="nav-number">4.5.</span> <span class="nav-text">5.输出内容过滤</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#6-开始构建"><span class="nav-number">4.6.</span> <span class="nav-text">6.开始构建</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#7-查看构建内容"><span class="nav-number">4.7.</span> <span class="nav-text">7.查看构建内容</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#待更新"><span class="nav-number">5.</span> <span class="nav-text">待更新</span></a></li></ol></div>
             
           </div>
         </section>
