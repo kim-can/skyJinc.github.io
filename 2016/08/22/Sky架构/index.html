@@ -86,23 +86,23 @@
 
 
 
-<meta name="description" content="MVP和MVC无论MVC或是MVP模式都不可避免地存在一个弊端：额外的代码复杂度及学习成本">
+<meta name="description" content="无论MVC或是MVP模式都不可避免地存在一个弊端：额外的代码复杂度及学习成本">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Sky架构">
 <meta property="og:url" content="http://www.jincanshen.com/2016/08/22/Sky架构/index.html">
 <meta property="og:site_name" content="skyJC">
-<meta property="og:description" content="MVP和MVC无论MVC或是MVP模式都不可避免地存在一个弊端：额外的代码复杂度及学习成本">
-<meta property="og:image" content="http://www.jincanshen.com/Users/sky/blog/source/images/sky架构/2.png">
-<meta property="og:image" content="http://www.jincanshen.com/Users/sky/blog/source/images/sky架构/3.png">
-<meta property="og:image" content="http://www.jincanshen.com/Users/sky/blog/source/images/sky架构/4.png">
-<meta property="og:image" content="http://www.jincanshen.com/Users/sky/blog/source/images/sky架构/5.png">
-<meta property="og:image" content="http://www.jincanshen.com/Users/sky/blog/source/images/sky架构/6.png">
-<meta property="og:image" content="http://www.jincanshen.com/Users/sky/blog/source/images/sky架构/7.png">
-<meta property="og:updated_time" content="2016-08-23T09:49:25.000Z">
+<meta property="og:description" content="无论MVC或是MVP模式都不可避免地存在一个弊端：额外的代码复杂度及学习成本">
+<meta property="og:image" content="https://skyJinc.github.io/images/sky架构/2.png">
+<meta property="og:image" content="https://skyJinc.github.io/images/sky架构/3.png">
+<meta property="og:image" content="https://skyJinc.github.io/images/sky架构/4.png">
+<meta property="og:image" content="https://skyJinc.github.io/images/sky架构/5.png">
+<meta property="og:image" content="https://skyJinc.github.io/images/sky架构/6.png">
+<meta property="og:image" content="https://skyJinc.github.io/images/sky架构/7.png">
+<meta property="og:updated_time" content="2016-08-23T09:54:54.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Sky架构">
-<meta name="twitter:description" content="MVP和MVC无论MVC或是MVP模式都不可避免地存在一个弊端：额外的代码复杂度及学习成本">
-<meta name="twitter:image" content="http://www.jincanshen.com/Users/sky/blog/source/images/sky架构/2.png">
+<meta name="twitter:description" content="无论MVC或是MVP模式都不可避免地存在一个弊端：额外的代码复杂度及学习成本">
+<meta name="twitter:image" content="https://skyJinc.github.io/images/sky架构/2.png">
 
 
 
@@ -302,33 +302,33 @@
       
 
       
-        <h2 id="MVP和MVC"><a href="#MVP和MVC" class="headerlink" title="MVP和MVC"></a>MVP和MVC</h2><p>无论MVC或是MVP模式都不可避免地存在一个弊端：<br><code>额外的代码复杂度及学习成本</code></p>
+        <p>无论MVC或是MVP模式都不可避免地存在一个弊端：<br><code>额外的代码复杂度及学习成本</code></p>
 <a id="more"></a>
+<h2 id="MVP和MVC"><a href="#MVP和MVC" class="headerlink" title="MVP和MVC"></a>MVP和MVC</h2><p>无论MVC或是MVP模式都不可避免地存在一个弊端：<br><code>额外的代码复杂度及学习成本</code></p>
 <h3 id="MVC"><a href="#MVC" class="headerlink" title="MVC"></a>MVC</h3><pre><code>1、View接受用户的交互请求
 2、View将请求转交给Controller
 3、Controller操作Model进行数据更新
 4、数据更新之后，Model通知View数据变化
 5、View显示更新之后的数据
-</code></pre><p><img src="/Users/sky/blog/source/images/sky架构/2.png" alt="图1"></p>
+</code></pre><p><img src="https://skyJinc.github.io/images/sky架构/2.png" alt="图1"></p>
 <h3 id="MVP"><a href="#MVP" class="headerlink" title="MVP"></a>MVP</h3><pre><code>1、View接受用户的交互请求
 2、View将请求转交给Presenter
 3、Presenter操作Model进行数据库更新
 4、数据更新之后，Model通知Presenter数据发生变化
 5、Presenter更新View的数据
-</code></pre><p><img src="/Users/sky/blog/source/images/sky架构/3.png" alt="图1"></p>
+</code></pre><p><img src="https://skyJinc.github.io/images/sky架构/3.png" alt="图1"></p>
 <p>说明：presenter  我这里说要用biz(business)代替</p>
 <h2 id="Sky开发架构-MVP模式"><a href="#Sky开发架构-MVP模式" class="headerlink" title="Sky开发架构-MVP模式"></a>Sky开发架构-MVP模式</h2><p>开头已经说了，无论MVC或是MVP模式都不可避免地存在一个弊端：<code>额外的代码复杂度及学习成本</code>  </p>
 <p>Sky开发架构都优化了那些问题</p>
 <h3 id="第一个"><a href="#第一个" class="headerlink" title="第一个"></a>第一个</h3><p>因为通过接口交互，所以每一个View(Activity,Fragment,DialogFragment…) 都会多一个IView接口，一个IBiz和实现类Biz.</p>
-<p>以Activity为例, 文件数量从1个变成了4个.<br><img src="/Users/sky/blog/source/images/sky架构/4.png" alt="图1"></p>
+<p>以Activity为例, 文件数量从1个变成了4个.<br><img src="https://skyJinc.github.io/images/sky架构/4.png" alt="图1"></p>
 <p>Sky架构做了调整，采用一个Java文件  包含 接口 和 类</p>
-<p><img src="/Users/sky/blog/source/images/sky架构/5.png" alt="图1"></p>
+<p><img src="https://skyJinc.github.io/images/sky架构/5.png" alt="图1"></p>
 <p>这里要说到Java文件的限制，一个类文件只能有一个<strong><em>public class</em></strong> 而Activity在AndroidManifest里必须是public，所以业务接口(IBiz)可以声明成public，而Activity不可以</p>
-<p>Biz<br><img src="/Users/sky/blog/source/images/sky架构/6.png" alt="图1"></p>
-<p>Activity<br><img src="/Users/sky/blog/source/images/sky架构/7.png" alt="图1"></p>
+<p>Biz<br><img src="https://skyJinc.github.io/images/sky架构/6.png" alt="图1"></p>
+<p>Activity<br><img src="https://skyJinc.github.io/images/sky架构/7.png" alt="图1"></p>
 <h3 id="第二个"><a href="#第二个" class="headerlink" title="第二个"></a>第二个</h3><p>activity 和 biz 依赖的问题</p>
-<p>。。。。。。。<br>今天就写到这里。。。。。。。。</p>
-
+<h2 id="今天就写到这里。。。。。。。。"><a href="#今天就写到这里。。。。。。。。" class="headerlink" title="今天就写到这里。。。。。。。。"></a>今天就写到这里。。。。。。。。</h2>
       
     </div>
 
@@ -497,7 +497,7 @@
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#MVP和MVC"><span class="nav-number">1.</span> <span class="nav-text">MVP和MVC</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#MVC"><span class="nav-number">1.1.</span> <span class="nav-text">MVC</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#MVP"><span class="nav-number">1.2.</span> <span class="nav-text">MVP</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Sky开发架构-MVP模式"><span class="nav-number">2.</span> <span class="nav-text">Sky开发架构-MVP模式</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#第一个"><span class="nav-number">2.1.</span> <span class="nav-text">第一个</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#第二个"><span class="nav-number">2.2.</span> <span class="nav-text">第二个</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#MVP和MVC"><span class="nav-number">1.</span> <span class="nav-text">MVP和MVC</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#MVC"><span class="nav-number">1.1.</span> <span class="nav-text">MVC</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#MVP"><span class="nav-number">1.2.</span> <span class="nav-text">MVP</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Sky开发架构-MVP模式"><span class="nav-number">2.</span> <span class="nav-text">Sky开发架构-MVP模式</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#第一个"><span class="nav-number">2.1.</span> <span class="nav-text">第一个</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#第二个"><span class="nav-number">2.2.</span> <span class="nav-text">第二个</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#今天就写到这里。。。。。。。。"><span class="nav-number">3.</span> <span class="nav-text">今天就写到这里。。。。。。。。</span></a></li></ol></div>
             
           </div>
         </section>
