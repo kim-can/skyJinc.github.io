@@ -86,15 +86,23 @@
 
 
 
-<meta name="description" content="Android探索的道路，是否愿意陪我一起？">
-<meta property="og:type" content="website">
-<meta property="og:title" content="skyJC">
-<meta property="og:url" content="http://www.jincanshen.com/index.html">
+<meta name="description" content="MVP和MVC无论MVC或是MVP模式都不可避免地存在一个弊端：额外的代码复杂度及学习成本">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Sky架构">
+<meta property="og:url" content="http://www.jincanshen.com/2016/08/22/Sky架构/index.html">
 <meta property="og:site_name" content="skyJC">
-<meta property="og:description" content="Android探索的道路，是否愿意陪我一起？">
+<meta property="og:description" content="MVP和MVC无论MVC或是MVP模式都不可避免地存在一个弊端：额外的代码复杂度及学习成本">
+<meta property="og:image" content="http://www.jincanshen.com/Users/sky/blog/source/images/sky架构/2.png">
+<meta property="og:image" content="http://www.jincanshen.com/Users/sky/blog/source/images/sky架构/3.png">
+<meta property="og:image" content="http://www.jincanshen.com/Users/sky/blog/source/images/sky架构/4.png">
+<meta property="og:image" content="http://www.jincanshen.com/Users/sky/blog/source/images/sky架构/5.png">
+<meta property="og:image" content="http://www.jincanshen.com/Users/sky/blog/source/images/sky架构/6.png">
+<meta property="og:image" content="http://www.jincanshen.com/Users/sky/blog/source/images/sky架构/7.png">
+<meta property="og:updated_time" content="2016-08-23T09:49:25.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="skyJC">
-<meta name="twitter:description" content="Android探索的道路，是否愿意陪我一起？">
+<meta name="twitter:title" content="Sky架构">
+<meta name="twitter:description" content="MVP和MVC无论MVC或是MVP模式都不可避免地存在一个弊端：额外的代码复杂度及学习成本">
+<meta name="twitter:image" content="http://www.jincanshen.com/Users/sky/blog/source/images/sky架构/2.png">
 
 
 
@@ -115,9 +123,9 @@
 
 
 
-  <link rel="canonical" href="http://www.jincanshen.com/"/>
+  <link rel="canonical" href="http://www.jincanshen.com/2016/08/22/Sky架构/"/>
 
-  <title> skyJC </title>
+  <title> Sky架构 | skyJC </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -148,9 +156,7 @@
     
   
 
-  <div class="container one-collumn sidebar-position-left 
-   page-home 
- ">
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -227,9 +233,9 @@
         <div class="content-wrap">
           <div id="content" class="content">
             
-  <section id="posts" class="posts-expand">
+
+  <div id="posts" class="posts-expand">
     
-      
 
   
   
@@ -249,10 +255,7 @@
             
             
               
-                
-                <a class="post-title-link" href="/2016/08/22/Sky架构/" itemprop="url">
-                  Sky架构
-                </a>
+                Sky架构
               
             
           </h1>
@@ -299,125 +302,63 @@
       
 
       
-        
-          <h2 id="MVP和MVC"><a href="#MVP和MVC" class="headerlink" title="MVP和MVC"></a>MVP和MVC</h2><p>无论MVC或是MVP模式都不可避免地存在一个弊端：<br><code>额外的代码复杂度及学习成本</code></p>
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2016/08/22/Sky架构/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-        
+        <h2 id="MVP和MVC"><a href="#MVP和MVC" class="headerlink" title="MVP和MVC"></a>MVP和MVC</h2><p>无论MVC或是MVP模式都不可避免地存在一个弊端：<br><code>额外的代码复杂度及学习成本</code></p>
+<a id="more"></a>
+<h3 id="MVC"><a href="#MVC" class="headerlink" title="MVC"></a>MVC</h3><pre><code>1、View接受用户的交互请求
+2、View将请求转交给Controller
+3、Controller操作Model进行数据更新
+4、数据更新之后，Model通知View数据变化
+5、View显示更新之后的数据
+</code></pre><p><img src="/Users/sky/blog/source/images/sky架构/2.png" alt="图1"></p>
+<h3 id="MVP"><a href="#MVP" class="headerlink" title="MVP"></a>MVP</h3><pre><code>1、View接受用户的交互请求
+2、View将请求转交给Presenter
+3、Presenter操作Model进行数据库更新
+4、数据更新之后，Model通知Presenter数据发生变化
+5、Presenter更新View的数据
+</code></pre><p><img src="/Users/sky/blog/source/images/sky架构/3.png" alt="图1"></p>
+<p>说明：presenter  我这里说要用biz(business)代替</p>
+<h2 id="Sky开发架构-MVP模式"><a href="#Sky开发架构-MVP模式" class="headerlink" title="Sky开发架构-MVP模式"></a>Sky开发架构-MVP模式</h2><p>开头已经说了，无论MVC或是MVP模式都不可避免地存在一个弊端：<code>额外的代码复杂度及学习成本</code>  </p>
+<p>Sky开发架构都优化了那些问题</p>
+<h3 id="第一个"><a href="#第一个" class="headerlink" title="第一个"></a>第一个</h3><p>因为通过接口交互，所以每一个View(Activity,Fragment,DialogFragment…) 都会多一个IView接口，一个IBiz和实现类Biz.</p>
+<p>以Activity为例, 文件数量从1个变成了4个.<br><img src="/Users/sky/blog/source/images/sky架构/4.png" alt="图1"></p>
+<p>Sky架构做了调整，采用一个Java文件  包含 接口 和 类</p>
+<p><img src="/Users/sky/blog/source/images/sky架构/5.png" alt="图1"></p>
+<p>这里要说到Java文件的限制，一个类文件只能有一个<strong><em>public class</em></strong> 而Activity在AndroidManifest里必须是public，所以业务接口(IBiz)可以声明成public，而Activity不可以</p>
+<p>Biz<br><img src="/Users/sky/blog/source/images/sky架构/6.png" alt="图1"></p>
+<p>Activity<br><img src="/Users/sky/blog/source/images/sky架构/7.png" alt="图1"></p>
+<h3 id="第二个"><a href="#第二个" class="headerlink" title="第二个"></a>第二个</h3><p>activity 和 biz 依赖的问题</p>
+<p>。。。。。。。<br>今天就写到这里。。。。。。。。</p>
+
       
     </div>
 
     <div>
       
+        
+
+      
     </div>
 
     <div>
       
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
         
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2016/08/22/可持续集成/" itemprop="url">
-                  Mac + Jenkins + Gradle + Git = 可持续集成架构搭建
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-08-22T10:45:26+08:00" content="2016-08-22">
-              2016-08-22
-            </time>
-          </span>
-
-          
-
-          
-            
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/2016/08/22/可持续集成/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/08/22/可持续集成/" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-
-          
-          
-
-          
+  <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+    <div>坚持原创技术分享，您的支持将鼓励我继续创作！</div>
+    <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+      <span>赏</span>
+    </button>
+    <div id="QR" style="display: none;">
+      
+      
+        <div id="alipay" style="display: inline-block">
+          <img id="alipay_qr" src="https://raw.githubusercontent.com/skyJinc/skyJinc.github.io/master/images/about/my_zfb.JPG" alt="skyJC Alipay"/>
+          <p>支付宝打赏</p>
         </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <p>简化打包流程…</p>
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2016/08/22/可持续集成/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-        
       
     </div>
+  </div>
 
-    <div>
-      
-    </div>
 
-    <div>
       
     </div>
 
@@ -425,123 +366,32 @@
       
 
       
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
             
+              <a href="/2016/08/22/可持续集成/" rel="next" title="Mac + Jenkins + Gradle + Git = 可持续集成架构搭建">
+                <i class="fa fa-chevron-left"></i> Mac + Jenkins + Gradle + Git = 可持续集成架构搭建
+              </a>
             
-              
-                
-                <a class="post-title-link" href="/2016/08/20/Android的大神们/" itemprop="url">
-                  Android的大神们
-                </a>
-              
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
             
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-08-20T16:45:00+08:00" content="2016-08-20">
-              2016-08-20
-            </time>
-          </span>
-
-          
-
-          
-            
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/2016/08/20/Android的大神们/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/08/20/Android的大神们/" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-
-          
-          
-
-          
+          </div>
         </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
       
 
       
-        
-          <h3 id="Google"><a href="#Google" class="headerlink" title="Google"></a><a href="https://github.com/google">Google</a></h3><p><img src="https://avatars0.githubusercontent.com/u/1342004?v=3&amp;s=188" alt="">  </p>
-<p>google在github上面开源了很多android库应用，尤其是<a href="https://github.com/googlesamples">googleSamples</a>,展示了Android最新的示例。</p>
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2016/08/20/Android的大神们/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
       
     </footer>
   </article>
 
 
-    
-  </section>
 
-  
+    <div class="post-spread">
+      
+    </div>
+  </div>
 
 
           </div>
@@ -549,6 +399,14 @@
 
 
           
+  <div class="comments" id="comments">
+    
+      <div class="ds-thread" data-thread-key="2016/08/22/Sky架构/"
+           data-title="Sky架构" data-url="http://www.jincanshen.com/2016/08/22/Sky架构/">
+      </div>
+    
+  </div>
+
 
         </div>
         
@@ -568,8 +426,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview sidebar-panel  sidebar-panel-active ">
+      <section class="site-overview sidebar-panel ">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="/images/my/avatar.jpg"
@@ -623,6 +490,17 @@
 
       </section>
 
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#MVP和MVC"><span class="nav-number">1.</span> <span class="nav-text">MVP和MVC</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#MVC"><span class="nav-number">1.1.</span> <span class="nav-text">MVC</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#MVP"><span class="nav-number">1.2.</span> <span class="nav-text">MVP</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Sky开发架构-MVP模式"><span class="nav-number">2.</span> <span class="nav-text">Sky开发架构-MVP模式</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#第一个"><span class="nav-number">2.1.</span> <span class="nav-text">第一个</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#第二个"><span class="nav-number">2.2.</span> <span class="nav-text">第二个</span></a></li></ol></li></ol></div>
+            
+          </div>
+        </section>
       
 
     </div>
@@ -719,6 +597,10 @@
   
 
   
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.0.1"></script>
+
+
 
   
 
