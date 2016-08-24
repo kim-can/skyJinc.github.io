@@ -98,7 +98,11 @@
 <meta property="og:image" content="https://skyJinc.github.io/images/sky架构/5.png">
 <meta property="og:image" content="https://skyJinc.github.io/images/sky架构/6.png">
 <meta property="og:image" content="https://skyJinc.github.io/images/sky架构/7.png">
-<meta property="og:updated_time" content="2016-08-23T10:02:36.000Z">
+<meta property="og:image" content="https://skyJinc.github.io/images/sky架构/8.png">
+<meta property="og:image" content="https://skyJinc.github.io/images/sky架构/11.png">
+<meta property="og:image" content="https://skyJinc.github.io/images/sky架构/9.png">
+<meta property="og:image" content="https://skyJinc.github.io/images/sky架构/10.png">
+<meta property="og:updated_time" content="2016-08-24T10:58:13.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Sky架构">
 <meta name="twitter:description" content="无论MVC或是MVP模式都不可避免地存在一个弊端：额外的代码复杂度及学习成本">
@@ -328,7 +332,15 @@
 <p>Biz<br><img src="https://skyJinc.github.io/images/sky架构/6.png" alt="图1"></p>
 <p>Activity<br><img src="https://skyJinc.github.io/images/sky架构/7.png" alt="图1"></p>
 <h3 id="第二个"><a href="#第二个" class="headerlink" title="第二个"></a>第二个</h3><p>activity 和 biz 依赖的问题</p>
-<h2 id="今天就写到这里。。。。。。。。"><a href="#今天就写到这里。。。。。。。。" class="headerlink" title="今天就写到这里。。。。。。。。"></a>今天就写到这里。。。。。。。。</h2>
+<p>正常的依赖关系<br>Activity<br><img src="https://skyJinc.github.io/images/sky架构/8.png" alt="图1"><br>Biz<br><img src="https://skyJinc.github.io/images/sky架构/11.png" alt="图1"></p>
+<p>Sky架构做了调整，采用泛型+注解方式依赖</p>
+<p>Activity<br><img src="https://skyJinc.github.io/images/sky架构/9.png" alt="图1"></p>
+<p>Biz<br><img src="https://skyJinc.github.io/images/sky架构/10.png" alt="图1"></p>
+<h4 id="Impl-注解"><a href="#Impl-注解" class="headerlink" title="@Impl  注解"></a>@Impl  注解</h4><p>可以看到Activity接口和Biz接口中都注解了@Impl(实现类.class)</p>
+<p>顾名思义,表示接口的实现类。</p>
+<p>主要是为了能方便的统一管理实现类</p>
+<p>主要是指定接口的实现类</p>
+
       
     </div>
 
@@ -497,7 +509,7 @@
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#MVP和MVC"><span class="nav-number">1.</span> <span class="nav-text">MVP和MVC</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#MVC"><span class="nav-number">1.1.</span> <span class="nav-text">MVC</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#MVP"><span class="nav-number">1.2.</span> <span class="nav-text">MVP</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Sky开发架构-MVP模式"><span class="nav-number">2.</span> <span class="nav-text">Sky开发架构-MVP模式</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#第一个"><span class="nav-number">2.1.</span> <span class="nav-text">第一个</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#第二个"><span class="nav-number">2.2.</span> <span class="nav-text">第二个</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#今天就写到这里。。。。。。。。"><span class="nav-number">3.</span> <span class="nav-text">今天就写到这里。。。。。。。。</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#MVP和MVC"><span class="nav-number">1.</span> <span class="nav-text">MVP和MVC</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#MVC"><span class="nav-number">1.1.</span> <span class="nav-text">MVC</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#MVP"><span class="nav-number">1.2.</span> <span class="nav-text">MVP</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Sky开发架构-MVP模式"><span class="nav-number">2.</span> <span class="nav-text">Sky开发架构-MVP模式</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#第一个"><span class="nav-number">2.1.</span> <span class="nav-text">第一个</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#第二个"><span class="nav-number">2.2.</span> <span class="nav-text">第二个</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Impl-注解"><span class="nav-number">2.2.1.</span> <span class="nav-text">@Impl  注解</span></a></li></ol></li></ol></li></ol></div>
             
           </div>
         </section>
