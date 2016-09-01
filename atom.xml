@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://www.jincanshen.com/"/>
-  <updated>2016-09-01T12:04:39.000Z</updated>
+  <updated>2016-09-01T12:40:54.000Z</updated>
   <id>http://www.jincanshen.com/</id>
   
   <author>
@@ -14,6 +14,43 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Github-制作开源依赖库</title>
+    <link href="http://www.jincanshen.com/2016/09/01/Github-%E5%88%B6%E4%BD%9C%E5%BC%80%E6%BA%90%E4%BE%9D%E8%B5%96%E5%BA%93/"/>
+    <id>http://www.jincanshen.com/2016/09/01/Github-制作开源依赖库/</id>
+    <published>2016-09-01T12:13:50.000Z</published>
+    <updated>2016-09-01T12:40:54.000Z</updated>
+    
+    <content type="html"><![CDATA[<p>Github给大家依赖使用,如果是正常的流程，可能很繁琐。但是使用JitPack，只需要几个傻瓜式的操作即可</p>
+<p>使用Gradle依赖别人项目有很多类似</p>
+<p><img src="https://skyJinc.github.io/images/github制作依赖/1.png" alt="tu"></p>
+<a id="more"></a>
+<h2 id="新建一个开源库"><a href="#新建一个开源库" class="headerlink" title="新建一个开源库"></a>新建一个开源库</h2><p>以<a href="https://github.com/skyJinc/sky" target="_blank" rel="external">sky架构</a>为例子</p>
+<p><img src="https://skyJinc.github.io/images/github制作依赖/2.png" alt="tu"></p>
+<p>提交到github</p>
+<h2 id="Github-操作"><a href="#Github-操作" class="headerlink" title="Github 操作"></a>Github 操作</h2><h3 id="第一步"><a href="#第一步" class="headerlink" title="第一步"></a>第一步</h3><p><img src="https://skyJinc.github.io/images/github制作依赖/3.png" alt="tu"></p>
+<h3 id="第二步"><a href="#第二步" class="headerlink" title="第二步"></a>第二步</h3><p><img src="https://skyJinc.github.io/images/github制作依赖/4.png" alt="tu"></p>
+<h3 id="第三步"><a href="#第三步" class="headerlink" title="第三步"></a>第三步</h3><p><img src="https://skyJinc.github.io/images/github制作依赖/5.png" alt="tu"></p>
+<h3 id="第四步"><a href="#第四步" class="headerlink" title="第四步"></a>第四步</h3><p><img src="https://skyJinc.github.io/images/github制作依赖/6.png" alt="tu"></p>
+<h2 id="JitPack操作"><a href="#JitPack操作" class="headerlink" title="JitPack操作"></a>JitPack操作</h2><p><a href="https://jitpack.io/" target="_blank" rel="external">查看地址</a></p>
+<h3 id="第一步-1"><a href="#第一步-1" class="headerlink" title="第一步"></a>第一步</h3><p><img src="https://skyJinc.github.io/images/github制作依赖/7.png" alt="tu"></p>
+<h3 id="第二步-1"><a href="#第二步-1" class="headerlink" title="第二步"></a>第二步</h3><p><img src="https://skyJinc.github.io/images/github制作依赖/8.png" alt="tu"></p>
+<h3 id="第三步-1"><a href="#第三步-1" class="headerlink" title="第三步"></a>第三步</h3><p><img src="https://skyJinc.github.io/images/github制作依赖/9.png" alt="tu"></p>
+<h3 id="第四步-1"><a href="#第四步-1" class="headerlink" title="第四步"></a>第四步</h3><p><img src="https://skyJinc.github.io/images/github制作依赖/10.png" alt="tu"></p>
+<p>直接在项目中依赖就可以了～～～</p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;Github给大家依赖使用,如果是正常的流程，可能很繁琐。但是使用JitPack，只需要几个傻瓜式的操作即可&lt;/p&gt;
+&lt;p&gt;使用Gradle依赖别人项目有很多类似&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://skyJinc.github.io/images/github制作依赖/1.png&quot; alt=&quot;tu&quot;&gt;&lt;/p&gt;
+    
+    </summary>
+    
+    
+  </entry>
   
   <entry>
     <title>Android:Gradle根据变量打包Apk</title>
