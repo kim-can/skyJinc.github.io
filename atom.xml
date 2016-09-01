@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://www.jincanshen.com/"/>
-  <updated>2016-08-29T12:42:49.000Z</updated>
+  <updated>2016-09-01T12:04:39.000Z</updated>
   <id>http://www.jincanshen.com/</id>
   
   <author>
@@ -16,19 +16,79 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>问题汇总</title>
-    <link href="http://www.jincanshen.com/2016/08/29/%E9%97%AE%E9%A2%98%E6%B1%87%E6%80%BB/"/>
-    <id>http://www.jincanshen.com/2016/08/29/问题汇总/</id>
-    <published>2016-08-29T11:56:00.000Z</published>
-    <updated>2016-08-29T12:42:49.000Z</updated>
+    <title>Android:Gradle根据变量打包Apk</title>
+    <link href="http://www.jincanshen.com/2016/09/01/Android-Gradle%E6%A0%B9%E6%8D%AE%E5%8F%98%E9%87%8F%E6%89%93%E5%8C%85Apk/"/>
+    <id>http://www.jincanshen.com/2016/09/01/Android-Gradle根据变量打包Apk/</id>
+    <published>2016-09-01T11:43:36.000Z</published>
+    <updated>2016-09-01T12:04:39.000Z</updated>
     
-    <content type="html"><![CDATA[<p><strong><em>定期更新问题</em></strong></p>
+    <content type="html"><![CDATA[<p>真正开发项目的时候，我们需要打不同环境的APK包。</p>
+<p>例如,测试包，开发包，发布包，等等…</p>
+<p>这些包对应的http环境有可能不同，这个时候 我们可能在想 如果有以下要求生成APK包就好了。。。</p>
+<a id="more"></a>
+<pre><code>1. 构建不同环境的APK
+2. 不需要修改代码
+3. 可以选择不同的签名
+</code></pre><p>通过buildConfigField就能解决以上的问题</p>
+<h2 id="Gradle-buildConfigField"><a href="#Gradle-buildConfigField" class="headerlink" title="Gradle - buildConfigField"></a>Gradle - buildConfigField</h2><p><strong><em>buildConfigField</em></strong>是gradle的一个方法，他的作用是可以给BuildConfig添加变量，赋值等。他的使用方式:</p>
+<pre><code>buildConfigField(&quot;int&quot;, &quot;SKY&quot;, &quot;0&quot;)
+</code></pre><p>这样就给BuildConfig中新增加了一个属性EN_SETTING:</p>
+<pre><code>public static final int SKY = 0;
+</code></pre><p>在代码中可以直接使用:</p>
+<pre><code>BuildConfig.SKY
+</code></pre><p><strong><em>buildConfigField</em></strong>通过<strong><em>BuildConfig</em></strong>类可以做到,把gradle里的配置传递给Java代码。</p>
+<h3 id="BuildTypes"><a href="#BuildTypes" class="headerlink" title="BuildTypes"></a>BuildTypes</h3><p>虽然通过gradle中可以配置ENV_SETTING变量，通过buildConfigField可以让java代码获取到设置的值。但是在buildTypes中我们只能设置两个变量:</p>
+<pre><code>buildTypes {
+    release {
+        signingConfig signingConfigs.release
+        buildConfigField(&quot;int&quot;, &quot;SKY&quot;, &quot;1&quot;)
+    }
+    debug {
+        buildConfigField(&quot;int&quot;, &quot;SKY&quot;, &quot;0&quot;)
+    }
+}
+</code></pre><p>也就是buildTypes中只有两种配置，在build的时候只能有两个APK:debug和release，这就需要我们重新定义一种新的buildTypes，用来构建测试环境的APK.<br>我们新增加一种buildTypes：</p>
+<pre><code>buildTypes {
+    release {
+        signingConfig signingConfigs.release
+        buildConfigField(&quot;int&quot;, &quot;SKY&quot;, &quot;1&quot;)
+    }
+    debug {
+        buildConfigField(&quot;int&quot;, &quot;SKY&quot;, &quot;0&quot;)
+    }
+
+    releaseTest.initWith(buildTypes.release)
+
+    releaseTest {
+        buildConfigField(&quot;int&quot;, &quot;SKY&quot;, &quot;2&quot;)
+    }
+}
+</code></pre><p>这样就有了三种不通的build配置</p>
+<h3 id="Build"><a href="#Build" class="headerlink" title="Build"></a>Build</h3><p>gradle 命令 进行打包 </p>
+<pre><code>assembleDebug
+assembleRelease
+assembleTeleaseTest
+</code></pre><p>这样我们就可以根据需要构建不同的APK,不需要改代码就可以构建不同环境的APK,而且生成的APK的名字也能区分出来不同的环境：</p>
+<pre><code>app-debug.apk
+app-release.apk
+app-releaseTest.apk
+</code></pre><p>也可以根据需要设置不同的APK签名。</p>
+<h2 id="例子-SkyApp项目"><a href="#例子-SkyApp项目" class="headerlink" title="例子 - SkyApp项目"></a>例子 - SkyApp项目</h2><p><a href="https://github.com/skyJinc/SkyApp" target="_blank" rel="external">项目地址</a></p>
+<p>app.gradle 配置</p>
+<p><img src="https://skyJinc.github.io/images/gradle打包/1.png" alt="tu"></p>
+<p>区分不同环境 对应不同的地址～ 和 区分不同环境 打印日志开关</p>
+<p><img src="https://skyJinc.github.io/images/gradle打包/2.png" alt="tu"></p>
+<pre><code>gradle assembleRelease
+
+打包后点击登陆按钮....
+</code></pre><p><img src="https://skyJinc.github.io/images/gradle打包/3.png" alt="tu"></p>
 ]]></content>
     
     <summary type="html">
     
-      &lt;p&gt;&lt;strong&gt;&lt;em&gt;定期更新问题&lt;/em&gt;&lt;/strong&gt;&lt;/p&gt;
-
+      &lt;p&gt;真正开发项目的时候，我们需要打不同环境的APK包。&lt;/p&gt;
+&lt;p&gt;例如,测试包，开发包，发布包，等等…&lt;/p&gt;
+&lt;p&gt;这些包对应的http环境有可能不同，这个时候 我们可能在想 如果有以下要求生成APK包就好了。。。&lt;/p&gt;
     
     </summary>
     
