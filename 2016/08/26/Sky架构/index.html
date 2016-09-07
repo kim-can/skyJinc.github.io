@@ -138,7 +138,7 @@
 <meta property="og:image" content="https://skyJinc.github.io/images/sky架构/46.png">
 <meta property="og:image" content="https://skyJinc.github.io/images/sky架构/47.png">
 <meta property="og:image" content="https://skyJinc.github.io/images/sky架构/48.png">
-<meta property="og:updated_time" content="2016-08-27T07:01:19.000Z">
+<meta property="og:updated_time" content="2016-09-07T04:47:21.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Sky架构简单使用">
 <meta name="twitter:description" content="无论MVC或是MVP模式都不可避免地存在一个弊端：额外的代码复杂度及学习成本">
@@ -415,7 +415,7 @@ fileCacheManage()； 文件缓存管理器
 <p>3.除了View和Biz的实例（创建和销毁），缓存是跟着View生命周期走，其他的都实例缓存都统一由缓存管理器进行统一管理</p>
 <h2 id="SKY简单使用"><a href="#SKY简单使用" class="headerlink" title="SKY简单使用"></a>SKY简单使用</h2><h3 id="引用"><a href="#引用" class="headerlink" title="引用"></a>引用</h3><p>架构里使用<a href="https://github.com/JakeWharton/butterknife" target="_blank" rel="external">butterknife</a> 所以 需要指定的插件</p>
 <p> <strong><em>classpath ‘com.neenbedankt.gradle.plugins:android-apt:1.8’</em></strong></p>
-<p>第一步 - build.gradle 文件</p>
+<h4 id="第一种引用方式"><a href="#第一种引用方式" class="headerlink" title="第一种引用方式"></a>第一种引用方式</h4><p>第一步 - Project-build.gradle</p>
 <pre><code>buildscript {
     repositories {
         jcenter()
@@ -433,7 +433,7 @@ allprojects {
         maven { url &quot;https://github.com/J2W/mvn-repo-j2w/raw/master/repository&quot; }
    ｝
 ｝
-</code></pre><p>第二步 - app/build.gradle</p>
+</code></pre><p>第二步 - App-build.gradle:</p>
 <pre><code>apply plugin: &apos;android-apt&apos;
 
 dependencies {
@@ -441,6 +441,17 @@ dependencies {
        compile &apos;jc:sky:1.4&apos;//请看github最新版本
     apt &apos;com.jakewharton:butterknife-compiler:8.2.1&apos;
 }
+</code></pre><h4 id="第二种引用方式"><a href="#第二种引用方式" class="headerlink" title="第二种引用方式"></a>第二种引用方式</h4><p>第一步 - Project-build.gradle 文件</p>
+<pre><code>allprojects {
+    repositories {
+        ...
+        maven { url &quot;https://jitpack.io&quot; }
+    }
+}
+</code></pre><p>第二步 - App-build.gradle:</p>
+<pre><code> dependencies {
+     ompile &apos;com.github.skyJinc:sky:1.5&apos;
+}  
 </code></pre><h3 id="初始化"><a href="#初始化" class="headerlink" title="初始化"></a>初始化</h3><p>实现 ISKYBind </p>
 <pre><code>//架构日志开关
 boolean isLogOpen();
@@ -811,7 +822,7 @@ public int layoutHttpError() {
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#MVP和MVC"><span class="nav-number">1.</span> <span class="nav-text">MVP和MVC</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#MVC"><span class="nav-number">1.1.</span> <span class="nav-text">MVC</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#MVP"><span class="nav-number">1.2.</span> <span class="nav-text">MVP</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Sky简介"><span class="nav-number">2.</span> <span class="nav-text">Sky简介</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#第一个"><span class="nav-number">2.1.</span> <span class="nav-text">第一个</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#第二个"><span class="nav-number">2.2.</span> <span class="nav-text">第二个</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Impl-注解"><span class="nav-number">2.2.1.</span> <span class="nav-text">@Impl  注解</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#第三个"><span class="nav-number">2.3.</span> <span class="nav-text">第三个</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#第四个"><span class="nav-number">2.4.</span> <span class="nav-text">第四个</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#SKY简单使用"><span class="nav-number">3.</span> <span class="nav-text">SKY简单使用</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#引用"><span class="nav-number">3.1.</span> <span class="nav-text">引用</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#初始化"><span class="nav-number">3.2.</span> <span class="nav-text">初始化</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#使用"><span class="nav-number">3.3.</span> <span class="nav-text">使用</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#业务逻辑-注解使用"><span class="nav-number">3.3.0.1.</span> <span class="nav-text">业务逻辑 - 注解使用</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#业务逻辑-如何回调"><span class="nav-number">3.3.0.2.</span> <span class="nav-text">业务逻辑 - 如何回调</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#业务逻辑-防止重复执行"><span class="nav-number">3.3.0.3.</span> <span class="nav-text">业务逻辑 - 防止重复执行</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#业务逻辑-列表页"><span class="nav-number">3.3.0.4.</span> <span class="nav-text">业务逻辑 - 列表页</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#业务逻辑-display-跳转调度-拦截器"><span class="nav-number">3.3.0.5.</span> <span class="nav-text">业务逻辑 - display 跳转调度  拦截器</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#业务逻辑-拦截器"><span class="nav-number">3.3.0.6.</span> <span class="nav-text">业务逻辑 - 拦截器</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#业务逻辑-视图切换"><span class="nav-number">3.3.0.7.</span> <span class="nav-text">业务逻辑 - 视图切换</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#业务逻辑-全局Biz-执行业务"><span class="nav-number">3.3.0.8.</span> <span class="nav-text">业务逻辑 - 全局Biz 执行业务</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#业务逻辑-公共业务接口-ICommon"><span class="nav-number">3.3.0.9.</span> <span class="nav-text">业务逻辑 - 公共业务接口 ICommon</span></a></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#结尾"><span class="nav-number">4.</span> <span class="nav-text">结尾</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#MVP和MVC"><span class="nav-number">1.</span> <span class="nav-text">MVP和MVC</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#MVC"><span class="nav-number">1.1.</span> <span class="nav-text">MVC</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#MVP"><span class="nav-number">1.2.</span> <span class="nav-text">MVP</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Sky简介"><span class="nav-number">2.</span> <span class="nav-text">Sky简介</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#第一个"><span class="nav-number">2.1.</span> <span class="nav-text">第一个</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#第二个"><span class="nav-number">2.2.</span> <span class="nav-text">第二个</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Impl-注解"><span class="nav-number">2.2.1.</span> <span class="nav-text">@Impl  注解</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#第三个"><span class="nav-number">2.3.</span> <span class="nav-text">第三个</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#第四个"><span class="nav-number">2.4.</span> <span class="nav-text">第四个</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#SKY简单使用"><span class="nav-number">3.</span> <span class="nav-text">SKY简单使用</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#引用"><span class="nav-number">3.1.</span> <span class="nav-text">引用</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#第一种引用方式"><span class="nav-number">3.1.1.</span> <span class="nav-text">第一种引用方式</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#第二种引用方式"><span class="nav-number">3.1.2.</span> <span class="nav-text">第二种引用方式</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#初始化"><span class="nav-number">3.2.</span> <span class="nav-text">初始化</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#使用"><span class="nav-number">3.3.</span> <span class="nav-text">使用</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#业务逻辑-注解使用"><span class="nav-number">3.3.0.1.</span> <span class="nav-text">业务逻辑 - 注解使用</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#业务逻辑-如何回调"><span class="nav-number">3.3.0.2.</span> <span class="nav-text">业务逻辑 - 如何回调</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#业务逻辑-防止重复执行"><span class="nav-number">3.3.0.3.</span> <span class="nav-text">业务逻辑 - 防止重复执行</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#业务逻辑-列表页"><span class="nav-number">3.3.0.4.</span> <span class="nav-text">业务逻辑 - 列表页</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#业务逻辑-display-跳转调度-拦截器"><span class="nav-number">3.3.0.5.</span> <span class="nav-text">业务逻辑 - display 跳转调度  拦截器</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#业务逻辑-拦截器"><span class="nav-number">3.3.0.6.</span> <span class="nav-text">业务逻辑 - 拦截器</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#业务逻辑-视图切换"><span class="nav-number">3.3.0.7.</span> <span class="nav-text">业务逻辑 - 视图切换</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#业务逻辑-全局Biz-执行业务"><span class="nav-number">3.3.0.8.</span> <span class="nav-text">业务逻辑 - 全局Biz 执行业务</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#业务逻辑-公共业务接口-ICommon"><span class="nav-number">3.3.0.9.</span> <span class="nav-text">业务逻辑 - 公共业务接口 ICommon</span></a></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#结尾"><span class="nav-number">4.</span> <span class="nav-text">结尾</span></a></li></ol></div>
             
           </div>
         </section>

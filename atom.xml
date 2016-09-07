@@ -504,7 +504,7 @@ app-releaseTest.apk
     <link href="http://www.jincanshen.com/2016/08/26/Sky%E6%9E%B6%E6%9E%84/"/>
     <id>http://www.jincanshen.com/2016/08/26/Sky架构/</id>
     <published>2016-08-26T04:15:32.000Z</published>
-    <updated>2016-08-27T07:01:19.000Z</updated>
+    <updated>2016-09-07T04:47:21.000Z</updated>
     
     <content type="html"><![CDATA[<p>无论MVC或是MVP模式都不可避免地存在一个弊端：<br><code>额外的代码复杂度及学习成本</code></p>
 <a id="more"></a>
@@ -579,7 +579,7 @@ fileCacheManage()； 文件缓存管理器
 <p>3.除了View和Biz的实例（创建和销毁），缓存是跟着View生命周期走，其他的都实例缓存都统一由缓存管理器进行统一管理</p>
 <h2 id="SKY简单使用"><a href="#SKY简单使用" class="headerlink" title="SKY简单使用"></a>SKY简单使用</h2><h3 id="引用"><a href="#引用" class="headerlink" title="引用"></a>引用</h3><p>架构里使用<a href="https://github.com/JakeWharton/butterknife" target="_blank" rel="external">butterknife</a> 所以 需要指定的插件</p>
 <p> <strong><em>classpath ‘com.neenbedankt.gradle.plugins:android-apt:1.8’</em></strong></p>
-<p>第一步 - build.gradle 文件</p>
+<h4 id="第一种引用方式"><a href="#第一种引用方式" class="headerlink" title="第一种引用方式"></a>第一种引用方式</h4><p>第一步 - Project-build.gradle</p>
 <pre><code>buildscript {
     repositories {
         jcenter()
@@ -597,7 +597,7 @@ allprojects {
         maven { url &quot;https://github.com/J2W/mvn-repo-j2w/raw/master/repository&quot; }
    ｝
 ｝
-</code></pre><p>第二步 - app/build.gradle</p>
+</code></pre><p>第二步 - App-build.gradle:</p>
 <pre><code>apply plugin: &apos;android-apt&apos;
 
 dependencies {
@@ -605,6 +605,17 @@ dependencies {
        compile &apos;jc:sky:1.4&apos;//请看github最新版本
     apt &apos;com.jakewharton:butterknife-compiler:8.2.1&apos;
 }
+</code></pre><h4 id="第二种引用方式"><a href="#第二种引用方式" class="headerlink" title="第二种引用方式"></a>第二种引用方式</h4><p>第一步 - Project-build.gradle 文件</p>
+<pre><code>allprojects {
+    repositories {
+        ...
+        maven { url &quot;https://jitpack.io&quot; }
+    }
+}
+</code></pre><p>第二步 - App-build.gradle:</p>
+<pre><code> dependencies {
+     ompile &apos;com.github.skyJinc:sky:1.5&apos;
+}  
 </code></pre><h3 id="初始化"><a href="#初始化" class="headerlink" title="初始化"></a>初始化</h3><p>实现 ISKYBind </p>
 <pre><code>//架构日志开关
 boolean isLogOpen();
