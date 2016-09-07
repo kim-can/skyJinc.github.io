@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://www.jincanshen.com/"/>
-  <updated>2016-09-07T03:24:46.000Z</updated>
+  <updated>2016-09-07T03:28:02.000Z</updated>
   <id>http://www.jincanshen.com/</id>
   
   <author>
@@ -20,7 +20,7 @@
     <link href="http://www.jincanshen.com/2016/09/06/JNI%E5%BC%80%E5%8F%91%E9%85%8D%E7%BD%AE/"/>
     <id>http://www.jincanshen.com/2016/09/06/JNI开发配置/</id>
     <published>2016-09-06T11:54:49.000Z</published>
-    <updated>2016-09-07T03:24:46.000Z</updated>
+    <updated>2016-09-07T03:28:02.000Z</updated>
     
     <content type="html"><![CDATA[<h2 id="介绍"><a href="#介绍" class="headerlink" title="介绍"></a>介绍</h2><ul>
 <li><p>什么是NDK？</p>
@@ -108,6 +108,7 @@ Build-&gt;ReBuild Project
 <h2 id="说明"><a href="#说明" class="headerlink" title="说明"></a>说明</h2><p>这里只是简单的教你如何快速的编写，因为我们是预先定义.so和 本地方法名，通过命令生成头文件。。</p>
 <p>C++ 教程 网上很多.. 很多的时候核心业务都需要使用C++ 来提高效率和安全性</p>
 <p>有时间我会写一篇关于C++开发的文章</p>
+<p><a href="https://github.com/skyJinc/SkyNDK" target="_blank" rel="external">SkyNDK Demo</a></p>
 ]]></content>
     
     <summary type="html">
