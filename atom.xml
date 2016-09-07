@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://www.jincanshen.com/"/>
-  <updated>2016-09-07T03:20:54.000Z</updated>
+  <updated>2016-09-07T03:24:46.000Z</updated>
   <id>http://www.jincanshen.com/</id>
   
   <author>
@@ -20,7 +20,7 @@
     <link href="http://www.jincanshen.com/2016/09/06/JNI%E5%BC%80%E5%8F%91%E9%85%8D%E7%BD%AE/"/>
     <id>http://www.jincanshen.com/2016/09/06/JNI开发配置/</id>
     <published>2016-09-06T11:54:49.000Z</published>
-    <updated>2016-09-07T03:20:54.000Z</updated>
+    <updated>2016-09-07T03:24:46.000Z</updated>
     
     <content type="html"><![CDATA[<h2 id="介绍"><a href="#介绍" class="headerlink" title="介绍"></a>介绍</h2><ul>
 <li><p>什么是NDK？</p>
@@ -47,12 +47,12 @@
 </ul>
 <h2 id="AS-安装-NDK"><a href="#AS-安装-NDK" class="headerlink" title="AS 安装 NDK"></a>AS 安装 NDK</h2><p>Android Studio安装(需翻墙)</p>
 <h3 id="AndroidDevTools-安装"><a href="#AndroidDevTools-安装" class="headerlink" title="AndroidDevTools 安装"></a>AndroidDevTools 安装</h3><p><a href="http://www.androiddevtools.cn/" target="_blank" rel="external">下载地址</a></p>
-<p><img src="/Users/sky/blog/source/images/NDK开发/1.png" alt="tu"></p>
-<p><img src="/Users/sky/blog/source/images/NDK开发/2.png" alt="tu"></p>
+<p><img src="https://skyJinc.github.io/images/NDK开发/1.png" alt="tu"></p>
+<p><img src="https://skyJinc.github.io/images/NDK开发/2.png" alt="tu"></p>
 <ul>
 <li>下载完成后，将NDK解压到某个文件夹下，打开Android Studio，选择File-&gt;Project Structure</li>
 </ul>
-<p><img src="/Users/sky/blog/source/images/NDK开发/3.png" alt="tu"></p>
+<p><img src="https://skyJinc.github.io/images/NDK开发/3.png" alt="tu"></p>
 <h2 id="开发"><a href="#开发" class="headerlink" title="开发"></a>开发</h2><p>新建一个项目，这里我使用<a href="https://github.com/skyJinc/SkyNDK" target="_blank" rel="external">SkyNDK</a>项目来说明</p>
 <h3 id="gradle-properties-配置"><a href="#gradle-properties-配置" class="headerlink" title="gradle.properties 配置"></a>gradle.properties 配置</h3><pre><code>android.useDeprecatedNdk=true
 </code></pre><h3 id="local-properties中加入ndk和sdk"><a href="#local-properties中加入ndk和sdk" class="headerlink" title="local.properties中加入ndk和sdk"></a>local.properties中加入ndk和sdk</h3><pre><code>ndk.dir=/Users/sky/dev/sdk/ndk-bundle
@@ -63,9 +63,9 @@ sdk.dir=/Users/sky/dev/sdk
     moduleName &quot;sky&quot;       //生成的so文件名字，调用C程序的代码中会用到该名字
     abiFilters &quot;armeabi&quot;, &quot;armeabi-v7a&quot;, &quot;x86&quot; //输出指定三种平台下的so库
 }
-</code></pre><p>SkyNDK<br><img src="/Users/sky/blog/source/images/NDK开发/4.png" alt="tu"></p>
-<h3 id="创建布局-编写代码"><a href="#创建布局-编写代码" class="headerlink" title="创建布局 编写代码"></a>创建布局 编写代码</h3><p><img src="/Users/sky/blog/source/images/NDK开发/5.png" alt="tu"></p>
-<p><img src="/Users/sky/blog/source/images/NDK开发/6.png" alt="tu"></p>
+</code></pre><p>SkyNDK<br><img src="https://skyJinc.github.io/images/NDK开发/4.png" alt="tu"></p>
+<h3 id="创建布局-编写代码"><a href="#创建布局-编写代码" class="headerlink" title="创建布局 编写代码"></a>创建布局 编写代码</h3><p><img src="https://skyJinc.github.io/images/NDK开发/5.png" alt="tu"></p>
+<p><img src="https://skyJinc.github.io/images/NDK开发/6.png" alt="tu"></p>
 <ul>
 <li>直接引用将来生成的 <strong><em>skyNDK.so</em></strong> </li>
 <li>声明将来要生成的本地方法 <strong><em>public native String getSkyNDKText();</em></strong></li>
@@ -79,15 +79,15 @@ javah -jni 包名+类名
 第二行 SkyNDK项目 完整命令
 javah -jni sky.skyndk.MainActivity
 </code></pre><p>执行完以后会生成 如下：</p>
-<p><img src="/Users/sky/blog/source/images/NDK开发/7.png" alt="tu"></p>
-<h3 id="新建JNI文件夹"><a href="#新建JNI文件夹" class="headerlink" title="新建JNI文件夹"></a>新建JNI文件夹</h3><p><img src="/Users/sky/blog/source/images/NDK开发/8.png" alt="tu"></p>
-<p><img src="/Users/sky/blog/source/images/NDK开发/9.png" alt="tu"></p>
+<p><img src="https://skyJinc.github.io/images/NDK开发/7.png" alt="tu"></p>
+<h3 id="新建JNI文件夹"><a href="#新建JNI文件夹" class="headerlink" title="新建JNI文件夹"></a>新建JNI文件夹</h3><p><img src="https://skyJinc.github.io/images/NDK开发/8.png" alt="tu"></p>
+<p><img src="https://skyJinc.github.io/images/NDK开发/9.png" alt="tu"></p>
 <ul>
 <li>把生成的 <strong><em>.h</em></strong> 头文件移动到 该目录下</li>
 </ul>
-<p><img src="/Users/sky/blog/source/images/NDK开发/10.png" alt="tu"></p>
-<h3 id="新建-c-文件"><a href="#新建-c-文件" class="headerlink" title="新建 .c 文件"></a>新建 <strong><em>.c</em></strong> 文件</h3><p><img src="/Users/sky/blog/source/images/NDK开发/11.png" alt="tu"></p>
-<p><img src="/Users/sky/blog/source/images/NDK开发/12.png" alt="tu"></p>
+<p><img src="https://skyJinc.github.io/images/NDK开发/10.png" alt="tu"></p>
+<h3 id="新建-c-文件"><a href="#新建-c-文件" class="headerlink" title="新建 .c 文件"></a>新建 <strong><em>.c</em></strong> 文件</h3><p><img src="https://skyJinc.github.io/images/NDK开发/11.png" alt="tu"></p>
+<p><img src="https://skyJinc.github.io/images/NDK开发/12.png" alt="tu"></p>
 <h3 id="写C代码"><a href="#写C代码" class="headerlink" title="写C代码"></a>写C代码</h3><pre><code>//引入上面生成的头文件，并实现头文件中声明的方法
 #include &quot;sky_skyndk_MainActivity.h&quot;
 JNIEXPORT jstring JNICALL Java_sky_skyndk_MainActivity_getSkyNDKText
@@ -95,16 +95,16 @@ JNIEXPORT jstring JNICALL Java_sky_skyndk_MainActivity_getSkyNDKText
     char *str=&quot;我是skyJC, 这里是C语言返回的内容&quot;;
     return (*env)-&gt;NewStringUTF(env, str);
 }
-</code></pre><p><img src="/Users/sky/blog/source/images/NDK开发/13.png" alt="tu"></p>
+</code></pre><p><img src="https://skyJinc.github.io/images/NDK开发/13.png" alt="tu"></p>
 <h3 id="执行"><a href="#执行" class="headerlink" title="执行"></a>执行</h3><pre><code>AndroidStudio
 
 Build-&gt;Clean Project
 Build-&gt;ReBuild Project
-</code></pre><p><img src="/Users/sky/blog/source/images/NDK开发/14.png" alt="tu"></p>
+</code></pre><p><img src="https://skyJinc.github.io/images/NDK开发/14.png" alt="tu"></p>
 <ul>
 <li>生成ndk</li>
 </ul>
-<p><img src="/Users/sky/blog/source/images/NDK开发/15.png" alt="tu"></p>
+<p><img src="https://skyJinc.github.io/images/NDK开发/15.png" alt="tu"></p>
 <h2 id="说明"><a href="#说明" class="headerlink" title="说明"></a>说明</h2><p>这里只是简单的教你如何快速的编写，因为我们是预先定义.so和 本地方法名，通过命令生成头文件。。</p>
 <p>C++ 教程 网上很多.. 很多的时候核心业务都需要使用C++ 来提高效率和安全性</p>
 <p>有时间我会写一篇关于C++开发的文章</p>
