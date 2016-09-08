@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://www.jincanshen.com/"/>
-  <updated>2016-09-08T12:15:14.000Z</updated>
+  <updated>2016-09-08T12:54:50.000Z</updated>
   <id>http://www.jincanshen.com/</id>
   
   <author>
@@ -16,11 +16,11 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>SDKMan管理gradle版本, Groovy 与 Gradle 基础</title>
+    <title>SDKMan管理gradle版本 与 Groovy 基础</title>
     <link href="http://www.jincanshen.com/2016/09/08/SDKMan%E7%AE%A1%E7%90%86gradle%E7%89%88%E6%9C%AC-Groovy-%E4%B8%8E-Gradle-%E5%9F%BA%E7%A1%80/"/>
     <id>http://www.jincanshen.com/2016/09/08/SDKMan管理gradle版本-Groovy-与-Gradle-基础/</id>
     <published>2016-09-08T09:42:01.000Z</published>
-    <updated>2016-09-08T12:15:14.000Z</updated>
+    <updated>2016-09-08T12:54:50.000Z</updated>
     
     <content type="html"><![CDATA[<p>sdkman是什么？</p>
 <p>sdkman(The Software Development Kit Manager), 中文名为:软件开发工具管理器．这个工具的主要用途是用来解决在类unix操作系统(如mac, linux等)中多种版本开发工具的切换, 安装和卸载的工作</p>
