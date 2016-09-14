@@ -73,6 +73,8 @@
 
 
 
+  
+
 
   <link rel="alternate" href="/atom.xml" title="skyJC" type="application/atom+xml" />
 
@@ -86,26 +88,28 @@
 
 
 
-<meta name="description" content="真正开发项目的时候，我们需要打不同环境的APK包。
-例如,测试包，开发包，发布包，等等…
-这些包对应的http环境有可能不同，这个时候 我们可能在想 如果有以下要求生成APK包就好了。。。">
+<meta name="description" content="Android系统在一开始的时候就给我们提供了两种实现动画效果的方式，逐帧动画(frame-by-frame animation) 和 补间动画(tweened animation)
+
+逐帧动画的工作原理很简单，其实就是将一个完整的动画拆分成一张张单独的图片，然后再将它们连贯起来进行播放，类似于动画片的工作原理。
+
+补间动画则是可以对View进行一系列的动画操作，包括淡入淡出、缩放、平移、旋转四种">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Android:Gradle根据变量打包Apk">
-<meta property="og:url" content="http://www.jincanshen.com/2016/09/01/Android-Gradle根据变量打包Apk/index.html">
+<meta property="og:title" content="Android属性动画用法">
+<meta property="og:url" content="http://www.jincanshen.com/2016/09/14/Android属性动画用法/index.html">
 <meta property="og:site_name" content="skyJC">
-<meta property="og:description" content="真正开发项目的时候，我们需要打不同环境的APK包。
-例如,测试包，开发包，发布包，等等…
-这些包对应的http环境有可能不同，这个时候 我们可能在想 如果有以下要求生成APK包就好了。。。">
-<meta property="og:image" content="https://skyJinc.github.io/images/gradle打包/1.png">
-<meta property="og:image" content="https://skyJinc.github.io/images/gradle打包/2.png">
-<meta property="og:image" content="https://skyJinc.github.io/images/gradle打包/3.png">
-<meta property="og:updated_time" content="2016-09-01T12:04:39.000Z">
+<meta property="og:description" content="Android系统在一开始的时候就给我们提供了两种实现动画效果的方式，逐帧动画(frame-by-frame animation) 和 补间动画(tweened animation)
+
+逐帧动画的工作原理很简单，其实就是将一个完整的动画拆分成一张张单独的图片，然后再将它们连贯起来进行播放，类似于动画片的工作原理。
+
+补间动画则是可以对View进行一系列的动画操作，包括淡入淡出、缩放、平移、旋转四种">
+<meta property="og:updated_time" content="2016-09-14T10:24:02.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Android:Gradle根据变量打包Apk">
-<meta name="twitter:description" content="真正开发项目的时候，我们需要打不同环境的APK包。
-例如,测试包，开发包，发布包，等等…
-这些包对应的http环境有可能不同，这个时候 我们可能在想 如果有以下要求生成APK包就好了。。。">
-<meta name="twitter:image" content="https://skyJinc.github.io/images/gradle打包/1.png">
+<meta name="twitter:title" content="Android属性动画用法">
+<meta name="twitter:description" content="Android系统在一开始的时候就给我们提供了两种实现动画效果的方式，逐帧动画(frame-by-frame animation) 和 补间动画(tweened animation)
+
+逐帧动画的工作原理很简单，其实就是将一个完整的动画拆分成一张张单独的图片，然后再将它们连贯起来进行播放，类似于动画片的工作原理。
+
+补间动画则是可以对View进行一系列的动画操作，包括淡入淡出、缩放、平移、旋转四种">
 
 
 
@@ -126,9 +130,9 @@
 
 
 
-  <link rel="canonical" href="http://www.jincanshen.com/2016/09/01/Android-Gradle根据变量打包Apk/"/>
+  <link rel="canonical" href="http://www.jincanshen.com/2016/09/14/Android属性动画用法/"/>
 
-  <title> Android:Gradle根据变量打包Apk | skyJC </title>
+  <title> Android属性动画用法 | skyJC </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -258,7 +262,7 @@
             
             
               
-                Android:Gradle根据变量打包Apk
+                Android属性动画用法
               
             
           </h1>
@@ -270,8 +274,8 @@
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-09-01T19:43:36+08:00" content="2016-09-01">
-              2016-09-01
+            <time itemprop="dateCreated" datetime="2016-09-14T17:53:13+08:00" content="2016-09-14">
+              2016-09-14
             </time>
           </span>
 
@@ -281,8 +285,8 @@
             
               <span class="post-comments-count">
                 &nbsp; | &nbsp;
-                <a href="/2016/09/01/Android-Gradle根据变量打包Apk/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/09/01/Android-Gradle根据变量打包Apk/" itemprop="commentsCount"></span>
+                <a href="/2016/09/14/Android属性动画用法/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/09/14/Android属性动画用法/" itemprop="commentsCount"></span>
                 </a>
               </span>
             
@@ -305,66 +309,32 @@
       
 
       
-        <p>真正开发项目的时候，我们需要打不同环境的APK包。</p>
-<p>例如,测试包，开发包，发布包，等等…</p>
-<p>这些包对应的http环境有可能不同，这个时候 我们可能在想 如果有以下要求生成APK包就好了。。。</p>
+        <p>Android系统在一开始的时候就给我们提供了两种实现动画效果的方式，<strong>逐帧动画(frame-by-frame animation)</strong> 和 <strong>补间动画(tweened animation)</strong></p>
+<ul>
+<li><p>逐帧动画的工作原理很简单，其实就是将一个完整的动画拆分成一张张单独的图片，然后再将它们连贯起来进行播放，类似于动画片的工作原理。</p>
+</li>
+<li><p>补间动画则是可以对View进行一系列的动画操作，包括淡入淡出、缩放、平移、旋转四种。<br>然而自Android 3.0版本开始，系统给我们提供了一种全新的动画模式，属性动画(property animation)，它的功能非常强大，弥补了之前补间动画的一些缺陷，几乎是可以完全替代掉补间动画了。对于逐帧动画和补间动画的用法，我不想再多讲，它们的技术已经比较老了，而且网上资料也非常多，那么今天我们这篇文章的主题就是对Android属性动画进行一次完全解析。</p>
+</li>
+</ul>
 <a id="more"></a>
-<pre><code>1. 构建不同环境的APK
-2. 不需要修改代码
-3. 可以选择不同的签名
-</code></pre><p>通过buildConfigField就能解决以上的问题</p>
-<h2 id="Gradle-buildConfigField"><a href="#Gradle-buildConfigField" class="headerlink" title="Gradle - buildConfigField"></a>Gradle - buildConfigField</h2><p><strong><em>buildConfigField</em></strong>是gradle的一个方法，他的作用是可以给BuildConfig添加变量，赋值等。他的使用方式:</p>
-<pre><code>buildConfigField(&quot;int&quot;, &quot;SKY&quot;, &quot;0&quot;)
-</code></pre><p>这样就给BuildConfig中新增加了一个属性EN_SETTING:</p>
-<pre><code>public static final int SKY = 0;
-</code></pre><p>在代码中可以直接使用:</p>
-<pre><code>BuildConfig.SKY
-</code></pre><p><strong><em>buildConfigField</em></strong>通过<strong><em>BuildConfig</em></strong>类可以做到,把gradle里的配置传递给Java代码。</p>
-<h3 id="BuildTypes"><a href="#BuildTypes" class="headerlink" title="BuildTypes"></a>BuildTypes</h3><p>虽然通过gradle中可以配置ENV_SETTING变量，通过buildConfigField可以让java代码获取到设置的值。但是在buildTypes中我们只能设置两个变量:</p>
-<pre><code>buildTypes {
-    release {
-        signingConfig signingConfigs.release
-        buildConfigField(&quot;int&quot;, &quot;SKY&quot;, &quot;1&quot;)
-    }
-    debug {
-        buildConfigField(&quot;int&quot;, &quot;SKY&quot;, &quot;0&quot;)
-    }
-}
-</code></pre><p>也就是buildTypes中只有两种配置，在build的时候只能有两个APK:debug和release，这就需要我们重新定义一种新的buildTypes，用来构建测试环境的APK.<br>我们新增加一种buildTypes：</p>
-<pre><code>buildTypes {
-    release {
-        signingConfig signingConfigs.release
-        buildConfigField(&quot;int&quot;, &quot;SKY&quot;, &quot;1&quot;)
-    }
-    debug {
-        buildConfigField(&quot;int&quot;, &quot;SKY&quot;, &quot;0&quot;)
-    }
-
-    releaseTest.initWith(buildTypes.release)
-
-    releaseTest {
-        buildConfigField(&quot;int&quot;, &quot;SKY&quot;, &quot;2&quot;)
-    }
-}
-</code></pre><p>这样就有了三种不通的build配置</p>
-<h3 id="Build"><a href="#Build" class="headerlink" title="Build"></a>Build</h3><p>gradle 命令 进行打包 </p>
-<pre><code>assembleDebug
-assembleRelease
-assembleTeleaseTest
-</code></pre><p>这样我们就可以根据需要构建不同的APK,不需要改代码就可以构建不同环境的APK,而且生成的APK的名字也能区分出来不同的环境：</p>
-<pre><code>app-debug.apk
-app-release.apk
-app-releaseTest.apk
-</code></pre><p>也可以根据需要设置不同的APK签名。</p>
-<h2 id="例子-SkyApp项目"><a href="#例子-SkyApp项目" class="headerlink" title="例子 - SkyApp项目"></a>例子 - SkyApp项目</h2><p><a href="https://github.com/skyJinc/SkyApp" target="_blank" rel="external">项目地址</a></p>
-<p>app.gradle 配置</p>
-<p><img src="https://skyJinc.github.io/images/gradle打包/1.png" alt="tu"></p>
-<p>区分不同环境 对应不同的地址～ 和 区分不同环境 打印日志开关</p>
-<p><img src="https://skyJinc.github.io/images/gradle打包/2.png" alt="tu"></p>
-<pre><code>gradle assembleRelease
-
-打包后点击登陆按钮....
-</code></pre><p><img src="https://skyJinc.github.io/images/gradle打包/3.png" alt="tu"></p>
+<h2 id="引入属性动画的原因"><a href="#引入属性动画的原因" class="headerlink" title="引入属性动画的原因"></a>引入属性动画的原因</h2><p>android.view.animation包下面有好多的类可以供我们操作，比如说对View进行移动、缩放、旋转和淡入淡出，并且我们还可以借助AnimationSet来将这些动画效果组合起来使用，除此之外还可以通过配置Interpolator来控制动画的播放速度等等等等。</p>
+<ul>
+<li>为什么还要引入属性动画呢？</li>
+</ul>
+<p>其实上面所谓的健全都是相对的，如果你的需求中只需要对View进行移动、缩放、旋转和淡入淡出操作，那么补间动画确实已经足够健全了。但是很显然，这些功能是不足以覆盖所有的场景的，一旦我们的需求超出了移动、缩放、旋转和淡入淡出这四种对View的操作，那么补间动画就不能再帮我们忙了，</p>
+<p>也就是说它在功能和可扩展方面都有相当大的局限性，那么下面我们就来看看补间动画所不能胜任的场景。</p>
+<p>注意上面我在介绍补间动画的时候都有使用“对View进行操作”这样的描述，没错，补间动画是只能够作用在View上的。也就是说，我们可以对一个Button、TextView、甚至是LinearLayout、或者其它任何继承自View的组件进行动画操作，但是如果我们想要对一个非View的对象进行动画操作，补间动画就帮不上忙了。</p>
+<ul>
+<li>补间动画缺陷</li>
+</ul>
+<p>举一个简单的例子，比如说我们有一个自定义的View，在这个View当中有一个Point对象用于管理坐标，然后在onDraw()方法当中就是根据这个Point对象的坐标值来进行绘制的。也就是说，如果我们可以对Point对象进行动画操作，那么整个自定义View的动画效果就有了。显然，补间动画是不具备这个功能的，这是它的第一个缺陷。</p>
+<p>第二个缺陷，就是它只能够实现移动、缩放、旋转和淡入淡出这四种动画操作，那如果我们希望可以对View的背景色进行动态地改变呢？很遗憾，我们只能靠自己去实现了。说白了，之前的补间动画机制就是使用硬编码的方式来完成的，功能限定死就是这些，基本上没有任何扩展性可言。</p>
+<p>第三个缺陷，就是它只是改变了View的显示效果而已，而不会真正去改变View的属性。 就是你动画移动了控件的位置，看起来是移动了，其实还在原先那里。。点击事件还是在原有的位置</p>
+<ul>
+<li>改变</li>
+</ul>
+<p>Android开发团队决定在3.0版本当中引入属性动画这个功能，那么属性动画是不是就把上述的问题全部解决掉了？下面我们就来一起看一看。<br>新引入的属性动画机制已经不再是针对于View来设计的了，也不限定于只能实现移动、缩放、旋转和淡入淡出这几种动画操作，同时也不再只是一种视觉上的动画效果了。它实际上是一种不断地对值进行操作的机制，并将值赋值到指定对象的指定属性上，可以是任意对象的任意属性。所以我们仍然可以将一个View进行移动或者缩放，但同时也可以对自定义View中的Point对象进行动画操作了。我们只需要告诉系统动画的运行时长，需要执行哪种类型的动画，以及动画的初始值和结束值，剩下的工作就可以全部交给系统去完成了。<br>既然属性动画的实现机制是通过对目标对象进行赋值并修改其属性来实现的，那么之前所说的按钮显示的问题也就不复存在了，如果我们通过属性动画来移动一个按钮，那么这个按钮就是真正的移动了，而不再是仅仅在另外一个位置绘制了而已。</p>
+<p>没时间写啦。。。。 过完中秋..继续写。。。。。。</p>
 
       
     </div>
@@ -406,17 +376,13 @@ app-releaseTest.apk
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2016/08/26/Sky架构/" rel="next" title="Sky架构简单使用">
-                <i class="fa fa-chevron-left"></i> Sky架构简单使用
+              <a href="/2016/09/10/多渠道打包方式/" rel="next" title="多渠道打包方式">
+                <i class="fa fa-chevron-left"></i> 多渠道打包方式
               </a>
             
           </div>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2016/09/01/Github-制作开源依赖库/" rel="prev" title="Github-制作开源依赖库">
-                Github-制作开源依赖库 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -442,8 +408,8 @@ app-releaseTest.apk
           
   <div class="comments" id="comments">
     
-      <div class="ds-thread" data-thread-key="2016/09/01/Android-Gradle根据变量打包Apk/"
-           data-title="Android:Gradle根据变量打包Apk" data-url="http://www.jincanshen.com/2016/09/01/Android-Gradle根据变量打包Apk/">
+      <div class="ds-thread" data-thread-key="2016/09/14/Android属性动画用法/"
+           data-title="Android属性动画用法" data-url="http://www.jincanshen.com/2016/09/14/Android属性动画用法/">
       </div>
     
   </div>
@@ -538,7 +504,7 @@ app-releaseTest.apk
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Gradle-buildConfigField"><span class="nav-number">1.</span> <span class="nav-text">Gradle - buildConfigField</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#BuildTypes"><span class="nav-number">1.1.</span> <span class="nav-text">BuildTypes</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Build"><span class="nav-number">1.2.</span> <span class="nav-text">Build</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#例子-SkyApp项目"><span class="nav-number">2.</span> <span class="nav-text">例子 - SkyApp项目</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#引入属性动画的原因"><span class="nav-number">1.</span> <span class="nav-text">引入属性动画的原因</span></a></li></ol></div>
             
           </div>
         </section>
