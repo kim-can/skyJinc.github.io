@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://www.jincanshen.com/"/>
-  <updated>2016-09-19T13:44:43.000Z</updated>
+  <updated>2016-09-20T14:03:24.000Z</updated>
   <id>http://www.jincanshen.com/</id>
   
   <author>
@@ -20,7 +20,7 @@
     <link href="http://www.jincanshen.com/2016/09/14/Android%E5%B1%9E%E6%80%A7%E5%8A%A8%E7%94%BB%E7%94%A8%E6%B3%95/"/>
     <id>http://www.jincanshen.com/2016/09/14/Android属性动画用法/</id>
     <published>2016-09-14T09:53:13.000Z</published>
-    <updated>2016-09-19T13:44:43.000Z</updated>
+    <updated>2016-09-20T14:03:24.000Z</updated>
     
     <content type="html"><![CDATA[<p>Android系统在一开始的时候就给我们提供了两种实现动画效果的方式，<strong>逐帧动画(frame-by-frame animation)</strong> 和 <strong>补间动画(tweened animation)</strong></p>
 <ul>
@@ -226,8 +226,223 @@ anim.addListener(new AnimatorListenerAdapter() {
 </code></pre><h3 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h3><pre><code>Animator animator = AnimatorInflater.loadAnimator(context, R.animator.anim_file);  
 animator.setTarget(view);  
 animator.start();  
-</code></pre><h2 id="ObjectAnimator高级用法"><a href="#ObjectAnimator高级用法" class="headerlink" title="ObjectAnimator高级用法"></a>ObjectAnimator高级用法</h2><p>暂时还没写</p>
-<h2 id="结尾"><a href="#结尾" class="headerlink" title="结尾"></a>结尾</h2><p>动画gif图使用了adb命令录制成mp4后用PicGIF来生成Gif图</p>
+</code></pre><h2 id="ValueAnimator高级用法"><a href="#ValueAnimator高级用法" class="headerlink" title="ValueAnimator高级用法"></a>ValueAnimator高级用法</h2><h3 id="TypeEvaluator-了解"><a href="#TypeEvaluator-了解" class="headerlink" title="TypeEvaluator 了解"></a>TypeEvaluator 了解</h3><p>多数情况下我们使用属性动画的时候都不会用到TypeEvaluator，不过还是要了解一下。。。</p>
+<p>主要作用是动画系统如何从初始值过度到结束值</p>
+<p>ValueAnimator.ofFloat()方法就是实现了初始值与结束值之间的平滑过度，内置了一个FloatEvaluator</p>
+<pre><code>public class FloatEvaluator implements TypeEvaluator {  
+    public Object evaluate(float fraction, Object startValue, Object endValue) {  
+        float startFloat = ((Number) startValue).floatValue();  
+        return startFloat + fraction * (((Number) endValue).floatValue() - startFloat);  
+    }  
+}  
+</code></pre><ul>
+<li>第一个参数用于表示动画的完成度的，我们应该根据它来计算当前动画的值应该是多少</li>
+<li>第二个参数动画初始值</li>
+<li>第三个参数动画结束值</li>
+</ul>
+<p>demo</p>
+<pre><code>//位置model
+public class SkyPoint {
+
+    public float    x;
+
+    public float    y;
+
+    public SkyPoint(){}
+
+    public SkyPoint(float x, float y) {
+        this.x = x;
+        this.y = y;
+    }
+}
+//实现接口
+public class SkyPointEvaluator implements TypeEvaluator&lt;SkyPoint&gt; {
+
+    @Override public SkyPoint evaluate(float fraction, SkyPoint startPoint, SkyPoint endPoint) {
+    float x = startPoint.x + fraction * (endPoint.x - startPoint.x);
+    float y = startPoint.y + fraction * (endPoint.y - startPoint.y);
+    SkyPoint point = new SkyPoint();
+    point.x = x;
+    point.y = y;
+    return point;
+    }
+}
+//测试
+SkyPoint point1 = new SkyPoint(0, 0);
+SkyPoint point2 = new SkyPoint(300, 300);
+final ValueAnimator anim = ValueAnimator.ofObject(new SkyPointEvaluator(), point1, point2);
+anim.setDuration(5000);
+anim.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() {
+    public void onAnimationUpdate(ValueAnimator animation) {
+            SkyPoint value = (SkyPoint) animation.getAnimatedValue();
+            L.i(&quot;值x&quot; + value.x +&quot;, 值y&quot; + value.y);
+        }
+    });
+anim.start();
+</code></pre><p>有的时候通过，过程计算得到的结果 来做一些处理，是很有用处的。。</p>
+<h3 id="自定义View"><a href="#自定义View" class="headerlink" title="自定义View"></a>自定义View</h3><pre><code>public class SkyAnimView extends View {
+
+    public static final float SIZE = 50;
+
+    // 坐标
+    SkyPoint    skyPoint;
+
+    // 画笔
+    Paint        paint;
+
+    //图片
+   Bitmap bitmap;
+
+    public SkyAnimView(Context context, AttributeSet attrs) {
+        super(context, attrs);
+        paint = new Paint(Paint.ANTI_ALIAS_FLAG);
+        paint.setColor(ContextCompat.getColor(context,R.color.colorPrimary));
+        bitmap = BitmapFactory.decodeResource(getResources(),R.mipmap.ic_launcher);
+    }
+
+    @Override protected void onDraw(Canvas canvas) {
+        super.onDraw(canvas);
+        if (skyPoint == null) {
+            skyPoint = new SkyPoint(0, 0);//第一次的位置
+            canvas.drawBitmap(bitmap,skyPoint.x, skyPoint.y, paint);//先画一个
+            startAnimation();//执行动画
+        } else {
+              //根据计算获得的坐标 移动    
+            canvas.drawBitmap(bitmap,skyPoint.x, skyPoint.y, paint);
+        }
+
+    }
+
+    private void startAnimation() {
+         //起始位置
+        SkyPoint startPoint = new SkyPoint(0, 0);
+        //结束位置 - 宽度减去图片的宽度 就不会图片飞出去了
+        SkyPoint endPoint = new SkyPoint(getWidth()-bitmap.getWidth(), getHeight()-bitmap.getHeight());
+        ValueAnimator anim = ValueAnimator.ofObject(new SkyPointEvaluator(), startPoint, endPoint);
+        anim.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() {
+            @Override
+            public void onAnimationUpdate(ValueAnimator animation) {
+                skyPoint = (SkyPoint) animation.getAnimatedValue();
+                L.i(&quot;值x&quot; + skyPoint.x +&quot;, 值y&quot; + skyPoint.y);
+                invalidate();
+            }
+        });
+        anim.setDuration(5000);
+        anim.start();
+    }
+}
+</code></pre><p>XML</p>
+<pre><code>&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;
+&lt;LinearLayout xmlns:android=&quot;http://schemas.android.com/apk/res/android&quot;
+              android:layout_width=&quot;match_parent&quot;
+              android:layout_height=&quot;match_parent&quot;
+              android:orientation=&quot;vertical&quot;&gt;
+
+    &lt;TextView
+        android:layout_width=&quot;wrap_content&quot;
+        android:layout_height=&quot;wrap_content&quot;
+        android:text=&quot;高级&quot;/&gt;
+
+    &lt;sky.skyanimation.view.gaoji.custom.SkyAnimView
+        android:layout_width=&quot;wrap_content&quot;
+        android:layout_height=&quot;wrap_content&quot;/&gt;
+&lt;/LinearLayout&gt;
+</code></pre><p><img src="https://skyJinc.github.io/images/animatioin/8.gif" alt="tu"></p>
+<h2 id="ObjectAnimator高级用法"><a href="#ObjectAnimator高级用法" class="headerlink" title="ObjectAnimator高级用法"></a>ObjectAnimator高级用法</h2><p>ObjectAnimator内部的工作机制是通过寻找特定属性的get和set方法，然后通过方法不断地对值进行改变，从而实现动画效果的。因此我们就需要在SkyAnimView中定义一个color属性，并提供它的get和set方法</p>
+<p><img src="https://skyJinc.github.io/images/animatioin/9.png" alt="tu"></p>
+<pre><code>//定义一个TypeEvaluator 来 根据不同进度改变颜色值
+public class SkyColorEvaluator implements TypeEvaluator&lt;String&gt; {
+
+    @Override public String evaluate(float v, String s, String t1) {
+
+        if (v &lt; 0.1f) {
+            return s;
+        } else if (v &lt; 0.2f) {
+            return &quot;#99FFFF&quot;;
+        } else if (v &lt; 0.4f) {
+            return &quot;#99FFFF&quot;;
+        } else if (v &lt; 0.6f) {
+            return &quot;#9933FF&quot;;
+        } else if (v &lt; 0.8f) {
+            return &quot;#FF66FF&quot;;
+        } else if (v &lt; 0.9f) {
+            return &quot;#3366CC&quot;;
+        }
+
+        return t1;
+    }
+}
+</code></pre><p>修改 SkyAnimView 方法 </p>
+<p><img src="https://skyJinc.github.io/images/animatioin/10.png" alt="tu"></p>
+<p><img src="https://skyJinc.github.io/images/animatioin/11.gif" alt="tu"></p>
+<p>这样组合起来出现了上面的效果…其实挺简单的～～</p>
+<h2 id="Interpolator"><a href="#Interpolator" class="headerlink" title="Interpolator"></a>Interpolator</h2><p>这个怎么说呢？ 不太好翻译， 简单的说 就像一个插件一样，可以让动画加速或者减速，或者做一些有意思的事情。。属性动画 新增了一个类 TimeInterpolator接口，兼容之前 Interpolator。 看一下实现类</p>
+<p><img src="https://skyJinc.github.io/images/animatioin/12.png" alt="tu"></p>
+<p>这些实现类 自己找找都是哪些功能吧</p>
+<p>比如说AccelerateInterpolator就是一个加速运动的Interpolator，而DecelerateInterpolator就是一个减速运动的Interpolator</p>
+<p>修改 SkyAnimView 的 startAnimation 方法</p>
+<p>让它垂直的往下掉 BounceInterpolator  这个是Google给我们写好的</p>
+<p><img src="https://skyJinc.github.io/images/animatioin/13.png" alt="tu"></p>
+<p><img src="https://skyJinc.github.io/images/animatioin/14.gif" alt="tu"></p>
+<p>我们来看看 源代码</p>
+<pre><code>@HasNativeInterpolator  
+public class AccelerateDecelerateInterpolator implements Interpolator, NativeInterpolatorFactory {  
+    public AccelerateDecelerateInterpolator() {  
+    }  
+
+    @SuppressWarnings({&quot;UnusedDeclaration&quot;})  
+    public AccelerateDecelerateInterpolator(Context context, AttributeSet attrs) {  
+    }  
+
+    public float getInterpolation(float input) {  
+        return (float)(Math.cos((input + 1) * Math.PI) / 2.0f) + 0.5f;  
+    }  
+
+    /** @hide */  
+    @Override  
+    public long createNativeInterpolator() {  
+        return NativeInterpolatorFactoryHelper.createAccelerateDecelerateInterpolator();  
+    }  
+}  
+</code></pre><p>过度动画是很平滑的 ， 当然数学好的 一下就能看的出来</p>
+<p>自定义一个</p>
+<pre><code>//正弦函数的变化值也会逐渐变小 实现了减速的效果
+//先加速后减速
+public class SkyAccelerateInterpolator implements Interpolator {
+
+    @Override public float getInterpolation(float v) {
+        float result;
+        if (v &lt;= 0.5) {
+            result = (float) (Math.sin(Math.PI * v)) / 2;
+        } else {
+            result = (float) (2 - Math.sin(Math.PI * v)) / 2;
+        }
+        return result;
+    }
+} 
+</code></pre><p><img src="https://skyJinc.github.io/images/animatioin/15.png" alt="tu"></p>
+<p>自己运行看效果吧</p>
+<h2 id="ViewPropertyAnimator"><a href="#ViewPropertyAnimator" class="headerlink" title="ViewPropertyAnimator"></a>ViewPropertyAnimator</h2><p>这个比较好理解了。。<br>像TextView自带的Animator 看代码吧</p>
+<pre><code>ObjectAnimator animator = ObjectAnimator.ofFloat(textview, &quot;alpha&quot;, 0f);  
+animator.start();  
+
+替换
+
+tvContent.animate().alpha(0f);  
+</code></pre><p>你还可以这样…</p>
+<pre><code>tvContent.animate().x(500).y(500); 
+tvContent.animate().x(500).y(500).setDuration(5000);
+tvContent.animate().x(500).y(500).setDuration(5000).setInterpolator(new BounceInterpolator());
+</code></pre><ul>
+<li>整个ViewPropertyAnimator的功能都是建立在View类新增的animate()方法之上的，这个方法会创建并返回一个ViewPropertyAnimator的实例，之后的调用的所有方法，设置的所有属性都是通过这个实例完成的。</li>
+<li><p>使用ViewPropertyAnimator时，我们自始至终没有调用过start()方法，这是因为新的接口中使用了隐式启动动画的功能，只要我们将动画定义完成之后，动画就会自动启动。并且这个机制对于组合动画也同样有效，只要我们不断地连缀新的方法，那么动画就不会立刻执行</p>
+</li>
+<li><p>ViewPropertyAnimator上设置的方法都执行完毕后，动画就会自动启动。当然如果不想使用这一默认机制的话，我们也可以显式地调用start()方法来启动动画。</p>
+</li>
+<li><p>ViewPropertyAnimator的所有接口都是使用连缀的语法来设计的，每个方法的返回值都是它自身的实例，因此调用完一个方法之后可以直接连缀调用它的另一个方法，这样把所有的功能都串接起来，我们甚至可以仅通过一行代码就完成任意复杂度的动画功能。</p>
+<h2 id="结尾"><a href="#结尾" class="headerlink" title="结尾"></a>结尾</h2></li>
+</ul>
+<p>动画gif图使用了adb命令录制成mp4后用PicGIF来生成Gif图</p>
 <p>录像命令</p>
 <pre><code>//录制10秒停止
 adb shell screenrecord  --time-limit 10 /sdcard/demo.mp4
