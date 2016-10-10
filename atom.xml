@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://www.jincanshen.com/"/>
-  <updated>2016-09-26T10:39:13.000Z</updated>
+  <updated>2016-09-26T13:22:15.000Z</updated>
   <id>http://www.jincanshen.com/</id>
   
   <author>
@@ -20,7 +20,7 @@
     <link href="http://www.jincanshen.com/2016/09/26/Android%E5%BC%80%E5%8F%91%E8%A7%84%E8%8C%83/"/>
     <id>http://www.jincanshen.com/2016/09/26/Android开发规范/</id>
     <published>2016-09-26T08:49:19.000Z</published>
-    <updated>2016-09-26T10:39:13.000Z</updated>
+    <updated>2016-09-26T13:22:15.000Z</updated>
     
     <content type="html"><![CDATA[<p>开发规范其实是让团队高效，很重要的一个环节～～</p>
 <h2 id="为什么要规范呢？"><a href="#为什么要规范呢？" class="headerlink" title="为什么要规范呢？"></a>为什么要规范呢？</h2><ul>
@@ -310,6 +310,10 @@ else if (response.isLogin() == -1) {
     
     </summary>
     
+      <category term="Android" scheme="http://www.jincanshen.com/categories/Android/"/>
+    
+    
+      <category term="开发规范" scheme="http://www.jincanshen.com/tags/%E5%BC%80%E5%8F%91%E8%A7%84%E8%8C%83/"/>
     
   </entry>
   
@@ -318,7 +322,7 @@ else if (response.isLogin() == -1) {
     <link href="http://www.jincanshen.com/2016/09/24/AndroidStudio%E4%BB%A3%E7%A0%81%E6%A3%80%E6%9F%A5/"/>
     <id>http://www.jincanshen.com/2016/09/24/AndroidStudio代码检查/</id>
     <published>2016-09-24T08:12:24.000Z</published>
-    <updated>2016-09-24T09:06:32.000Z</updated>
+    <updated>2016-09-26T13:22:36.000Z</updated>
     
     <content type="html"><![CDATA[<p>团队成员之间既有新成员又有老成员，既有大神也有菜鸟，为了提高产品代码质量，所以团队成员在产品迭代周期中固定时间进行代码Review有利于提高全队成员对产品代码的理解与个人能力的提高。</p>
 <p>通过代码Review，团队成员对产品的每个模块都有了认识，对App上出现的错误信息立即反馈与修复</p>
@@ -382,6 +386,10 @@ else if (response.isLogin() == -1) {
     
     </summary>
     
+      <category term="Android" scheme="http://www.jincanshen.com/categories/Android/"/>
+    
+    
+      <category term="代码检查" scheme="http://www.jincanshen.com/tags/%E4%BB%A3%E7%A0%81%E6%A3%80%E6%9F%A5/"/>
     
   </entry>
   
@@ -390,7 +398,7 @@ else if (response.isLogin() == -1) {
     <link href="http://www.jincanshen.com/2016/09/14/Android%E5%B1%9E%E6%80%A7%E5%8A%A8%E7%94%BB%E7%94%A8%E6%B3%95/"/>
     <id>http://www.jincanshen.com/2016/09/14/Android属性动画用法/</id>
     <published>2016-09-14T09:53:13.000Z</published>
-    <updated>2016-09-20T14:03:24.000Z</updated>
+    <updated>2016-09-26T13:22:30.000Z</updated>
     
     <content type="html"><![CDATA[<p>Android系统在一开始的时候就给我们提供了两种实现动画效果的方式，<strong>逐帧动画(frame-by-frame animation)</strong> 和 <strong>补间动画(tweened animation)</strong></p>
 <ul>
@@ -831,6 +839,10 @@ adb shell screenrecord  --time-limit 10 /sdcard/demo.mp4
     
     </summary>
     
+      <category term="Android" scheme="http://www.jincanshen.com/categories/Android/"/>
+    
+    
+      <category term="属性动画" scheme="http://www.jincanshen.com/tags/%E5%B1%9E%E6%80%A7%E5%8A%A8%E7%94%BB/"/>
     
   </entry>
   
@@ -839,7 +851,7 @@ adb shell screenrecord  --time-limit 10 /sdcard/demo.mp4
     <link href="http://www.jincanshen.com/2016/09/10/%E5%A4%9A%E6%B8%A0%E9%81%93%E6%89%93%E5%8C%85%E6%96%B9%E5%BC%8F/"/>
     <id>http://www.jincanshen.com/2016/09/10/多渠道打包方式/</id>
     <published>2016-09-10T02:20:49.000Z</published>
-    <updated>2016-09-10T11:44:00.000Z</updated>
+    <updated>2016-09-26T13:21:08.000Z</updated>
     
     <content type="html"><![CDATA[<p>首先我说明一下什么是多渠道打包？</p>
 <p>国内存在着众多的Android应用市场，为了统计不同安卓应用市场的下载量一个个性化统计需求，需要为每个应用市场的Android包设定一个可以区分应用市场的标识，这个为Android包设定应用市场标识的过程就是多渠道打包。</p>
@@ -1247,6 +1259,10 @@ public class ChannelManage {
     
     </summary>
     
+      <category term="Android" scheme="http://www.jincanshen.com/categories/Android/"/>
+    
+    
+      <category term="打包方式" scheme="http://www.jincanshen.com/tags/%E6%89%93%E5%8C%85%E6%96%B9%E5%BC%8F/"/>
     
   </entry>
   
@@ -1255,7 +1271,7 @@ public class ChannelManage {
     <link href="http://www.jincanshen.com/2016/09/08/SDKMan%E7%AE%A1%E7%90%86gradle%E7%89%88%E6%9C%AC-Groovy-%E4%B8%8E-Gradle-%E5%9F%BA%E7%A1%80/"/>
     <id>http://www.jincanshen.com/2016/09/08/SDKMan管理gradle版本-Groovy-与-Gradle-基础/</id>
     <published>2016-09-08T09:42:01.000Z</published>
-    <updated>2016-09-08T12:54:50.000Z</updated>
+    <updated>2016-09-26T13:23:25.000Z</updated>
     
     <content type="html"><![CDATA[<p>sdkman是什么？</p>
 <p>sdkman(The Software Development Kit Manager), 中文名为:软件开发工具管理器．这个工具的主要用途是用来解决在类unix操作系统(如mac, linux等)中多种版本开发工具的切换, 安装和卸载的工作</p>
@@ -1487,6 +1503,10 @@ duck.walk()
     
     </summary>
     
+      <category term="Android" scheme="http://www.jincanshen.com/categories/Android/"/>
+    
+    
+      <category term="开发环境" scheme="http://www.jincanshen.com/tags/%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83/"/>
     
   </entry>
   
@@ -1495,7 +1515,7 @@ duck.walk()
     <link href="http://www.jincanshen.com/2016/09/08/Android-%E8%AE%BE%E8%AE%A1%E5%92%8C%E6%96%AD%E7%82%B9%E8%B0%83%E5%BC%8F/"/>
     <id>http://www.jincanshen.com/2016/09/08/Android-设计和断点调式/</id>
     <published>2016-09-08T01:45:57.000Z</published>
-    <updated>2016-09-08T03:03:11.000Z</updated>
+    <updated>2016-09-26T13:21:44.000Z</updated>
     
     <content type="html"><![CDATA[<p>一个App其实设计很重要，设计好了 看起来不是很low…</p>
 <p>我不懂设计，可是我懂怎么去找资源， 我不会搭配颜色，那我就找专业的给我配色，没有设计给我图标，我自己找图标。</p>
@@ -1559,6 +1579,10 @@ duck.walk()
     
     </summary>
     
+      <category term="Android" scheme="http://www.jincanshen.com/categories/Android/"/>
+    
+    
+      <category term="调试" scheme="http://www.jincanshen.com/tags/%E8%B0%83%E8%AF%95/"/>
     
   </entry>
   
@@ -1567,7 +1591,7 @@ duck.walk()
     <link href="http://www.jincanshen.com/2016/09/06/JNI%E5%BC%80%E5%8F%91%E9%85%8D%E7%BD%AE/"/>
     <id>http://www.jincanshen.com/2016/09/06/JNI开发配置/</id>
     <published>2016-09-06T11:54:49.000Z</published>
-    <updated>2016-09-07T03:28:02.000Z</updated>
+    <updated>2016-09-26T13:23:19.000Z</updated>
     
     <content type="html"><![CDATA[<h2 id="介绍"><a href="#介绍" class="headerlink" title="介绍"></a>介绍</h2><ul>
 <li><p>什么是NDK？</p>
@@ -1668,6 +1692,10 @@ Build-&gt;ReBuild Project
     
     </summary>
     
+      <category term="Android" scheme="http://www.jincanshen.com/categories/Android/"/>
+    
+    
+      <category term="JNI" scheme="http://www.jincanshen.com/tags/JNI/"/>
     
   </entry>
   
@@ -1676,7 +1704,7 @@ Build-&gt;ReBuild Project
     <link href="http://www.jincanshen.com/2016/09/03/GitHub-Android%E6%8C%81%E7%BB%AD%E9%9B%86%E6%88%90/"/>
     <id>http://www.jincanshen.com/2016/09/03/GitHub-Android持续集成/</id>
     <published>2016-09-03T07:13:22.000Z</published>
-    <updated>2016-09-06T08:41:53.000Z</updated>
+    <updated>2016-09-26T13:22:57.000Z</updated>
     
     <content type="html"><![CDATA[<h1 id="Travis-CI"><a href="#Travis-CI" class="headerlink" title="Travis CI"></a><a href="https://travis-ci.org/" target="_blank" rel="external">Travis CI</a></h1><p>Travis CI，是一个专门为开源项目打造的持续集成环境。</p>
 <p>如果你有一个放在github上的开源项目，Travis CI简直就是一个完美的CI选择。</p>
@@ -1913,6 +1941,10 @@ after_deploy:
     
     </summary>
     
+      <category term="Android" scheme="http://www.jincanshen.com/categories/Android/"/>
+    
+    
+      <category term="打包方式" scheme="http://www.jincanshen.com/tags/%E6%89%93%E5%8C%85%E6%96%B9%E5%BC%8F/"/>
     
   </entry>
   
@@ -1921,7 +1953,7 @@ after_deploy:
     <link href="http://www.jincanshen.com/2016/09/01/Github-%E5%88%B6%E4%BD%9C%E5%BC%80%E6%BA%90%E4%BE%9D%E8%B5%96%E5%BA%93/"/>
     <id>http://www.jincanshen.com/2016/09/01/Github-制作开源依赖库/</id>
     <published>2016-09-01T12:13:50.000Z</published>
-    <updated>2016-09-06T13:29:43.000Z</updated>
+    <updated>2016-09-26T13:22:48.000Z</updated>
     
     <content type="html"><![CDATA[<p>Github给大家依赖使用,如果是正常的流程，可能很繁琐。但是使用JitPack，只需要几个傻瓜式的操作即可</p>
 <p>使用Gradle依赖别人项目有很多类似</p>
@@ -1963,6 +1995,10 @@ before_install:
     
     </summary>
     
+      <category term="Android" scheme="http://www.jincanshen.com/categories/Android/"/>
+    
+    
+      <category term="打包方式" scheme="http://www.jincanshen.com/tags/%E6%89%93%E5%8C%85%E6%96%B9%E5%BC%8F/"/>
     
   </entry>
   
@@ -1971,7 +2007,7 @@ before_install:
     <link href="http://www.jincanshen.com/2016/09/01/Android-Gradle%E6%A0%B9%E6%8D%AE%E5%8F%98%E9%87%8F%E6%89%93%E5%8C%85Apk/"/>
     <id>http://www.jincanshen.com/2016/09/01/Android-Gradle根据变量打包Apk/</id>
     <published>2016-09-01T11:43:36.000Z</published>
-    <updated>2016-09-01T12:04:39.000Z</updated>
+    <updated>2016-09-26T13:21:54.000Z</updated>
     
     <content type="html"><![CDATA[<p>真正开发项目的时候，我们需要打不同环境的APK包。</p>
 <p>例如,测试包，开发包，发布包，等等…</p>
@@ -2043,6 +2079,10 @@ app-releaseTest.apk
     
     </summary>
     
+      <category term="Android" scheme="http://www.jincanshen.com/categories/Android/"/>
+    
+    
+      <category term="打包方式" scheme="http://www.jincanshen.com/tags/%E6%89%93%E5%8C%85%E6%96%B9%E5%BC%8F/"/>
     
   </entry>
   
@@ -2051,7 +2091,7 @@ app-releaseTest.apk
     <link href="http://www.jincanshen.com/2016/08/26/Sky%E6%9E%B6%E6%9E%84/"/>
     <id>http://www.jincanshen.com/2016/08/26/Sky架构/</id>
     <published>2016-08-26T04:15:32.000Z</published>
-    <updated>2016-09-07T04:47:21.000Z</updated>
+    <updated>2016-09-26T13:23:36.000Z</updated>
     
     <content type="html"><![CDATA[<p>无论MVC或是MVP模式都不可避免地存在一个弊端：<br><code>额外的代码复杂度及学习成本</code></p>
 <a id="more"></a>
@@ -2368,6 +2408,10 @@ public int layoutHttpError() {
     
     </summary>
     
+      <category term="Android" scheme="http://www.jincanshen.com/categories/Android/"/>
+    
+    
+      <category term="架构" scheme="http://www.jincanshen.com/tags/%E6%9E%B6%E6%9E%84/"/>
     
   </entry>
   
@@ -2376,7 +2420,7 @@ public int layoutHttpError() {
     <link href="http://www.jincanshen.com/2016/08/22/%E5%8F%AF%E6%8C%81%E7%BB%AD%E9%9B%86%E6%88%90/"/>
     <id>http://www.jincanshen.com/2016/08/22/可持续集成/</id>
     <published>2016-08-22T02:45:26.000Z</published>
-    <updated>2016-08-22T11:57:48.000Z</updated>
+    <updated>2016-09-26T13:21:34.000Z</updated>
     
     <content type="html"><![CDATA[<p>简化打包流程…</p>
 <a id="more"></a>
@@ -2409,6 +2453,10 @@ public int layoutHttpError() {
     
     </summary>
     
+      <category term="Android" scheme="http://www.jincanshen.com/categories/Android/"/>
+    
+    
+      <category term="打包方式" scheme="http://www.jincanshen.com/tags/%E6%89%93%E5%8C%85%E6%96%B9%E5%BC%8F/"/>
     
   </entry>
   
@@ -2417,7 +2465,7 @@ public int layoutHttpError() {
     <link href="http://www.jincanshen.com/2016/01/29/UI%E6%A0%B7%E5%BC%8F/"/>
     <id>http://www.jincanshen.com/2016/01/29/UI样式/</id>
     <published>2016-01-29T11:57:32.000Z</published>
-    <updated>2016-08-29T12:50:09.000Z</updated>
+    <updated>2016-09-26T13:23:50.000Z</updated>
     
     <content type="html"><![CDATA[<h2 id="Material-Design时代"><a href="#Material-Design时代" class="headerlink" title="Material Design时代"></a>Material Design时代</h2><p>官方Material Design详细介绍文档：<a href="http://www.google.com/design/spec/material-design/introduction.html" target="_blank" rel="external">http://www.google.com/design/spec/material-design/introduction.html</a></p>
 <p>官方Blog关于Material Design的专题文章一共有三篇：</p>
@@ -2621,6 +2669,10 @@ reveal.start();
     
     </summary>
     
+      <category term="Android" scheme="http://www.jincanshen.com/categories/Android/"/>
+    
+    
+      <category term="UI" scheme="http://www.jincanshen.com/tags/UI/"/>
     
   </entry>
   
@@ -2629,7 +2681,7 @@ reveal.start();
     <link href="http://www.jincanshen.com/2016/01/01/Android%E7%9A%84%E5%A4%A7%E7%A5%9E%E4%BB%AC/"/>
     <id>http://www.jincanshen.com/2016/01/01/Android的大神们/</id>
     <published>2016-01-01T08:45:00.000Z</published>
-    <updated>2016-08-29T12:45:20.000Z</updated>
+    <updated>2016-09-26T13:22:05.000Z</updated>
     
     <content type="html"><![CDATA[<h3 id="Google"><a href="#Google" class="headerlink" title="Google"></a><a href="https://github.com/google" target="_blank" rel="external">Google</a></h3><p><img src="https://avatars0.githubusercontent.com/u/1342004?v=3&amp;s=188" alt="">  </p>
 <p>google在github上面开源了很多android库应用，尤其是<a href="https://github.com/googlesamples" target="_blank" rel="external">googleSamples</a>,展示了Android最新的示例。</p>
@@ -2688,6 +2740,10 @@ reveal.start();
     
     </summary>
     
+      <category term="Android" scheme="http://www.jincanshen.com/categories/Android/"/>
+    
+    
+      <category term="大神博客" scheme="http://www.jincanshen.com/tags/%E5%A4%A7%E7%A5%9E%E5%8D%9A%E5%AE%A2/"/>
     
   </entry>
   
