@@ -292,7 +292,7 @@ sdkman(The Software Development Kit Manager), 中文名为:软件开发工具管
   
   
 
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+  <article class="post post-type-normal " itemscope itemtype="//schema.org/Article">
 
     
       <header class="post-header">
@@ -353,15 +353,19 @@ sdkman(The Software Development Kit Manager), 中文名为:软件开发工具管
           
 
           
-          
 
           
-
           
-          &nbsp; | &nbsp;
-          <span id="/2016/09/08/SDKMan管理gradle版本-Groovy-与-Gradle-基础/"class="leancloud_visitors" data-flag-title="SDKMan管理gradle版本 与 Groovy 基础">
-          &nbsp;阅读次数
-          </span>
+             <span id="/2016/09/08/SDKMan管理gradle版本-Groovy-与-Gradle-基础/" class="leancloud_visitors" data-flag-title="SDKMan管理gradle版本 与 Groovy 基础">
+               &nbsp; | &nbsp;
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               <span class="post-meta-item-text">阅读次数 </span>
+               <span class="leancloud-visitors-count"></span>
+              </span>
+          
+
           
         </div>
       </header>
@@ -943,8 +947,8 @@ duck.walk()
   
 
   
+
   
-    
   <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.1.js"></script>
   <script>AV.initialize("Ub5AU6hooUtI4dFRojnFK6Bf-gzGzoHsz", "M68V3yowbmzfADkpMNBgNwxE");</script>
   <script>
@@ -963,7 +967,7 @@ duck.walk()
           var COUNT_CONTAINER_REF = '.leancloud-visitors-count';
 
           if (results.length === 0) {
-            $visitors.find(COUNT_CONTAINER_REF).text(0+$(document.getElementById(url)).text());
+            $visitors.find(COUNT_CONTAINER_REF).text(0);
             return;
           }
 
@@ -973,14 +977,14 @@ duck.walk()
             var time = item.get('time');
             var element = document.getElementById(url);
 
-            $(element).find(COUNT_CONTAINER_REF).text(time+$(document.getElementById(url)).text();
+            $(element).find(COUNT_CONTAINER_REF).text(time);
           }
           for(var i = 0; i < entries.length; i++) {
             var url = entries[i];
             var element = document.getElementById(url);
             var countSpan = $(element).find(COUNT_CONTAINER_REF);
             if( countSpan.text() == '') {
-              countSpan.text(0+"°C");
+              countSpan.text(0);
             }
           }
         })
@@ -1005,7 +1009,7 @@ duck.walk()
             counter.save(null, {
               success: function(counter) {
                 var $element = $(document.getElementById(url));
-                $element.find('.leancloud-visitors-count').text(counter.get('time')+$(document.getElementById(url)).text());
+                $element.find('.leancloud-visitors-count').text(counter.get('time'));
               },
               error: function(counter, error) {
                 console.log('Failed to save Visitor num, with error message: ' + error.message);
@@ -1025,7 +1029,7 @@ duck.walk()
             newcounter.save(null, {
               success: function(newcounter) {
                 var $element = $(document.getElementById(url));
-                $element.find('.leancloud-visitors-count').text(newcounter.get('time')+$(document.getElementById(url)).text());
+                $element.find('.leancloud-visitors-count').text(newcounter.get('time'));
               },
               error: function(newcounter, error) {
                 console.log('Failed to create');
@@ -1048,6 +1052,8 @@ duck.walk()
       }
     });
   </script>
+
+
 
   
 </body>

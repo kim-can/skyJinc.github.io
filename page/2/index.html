@@ -268,7 +268,7 @@
   
   
 
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+  <article class="post post-type-normal " itemscope itemtype="//schema.org/Article">
 
     
       <header class="post-header">
@@ -332,15 +332,19 @@
           
 
           
-          
 
           
-
           
-          &nbsp; | &nbsp;
-          <span id="/2016/08/26/Sky架构/"class="leancloud_visitors" data-flag-title="Sky架构简单使用">
-          &nbsp;阅读次数
-          </span>
+             <span id="/2016/08/26/Sky架构/" class="leancloud_visitors" data-flag-title="Sky架构简单使用">
+               &nbsp; | &nbsp;
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               <span class="post-meta-item-text">阅读次数 </span>
+               <span class="leancloud-visitors-count"></span>
+              </span>
+          
+
           
         </div>
       </header>
@@ -395,7 +399,7 @@
   
   
 
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+  <article class="post post-type-normal " itemscope itemtype="//schema.org/Article">
 
     
       <header class="post-header">
@@ -459,15 +463,19 @@
           
 
           
-          
 
           
-
           
-          &nbsp; | &nbsp;
-          <span id="/2016/08/22/可持续集成/"class="leancloud_visitors" data-flag-title="Mac + Jenkins + Gradle + Git = 可持续集成架构搭建">
-          &nbsp;阅读次数
-          </span>
+             <span id="/2016/08/22/可持续集成/" class="leancloud_visitors" data-flag-title="Mac + Jenkins + Gradle + Git = 可持续集成架构搭建">
+               &nbsp; | &nbsp;
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               <span class="post-meta-item-text">阅读次数 </span>
+               <span class="leancloud-visitors-count"></span>
+              </span>
+          
+
           
         </div>
       </header>
@@ -522,7 +530,7 @@
   
   
 
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+  <article class="post post-type-normal " itemscope itemtype="//schema.org/Article">
 
     
       <header class="post-header">
@@ -586,15 +594,19 @@
           
 
           
-          
 
           
-
           
-          &nbsp; | &nbsp;
-          <span id="/2016/01/29/UI样式/"class="leancloud_visitors" data-flag-title="UI样式">
-          &nbsp;阅读次数
-          </span>
+             <span id="/2016/01/29/UI样式/" class="leancloud_visitors" data-flag-title="UI样式">
+               &nbsp; | &nbsp;
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               <span class="post-meta-item-text">阅读次数 </span>
+               <span class="leancloud-visitors-count"></span>
+              </span>
+          
+
           
         </div>
       </header>
@@ -653,7 +665,7 @@
   
   
 
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+  <article class="post post-type-normal " itemscope itemtype="//schema.org/Article">
 
     
       <header class="post-header">
@@ -717,15 +729,19 @@
           
 
           
-          
 
           
-
           
-          &nbsp; | &nbsp;
-          <span id="/2016/01/01/Android的大神们/"class="leancloud_visitors" data-flag-title="Android的大神们">
-          &nbsp;阅读次数
-          </span>
+             <span id="/2016/01/01/Android的大神们/" class="leancloud_visitors" data-flag-title="Android的大神们">
+               &nbsp; | &nbsp;
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               <span class="post-meta-item-text">阅读次数 </span>
+               <span class="leancloud-visitors-count"></span>
+              </span>
+          
+
           
         </div>
       </header>
@@ -1021,8 +1037,8 @@
   
 
   
+
   
-    
   <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.1.js"></script>
   <script>AV.initialize("Ub5AU6hooUtI4dFRojnFK6Bf-gzGzoHsz", "M68V3yowbmzfADkpMNBgNwxE");</script>
   <script>
@@ -1041,7 +1057,7 @@
           var COUNT_CONTAINER_REF = '.leancloud-visitors-count';
 
           if (results.length === 0) {
-            $visitors.find(COUNT_CONTAINER_REF).text(0+$(document.getElementById(url)).text());
+            $visitors.find(COUNT_CONTAINER_REF).text(0);
             return;
           }
 
@@ -1051,14 +1067,14 @@
             var time = item.get('time');
             var element = document.getElementById(url);
 
-            $(element).find(COUNT_CONTAINER_REF).text(time+$(document.getElementById(url)).text();
+            $(element).find(COUNT_CONTAINER_REF).text(time);
           }
           for(var i = 0; i < entries.length; i++) {
             var url = entries[i];
             var element = document.getElementById(url);
             var countSpan = $(element).find(COUNT_CONTAINER_REF);
             if( countSpan.text() == '') {
-              countSpan.text(0+"°C");
+              countSpan.text(0);
             }
           }
         })
@@ -1083,7 +1099,7 @@
             counter.save(null, {
               success: function(counter) {
                 var $element = $(document.getElementById(url));
-                $element.find('.leancloud-visitors-count').text(counter.get('time')+$(document.getElementById(url)).text());
+                $element.find('.leancloud-visitors-count').text(counter.get('time'));
               },
               error: function(counter, error) {
                 console.log('Failed to save Visitor num, with error message: ' + error.message);
@@ -1103,7 +1119,7 @@
             newcounter.save(null, {
               success: function(newcounter) {
                 var $element = $(document.getElementById(url));
-                $element.find('.leancloud-visitors-count').text(newcounter.get('time')+$(document.getElementById(url)).text());
+                $element.find('.leancloud-visitors-count').text(newcounter.get('time'));
               },
               error: function(newcounter, error) {
                 console.log('Failed to create');
@@ -1126,6 +1142,8 @@
       }
     });
   </script>
+
+
 
   
 </body>
