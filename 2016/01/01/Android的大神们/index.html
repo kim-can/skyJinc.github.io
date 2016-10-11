@@ -338,14 +338,15 @@ google在github上面开源了很多android库应用，尤其是googleSamples,�
           
 
           
-         
           
-&nbsp; | &nbsp;
-<span id="/2016/01/01/Android的大神们/"class="leancloud_visitors" data-flag-title="Android的大神们">
-         &nbsp;阅读次数
-        </span>
 
+          
 
+          
+          &nbsp; | &nbsp;
+          <span id="/2016/01/01/Android的大神们/"class="leancloud_visitors" data-flag-title="Android的大神们">
+          &nbsp;阅读次数
+          </span>
           
         </div>
       </header>
@@ -763,13 +764,13 @@ function showTime(Counter) {
     query.find({
       success: function(results) {
         if (results.length == 0) {
-          var content = $(document.getElementById(url)).text() + ': 0';
+          var content = '0 ' + $(document.getElementById(url)).text();
           $(document.getElementById(url)).text(content);
           return;
         }
         for (var i = 0; i < results.length; i++) {
           var object = results[i];
-          var content = $(document.getElementById(url)).text() + ': ' + object.get('time');
+          var content = object.get('time') + ' ' + $(document.getElementById(url)).text();
           $(document.getElementById(url)).text(content);
         }
       },
@@ -795,7 +796,7 @@ function addCount(Counter) {
         counter.increment("time");
         counter.save(null, {
           success: function(counter) {
-            var content = $(document.getElementById(url)).text() + ': ' + counter.get('time');
+            var content =  counter.get('time') + ' ' + $(document.getElementById(url)).text();
             $(document.getElementById(url)).text(content);
           },
           error: function(counter, error) {
@@ -810,7 +811,7 @@ function addCount(Counter) {
         newcounter.save(null, {
           success: function(newcounter) {
               console.log("newcounter.get('time')="+newcounter.get('time'));
-            var content = $(document.getElementById(url)).text() + ': ' + newcounter.get('time');
+            var content = newcounter.get('time') + ' ' + $(document.getElementById(url)).text();
             $(document.getElementById(url)).text(content);
           },
           error: function(newcounter, error) {
