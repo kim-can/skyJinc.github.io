@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://www.jincanshen.com/"/>
-  <updated>2016-10-13T09:36:32.000Z</updated>
+  <updated>2016-10-13T09:54:52.000Z</updated>
   <id>http://www.jincanshen.com/</id>
   
   <author>
@@ -20,11 +20,10 @@
     <link href="http://www.jincanshen.com/2016/10/13/%E5%8F%AF%E6%8C%81%E7%BB%AD%E9%9B%86%E6%88%90(Windows)/"/>
     <id>http://www.jincanshen.com/2016/10/13/可持续集成(Windows)/</id>
     <published>2016-10-13T08:21:47.000Z</published>
-    <updated>2016-10-13T09:36:32.000Z</updated>
+    <updated>2016-10-13T09:54:52.000Z</updated>
     
     <content type="html"><![CDATA[<p>简化打包流程…</p>
 <a id="more"></a>
-<p><a href="http://www.jincanshen.com/2016/08/22/%E5%8F%AF%E6%8C%81%E7%BB%AD%E9%9B%86%E6%88%90/">MAC教程</a></p>
 <h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><p>因为我的电脑是mac，正好公司里有windows服务器，远程连接一下，进行配置</p>
 <p>系统: windows 7 , 64位</p>
 <h3 id="JDK-安装"><a href="#JDK-安装" class="headerlink" title="JDK 安装"></a>JDK 安装</h3><p>可执行文件 直接安装就好了。。</p>
@@ -72,7 +71,8 @@ D:\tomcat9\apache-tomcat-9.0.0.M11
 <p>下载安装以后，对应的android所需的下载一下<br><img src="https://skyJinc.github.io/images/jenkins-win/7.png" alt="tu"></p>
 <p>设置SDK</p>
 <p><img src="https://skyJinc.github.io/images/jenkins-win/8.png" alt="tu"></p>
-<h4 id="JDK"><a href="#JDK" class="headerlink" title="JDK"></a>JDK</h4><p>JDK地址是本地安装好的地址</p>
+<h4 id="JDK"><a href="#JDK" class="headerlink" title="JDK"></a>JDK</h4><p><a href="http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html" target="_blank" rel="external">下载地址</a></p>
+<p>JDK地址是本地安装好的地址</p>
 <p>系统管理-&gt;Global Tool Configuration</p>
 <p><img src="https://skyJinc.github.io/images/jenkins-win/9.png" alt="tu"></p>
 <h4 id="GIT"><a href="#GIT" class="headerlink" title="GIT"></a>GIT</h4><p><a href="https://git-scm.com/downloads" target="_blank" rel="external">下载地址</a></p>
@@ -97,6 +97,9 @@ D:\Python27
 <h4 id="5-输出内容过滤"><a href="#5-输出内容过滤" class="headerlink" title="5.输出内容过滤"></a>5.输出内容过滤</h4><p><img src="https://skyJinc.github.io/images/jenkins/12.png" alt="图"></p>
 <h4 id="6-开始构建"><a href="#6-开始构建" class="headerlink" title="6.开始构建"></a>6.开始构建</h4><p><img src="https://skyJinc.github.io/images/jenkins/13.png" alt="图1"></p>
 <h4 id="7-查看构建内容"><a href="#7-查看构建内容" class="headerlink" title="7.查看构建内容"></a>7.查看构建内容</h4><p><img src="https://skyJinc.github.io/images/jenkins/14.png" alt="图1"></p>
+<h3 id="结尾"><a href="#结尾" class="headerlink" title="结尾"></a>结尾</h3><p>windows教程 和 mac教程都有了</p>
+<p><a href="http://www.jincanshen.com/2016/08/22/%E5%8F%AF%E6%8C%81%E7%BB%AD%E9%9B%86%E6%88%90/">MAC教程</a></p>
+<p><a href="http://www.jincanshen.com/2016/09/10/%E5%A4%9A%E6%B8%A0%E9%81%93%E6%89%93%E5%8C%85%E6%96%B9%E5%BC%8F/">多渠道打包</a></p>
 ]]></content>
     
     <summary type="html">
