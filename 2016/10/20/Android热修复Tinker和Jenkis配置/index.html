@@ -1,0 +1,1069 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/vendors/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="热修复," />
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="skyJC" type="application/atom+xml" />
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.0.1" />
+
+
+
+
+
+
+<meta name="description" content="简单来说，在编译时通过新旧两个Dex生成差异patch.dex。
+在运行时，将差异patch.dex重新跟原始安装包的旧Dex替换成新的Dex,过程可能比较耗费时间与内存，所以单独放在一个后台进程中。
+为了补丁包尽量的小，微信自研了DexDiff算法，它深度利用Dex的格式来减少差异的大小。它的粒度是Dex格式的每一项，可以充分利用原本Dex的信息，而BsDiff的粒度是文件，AndFix/Qzo">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Android热修复Tinker和Jenkis配置">
+<meta property="og:url" content="http://www.jincanshen.com/2016/10/20/Android热修复Tinker和Jenkis配置/index.html">
+<meta property="og:site_name" content="skyJC">
+<meta property="og:description" content="简单来说，在编译时通过新旧两个Dex生成差异patch.dex。
+在运行时，将差异patch.dex重新跟原始安装包的旧Dex替换成新的Dex,过程可能比较耗费时间与内存，所以单独放在一个后台进程中。
+为了补丁包尽量的小，微信自研了DexDiff算法，它深度利用Dex的格式来减少差异的大小。它的粒度是Dex格式的每一项，可以充分利用原本Dex的信息，而BsDiff的粒度是文件，AndFix/Qzo">
+<meta property="og:image" content="https://skyJinc.github.io/images/hotfix/2.png">
+<meta property="og:image" content="https://skyJinc.github.io/images/hotfix/3.png">
+<meta property="og:image" content="https://skyJinc.github.io/images/hotfix/4.png">
+<meta property="og:image" content="https://skyJinc.github.io/images/hotfix/1.gif">
+<meta property="og:image" content="https://skyJinc.github.io/images/hotfix/2.gif">
+<meta property="og:image" content="https://skyJinc.github.io/images/hotfix/8.png">
+<meta property="og:image" content="https://skyJinc.github.io/images/hotfix/6.png">
+<meta property="og:image" content="https://skyJinc.github.io/images/hotfix/7.png">
+<meta property="og:image" content="https://skyJinc.github.io/images/hotfix/9.png">
+<meta property="og:image" content="https://skyJinc.github.io/images/hotfix/10.png">
+<meta property="og:image" content="https://skyJinc.github.io/images/hotfix/11.png">
+<meta property="og:image" content="https://skyJinc.github.io/images/hotfix/12.png">
+<meta property="og:image" content="https://skyJinc.github.io/images/hotfix/13.png">
+<meta property="og:image" content="https://skyJinc.github.io/images/hotfix/1.png">
+<meta property="og:updated_time" content="2016-10-19T18:03:36.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Android热修复Tinker和Jenkis配置">
+<meta name="twitter:description" content="简单来说，在编译时通过新旧两个Dex生成差异patch.dex。
+在运行时，将差异patch.dex重新跟原始安装包的旧Dex替换成新的Dex,过程可能比较耗费时间与内存，所以单独放在一个后台进程中。
+为了补丁包尽量的小，微信自研了DexDiff算法，它深度利用Dex的格式来减少差异的大小。它的粒度是Dex格式的每一项，可以充分利用原本Dex的信息，而BsDiff的粒度是文件，AndFix/Qzo">
+<meta name="twitter:image" content="https://skyJinc.github.io/images/hotfix/2.png">
+
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    scheme: 'Mist',
+    sidebar: {"position":"left","display":"post"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: 0,
+      author: '博主'
+    }
+  };
+</script>
+
+
+
+
+  <link rel="canonical" href="http://www.jincanshen.com/2016/10/20/Android热修复Tinker和Jenkis配置/"/>
+
+  <title> Android热修复Tinker和Jenkis配置 | skyJC </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "//hm.baidu.com/hm.js?2a10d2b4376486788ac2a9adf0cd5fd5";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+ 
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">skyJC</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle">Android探索的道路，是否愿意陪我一起？</p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-bank"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-bars"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user-secret"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="st-search-show-outputs">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <form class="site-search-form">
+  <input type="text" id="st-search-input" class="st-search-input st-default-search-input" />
+</form>
+
+<script type="text/javascript">
+  (function(w,d,t,u,n,s,e){w['SwiftypeObject']=n;w[n]=w[n]||function(){
+    (w[n].q=w[n].q||[]).push(arguments);};s=d.createElement(t);
+    e=d.getElementsByTagName(t)[0];s.async=1;s.src=u;e.parentNode.insertBefore(s,e);
+  })(window,document,'script','//s.swiftypecdn.com/install/v2/st.js','_st');
+
+  _st('install', 'fkf54id-fNsrLXkekAVV','2.0.0');
+</script>
+
+
+
+    </div>
+  
+</nav>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="//schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                Android热修复Tinker和Jenkis配置
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-10-20T02:02:41+08:00" content="2016-10-20">
+              2016-10-20
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/Android/" itemprop="url" rel="index">
+                    <span itemprop="name">Android</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/10/20/Android热修复Tinker和Jenkis配置/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/10/20/Android热修复Tinker和Jenkis配置/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+             <span id="/2016/10/20/Android热修复Tinker和Jenkis配置/" class="leancloud_visitors" data-flag-title="Android热修复Tinker和Jenkis配置">
+               &nbsp; | &nbsp;
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               <span class="post-meta-item-text">阅读次数 </span>
+               <span class="leancloud-visitors-count"></span>
+              </span>
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>简单来说，在编译时通过新旧两个Dex生成差异patch.dex。</p>
+<p>在运行时，将差异patch.dex重新跟原始安装包的旧Dex替换成新的Dex,过程可能比较耗费时间与内存，所以单独放在一个后台进程中。</p>
+<p>为了补丁包尽量的小，微信自研了DexDiff算法，它深度利用Dex的格式来减少差异的大小。它的粒度是Dex格式的每一项，可以充分利用原本Dex的信息，而BsDiff的粒度是文件，AndFix/Qzone的粒度为class</p>
+<a id="more"></a>
+<h2 id="官方教程"><a href="#官方教程" class="headerlink" title="官方教程"></a>官方教程</h2><ol>
+<li>如何快速接入请参考<a href="https://github.com/Tencent/tinker/wiki/Tinker-%E6%8E%A5%E5%85%A5%E6%8C%87%E5%8D%97" target="_blank" rel="external">Tinker 接入指南</a>。</li>
+<li>如何自定义类请参考<a href="https://github.com/Tencent/tinker/wiki/Tinker-%E8%87%AA%E5%AE%9A%E4%B9%89%E6%89%A9%E5%B1%95" target="_blank" rel="external">Tinker 自定义扩展</a>。</li>
+<li>Tinker的API预览请参考<a href="https://github.com/Tencent/tinker/wiki/Tinker-API%E6%A6%82%E8%A7%88" target="_blank" rel="external">Tinker API预览</a>。</li>
+<li>还要其他问题，请参考<a href="https://github.com/Tencent/tinker/wiki/Tinker-%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98" target="_blank" rel="external">常见问题</a>。</li>
+</ol>
+<p>官方教程很详细,　写这篇文章主要是为了测试，以及集合Jenkins使用</p>
+<h2 id="Tinker的已知问题"><a href="#Tinker的已知问题" class="headerlink" title="Tinker的已知问题"></a>Tinker的已知问题</h2><p>由于原理与系统限制，Tinker有以下已知问题：</p>
+<ol>
+<li>Tinker不支持修改AndroidManifest.xml，Tinker不支持新增四大组件；</li>
+<li>由于Google Play的开发者条款限制，不建议在GP渠道动态更新代码；</li>
+<li>在Android N上，补丁对应用启动时间有轻微的影响；</li>
+<li>不支持部分三星android-21机型，加载补丁时会主动抛出<code>&quot;TinkerRuntimeException:checkDexInstall failed&quot;</code>；</li>
+<li>tinker的一般模式并不支持加固，需要使用usePreGeneratedPatchDex模式，即提前生成补丁模式。</li>
+</ol>
+<h2 id="Tinker-比较"><a href="#Tinker-比较" class="headerlink" title="Tinker 比较"></a>Tinker 比较</h2><table>
+<thead>
+<tr>
+<th></th>
+<th>Tinker</th>
+<th>QZone</th>
+<th>AndFix</th>
+<th>Dexposed</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>类替换</td>
+<td>yes</td>
+<td>yes</td>
+<td>no</td>
+<td>no</td>
+</tr>
+<tr>
+<td>So替换</td>
+<td>yes</td>
+<td>no</td>
+<td>no</td>
+<td>no</td>
+</tr>
+<tr>
+<td>资源替换</td>
+<td>yes</td>
+<td>yes</td>
+<td>no</td>
+<td>no</td>
+</tr>
+<tr>
+<td>全平台支持</td>
+<td>yes</td>
+<td>yes</td>
+<td>yes</td>
+<td>no</td>
+</tr>
+<tr>
+<td>即时生效</td>
+<td>no</td>
+<td>no</td>
+<td>yes</td>
+<td>yes</td>
+</tr>
+<tr>
+<td>性能损耗</td>
+<td>较小</td>
+<td>较大</td>
+<td>较小</td>
+<td>较小</td>
+</tr>
+<tr>
+<td>补丁包大小</td>
+<td>较小</td>
+<td>较大</td>
+<td>一般</td>
+<td>一般</td>
+</tr>
+<tr>
+<td>开发透明</td>
+<td>yes</td>
+<td>yes</td>
+<td>no</td>
+<td>no</td>
+</tr>
+<tr>
+<td>复杂度</td>
+<td>较低</td>
+<td>较低</td>
+<td>复杂</td>
+<td>复杂</td>
+</tr>
+<tr>
+<td>gradle支持</td>
+<td>yes</td>
+<td>no</td>
+<td>no</td>
+<td>no</td>
+</tr>
+<tr>
+<td>接口文档</td>
+<td>丰富</td>
+<td>较少</td>
+<td>一般</td>
+<td>较少</td>
+</tr>
+<tr>
+<td>Rom体积</td>
+<td>Dalvik较大</td>
+<td>较小</td>
+<td>较小</td>
+<td>较小</td>
+</tr>
+<tr>
+<td>成功率</td>
+<td>较高</td>
+<td>最高</td>
+<td>一般</td>
+<td>一般</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<h2 id="使用到的项目"><a href="#使用到的项目" class="headerlink" title="使用到的项目"></a>使用到的项目</h2><ul>
+<li><p><a href="http://www.jincanshen.com/2016/08/22/%E5%8F%AF%E6%8C%81%E7%BB%AD%E9%9B%86%E6%88%90/">Jenkins - 持续集成</a></p>
+</li>
+<li><p><a href="https://github.com/skyJinc/SkyHot" target="_blank" rel="external">SkyHot - DEMO项目</a></p>
+</li>
+<li><p><a href="https://github.com/Tencent/tinker" target="_blank" rel="external">Tinker - 热修复开源项目</a></p>
+</li>
+</ul>
+<h2 id="接入Tinker"><a href="#接入Tinker" class="headerlink" title="接入Tinker"></a>接入Tinker</h2><h3 id="添加Tinker插件依赖"><a href="#添加Tinker插件依赖" class="headerlink" title="添加Tinker插件依赖"></a>添加Tinker插件依赖</h3><p><a href="https://github.com/skyJinc/SkyHot/blob/master/build.gradle" target="_blank" rel="external">build.gradle</a></p>
+<figure class="highlight gradle"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">buildscript</span> &#123;</div><div class="line">    <span class="keyword">dependencies</span> &#123;</div><div class="line">        <span class="keyword">classpath</span> (<span class="string">'com.tencent.tinker:tinker-patch-gradle-plugin:1.7.0'</span>)</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h3 id="添加Tinker库依赖"><a href="#添加Tinker库依赖" class="headerlink" title="添加Tinker库依赖"></a>添加Tinker库依赖</h3><p><a href="https://github.com/skyJinc/SkyHot/blob/master/app/build.gradle" target="_blank" rel="external">app/build.gradle</a></p>
+<figure class="highlight gradle"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">dependencies</span> &#123;</div><div class="line">    <span class="comment">// tinker 依赖</span></div><div class="line">    <span class="keyword">compile</span>(<span class="string">'com.tencent.tinker:tinker-android-anno:1.7.0'</span>)</div><div class="line">    <span class="keyword">compile</span>(<span class="string">'com.tencent.tinker:tinker-android-lib:1.7.0'</span>)</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h3 id="创建-ApplicationLike"><a href="#创建-ApplicationLike" class="headerlink" title="创建 ApplicationLike"></a>创建 ApplicationLike</h3><ul>
+<li>创建 SkyHotApplicationLike 继承 DefaultApplicationLike</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">public class SkyHotApplicationLike extends DefaultApplicationLike &#123;</div><div class="line">    </div><div class="line">    public SkyHotApplicationLike(Application application, int tinkerFlags, boolean tinkerLoadVerifyFlag, long applicationStartElapsedTime, long applicationStartMillisTime, Intent tinkerResultIntent, Resources[] resources, ClassLoader[] classLoader, AssetManager[] assetManager) &#123;</div><div class="line">        super(application, tinkerFlags, tinkerLoadVerifyFlag, applicationStartElapsedTime, applicationStartMillisTime, tinkerResultIntent, resources, classLoader, assetManager);</div><div class="line">    &#125;</div><div class="line">    </div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<ul>
+<li>创建后 tinker 有一定的注解规则 <code>@DefaultLifeCycle</code></li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">@DefaultLifeCycle(application = &quot;sky.skyhot.AppApplication&quot;, flags = ShareConstants.TINKER_ENABLE_ALL, loadVerifyFlag = false)</div><div class="line">public class SkyHotApplicationLike extends DefaultApplicationLike &#123;</div><div class="line"></div><div class="line">    public SkyHotApplicationLike(Application application, int tinkerFlags, boolean tinkerLoadVerifyFlag, long applicationStartElapsedTime, long applicationStartMillisTime, Intent tinkerResultIntent, Resources[] resources, ClassLoader[] classLoader, AssetManager[] assetManager) &#123;</div><div class="line">        super(application, tinkerFlags, tinkerLoadVerifyFlag, applicationStartElapsedTime, applicationStartMillisTime, tinkerResultIntent, resources, classLoader, assetManager);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p><code>application = &quot;sky.skyhot.AppApplication&quot;</code>: 会自动创建AppApplication</p>
+<p><code>flags = ShareConstants.TINKER_ENABLE_ALL</code>: tinker支持的类型，dex,library，还是全部都支持！</p>
+<p><code>loadVerifyFlag = false</code>: 运行加载时是否校验dex与,ib与res的Md5</p>
+<ul>
+<li>配置 <a href="https://github.com/skyJinc/SkyHot/blob/master/app/src/main/AndroidManifest.xml" target="_blank" rel="external">AndroidManifest.xml</a></li>
+</ul>
+<p>编译后会生成 <code>sky.skyhot.AppApplication</code><br><img src="https://skyJinc.github.io/images/hotfix/2.png" alt="tu"></p>
+<h3 id="创建-TinkerHot-gradle"><a href="#创建-TinkerHot-gradle" class="headerlink" title="创建 TinkerHot.gradle"></a>创建 <a href="https://github.com/skyJinc/SkyHot/blob/master/app/tinker_hot.gradle" target="_blank" rel="external">TinkerHot.gradle</a></h3><ul>
+<li>这里是为了配合<code>Jenkins</code> 返回路径这样写的</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line">//补丁APK路径</div><div class="line">def getPatchApk() &#123;</div><div class="line">    return &quot;$&#123;rootDir&#125;/path.apk&quot;</div><div class="line">&#125;</div><div class="line"></div><div class="line">//补丁Mapping路径</div><div class="line">def getPatchMapping() &#123;</div><div class="line">    return &quot;$&#123;rootDir&#125;/path_mapping.txt&quot;</div><div class="line">&#125;</div><div class="line"></div><div class="line">//布丁R文件路径</div><div class="line">def getPatchR() &#123;</div><div class="line">    return &quot;$&#123;rootDir&#125;/path_R.txt&quot;</div><div class="line">&#125;</div><div class="line">....</div></pre></td></tr></table></figure>
+<ul>
+<li>如果自行测试 修改成 <code>${buildDir}/path</code> 找到build</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line">//补丁APK路径</div><div class="line">def getPatchApk() &#123;</div><div class="line">    return &quot;$&#123;buildDir&#125;/app/app-release-1.0.0.apk&quot;</div><div class="line">&#125;</div><div class="line"></div><div class="line">//补丁Mapping路径</div><div class="line">def getPatchMapping() &#123;</div><div class="line">    return &quot;$&#123;buildDir&#125;/app/app-release-1.0.0-mapping.txt&quot;</div><div class="line">&#125;</div><div class="line"></div><div class="line">//布丁R文件路径</div><div class="line">def getPatchR() &#123;</div><div class="line">    return &quot;$&#123;buildDir&#125;/app/app-release-1.0.0-R.txt&quot;</div><div class="line">&#125;</div><div class="line">....</div></pre></td></tr></table></figure>
+<ul>
+<li>对Apk,Mapping,R文件 进行改名后 放到 <code>${buildDir}/app/</code> 目录下</li>
+</ul>
+<figure class="highlight gradle"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//apk</span></div><div class="line"><span class="keyword">from</span> <span class="string">"$&#123;buildDir&#125;/outputs/apk/$&#123;project.getName()&#125;-$&#123;taskName&#125;.apk"</span></div><div class="line"><span class="keyword">into</span> <span class="string">"$&#123;buildDir&#125;/app/"</span></div><div class="line">rename &#123; String fileName -&gt;</div><div class="line">	fileName.replace(<span class="string">"$&#123;project.getName()&#125;-$&#123;taskName&#125;.apk"</span>, <span class="string">"$&#123;project.getName()&#125;-$&#123;taskName&#125;-$&#123;versionName&#125;.apk"</span>)</div><div class="line">&#125;</div><div class="line"><span class="comment">//mapping</span></div><div class="line"><span class="keyword">from</span> <span class="string">"$&#123;buildDir&#125;/outputs/mapping/$&#123;taskName&#125;/mapping.txt"</span></div><div class="line"><span class="keyword">into</span> <span class="string">"$&#123;buildDir&#125;/app/"</span></div><div class="line">rename &#123; String fileName -&gt;</div><div class="line">	fileName.replace(<span class="string">"mapping.txt"</span>, <span class="string">"$&#123;project.getName()&#125;-$&#123;taskName&#125;-$&#123;versionName&#125;-mapping.txt"</span>)</div><div class="line">&#125;</div><div class="line"><span class="comment">//R文件</span></div><div class="line"><span class="keyword">from</span> <span class="string">"$&#123;buildDir&#125;/intermediates/symbols/$&#123;taskName&#125;/R.txt"</span></div><div class="line"><span class="keyword">into</span> <span class="string">"$&#123;buildDir&#125;/app/"</span></div><div class="line">rename &#123; String fileName -&gt;</div><div class="line">	fileName.replace(<span class="string">"R.txt"</span>, <span class="string">"$&#123;project.getName()&#125;-$&#123;taskName&#125;-$&#123;versionName&#125;-R.txt"</span>)</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<ul>
+<li>其他内容参考 <a href="https://github.com/Tencent/tinker/wiki/Tinker-%E6%8E%A5%E5%85%A5%E6%8C%87%E5%8D%97" target="_blank" rel="external">Tinker 接入指南</a></li>
+</ul>
+<h3 id="配置-app-build-gradle"><a href="#配置-app-build-gradle" class="headerlink" title="配置 app/build.gradle"></a>配置 <a href="https://github.com/skyJinc/SkyHot/blob/master/app/build.gradle" target="_blank" rel="external">app/build.gradle</a></h3><ul>
+<li>添加 TinkerHot.gradle </li>
+</ul>
+<figure class="highlight gradle"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">apply <span class="keyword">from</span>: <span class="string">'tinker_hot.gradle'</span></div></pre></td></tr></table></figure>
+<ul>
+<li>添加 multiDex 配置</li>
+</ul>
+<p>DEX混淆文件 <a href="https://github.com/skyJinc/SkyHot/blob/master/app/proguard/keep_in_main_dex.pro" target="_blank" rel="external">proguard/keep_in_main_dex.pro</a></p>
+<figure class="highlight gradle"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//打开</span></div><div class="line">dexOptions &#123;</div><div class="line">	jumboMode = <span class="keyword">true</span></div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<figure class="highlight gradle"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">defaultConfig &#123;</div><div class="line"></div><div class="line">	multiDexEnabled <span class="keyword">true</span></div><div class="line">	<span class="comment">//混淆文件</span></div><div class="line">	multiDexKeepProguard <span class="keyword">file</span>(<span class="string">"proguard/keep_in_main_dex.pro"</span>)</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<figure class="highlight gradle"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">dependencies</span> &#123;</div><div class="line">    <span class="keyword">compile</span> <span class="keyword">fileTree</span>(dir: <span class="string">'libs'</span>, <span class="keyword">include</span>: [<span class="string">'*.jar'</span>])</div><div class="line">    <span class="keyword">compile</span> <span class="string">"com.android.support:multidex:1.0.1"</span></div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">SkyHotApplicationLike 里配置</div><div class="line"></div><div class="line">@TargetApi(Build.VERSION_CODES.ICE_CREAM_SANDWICH) </div><div class="line">@Override public void onBaseContextAttached(Context base) &#123;</div><div class="line">	super.onBaseContextAttached(base);</div><div class="line">	// you must install multiDex whatever tinker is installed!</div><div class="line">	MultiDex.install(base);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h3 id="初始化-Tinker"><a href="#初始化-Tinker" class="headerlink" title="初始化 Tinker"></a>初始化 Tinker</h3><ul>
+<li>设置代理类</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">@DefaultLifeCycle(application = &quot;sky.skyhot.AppApplication&quot;, flags = ShareConstants.TINKER_ENABLE_ALL, loadVerifyFlag = false)</div><div class="line">public class SkyHotApplicationLike extends DefaultApplicationLike &#123;</div><div class="line"></div><div class="line">    public SkyHotApplicationLike(Application application, int tinkerFlags, boolean tinkerLoadVerifyFlag, long applicationStartElapsedTime, long applicationStartMillisTime, Intent tinkerResultIntent, Resources[] resources, ClassLoader[] classLoader, AssetManager[] assetManager) &#123;</div><div class="line">        super(application, tinkerFlags, tinkerLoadVerifyFlag, applicationStartElapsedTime, applicationStartMillisTime, tinkerResultIntent, resources, classLoader, assetManager);</div><div class="line">    &#125;</div><div class="line">    //代理类</div><div class="line">    @TargetApi(Build.VERSION_CODES.ICE_CREAM_SANDWICH) public void registerActivityLifecycleCallbacks(Application.ActivityLifecycleCallbacks callback) &#123;</div><div class="line">        getApplication().registerActivityLifecycleCallbacks(callback);</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<ul>
+<li>初始化,这里我采用了自定义初始化，</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line">@DefaultLifeCycle(application = &quot;sky.skyhot.AppApplication&quot;, flags = ShareConstants.TINKER_ENABLE_ALL, loadVerifyFlag = false)</div><div class="line">public class SkyHotApplicationLike extends DefaultApplicationLike &#123;</div><div class="line"></div><div class="line">    public SkyHotApplicationLike(Application application, int tinkerFlags, boolean tinkerLoadVerifyFlag, long applicationStartElapsedTime, long applicationStartMillisTime, Intent tinkerResultIntent, Resources[] resources, ClassLoader[] classLoader, AssetManager[] assetManager) &#123;</div><div class="line">        super(application, tinkerFlags, tinkerLoadVerifyFlag, applicationStartElapsedTime, applicationStartMillisTime, tinkerResultIntent, resources, classLoader, assetManager);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    @TargetApi(Build.VERSION_CODES.ICE_CREAM_SANDWICH) @Override public void onBaseContextAttached(Context base) &#123;</div><div class="line">        super.onBaseContextAttached(base);</div><div class="line"></div><div class="line">        //RepairPatch类是用来修复当前补丁包的处理类, 无需修改</div><div class="line">        AbstractPatch upgradePatchProcessor = new UpgradePatch();//默认方法</div><div class="line">        //UpgradePatch类是用来升级当前补丁包的处理类，无需修改</div><div class="line">        AbstractPatch repairPatchProcessor = new RepairPatch();//默认方法</div><div class="line"></div><div class="line">        TinkerInstaller.install(this,new DefaultLoadReporter(getApplication()),new DefaultPatchReporter(getApplication()),new DefaultPatchListener(getApplication()), SampleResultService.class,upgradePatchProcessor,repairPatchProcessor);</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<ul>
+<li>说明 <code>TinkerInstaller.install</code> 参数说明</li>
+</ul>
+<ol>
+<li><a href="https://github.com/Tencent/tinker/blob/master/tinker-android/tinker-android-lib/src/main/java/com/tencent/tinker/lib/reporter/LoadReporter.java" target="_blank" rel="external">LoadReporter类</a>定义了Tinker在加载补丁时的一些回调，我们为你提供了默认实现<a href="http://git.code.oa.com/wechat-android-dev/tinker/blob/master/tinker-android/tinker-android-lib/src/main/java/com/tencent/tinker/lib/reporter/DefaultLoadReporter.java" target="_blank" rel="external">DefaultLoadReporter.java</a></li>
+<li><a href="https://github.com/Tencent/tinker/blob/master/tinker-android/tinker-android-lib/src/main/java/com/tencent/tinker/lib/reporter/PatchReporter.java" target="_blank" rel="external">PatchReporter类</a>定义了Tinker在修复或者升级补丁时的一些回调，我们为你提供了默认实现<a href="http://git.code.oa.com/wechat-android-dev/tinker/blob/master/tinker-android/tinker-android-lib/src/main/java/com/tencent/tinker/lib/reporter/DefaultPatchReporter.java" target="_blank" rel="external">DefaultPatchReporter.java</a></li>
+<li><a href="https://github.com/Tencent/tinker/blob/master/tinker-android/tinker-android-lib/src/main/java/com/tencent/tinker/lib/listener/PatchListener.java" target="_blank" rel="external">PatchListener类</a>是用来过滤Tinker收到的补丁包的修复、升级请求，也就是决定我们是不是真的要唤起:patch进程去尝试补丁合成。我们为你提供了默认实现<a href="https://github.com/Tencent/tinker/blob/master/tinker-android/tinker-android-lib/src/main/java/com/tencent/tinker/lib/listener/DefaultPatchListener.java" target="_blank" rel="external">DefaultPatchListener.java</a></li>
+</ol>
+<h2 id="打包"><a href="#打包" class="headerlink" title="打包"></a>打包</h2><ul>
+<li>生成新包</li>
+</ul>
+<p><code>Terminal-&gt;gradle clean assembleRelease</code></p>
+<p><img src="https://skyJinc.github.io/images/hotfix/3.png" alt="tu"></p>
+<ul>
+<li>打补丁包</li>
+</ul>
+<p>记得修改 <code>tinker_hot.gradle</code> 路径看看对不对</p>
+<p><code>Terminal-&gt;gradle tinkerPatchRelease</code></p>
+<p><img src="https://skyJinc.github.io/images/hotfix/4.png" alt="tu"></p>
+<p>其中 <code>patch_signed_7zip.apk</code> 是布丁 其他的看官方介绍吧</p>
+<h2 id="测试"><a href="#测试" class="headerlink" title="测试"></a>测试</h2><p>加载布丁: <code>TinkerInstaller.onReceiveUpgradePatch(centext, path);</code></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">项目里添加测试代码</div><div class="line">//小米4 路径是 /storage/emulated/0/patch_signed_7zip.apk</div><div class="line">File file = new File(Environment.getExternalStorageDirectory().getAbsolutePath() + &quot;/patch_signed_7zip.apk&quot;);</div><div class="line">if (file.exists()) &#123;</div><div class="line">	SKYHelper.toast().show(&quot;修复BUG&quot;);</div><div class="line">	TinkerInstaller.onReceiveUpgradePatch(SKYHelper.getInstance(), file.getAbsolutePath());</div><div class="line">&#125; else &#123;</div><div class="line">	SKYHelper.toast().show(&quot;没有文件&quot;);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<ul>
+<li>原始包</li>
+</ul>
+<p><img src="https://skyJinc.github.io/images/hotfix/1.gif" alt="tu"></p>
+<ul>
+<li>往手机里导入补丁包</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">adb push /Users/sky/Downloads/patch_signed_7zip.apk /storage/emulated/0/</div></pre></td></tr></table></figure>
+<p><img src="https://skyJinc.github.io/images/hotfix/2.gif" alt="tu"></p>
+<h2 id="Jenkins配置"><a href="#Jenkins配置" class="headerlink" title="Jenkins配置"></a>Jenkins配置</h2><h3 id="参数化构建-配置命令"><a href="#参数化构建-配置命令" class="headerlink" title="参数化构建 - 配置命令"></a>参数化构建 - 配置命令</h3><p><img src="https://skyJinc.github.io/images/hotfix/8.png" alt="tu"></p>
+<h3 id="参数化构建-添加文件选择"><a href="#参数化构建-添加文件选择" class="headerlink" title="参数化构建 - 添加文件选择"></a>参数化构建 - 添加文件选择</h3><p><img src="https://skyJinc.github.io/images/hotfix/6.png" alt="tu"></p>
+<ul>
+<li>名字要一致</li>
+</ul>
+<p><img src="https://skyJinc.github.io/images/hotfix/7.png" alt="tu"></p>
+<h3 id="构建后输出"><a href="#构建后输出" class="headerlink" title="构建后输出"></a>构建后输出</h3><p><img src="https://skyJinc.github.io/images/hotfix/9.png" alt="tu"></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">app/build/app/**,app/build/outputs/tinkerPatch/debug/patch_signed_7zip.apk,app/build/outputs/tinkerPatch/release/patch_signed_7zip.apk</div></pre></td></tr></table></figure>
+<h3 id="测试-1"><a href="#测试-1" class="headerlink" title="测试"></a>测试</h3><ul>
+<li>打原始包</li>
+</ul>
+<p><img src="https://skyJinc.github.io/images/hotfix/10.png" alt="tu"><br><img src="https://skyJinc.github.io/images/hotfix/11.png" alt="tu"></p>
+<ul>
+<li>打补丁包</li>
+</ul>
+<p><img src="https://skyJinc.github.io/images/hotfix/12.png" alt="tu"><br><img src="https://skyJinc.github.io/images/hotfix/13.png" alt="tu"></p>
+<h2 id="结尾"><a href="#结尾" class="headerlink" title="结尾"></a>结尾</h2><p>最近才有时间继续写文章, 以后更新尽量快一点～～～</p>
+<p>热修复，一直在关注，只是总有问题, 直到微信开源了tinker后，我才写了这篇文章～～</p>
+<p>如果大家对其他热修复开源项目感兴趣,提供一个QQ群: 561394234</p>
+<p>看图片里的名字大家应该不陌生～</p>
+<p><img src="https://skyJinc.github.io/images/hotfix/1.png" alt="tu"></p>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+  <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+    <div>坚持原创技术分享，您的支持将鼓励我继续创作！</div>
+    <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+      <span>赏</span>
+    </button>
+    <div id="QR" style="display: none;">
+      
+      
+        <div id="alipay" style="display: inline-block">
+          <img id="alipay_qr" src="https://raw.githubusercontent.com/skyJinc/skyJinc.github.io/master/images/about/my_zfb.JPG" alt="skyJC Alipay"/>
+          <p>支付宝打赏</p>
+        </div>
+      
+    </div>
+  </div>
+
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/热修复/" rel="tag">#热修复</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2016/10/13/可持续集成(Windows)/" rel="next" title="Windows + Jenkins + Gradle + Git = 可持续集成架构搭建">
+                <i class="fa fa-chevron-left"></i> Windows + Jenkins + Gradle + Git = 可持续集成架构搭建
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div class="ds-thread" data-thread-key="2016/10/20/Android热修复Tinker和Jenkis配置/"
+           data-title="Android热修复Tinker和Jenkis配置" data-url="http://www.jincanshen.com/2016/10/20/Android热修复Tinker和Jenkis配置/">
+      </div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel ">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/my/avatar.jpg"
+               alt="skyJC" />
+          <p class="site-author-name" itemprop="name">skyJC</p>
+          <p class="site-description motion-element" itemprop="description">Android探索的道路，是否愿意陪我一起？</p>
+        </div>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">16</span>
+              <span class="site-state-item-name">日志</span>
+            </a>
+          </div>
+
+          
+            <div class="site-state-item site-state-categories">
+              
+                <span class="site-state-item-count">1</span>
+                <span class="site-state-item-name">分类</span>
+              
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              
+                <span class="site-state-item-count">11</span>
+                <span class="site-state-item-name">标签</span>
+              
+            </div>
+          
+
+        </nav>
+
+        
+          <div class="feed-link motion-element">
+            <a href="/atom.xml" rel="alternate">
+              <i class="fa fa-rss"></i>
+              RSS
+            </a>
+          </div>
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/skyJinc/" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-fw fa-github"></i>
+                  
+                  GitHub
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+
+      </section>
+
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#官方教程"><span class="nav-number">1.</span> <span class="nav-text">官方教程</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Tinker的已知问题"><span class="nav-number">2.</span> <span class="nav-text">Tinker的已知问题</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Tinker-比较"><span class="nav-number">3.</span> <span class="nav-text">Tinker 比较</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#使用到的项目"><span class="nav-number">4.</span> <span class="nav-text">使用到的项目</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#接入Tinker"><span class="nav-number">5.</span> <span class="nav-text">接入Tinker</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#添加Tinker插件依赖"><span class="nav-number">5.1.</span> <span class="nav-text">添加Tinker插件依赖</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#添加Tinker库依赖"><span class="nav-number">5.2.</span> <span class="nav-text">添加Tinker库依赖</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#创建-ApplicationLike"><span class="nav-number">5.3.</span> <span class="nav-text">创建 ApplicationLike</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#创建-TinkerHot-gradle"><span class="nav-number">5.4.</span> <span class="nav-text">创建 TinkerHot.gradle</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#配置-app-build-gradle"><span class="nav-number">5.5.</span> <span class="nav-text">配置 app/build.gradle</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#初始化-Tinker"><span class="nav-number">5.6.</span> <span class="nav-text">初始化 Tinker</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#打包"><span class="nav-number">6.</span> <span class="nav-text">打包</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#测试"><span class="nav-number">7.</span> <span class="nav-text">测试</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Jenkins配置"><span class="nav-number">8.</span> <span class="nav-text">Jenkins配置</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#参数化构建-配置命令"><span class="nav-number">8.1.</span> <span class="nav-text">参数化构建 - 配置命令</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#参数化构建-添加文件选择"><span class="nav-number">8.2.</span> <span class="nav-text">参数化构建 - 添加文件选择</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#构建后输出"><span class="nav-number">8.3.</span> <span class="nav-text">构建后输出</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#测试-1"><span class="nav-number">8.4.</span> <span class="nav-text">测试</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#结尾"><span class="nav-number">9.</span> <span class="nav-text">结尾</span></a></li></ol></div>
+            
+          </div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
+</script>
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2016</span>
+   &nbsp; - &nbsp; 
+  <span class="author">
+    <i class="fa fa-android"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">skyJC</span>  
+</div>
+
+<div class="powered-by">
+  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Mist
+  </a>
+</div>
+<span id="busuanzi_container_site_pv">
+  &nbsp; | &nbsp;本站总访问量 <span id="busuanzi_value_site_pv"></span> 次
+</span>
+
+        
+
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/vendors/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.0.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.0.1"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.0.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.0.1"></script>
+
+
+
+  
+
+  
+    
+  
+
+  <script type="text/javascript">
+    var duoshuoQuery = {short_name:"jincanshen"};
+    (function() {
+      var ds = document.createElement('script');
+      ds.type = 'text/javascript';ds.async = true;
+      ds.id = 'duoshuo-script';
+      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+      ds.charset = 'UTF-8';
+      (document.getElementsByTagName('head')[0]
+      || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+  </script>
+
+  
+    
+    <script src="/vendors/ua-parser-js/dist/ua-parser.min.js?v=0.7.9"></script>
+    <script src="/js/src/hook-duoshuo.js"></script>
+  
+
+
+
+
+
+
+  
+  
+
+  
+
+  
+
+  
+  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.1.js"></script>
+  <script>AV.initialize("Ub5AU6hooUtI4dFRojnFK6Bf-gzGzoHsz", "M68V3yowbmzfADkpMNBgNwxE");</script>
+  <script>
+    function showTime(Counter) {
+      var query = new AV.Query(Counter);
+      var entries = [];
+      var $visitors = $(".leancloud_visitors");
+
+      $visitors.each(function () {
+        entries.push( $(this).attr("id").trim() );
+      });
+
+      query.containedIn('url', entries);
+      query.find()
+        .done(function (results) {
+          var COUNT_CONTAINER_REF = '.leancloud-visitors-count';
+
+          if (results.length === 0) {
+            $visitors.find(COUNT_CONTAINER_REF).text(0);
+            return;
+          }
+
+          for (var i = 0; i < results.length; i++) {
+            var item = results[i];
+            var url = item.get('url');
+            var time = item.get('time');
+            var element = document.getElementById(url);
+
+            $(element).find(COUNT_CONTAINER_REF).text(time);
+          }
+          for(var i = 0; i < entries.length; i++) {
+            var url = entries[i];
+            var element = document.getElementById(url);
+            var countSpan = $(element).find(COUNT_CONTAINER_REF);
+            if( countSpan.text() == '') {
+              countSpan.text(0);
+            }
+          }
+        })
+        .fail(function (object, error) {
+          console.log("Error: " + error.code + " " + error.message);
+        });
+    }
+
+    function addCount(Counter) {
+      var $visitors = $(".leancloud_visitors");
+      var url = $visitors.attr('id').trim();
+      var title = $visitors.attr('data-flag-title').trim();
+      var query = new AV.Query(Counter);
+
+      query.equalTo("url", url);
+      query.find({
+        success: function(results) {
+          if (results.length > 0) {
+            var counter = results[0];
+            counter.fetchWhenSave(true);
+            counter.increment("time");
+            counter.save(null, {
+              success: function(counter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(counter.get('time'));
+              },
+              error: function(counter, error) {
+                console.log('Failed to save Visitor num, with error message: ' + error.message);
+              }
+            });
+          } else {
+            var newcounter = new Counter();
+            /* Set ACL */
+            var acl = new AV.ACL();
+            acl.setPublicReadAccess(true);
+            acl.setPublicWriteAccess(true);
+            newcounter.setACL(acl);
+            /* End Set ACL */
+            newcounter.set("title", title);
+            newcounter.set("url", url);
+            newcounter.set("time", 1);
+            newcounter.save(null, {
+              success: function(newcounter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(newcounter.get('time'));
+              },
+              error: function(newcounter, error) {
+                console.log('Failed to create');
+              }
+            });
+          }
+        },
+        error: function(error) {
+          console.log('Error:' + error.code + " " + error.message);
+        }
+      });
+    }
+
+    $(function() {
+      var Counter = AV.Object.extend("Counter");
+      if ($('.leancloud_visitors').length == 1) {
+        addCount(Counter);
+      } else if ($('.post-title-link').length > 1) {
+        showTime(Counter);
+      }
+    });
+  </script>
+
+
+
+  
+</body>
+</html>
