@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://www.jincanshen.com/"/>
-  <updated>2016-10-19T17:32:34.000Z</updated>
+  <updated>2016-10-19T17:56:45.000Z</updated>
   <id>http://www.jincanshen.com/</id>
   
   <author>
@@ -16,11 +16,11 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>Android热修复(Tinker)和Jenkis配置</title>
-    <link href="http://www.jincanshen.com/2016/10/19/Android%E7%83%AD%E4%BF%AE%E5%A4%8D-Tinker-%E5%92%8CJenkis%E9%85%8D%E7%BD%AE/"/>
-    <id>http://www.jincanshen.com/2016/10/19/Android热修复-Tinker-和Jenkis配置/</id>
+    <title>Android热修复Tinker和Jenkis配置</title>
+    <link href="http://www.jincanshen.com/2016/10/19/Android%E7%83%AD%E4%BF%AE%E5%A4%8DTinker%E5%92%8CJenkis%E9%85%8D%E7%BD%AE/"/>
+    <id>http://www.jincanshen.com/2016/10/19/Android热修复Tinker和Jenkis配置/</id>
     <published>2016-10-19T08:40:50.000Z</published>
-    <updated>2016-10-19T17:32:34.000Z</updated>
+    <updated>2016-10-19T17:56:45.000Z</updated>
     
     <content type="html"><![CDATA[<p>简单来说，在编译时通过新旧两个Dex生成差异patch.dex。</p>
 <p>在运行时，将差异patch.dex重新跟原始安装包的旧Dex替换成新的Dex,过程可能比较耗费时间与内存，所以单独放在一个后台进程中。</p>
