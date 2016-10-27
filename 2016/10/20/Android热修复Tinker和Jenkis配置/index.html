@@ -110,7 +110,7 @@
 <meta property="og:image" content="https://skyJinc.github.io/images/hotfix/12.png">
 <meta property="og:image" content="https://skyJinc.github.io/images/hotfix/13.png">
 <meta property="og:image" content="https://skyJinc.github.io/images/hotfix/1.png">
-<meta property="og:updated_time" content="2016-10-19T18:03:36.000Z">
+<meta property="og:updated_time" content="2016-10-27T07:19:26.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Android热修复Tinker和Jenkis配置">
 <meta name="twitter:description" content="简单来说，在编译时通过新旧两个Dex生成差异patch.dex。
@@ -591,6 +591,42 @@
 </ul>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">adb push /Users/sky/Downloads/patch_signed_7zip.apk /storage/emulated/0/</div></pre></td></tr></table></figure>
 <p><img src="https://skyJinc.github.io/images/hotfix/2.gif" alt="tu"></p>
+<h2 id="错误码"><a href="#错误码" class="headerlink" title="错误码"></a>错误码</h2><table>
+<thead>
+<tr>
+<th>错误码</th>
+<th>数值</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>ERROR_PATCH_DISABLE</td>
+<td>-1</td>
+<td>当前tinkerFlag为不可用状态。</td>
+</tr>
+<tr>
+<td>ERROR_PATCH_NOTEXIST</td>
+<td>-2</td>
+<td>输入的临时补丁包文件不存在。</td>
+</tr>
+<tr>
+<td>ERROR_PATCH_RUNNING</td>
+<td>-3</td>
+<td>当前:patch补丁合成进程正在运行。</td>
+</tr>
+<tr>
+<td>ERROR_PATCH_INSERVICE</td>
+<td>-4</td>
+<td>不能在:patch补丁合成进程，发起补丁的合成请求。</td>
+</tr>
+<tr>
+<td>其他</td>
+<td></td>
+<td>在SamplePatchListener里面，我们还检查了当前Rom剩余空间，最大内存，是否是GooglePlay渠道等条件。</td>
+</tr>
+</tbody>
+</table>
 <h2 id="Jenkins配置"><a href="#Jenkins配置" class="headerlink" title="Jenkins配置"></a>Jenkins配置</h2><h3 id="参数化构建-配置命令"><a href="#参数化构建-配置命令" class="headerlink" title="参数化构建 - 配置命令"></a>参数化构建 - 配置命令</h3><p><img src="https://skyJinc.github.io/images/hotfix/8.png" alt="tu"></p>
 <h3 id="参数化构建-添加文件选择"><a href="#参数化构建-添加文件选择" class="headerlink" title="参数化构建 - 添加文件选择"></a>参数化构建 - 添加文件选择</h3><p><img src="https://skyJinc.github.io/images/hotfix/6.png" alt="tu"></p>
 <ul>
@@ -805,7 +841,7 @@
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#官方教程"><span class="nav-number">1.</span> <span class="nav-text">官方教程</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Tinker的已知问题"><span class="nav-number">2.</span> <span class="nav-text">Tinker的已知问题</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Tinker-比较"><span class="nav-number">3.</span> <span class="nav-text">Tinker 比较</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#使用到的项目"><span class="nav-number">4.</span> <span class="nav-text">使用到的项目</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#接入Tinker"><span class="nav-number">5.</span> <span class="nav-text">接入Tinker</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#添加Tinker插件依赖"><span class="nav-number">5.1.</span> <span class="nav-text">添加Tinker插件依赖</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#添加Tinker库依赖"><span class="nav-number">5.2.</span> <span class="nav-text">添加Tinker库依赖</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#创建-ApplicationLike"><span class="nav-number">5.3.</span> <span class="nav-text">创建 ApplicationLike</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#创建-TinkerHot-gradle"><span class="nav-number">5.4.</span> <span class="nav-text">创建 TinkerHot.gradle</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#配置-app-build-gradle"><span class="nav-number">5.5.</span> <span class="nav-text">配置 app/build.gradle</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#初始化-Tinker"><span class="nav-number">5.6.</span> <span class="nav-text">初始化 Tinker</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#打包"><span class="nav-number">6.</span> <span class="nav-text">打包</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#测试"><span class="nav-number">7.</span> <span class="nav-text">测试</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Jenkins配置"><span class="nav-number">8.</span> <span class="nav-text">Jenkins配置</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#参数化构建-配置命令"><span class="nav-number">8.1.</span> <span class="nav-text">参数化构建 - 配置命令</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#参数化构建-添加文件选择"><span class="nav-number">8.2.</span> <span class="nav-text">参数化构建 - 添加文件选择</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#构建后输出"><span class="nav-number">8.3.</span> <span class="nav-text">构建后输出</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#测试-1"><span class="nav-number">8.4.</span> <span class="nav-text">测试</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#结尾"><span class="nav-number">9.</span> <span class="nav-text">结尾</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#官方教程"><span class="nav-number">1.</span> <span class="nav-text">官方教程</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Tinker的已知问题"><span class="nav-number">2.</span> <span class="nav-text">Tinker的已知问题</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Tinker-比较"><span class="nav-number">3.</span> <span class="nav-text">Tinker 比较</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#使用到的项目"><span class="nav-number">4.</span> <span class="nav-text">使用到的项目</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#接入Tinker"><span class="nav-number">5.</span> <span class="nav-text">接入Tinker</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#添加Tinker插件依赖"><span class="nav-number">5.1.</span> <span class="nav-text">添加Tinker插件依赖</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#添加Tinker库依赖"><span class="nav-number">5.2.</span> <span class="nav-text">添加Tinker库依赖</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#创建-ApplicationLike"><span class="nav-number">5.3.</span> <span class="nav-text">创建 ApplicationLike</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#创建-TinkerHot-gradle"><span class="nav-number">5.4.</span> <span class="nav-text">创建 TinkerHot.gradle</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#配置-app-build-gradle"><span class="nav-number">5.5.</span> <span class="nav-text">配置 app/build.gradle</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#初始化-Tinker"><span class="nav-number">5.6.</span> <span class="nav-text">初始化 Tinker</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#打包"><span class="nav-number">6.</span> <span class="nav-text">打包</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#测试"><span class="nav-number">7.</span> <span class="nav-text">测试</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#错误码"><span class="nav-number">8.</span> <span class="nav-text">错误码</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Jenkins配置"><span class="nav-number">9.</span> <span class="nav-text">Jenkins配置</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#参数化构建-配置命令"><span class="nav-number">9.1.</span> <span class="nav-text">参数化构建 - 配置命令</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#参数化构建-添加文件选择"><span class="nav-number">9.2.</span> <span class="nav-text">参数化构建 - 添加文件选择</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#构建后输出"><span class="nav-number">9.3.</span> <span class="nav-text">构建后输出</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#测试-1"><span class="nav-number">9.4.</span> <span class="nav-text">测试</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#结尾"><span class="nav-number">10.</span> <span class="nav-text">结尾</span></a></li></ol></div>
             
           </div>
         </section>

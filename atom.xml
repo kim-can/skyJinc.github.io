@@ -201,7 +201,7 @@
     <link href="http://www.jincanshen.com/2016/10/20/Android%E7%83%AD%E4%BF%AE%E5%A4%8DTinker%E5%92%8CJenkis%E9%85%8D%E7%BD%AE/"/>
     <id>http://www.jincanshen.com/2016/10/20/Android热修复Tinker和Jenkis配置/</id>
     <published>2016-10-19T18:02:41.000Z</published>
-    <updated>2016-10-19T18:03:36.000Z</updated>
+    <updated>2016-10-27T07:19:26.000Z</updated>
     
     <content type="html"><![CDATA[<p>简单来说，在编译时通过新旧两个Dex生成差异patch.dex。</p>
 <p>在运行时，将差异patch.dex重新跟原始安装包的旧Dex替换成新的Dex,过程可能比较耗费时间与内存，所以单独放在一个后台进程中。</p>
@@ -420,6 +420,42 @@
 </ul>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">adb push /Users/sky/Downloads/patch_signed_7zip.apk /storage/emulated/0/</div></pre></td></tr></table></figure>
 <p><img src="https://skyJinc.github.io/images/hotfix/2.gif" alt="tu"></p>
+<h2 id="错误码"><a href="#错误码" class="headerlink" title="错误码"></a>错误码</h2><table>
+<thead>
+<tr>
+<th>错误码</th>
+<th>数值</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>ERROR_PATCH_DISABLE</td>
+<td>-1</td>
+<td>当前tinkerFlag为不可用状态。</td>
+</tr>
+<tr>
+<td>ERROR_PATCH_NOTEXIST</td>
+<td>-2</td>
+<td>输入的临时补丁包文件不存在。</td>
+</tr>
+<tr>
+<td>ERROR_PATCH_RUNNING</td>
+<td>-3</td>
+<td>当前:patch补丁合成进程正在运行。</td>
+</tr>
+<tr>
+<td>ERROR_PATCH_INSERVICE</td>
+<td>-4</td>
+<td>不能在:patch补丁合成进程，发起补丁的合成请求。</td>
+</tr>
+<tr>
+<td>其他</td>
+<td></td>
+<td>在SamplePatchListener里面，我们还检查了当前Rom剩余空间，最大内存，是否是GooglePlay渠道等条件。</td>
+</tr>
+</tbody>
+</table>
 <h2 id="Jenkins配置"><a href="#Jenkins配置" class="headerlink" title="Jenkins配置"></a>Jenkins配置</h2><h3 id="参数化构建-配置命令"><a href="#参数化构建-配置命令" class="headerlink" title="参数化构建 - 配置命令"></a>参数化构建 - 配置命令</h3><p><img src="https://skyJinc.github.io/images/hotfix/8.png" alt="tu"></p>
 <h3 id="参数化构建-添加文件选择"><a href="#参数化构建-添加文件选择" class="headerlink" title="参数化构建 - 添加文件选择"></a>参数化构建 - 添加文件选择</h3><p><img src="https://skyJinc.github.io/images/hotfix/6.png" alt="tu"></p>
 <ul>
