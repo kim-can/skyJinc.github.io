@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://www.jincanshen.com/"/>
-  <updated>2016-10-26T09:54:42.000Z</updated>
+  <updated>2016-10-27T01:15:32.000Z</updated>
   <id>http://www.jincanshen.com/</id>
   
   <author>
@@ -20,7 +20,7 @@
     <link href="http://www.jincanshen.com/2016/10/25/Android%E5%8F%91%E5%B8%83%E9%A1%B9%E7%9B%AE%E5%88%B0%E4%B8%AD%E5%A4%AE%E4%BB%93%E5%BA%93/"/>
     <id>http://www.jincanshen.com/2016/10/25/Android发布项目到中央仓库/</id>
     <published>2016-10-25T08:46:26.000Z</published>
-    <updated>2016-10-26T09:54:42.000Z</updated>
+    <updated>2016-10-27T01:15:32.000Z</updated>
     
     <content type="html"><![CDATA[<p>本文将通过<a href="https://github.com/skyJinc/sky" target="_blank" rel="external">Sky架构</a>来演示如何将 AAR 包 发布到中央仓库，引用方式官方化…</p>
 <a id="more"></a>
@@ -139,6 +139,14 @@
 <p><a href="https://issues.sonatype.org" target="_blank" rel="external">JIRA地址</a></p>
 <p><img src="https://skyJinc.github.io/images/centermaven/15.png" alt="tu"></p>
 <p><img src="https://skyJinc.github.io/images/centermaven/16.png" alt="tu"></p>
+<ul>
+<li>最后JIRA管理会让你打Release 然后在次进行留言。。当然你可以直接打后留言一次就可以了。。</li>
+</ul>
+<p><img src="https://skyJinc.github.io/images/centermaven/20.png" alt="tu"></p>
+<p><img src="https://skyJinc.github.io/images/centermaven/19.png" alt="tu"></p>
+<ul>
+<li>再次进行留言 就可以了。。。</li>
+</ul>
 <h3 id="结尾"><a href="#结尾" class="headerlink" title="结尾"></a>结尾</h3><p>漫长的等待，如果通过了 会提示 </p>
 <p><img src="https://skyJinc.github.io/images/centermaven/17.png" alt="tu"></p>
 <p>最后可以在你的Android studio 里的 maven仓库里找到你的项目了</p>
