@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://www.jincanshen.com/"/>
-  <updated>2016-10-27T01:15:32.000Z</updated>
+  <updated>2016-10-29T08:37:31.000Z</updated>
   <id>http://www.jincanshen.com/</id>
   
   <author>
@@ -16,11 +16,123 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>Android-Greendao3.0</title>
+    <link href="http://www.jincanshen.com/2016/10/29/Android-greendao3-0/"/>
+    <id>http://www.jincanshen.com/2016/10/29/Android-greendao3-0/</id>
+    <published>2016-10-29T07:17:21.000Z</published>
+    <updated>2016-10-29T08:37:31.000Z</updated>
+    
+    <content type="html"><![CDATA[<p>greenDao2.0 时代的时候 教程太多，所以就没有写..</p>
+<p>现在greenDao3.0了, 而且用法有点变化… 所以简单些一下用法</p>
+<p>关于greenDAO的概念可以看官网<a href="http://greenrobot.org/greendao/" target="_blank" rel="external">greenDAO</a></p>
+<a id="more"></a>
+<p>greenDao是一个将对象映射到SQLite数据库中的轻量且快速的ORM解决方案。</p>
+<h2 id="greenDAO-优势"><a href="#greenDAO-优势" class="headerlink" title="greenDAO 优势"></a>greenDAO 优势</h2><ul>
+<li>一个精简的库</li>
+<li>性能最大化</li>
+<li>内存开销最小化</li>
+<li>易于使用的 APIs</li>
+<li>对 Android 进行高度优化</li>
+</ul>
+<h2 id="greendao-配置"><a href="#greendao-配置" class="headerlink" title="greendao 配置"></a>greendao 配置</h2><ul>
+<li>build.gradle</li>
+</ul>
+<figure class="highlight gradle"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">buildscript</span> &#123;</div><div class="line">    <span class="keyword">repositories</span> &#123;</div><div class="line">        jcenter()</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">dependencies</span> &#123;</div><div class="line">        <span class="keyword">classpath</span> <span class="string">'com.android.tools.build:gradle:2.2.2'</span></div><div class="line">        <span class="comment">//greendao插件</span></div><div class="line">        <span class="keyword">classpath</span> <span class="string">'org.greenrobot:greendao-gradle-plugin:3.2.0'</span></div><div class="line">     &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<ul>
+<li>app/build.gradle</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">apply from: &apos;greendao.gradle&apos;</div><div class="line"></div><div class="line">dependencies &#123;</div><div class="line">	compile &apos;org.greenrobot:greendao:3.2.0&apos;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<ul>
+<li>greendao.gradle</li>
+</ul>
+<figure class="highlight gradle"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">apply plugin: <span class="string">'org.greenrobot.greendao'</span></div><div class="line"></div><div class="line">greendao &#123;</div><div class="line">    <span class="comment">//数据库schema版本，也可以理解为数据库版本号</span></div><div class="line">    schemaVersion <span class="number">1</span></div><div class="line">    <span class="comment">//设置DaoMaster 、DaoSession、Dao包名</span></div><div class="line">    daoPackage <span class="string">'com.sky.db'</span></div><div class="line">    <span class="comment">//设置DaoMaster 、DaoSession、Dao目录</span></div><div class="line">    targetGenDir <span class="string">'src/main/java'</span></div><div class="line">    <span class="comment">//设置生成单元测试目录</span></div><div class="line"><span class="comment">//    targetGenDirTest</span></div><div class="line">    <span class="comment">//设置自动生成单元测试用例</span></div><div class="line"><span class="comment">//    generateTests</span></div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h2 id="greendao-注解"><a href="#greendao-注解" class="headerlink" title="greendao 注解"></a>greendao 注解</h2><h3 id="实体类注解"><a href="#实体类注解" class="headerlink" title="实体类注解"></a>实体类注解</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line">@Entity(</div><div class="line">        schema = &quot;myschema&quot;,</div><div class="line"> </div><div class="line">        active = true,</div><div class="line">         </div><div class="line">        nameInDb = &quot;AWESOME_USERS&quot;,</div><div class="line">         </div><div class="line">        indexes = &#123;</div><div class="line">                @Index(value = &quot;name DESC&quot;, unique = true)</div><div class="line">        &#125;,</div><div class="line">         </div><div class="line">        createInDb = false</div><div class="line">)</div><div class="line">public class User &#123;</div><div class="line">  ...</div></pre></td></tr></table></figure>
+<ul>
+<li><p>schema是一个项目中有多个schema时 标明要让这个dao属于哪个schema</p>
+</li>
+<li><p>active 是标明是否支持实体类之间update，refresh，delete等操作 </p>
+</li>
+<li><p>nameInDb 就是写个存在数据库里的表名（不写默认是一致）</p>
+</li>
+<li><p>indexes 定义索引，这里可跨越多个列</p>
+</li>
+<li><p>CreateInDb 如果是有多个实体都关联这个表，可以把多余的实体里面设置为false避免重复创建（默认是true）</p>
+</li>
+</ul>
+<h3 id="属性注解"><a href="#属性注解" class="headerlink" title="属性注解"></a>属性注解</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div></pre></td><td class="code"><pre><div class="line">@Entity</div><div class="line">public class User &#123;</div><div class="line">    @Id(autoincrement = true)</div><div class="line">    private Long id;</div><div class="line">  </div><div class="line">  	 @Unique</div><div class="line">    @Property(nameInDb = &quot;USERNAME&quot;)</div><div class="line">    private String name;</div><div class="line">  </div><div class="line">    @NotNull</div><div class="line">    private int repos;</div><div class="line">  </div><div class="line">    @Transient</div><div class="line">    private int tempUsageCount;</div><div class="line">    </div><div class="line">    @OrderBy</div><div class="line">    private int updateTime;</div><div class="line">  </div><div class="line">    ...</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<ul>
+<li><p>@Entity 用于标识这是一个需要Greendao帮我们生成代码的bean</p>
+</li>
+<li><p>@Id 标明主键，括号里可以指定是否自增 相当于2.2版本的</p>
+</li>
+<li><p>@Property 用于设置属性在数据库中的列名（默认不写就是保持一致）</p>
+</li>
+<li><p>@NotNull 非空</p>
+</li>
+<li><p>@Transient 标识这个字段是自定义的不会创建到数据库表里</p>
+</li>
+<li><p>@OrderBy 排序 用法<figure class="highlight plain"><figcaption><span>age DESC") List collection ```</span></figcaption><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div></pre></td><td class="code"><pre><div class="line"></div><div class="line"> - @Unique 唯一约束</div><div class="line"></div><div class="line">### 关系注解</div><div class="line"></div><div class="line">#### 一对一</div><div class="line"></div><div class="line"> - @ToOne 是将自己的一个属性与另一个表建立关联</div><div class="line"></div><div class="line">```class</div><div class="line">@Entity</div><div class="line">public class Order &#123;</div><div class="line">    @Id private Long id;</div><div class="line">  </div><div class="line">    private long customerId;</div><div class="line">  </div><div class="line">    @ToOne(joinProperty = &quot;customerId&quot;)</div><div class="line">    private Customer customer;</div><div class="line">&#125;</div><div class="line">  </div><div class="line">@Entity</div><div class="line">public class Customer &#123;</div><div class="line">    @Id private Long id;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+</li>
+</ul>
+<h4 id="多对多-关系比较复杂-拆分出来"><a href="#多对多-关系比较复杂-拆分出来" class="headerlink" title="多对多 关系比较复杂, 拆分出来"></a>多对多 关系比较复杂, 拆分出来</h4><ul>
+<li>@ToMany 的使用场景有些多</li>
+</ul>
+<h5 id="一对多-外键约束"><a href="#一对多-外键约束" class="headerlink" title="一对多 外键约束"></a>一对多 外键约束</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">@Entity</div><div class="line">public class User &#123;</div><div class="line">    @Id private Long id;</div><div class="line">  </div><div class="line">    @ToMany(referencedJoinProperty = &quot;ownerId&quot;)</div><div class="line">    private List&lt;Site&gt; ownedSites;</div><div class="line">&#125;</div><div class="line">  </div><div class="line">@Entity</div><div class="line">public class Site &#123;</div><div class="line">    @Id private Long id;</div><div class="line">    private long ownerId;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h5 id="一对多-关联约束"><a href="#一对多-关联约束" class="headerlink" title="一对多 关联约束"></a>一对多 关联约束</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line">@Entity</div><div class="line">public class User &#123;</div><div class="line">    @Id private Long id;</div><div class="line">    @Unique private String authorTag;</div><div class="line">  </div><div class="line">    @ToMany(joinProperties = &#123;</div><div class="line">            @JoinProperty(name = &quot;authorTag&quot;, referencedName = &quot;ownerTag&quot;)</div><div class="line">    &#125;)</div><div class="line">    private List&lt;Site&gt; ownedSites;</div><div class="line">&#125;</div><div class="line">  </div><div class="line">@Entity</div><div class="line">public class Site &#123;</div><div class="line">    @Id private Long id;</div><div class="line">    @NotNull private String ownerTag;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h5 id="多对多"><a href="#多对多" class="headerlink" title="多对多"></a>多对多</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div></pre></td><td class="code"><pre><div class="line">@Entity</div><div class="line">public class Site &#123;</div><div class="line">    @Id private Long id;</div><div class="line">  </div><div class="line">    @ToMany</div><div class="line">    @JoinEntity(</div><div class="line">            entity = JoinSiteToUser.class,</div><div class="line">            sourceProperty = &quot;siteId&quot;,</div><div class="line">            targetProperty = &quot;userId&quot;</div><div class="line">    )</div><div class="line">    private List&lt;User&gt; authors;</div><div class="line">&#125;</div><div class="line">  </div><div class="line">@Entity</div><div class="line">public class JoinSiteToUser &#123;</div><div class="line">    @Id private Long id;</div><div class="line">    private Long siteId;</div><div class="line">    private Long userId;</div><div class="line">&#125;</div><div class="line">  </div><div class="line">@Entity</div><div class="line">public class User &#123;</div><div class="line">    @Id private Long id;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h3 id="属性转换器-PropertyConverter"><a href="#属性转换器-PropertyConverter" class="headerlink" title="属性转换器 PropertyConverter"></a>属性转换器 PropertyConverter</h3><ul>
+<li><p>这是一个接口，我们使用它可以让实体的属性类型不再局限于原始类型， 可以自定义任何的类型，充分保证了实体的灵活性</p>
+</li>
+<li><p>PropertyConverter<p,d>接口中需要定义两个泛型，意思分别为P：实体中自定义的类型，D：数据库中的类型。</p,d></p>
+</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">public class NoteTypeConverter implements PropertyConverter&lt;NoteType, String&gt; &#123;</div><div class="line">    @Override</div><div class="line">    public NoteType convertToEntityProperty(String databaseValue) &#123;</div><div class="line">        return NoteType.valueOf(databaseValue);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    @Override</div><div class="line">    public String convertToDatabaseValue(NoteType entityProperty) &#123;</div><div class="line">        return entityProperty.name();</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<ul>
+<li>在属性中自定义类型</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">@Convert(converter = NoteTypeConverter.class, columnType = String.class)</div><div class="line">private NoteType type;</div></pre></td></tr></table></figure>
+<ul>
+<li>converter  指定转换类</li>
+<li>columnType 在数据库的属性</li>
+</ul>
+<h2 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h2><ul>
+<li><p>官方推荐的初始化 是在application里，以下官方demo 代码</p>
+</li>
+<li><p>ENCRYPTED 是否加密</p>
+</li>
+<li><p>helper.getEncryptedWritableDb(“super-secret”) 参数是密码</p>
+</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div></pre></td><td class="code"><pre><div class="line">import android.app.Application;</div><div class="line"></div><div class="line">import org.greenrobot.greendao.database.Database;</div><div class="line">import org.greenrobot.greendao.example.DaoMaster.DevOpenHelper;</div><div class="line"></div><div class="line">public class App extends Application &#123;</div><div class="line">    /** A flag to show how easily you can switch from standard SQLite to the encrypted SQLCipher. */</div><div class="line">    public static final boolean ENCRYPTED = true;</div><div class="line"></div><div class="line">    private DaoSession daoSession;</div><div class="line"></div><div class="line">    @Override</div><div class="line">    public void onCreate() &#123;</div><div class="line">        super.onCreate();</div><div class="line"></div><div class="line">        DevOpenHelper helper = new DevOpenHelper(this, ENCRYPTED ? &quot;notes-db-encrypted&quot; : &quot;notes-db&quot;);</div><div class="line">        Database db = ENCRYPTED ? helper.getEncryptedWritableDb(&quot;super-secret&quot;) : helper.getWritableDb();</div><div class="line">        daoSession = new DaoMaster(db).newSession();</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    public DaoSession getDaoSession() &#123;</div><div class="line">        return daoSession;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<ul>
+<li>greenDao3.0支持加密 在3.0.1进行了合并</li>
+</ul>
+<figure class="highlight gradle"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//没合并前gradle引用</span></div><div class="line"><span class="keyword">compile</span> <span class="string">'net.zetetic:android-database-sqlcipher:3.5.2'</span></div></pre></td></tr></table></figure>
+<h2 id="结尾"><a href="#结尾" class="headerlink" title="结尾"></a>结尾</h2><p>使用了官方的demo 所以没有自己建项目,进行图文解说…</p>
+<p><a href="https://github.com/greenrobot/greenDAO/tree/master/examples/DaoExample/src/main" target="_blank" rel="external">demo地址</a></p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;greenDao2.0 时代的时候 教程太多，所以就没有写..&lt;/p&gt;
+&lt;p&gt;现在greenDao3.0了, 而且用法有点变化… 所以简单些一下用法&lt;/p&gt;
+&lt;p&gt;关于greenDAO的概念可以看官网&lt;a href=&quot;http://greenrobot.org/greendao/&quot;&gt;greenDAO&lt;/a&gt;&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="Android" scheme="http://www.jincanshen.com/categories/Android/"/>
+    
+    
+      <category term="数据库" scheme="http://www.jincanshen.com/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/"/>
+    
+  </entry>
+  
+  <entry>
     <title>Android发布项目到中央仓库</title>
     <link href="http://www.jincanshen.com/2016/10/25/Android%E5%8F%91%E5%B8%83%E9%A1%B9%E7%9B%AE%E5%88%B0%E4%B8%AD%E5%A4%AE%E4%BB%93%E5%BA%93/"/>
     <id>http://www.jincanshen.com/2016/10/25/Android发布项目到中央仓库/</id>
     <published>2016-10-25T08:46:26.000Z</published>
-    <updated>2016-10-27T01:15:32.000Z</updated>
+    <updated>2016-10-27T01:27:47.000Z</updated>
     
     <content type="html"><![CDATA[<p>本文将通过<a href="https://github.com/skyJinc/sky" target="_blank" rel="external">Sky架构</a>来演示如何将 AAR 包 发布到中央仓库，引用方式官方化…</p>
 <a id="more"></a>
