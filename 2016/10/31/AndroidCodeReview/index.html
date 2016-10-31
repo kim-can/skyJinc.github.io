@@ -118,7 +118,7 @@ Code Review主要用来在软件工程过程中改进代码质量，通过Code R
 <meta property="og:image" content="https://skyJinc.github.io/images/codereview/11.png">
 <meta property="og:image" content="https://skyJinc.github.io/images/codereview/13.png">
 <meta property="og:image" content="https://skyJinc.github.io/images/codereview/14.png">
-<meta property="og:updated_time" content="2016-10-31T09:25:27.000Z">
+<meta property="og:updated_time" content="2016-10-31T09:31:16.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Android-CodeReview">
 <meta name="twitter:description" content="首先需要知道什么是Code Review和我们使用它的目的是什么。
@@ -397,9 +397,14 @@ Code Review主要用来在软件工程过程中改进代码质量，通过Code R
 </ul>
 <a id="more"></a>
 <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>找了一段时间， 一直没发现好的软件，来进行code review。</p>
-<p>经人介绍，<figure class="highlight plain"><figcaption><span>使用以后 果然不错..操作简单..</span></figcaption><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">主要是这个安装和使用啦... 主要是这个软件的文章太少,写一个比较常用的使用教程 和 安装步骤</div><div class="line"></div><div class="line">## Upsource 安装</div><div class="line"></div><div class="line">[下载地址](https://www.jetbrains.com/upsource/download/)</div><div class="line"></div><div class="line"> - 下载后解压， 里面有一个文件 ```README.txt``` </div><div class="line"></div><div class="line">```file</div><div class="line">Running Upsource</div><div class="line">================</div><div class="line"></div><div class="line"># Usage</div><div class="line"></div><div class="line">## Windows 系统</div><div class="line">Run `&lt;home&gt;\bin\upsource.bat start` from the command line to start Upsource.</div><div class="line"></div><div class="line">On first start the welcome page will open in the default browser.</div><div class="line"></div><div class="line">## Linux 和 mac 系统</div><div class="line"></div><div class="line">Run `&lt;home&gt;/bin/upsource.sh start` from the command line to start Upsource.</div><div class="line">Run `&lt;home&gt;/bin/upsource.sh stop` to stop it.</div><div class="line"></div><div class="line"># Default credentials</div><div class="line"></div><div class="line">Login: admin</div><div class="line">Password: admin</div><div class="line"></div><div class="line"># Installation and administration guide</div><div class="line"></div><div class="line">https://www.jetbrains.com/help/upsource/3.5</div></pre></td></tr></table></figure></p>
+<p>经人介绍，Upsource 使用以后 果然不错..操作简单..</p>
+<p>主要是这个安装和使用，这个软件的文章太少,写一个比较常用的使用教程 和 安装步骤</p>
+<h2 id="Upsource-安装"><a href="#Upsource-安装" class="headerlink" title="Upsource 安装"></a>Upsource 安装</h2><p><a href="https://www.jetbrains.com/upsource/download/" target="_blank" rel="external">下载地址</a></p>
 <ul>
-<li>执行 <code>&lt;home&gt;\bin\upsource.bat start</code> 后会自动弹出初始化页面</li>
+<li><p>下载后解压， 里面有一个文件 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">```file</div><div class="line">Running Upsource</div><div class="line">================</div><div class="line"></div><div class="line"># Usage</div><div class="line"></div><div class="line">## Windows 系统</div><div class="line">Run `&lt;home&gt;\bin\upsource.bat start` from the command line to start Upsource.</div><div class="line"></div><div class="line">On first start the welcome page will open in the default browser.</div><div class="line"></div><div class="line">## Linux 和 mac 系统</div><div class="line"></div><div class="line">Run `&lt;home&gt;/bin/upsource.sh start` from the command line to start Upsource.</div><div class="line">Run `&lt;home&gt;/bin/upsource.sh stop` to stop it.</div><div class="line"></div><div class="line"># Default credentials</div><div class="line"></div><div class="line">Login: admin</div><div class="line">Password: admin</div><div class="line"></div><div class="line"># Installation and administration guide</div><div class="line"></div><div class="line">https://www.jetbrains.com/help/upsource/3.5</div></pre></td></tr></table></figure></p>
+</li>
+<li><p>执行 <code>&lt;home&gt;\bin\upsource.bat start</code> 后会自动弹出初始化页面</p>
+</li>
 </ul>
 <p><img src="https://skyJinc.github.io/images/codereview/1.png" alt="tu"><br><img src="https://skyJinc.github.io/images/codereview/2.png" alt="tu"><br><img src="https://skyJinc.github.io/images/codereview/3.png" alt="tu"></p>
 <h2 id="Upsource-使用"><a href="#Upsource-使用" class="headerlink" title="Upsource 使用"></a>Upsource 使用</h2><ul>
@@ -419,15 +424,15 @@ Code Review主要用来在软件工程过程中改进代码质量，通过Code R
 <p><img src="https://skyJinc.github.io/images/codereview/7.png" alt="tu"></p>
 <p>注:点进去可以看到你的项目 所有git提交的代码, 这个时候就可以进行每一次提交是否审核了..</p>
 <ul>
-<li>一般我们都是切出来分之开发…所以切出来分之以后 对这个分之进行全部codereview</li>
+<li>一般我们都是切出来分支开发…所以切出来分支以后 对这个分支进行全部codereview</li>
 </ul>
 <p><img src="https://skyJinc.github.io/images/codereview/8.png" alt="tu"></p>
 <ul>
-<li>选择一个分之</li>
+<li>选择一个分支</li>
 </ul>
 <p><img src="https://skyJinc.github.io/images/codereview/9.png" alt="tu"></p>
 <ul>
-<li>创建分之review</li>
+<li>创建分支review</li>
 </ul>
 <p><img src="https://skyJinc.github.io/images/codereview/10.png" alt="tu"></p>
 <ul>
@@ -446,7 +451,7 @@ Code Review主要用来在软件工程过程中改进代码质量，通过Code R
 </ul>
 <p><img src="https://skyJinc.github.io/images/codereview/13.png" alt="tu"></p>
 <ul>
-<li>当分之 都是 <code>review completed</code> 状态的时候 可以合并到master上了..如果不是，继续修改吧….</li>
+<li>当分支 都是 <code>review completed</code> 状态的时候 可以合并到master上了..如果不是，继续修改吧….</li>
 </ul>
 <p><img src="https://skyJinc.github.io/images/codereview/14.png" alt="tu"></p>
 <h2 id="结尾"><a href="#结尾" class="headerlink" title="结尾"></a>结尾</h2><p>只是简单的说明了使用方式,里面还有很多好玩的,可以自己去探索吧。。</p>
@@ -639,7 +644,7 @@ Code Review主要用来在软件工程过程中改进代码质量，通过Code R
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#前言"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Upsource-使用"><span class="nav-number">2.</span> <span class="nav-text">Upsource 使用</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#结尾"><span class="nav-number">3.</span> <span class="nav-text">结尾</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#前言"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Upsource-安装"><span class="nav-number">2.</span> <span class="nav-text">Upsource 安装</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Upsource-使用"><span class="nav-number">3.</span> <span class="nav-text">Upsource 使用</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#结尾"><span class="nav-number">4.</span> <span class="nav-text">结尾</span></a></li></ol></div>
             
           </div>
         </section>
