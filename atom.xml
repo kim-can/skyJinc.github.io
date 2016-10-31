@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://www.jincanshen.com/"/>
-  <updated>2016-10-31T09:31:16.000Z</updated>
+  <updated>2016-10-31T09:35:06.000Z</updated>
   <id>http://www.jincanshen.com/</id>
   
   <author>
@@ -20,7 +20,7 @@
     <link href="http://www.jincanshen.com/2016/10/31/AndroidCodeReview/"/>
     <id>http://www.jincanshen.com/2016/10/31/AndroidCodeReview/</id>
     <published>2016-10-31T07:08:34.000Z</published>
-    <updated>2016-10-31T09:31:16.000Z</updated>
+    <updated>2016-10-31T09:35:06.000Z</updated>
     
     <content type="html"><![CDATA[<p>首先需要知道什么是Code Review和我们使用它的目的是什么。</p>
 <p>Code Review是一种用来确认方案设计和代码实现的质量保证机制，通过这个机制我们可以对代码，测试过程和注释进行检查。</p>
@@ -37,10 +37,11 @@
 <p>主要是这个安装和使用，这个软件的文章太少,写一个比较常用的使用教程 和 安装步骤</p>
 <h2 id="Upsource-安装"><a href="#Upsource-安装" class="headerlink" title="Upsource 安装"></a>Upsource 安装</h2><p><a href="https://www.jetbrains.com/upsource/download/" target="_blank" rel="external">下载地址</a></p>
 <ul>
-<li><p>下载后解压， 里面有一个文件 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">```file</div><div class="line">Running Upsource</div><div class="line">================</div><div class="line"></div><div class="line"># Usage</div><div class="line"></div><div class="line">## Windows 系统</div><div class="line">Run `&lt;home&gt;\bin\upsource.bat start` from the command line to start Upsource.</div><div class="line"></div><div class="line">On first start the welcome page will open in the default browser.</div><div class="line"></div><div class="line">## Linux 和 mac 系统</div><div class="line"></div><div class="line">Run `&lt;home&gt;/bin/upsource.sh start` from the command line to start Upsource.</div><div class="line">Run `&lt;home&gt;/bin/upsource.sh stop` to stop it.</div><div class="line"></div><div class="line"># Default credentials</div><div class="line"></div><div class="line">Login: admin</div><div class="line">Password: admin</div><div class="line"></div><div class="line"># Installation and administration guide</div><div class="line"></div><div class="line">https://www.jetbrains.com/help/upsource/3.5</div></pre></td></tr></table></figure></p>
-</li>
-<li><p>执行 <code>&lt;home&gt;\bin\upsource.bat start</code> 后会自动弹出初始化页面</p>
-</li>
+<li>下载后解压， 里面有一个文件 <code>README.txt</code></li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div></pre></td><td class="code"><pre><div class="line">Running Upsource</div><div class="line">================</div><div class="line"></div><div class="line"># Usage</div><div class="line"></div><div class="line">## Windows 系统</div><div class="line">Run `&lt;home&gt;\bin\upsource.bat start` from the command line to start Upsource.</div><div class="line"></div><div class="line">On first start the welcome page will open in the default browser.</div><div class="line"></div><div class="line">## Linux 和 mac 系统</div><div class="line"></div><div class="line">Run `&lt;home&gt;/bin/upsource.sh start` from the command line to start Upsource.</div><div class="line">Run `&lt;home&gt;/bin/upsource.sh stop` to stop it.</div><div class="line"></div><div class="line"># Default credentials</div><div class="line"></div><div class="line">Login: admin</div><div class="line">Password: admin</div><div class="line"></div><div class="line"># Installation and administration guide</div><div class="line"></div><div class="line">https://www.jetbrains.com/help/upsource/3.5</div></pre></td></tr></table></figure>
+<ul>
+<li>执行 <code>&lt;home&gt;\bin\upsource.bat start</code> 后会自动弹出初始化页面</li>
 </ul>
 <p><img src="https://skyJinc.github.io/images/codereview/1.png" alt="tu"><br><img src="https://skyJinc.github.io/images/codereview/2.png" alt="tu"><br><img src="https://skyJinc.github.io/images/codereview/3.png" alt="tu"></p>
 <h2 id="Upsource-使用"><a href="#Upsource-使用" class="headerlink" title="Upsource 使用"></a>Upsource 使用</h2><ul>
