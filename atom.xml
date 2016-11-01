@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://www.jincanshen.com/"/>
-  <updated>2016-10-31T09:35:06.000Z</updated>
+  <updated>2016-11-01T09:10:07.000Z</updated>
   <id>http://www.jincanshen.com/</id>
   
   <author>
@@ -14,6 +14,104 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>VPN之Bandwagon和Shadowsockes</title>
+    <link href="http://www.jincanshen.com/2016/11/01/VPN%E4%B9%8BBanwagon%E5%92%8CShadowsockes/"/>
+    <id>http://www.jincanshen.com/2016/11/01/VPN之Banwagon和Shadowsockes/</id>
+    <published>2016-11-01T08:30:45.000Z</published>
+    <updated>2016-11-01T09:10:07.000Z</updated>
+    
+    <content type="html"><![CDATA[<p>买了很多国内的VPN，刚开始翻墙的时候挺好用，过段时间，基本用不了。</p>
+<p>而且国外网站，尤其是视频网站根本不能播放，而且你还要不停的切换站点, 已经烦透了… 所以一气之下，我买了VPS，自己搭建服务器，然后安装VPN后我自己链接…嗯。。。速度很快~~~ 哈哈哈哈</p>
+<p>下面是教程，需要花点美金.. 大概1年最便宜的130RMB++ </p>
+<p>有支付宝的可以直接拿支付宝支付~</p>
+<a id="more"></a>
+<h2 id="Bandwagon-购买"><a href="#Bandwagon-购买" class="headerlink" title="Bandwagon 购买"></a>Bandwagon 购买</h2><p><a href="https://bwh1.net/cart.php" target="_blank" rel="external">访问地址</a></p>
+<ul>
+<li><p>选择套餐</p>
+</li>
+<li><p>设置要购买的时间 和 服务器 (默认是旧金山数据服务中心)，支持更换机房</p>
+</li>
+</ul>
+<p><img src="https://skyJinc.github.io/images/vpn/1.png" alt="tu"></p>
+<ul>
+<li>确认选择</li>
+</ul>
+<p><img src="https://skyJinc.github.io/images/vpn/2.png" alt="tu"></p>
+<ul>
+<li>如果你没注册登录，这里可以直接填写信息，注册并登录</li>
+</ul>
+<p><img src="https://skyJinc.github.io/images/vpn/3.png" alt="tu"></p>
+<ul>
+<li>记得选择 支付宝 支付</li>
+</ul>
+<p><img src="https://skyJinc.github.io/images/vpn/4.png" alt="tu"></p>
+<ul>
+<li>支付页面</li>
+</ul>
+<p><img src="https://skyJinc.github.io/images/vpn/5.png" alt="tu"></p>
+<p><img src="https://skyJinc.github.io/images/vpn/6.png" alt="tu"></p>
+<ul>
+<li>支付成功以后 查看自己的服务器，选择 KiwiVM 来管理</li>
+</ul>
+<p><img src="https://skyJinc.github.io/images/vpn/7.png" alt="tu"></p>
+<ul>
+<li>关闭当前正在运行的系统，</li>
+</ul>
+<p><img src="https://skyJinc.github.io/images/vpn/8.png" alt="tu"></p>
+<ul>
+<li>选择菜单 install new OS 安装下面选中的系统</li>
+</ul>
+<p><img src="https://skyJinc.github.io/images/vpn/9.png" alt="tu"></p>
+<ul>
+<li>安装完毕以后，点击Shadowsocks 进行安装</li>
+</ul>
+<p><img src="https://skyJinc.github.io/images/vpn/10.png" alt="tu"></p>
+<ul>
+<li>安装完毕后会出现下图这些信息，一会儿要用到…</li>
+</ul>
+<p><img src="https://skyJinc.github.io/images/vpn/11.png" alt="tu"></p>
+<h2 id="Shadowsocks"><a href="#Shadowsocks" class="headerlink" title="Shadowsocks"></a>Shadowsocks</h2><p><a href="https://github.com/shadowsocks/shadowsocks-iOS/releases/download/2.6.3/ShadowsocksX-2.6.3.dmg" target="_blank" rel="external">GIT下载地址</a></p>
+<p><a href="http://pan.baidu.com/s/1qYMURXa" target="_blank" rel="external">百度网盘下载地址</a></p>
+<ul>
+<li>mac 安装后右上角会出现</li>
+</ul>
+<p><img src="https://skyJinc.github.io/images/vpn/12.png" alt="tu"></p>
+<ul>
+<li>打开配置页面</li>
+</ul>
+<p><img src="https://skyJinc.github.io/images/vpn/13.png" alt="tu"></p>
+<ul>
+<li>配置服务器地址，就是上面最后一步的那些信息</li>
+</ul>
+<p><img src="https://skyJinc.github.io/images/vpn/14.png" alt="tu"></p>
+<ul>
+<li>选择配置好的IP地址，并打开Shadowsockes</li>
+</ul>
+<p><img src="https://skyJinc.github.io/images/vpn/15.png" alt="tu"></p>
+<h2 id="结尾"><a href="#结尾" class="headerlink" title="结尾"></a>结尾</h2><p>好了，都配置完了 访问以下这些需要翻墙的网站吧</p>
+<p><a href="https://www.google.com/" target="_blank" rel="external">Google</a></p>
+<p><a href="https://www.youtube.com/" target="_blank" rel="external">YouTube</a></p>
+<p>手机也可以配置，<code>Shadowsockes</code> 这款软件手机appstore也有~~安装后配置地址和端口，就好了。。。</p>
+<p>以后再也不会担心翻墙问题了。。</p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;买了很多国内的VPN，刚开始翻墙的时候挺好用，过段时间，基本用不了。&lt;/p&gt;
+&lt;p&gt;而且国外网站，尤其是视频网站根本不能播放，而且你还要不停的切换站点, 已经烦透了… 所以一气之下，我买了VPS，自己搭建服务器，然后安装VPN后我自己链接…嗯。。。速度很快~~~ 哈哈哈哈&lt;/p&gt;
+&lt;p&gt;下面是教程，需要花点美金.. 大概1年最便宜的130RMB++ &lt;/p&gt;
+&lt;p&gt;有支付宝的可以直接拿支付宝支付~&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="VPN" scheme="http://www.jincanshen.com/categories/VPN/"/>
+    
+    
+      <category term="VPN,VPS" scheme="http://www.jincanshen.com/tags/VPN-VPS/"/>
+    
+  </entry>
   
   <entry>
     <title>Android-CodeReview</title>
@@ -3469,77 +3567,6 @@ reveal.start();
     
     
       <category term="UI" scheme="http://www.jincanshen.com/tags/UI/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Android的大神们</title>
-    <link href="http://www.jincanshen.com/2016/01/01/Android%E7%9A%84%E5%A4%A7%E7%A5%9E%E4%BB%AC/"/>
-    <id>http://www.jincanshen.com/2016/01/01/Android的大神们/</id>
-    <published>2016-01-01T08:45:00.000Z</published>
-    <updated>2016-09-26T13:22:05.000Z</updated>
-    
-    <content type="html"><![CDATA[<h3 id="Google"><a href="#Google" class="headerlink" title="Google"></a><a href="https://github.com/google" target="_blank" rel="external">Google</a></h3><p><img src="https://avatars0.githubusercontent.com/u/1342004?v=3&amp;s=188" alt="">  </p>
-<p>google在github上面开源了很多android库应用，尤其是<a href="https://github.com/googlesamples" target="_blank" rel="external">googleSamples</a>,展示了Android最新的示例。</p>
-<a id="more"></a>
-<h3 id="Jake-Wharton"><a href="#Jake-Wharton" class="headerlink" title="Jake Wharton"></a><a href="https://github.com/JakeWharton" target="_blank" rel="external">Jake Wharton</a></h3><p><img src="https://avatars0.githubusercontent.com/u/66577?v=3&amp;s=188" alt="">  </p>
-<p>就职于Square,Andriod大神(Android开发，必定认识此君).擅长Android版本兼容，<a href="https://github.com/JakeWharton/ActionBarSherlock" target="_blank" rel="external">ActionBarSherlock</a>,<a href="https://github.com/JakeWharton/NineOldAndroids" target="_blank" rel="external">NineOldAndroids</a>都已经被收录到android库中。而且参与了很多其他开源项目，非常活跃。</p>
-<p><strong>masterpiece</strong>:  </p>
-<ul>
-<li><a href="https://github.com/JakeWharton/ActionBarSherlock" target="_blank" rel="external">ActionBarSherlock</a> <br></li>
-<li><a href="https://github.com/JakeWharton/NineOldAndroids" target="_blank" rel="external">NineOldAndroids</a><br></li>
-<li><a href="https://github.com/JakeWharton/ViewPagerIndicator" target="_blank" rel="external">ViewPagerIndicator</a><br></li>
-<li><a href="https://github.com/JakeWharton/butterknife" target="_blank" rel="external">butterknife</a><br></li>
-<li><a href="https://github.com/JakeWharton/DiskLruCache" target="_blank" rel="external">DiskLruCache</a><br></li>
-<li><a href="https://github.com/JakeWharton/u2020" target="_blank" rel="external">u2020</a><br></li>
-<li><a href="https://github.com/JakeWharton/RxBinding" target="_blank" rel="external">RxBinding</a><br></li>
-<li><a href="https://github.com/JakeWharton/pidcat" target="_blank" rel="external">pidcat</a><br><br>…</li>
-</ul>
-<h3 id="Chris-Banes"><a href="#Chris-Banes" class="headerlink" title="Chris Banes"></a><a href="https://github.com/chrisbanes" target="_blank" rel="external">Chris Banes</a></h3><p><img src="https://avatars1.githubusercontent.com/u/227486?v=3&amp;s=188" alt="">  </p>
-<p>目前就职于Google,和Jake Wharton遥相呼应，对开源项目贡献也很多。很多项目都是精品，并且紧跟潮流，<a href="https://github.com/chrisbanes/cheesesquare" target="_blank" rel="external">cheesesquare</a>就是Android Design library最新的demo.</p>
-<p><strong>masterpiece</strong>:  </p>
-<ul>
-<li><a href="https://github.com/chrisbanes/Android-PullToRefresh" target="_blank" rel="external">Android-PullToRefresh</a> <br></li>
-<li><a href="https://github.com/chrisbanes/ActionBar-PullToRefresh" target="_blank" rel="external">ActionBar-PullToRefresh</a> <br></li>
-<li><a href="https://github.com/chrisbanes/PhotoView" target="_blank" rel="external">PhotoView</a> <br></li>
-<li><a href="https://github.com/chrisbanes/cheesesquare" target="_blank" rel="external">cheesesquare</a> <br></li>
-<li><a href="https://github.com/chrisbanes/philm" target="_blank" rel="external">philm</a> <br></li>
-<li><a href="https://github.com/chrisbanes/gradle-mvn-push" target="_blank" rel="external">gradle-mvn-push</a> <br></li>
-<li><a href="https://github.com/chrisbanes/photup" target="_blank" rel="external">photup</a> <br><br>…</li>
-</ul>
-<h3 id="Mark-Murphy"><a href="#Mark-Murphy" class="headerlink" title="Mark Murphy"></a><a href="https://github.com/commonsguy" target="_blank" rel="external">Mark Murphy</a></h3><p><img src="https://avatars0.githubusercontent.com/u/103772?v=3&amp;s=188" alt=""></p>
-<p>与前两位相比，Mark Murphy则是专注于写了一本<a href="https://commonsware.com/Android/" target="_blank" rel="external">The Busy Coder’s Guide to Android Development</a>,全面介绍了Android.而且在开源项目也贡献很多。</p>
-<p><strong>masterpiece</strong>:  </p>
-<ul>
-<li><a href="https://github.com/commonsguy/cw-omnibus" target="_blank" rel="external">cw-omnibus</a></li>
-<li><a href="https://github.com/commonsguy/cw-advandroid" target="_blank" rel="external">cw-advandroid</a>  </li>
-<li><a href="https://github.com/commonsguy/cw-android" target="_blank" rel="external">cw-android</a>  </li>
-<li><a href="https://github.com/commonsguy/cwac-camera" target="_blank" rel="external">cwac-camera</a><br>…</li>
-</ul>
-<h3 id="Sergey-Tarasevich"><a href="#Sergey-Tarasevich" class="headerlink" title="Sergey Tarasevich"></a><a href="https://github.com/nostra13" target="_blank" rel="external">Sergey Tarasevich</a></h3><p><img src="https://avatars3.githubusercontent.com/u/1223348?v=3&amp;s=188" alt=""></p>
-<p>这位大神大家可能不熟悉，不过他的<a href="https://github.com/nostra13/Android-Universal-Image-Loader" target="_blank" rel="external">UIL</a>图片缓存和加载框架再熟悉不过了。<br>目前这个库还是很活跃，一直在进步。</p>
-<p><strong>masterpiece</strong>:  </p>
-<ul>
-<li><a href="https://github.com/nostra13/Android-Universal-Image-Loader" target="_blank" rel="external">Android-Universal-Image-Loader</a></li>
-</ul>
-<h3 id="Koushik-Dutta"><a href="#Koushik-Dutta" class="headerlink" title="Koushik Dutta"></a><a href="https://github.com/koush" target="_blank" rel="external">Koushik Dutta</a></h3><p><img src="https://avatars3.githubusercontent.com/u/73924?v=3&amp;s=188" alt=""></p>
-<p>就职于ClockworkMod，这位大神也有个图片加载框架，还包含了异步网络请求,<a href="https://github.com/koush/ion" target="_blank" rel="external">ion</a>。</p>
-<blockquote>
-<p>另外对<a href="https://github.com/CyanogenMod" target="_blank" rel="external">https://github.com/CyanogenMod</a> 的开源项目有很多贡献<br>from <a href="https://github.com/Trinea/android-open-project" target="_blank" rel="external">https://github.com/Trinea/android-open-project</a></p>
-</blockquote>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;h3 id=&quot;Google&quot;&gt;&lt;a href=&quot;#Google&quot; class=&quot;headerlink&quot; title=&quot;Google&quot;&gt;&lt;/a&gt;&lt;a href=&quot;https://github.com/google&quot;&gt;Google&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;&lt;img src=&quot;https://avatars0.githubusercontent.com/u/1342004?v=3&amp;amp;s=188&quot; alt=&quot;&quot;&gt;  &lt;/p&gt;
-&lt;p&gt;google在github上面开源了很多android库应用，尤其是&lt;a href=&quot;https://github.com/googlesamples&quot;&gt;googleSamples&lt;/a&gt;,展示了Android最新的示例。&lt;/p&gt;
-    
-    </summary>
-    
-      <category term="Android" scheme="http://www.jincanshen.com/categories/Android/"/>
-    
-    
-      <category term="大神博客" scheme="http://www.jincanshen.com/tags/%E5%A4%A7%E7%A5%9E%E5%8D%9A%E5%AE%A2/"/>
     
   </entry>
   
