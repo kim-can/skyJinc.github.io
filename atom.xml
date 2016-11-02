@@ -119,7 +119,7 @@
     <link href="http://www.jincanshen.com/2016/10/31/AndroidCodeReview/"/>
     <id>http://www.jincanshen.com/2016/10/31/AndroidCodeReview/</id>
     <published>2016-10-31T07:08:34.000Z</published>
-    <updated>2016-10-31T09:35:06.000Z</updated>
+    <updated>2016-11-02T07:22:39.000Z</updated>
     
     <content type="html"><![CDATA[<p>首先需要知道什么是Code Review和我们使用它的目的是什么。</p>
 <p>Code Review是一种用来确认方案设计和代码实现的质量保证机制，通过这个机制我们可以对代码，测试过程和注释进行检查。</p>
@@ -190,6 +190,17 @@
 <li>当分支 都是 <code>review completed</code> 状态的时候 可以合并到master上了..如果不是，继续修改吧….</li>
 </ul>
 <p><img src="https://skyJinc.github.io/images/codereview/14.png" alt="tu"></p>
+<h2 id="修改地址"><a href="#修改地址" class="headerlink" title="修改地址"></a>修改地址</h2><p>想局域网内的小伙伴们，都能够访问你搭建的服务器，需要修改地址才可以</p>
+<ul>
+<li>我的本地端口号 <code>8080</code></li>
+</ul>
+<ul>
+<li>我的本地IP地址 <code>10.71.172.215</code></li>
+</ul>
+<ul>
+<li>执行以下命令</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">1. &lt;home&gt;/bin/upsource.sh stop</div><div class="line">2. &lt;home&gt;/bin/upsource.sh configure --listen-port 8080 --base-url http://10.71.172.215:8080</div><div class="line">3. &lt;home&gt;/bin/upsource.sh start</div></pre></td></tr></table></figure>
 <h2 id="结尾"><a href="#结尾" class="headerlink" title="结尾"></a>结尾</h2><p>只是简单的说明了使用方式,里面还有很多好玩的,可以自己去探索吧。。</p>
 ]]></content>
     
