@@ -1,0 +1,1255 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/vendors/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="打包方式," />
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="skyJC" type="application/atom+xml" />
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.0.1" />
+
+
+
+
+
+
+<meta name="description" content="首先我说明一下什么是多渠道打包？
+国内存在着众多的Android应用市场，为了统计不同安卓应用市场的下载量一个个性化统计需求，需要为每个应用市场的Android包设定一个可以区分应用市场的标识，这个为Android包设定应用市场标识的过程就是多渠道打包。
+废话介绍…忽略吧… 主要看内容">
+<meta property="og:type" content="article">
+<meta property="og:title" content="多渠道打包方式">
+<meta property="og:url" content="http://www.jincanshen.com/2016/09/10/多渠道打包方式/index.html">
+<meta property="og:site_name" content="skyJC">
+<meta property="og:description" content="首先我说明一下什么是多渠道打包？
+国内存在着众多的Android应用市场，为了统计不同安卓应用市场的下载量一个个性化统计需求，需要为每个应用市场的Android包设定一个可以区分应用市场的标识，这个为Android包设定应用市场标识的过程就是多渠道打包。
+废话介绍…忽略吧… 主要看内容">
+<meta property="og:image" content="https://skyJinc.github.io/images/android多渠道打包/1.png">
+<meta property="og:image" content="https://skyJinc.github.io/images/android多渠道打包/2.png">
+<meta property="og:image" content="https://skyJinc.github.io/images/android多渠道打包/4.png">
+<meta property="og:image" content="https://skyJinc.github.io/images/android多渠道打包/5.png">
+<meta property="og:image" content="https://skyJinc.github.io/images/android多渠道打包/3.png">
+<meta property="og:image" content="https://skyJinc.github.io/images/android多渠道打包/7.png">
+<meta property="og:image" content="https://skyJinc.github.io/images/android多渠道打包/8.png">
+<meta property="og:image" content="https://skyJinc.github.io/images/android多渠道打包/9.png">
+<meta property="og:image" content="https://skyJinc.github.io/images/android多渠道打包/18.png">
+<meta property="og:image" content="https://skyJinc.github.io/images/android多渠道打包/17.png">
+<meta property="og:image" content="https://skyJinc.github.io/images/android多渠道打包/19.png">
+<meta property="og:image" content="https://skyJinc.github.io/images/android多渠道打包/20.png">
+<meta property="og:image" content="https://skyJinc.github.io/images/android多渠道打包/10.png">
+<meta property="og:image" content="https://skyJinc.github.io/images/android多渠道打包/11.png">
+<meta property="og:image" content="https://skyJinc.github.io/images/android多渠道打包/12.png">
+<meta property="og:image" content="https://skyJinc.github.io/images/android多渠道打包/13.png">
+<meta property="og:image" content="https://skyJinc.github.io/images/android多渠道打包/14.png">
+<meta property="og:image" content="https://skyJinc.github.io/images/android多渠道打包/15.png">
+<meta property="og:image" content="https://skyJinc.github.io/images/android多渠道打包/21.png">
+<meta property="og:image" content="https://skyJinc.github.io/images/android多渠道打包/22.png">
+<meta property="og:image" content="https://skyJinc.github.io/images/android多渠道打包/23.png">
+<meta property="og:image" content="https://skyJinc.github.io/images/android多渠道打包/24.png">
+<meta property="og:image" content="https://skyJinc.github.io/images/android多渠道打包/25.png">
+<meta property="og:image" content="https://skyJinc.github.io/images/android多渠道打包/26.png">
+<meta property="og:image" content="https://skyJinc.github.io/images/android多渠道打包/27.png">
+<meta property="og:image" content="https://skyJinc.github.io/images/android多渠道打包/28.png">
+<meta property="og:image" content="https://skyJinc.github.io/images/android多渠道打包/29.png">
+<meta property="og:image" content="https://skyJinc.github.io/images/android多渠道打包/30.png">
+<meta property="og:image" content="https://skyJinc.github.io/images/android多渠道打包/32.png">
+<meta property="og:image" content="https://skyJinc.github.io/images/android多渠道打包/31.png">
+<meta property="og:image" content="https://skyJinc.github.io/images/android多渠道打包/33.png">
+<meta property="og:image" content="https://skyJinc.github.io/images/android多渠道打包/34.png">
+<meta property="og:image" content="https://skyJinc.github.io/images/android多渠道打包/37.png">
+<meta property="og:image" content="https://skyJinc.github.io/images/android多渠道打包/35.png">
+<meta property="og:image" content="https://skyJinc.github.io/images/android多渠道打包/36.png">
+<meta property="og:image" content="https://skyJinc.github.io/images/android多渠道打包/38.png">
+<meta property="og:image" content="https://skyJinc.github.io/images/android多渠道打包/39.png">
+<meta property="og:image" content="https://skyJinc.github.io/images/android多渠道打包/40.png">
+<meta property="og:updated_time" content="2016-09-26T13:21:08.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="多渠道打包方式">
+<meta name="twitter:description" content="首先我说明一下什么是多渠道打包？
+国内存在着众多的Android应用市场，为了统计不同安卓应用市场的下载量一个个性化统计需求，需要为每个应用市场的Android包设定一个可以区分应用市场的标识，这个为Android包设定应用市场标识的过程就是多渠道打包。
+废话介绍…忽略吧… 主要看内容">
+<meta name="twitter:image" content="https://skyJinc.github.io/images/android多渠道打包/1.png">
+
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    scheme: 'Mist',
+    sidebar: {"position":"left","display":"post"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: 0,
+      author: '博主'
+    }
+  };
+</script>
+
+
+
+
+  <link rel="canonical" href="http://www.jincanshen.com/2016/09/10/多渠道打包方式/"/>
+
+  <title> 多渠道打包方式 | skyJC </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "//hm.baidu.com/hm.js?2a10d2b4376486788ac2a9adf0cd5fd5";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+ 
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">skyJC</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle">Android探索的道路，是否愿意陪我一起？</p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-bank"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-bars"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user-secret"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="st-search-show-outputs">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <form class="site-search-form">
+  <input type="text" id="st-search-input" class="st-search-input st-default-search-input" />
+</form>
+
+<script type="text/javascript">
+  (function(w,d,t,u,n,s,e){w['SwiftypeObject']=n;w[n]=w[n]||function(){
+    (w[n].q=w[n].q||[]).push(arguments);};s=d.createElement(t);
+    e=d.getElementsByTagName(t)[0];s.async=1;s.src=u;e.parentNode.insertBefore(s,e);
+  })(window,document,'script','//s.swiftypecdn.com/install/v2/st.js','_st');
+
+  _st('install', 'fkf54id-fNsrLXkekAVV','2.0.0');
+</script>
+
+
+
+    </div>
+  
+</nav>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="//schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                多渠道打包方式
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-09-10T10:20:49+08:00" content="2016-09-10">
+              2016-09-10
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/Android/" itemprop="url" rel="index">
+                    <span itemprop="name">Android</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/09/10/多渠道打包方式/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/09/10/多渠道打包方式/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+             <span id="/2016/09/10/多渠道打包方式/" class="leancloud_visitors" data-flag-title="多渠道打包方式">
+               &nbsp; | &nbsp;
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               <span class="post-meta-item-text">阅读次数 </span>
+               <span class="leancloud-visitors-count"></span>
+              </span>
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>首先我说明一下什么是多渠道打包？</p>
+<p>国内存在着众多的Android应用市场，为了统计不同安卓应用市场的下载量一个个性化统计需求，需要为每个应用市场的Android包设定一个可以区分应用市场的标识，这个为Android包设定应用市场标识的过程就是多渠道打包。</p>
+<p>废话介绍…忽略吧… 主要看内容</p>
+<a id="more"></a>
+<p>主要是想说一下，现在比较流行的几种多渠道打包方式，如果我没写到的，而且有新的打包方式 留言给我哈。。</p>
+<h2 id="通过配置gradle脚本实现多渠道打包"><a href="#通过配置gradle脚本实现多渠道打包" class="headerlink" title="通过配置gradle脚本实现多渠道打包"></a>通过配置gradle脚本实现多渠道打包</h2><p>使用Android Studio的编译工具gradle配合使用的，其核心原理就是通过脚本修改AndroidManifest.xml中的mate-date内容，执行N次打包签名操作。</p>
+<p>以<a href="https://github.com/skyJinc/SkyApp" target="_blank" rel="external">SkyApp</a>项目为例子</p>
+<h3 id="在Androidmanifest-xml中定义mate-data标签"><a href="#在Androidmanifest-xml中定义mate-data标签" class="headerlink" title="在Androidmanifest.xml中定义mate-data标签"></a>在Androidmanifest.xml中定义mate-data标签</h3><pre><code>&lt;application
+    android:name=&quot;.SkyTestApplication&quot;
+    android:allowBackup=&quot;true&quot;
+    android:icon=&quot;@mipmap/ic_launcher&quot;
+    android:label=&quot;@string/app_name&quot;
+    android:supportsRtl=&quot;true&quot;
+    android:theme=&quot;@style/AppTheme&quot;&gt;
+    &lt;activity
+        android:name=&quot;.view.LoginActivity&quot;
+        android:label=&quot;@string/app_name&quot;&gt;
+        &lt;intent-filter&gt;
+            &lt;action android:name=&quot;android.intent.action.MAIN&quot;/&gt;
+
+            &lt;category android:name=&quot;android.intent.category.LAUNCHER&quot;/&gt;
+        &lt;/intent-filter&gt;
+    &lt;/activity&gt;
+
+    &lt;activity android:name=&quot;.view.ListActivity&quot;/&gt;
+
+    &lt;!-- 多渠道打包--&gt;
+    &lt;meta-data
+        android:name=&quot;UMENG_CHANNEL&quot;
+        android:value=&quot;{UMENG}&quot;/&gt;
+
+&lt;/application&gt;
+</code></pre><h3 id="在build-gradle下的productFlavors定义渠道号："><a href="#在build-gradle下的productFlavors定义渠道号：" class="headerlink" title="在build.gradle下的productFlavors定义渠道号："></a>在build.gradle下的productFlavors定义渠道号：</h3><p><img src="https://skyJinc.github.io/images/android多渠道打包/1.png" alt="tu"></p>
+<ul>
+<li>执行 gradle assembleRelease 后 产生包</li>
+</ul>
+<p><img src="https://skyJinc.github.io/images/android多渠道打包/2.png" alt="tu"></p>
+<ul>
+<li><p>优势：方便灵活，可以根据自身的需求配置不同的渠道执行不同的逻辑； </p>
+</li>
+<li><p>劣势：渠道多了，打包太慢了…..</p>
+</li>
+</ul>
+<h2 id="使用第三方打包工具"><a href="#使用第三方打包工具" class="headerlink" title="使用第三方打包工具"></a>使用第三方打包工具</h2><p>这种方式就是使用第三方的服务，比如360，百度，友盟等，其原理也是通过修改AndroidManifest.xml中的mate-data标签内容，然后执行N次打包签名的操作实现多渠道打包的。这里就不在做具体解释说明</p>
+<ul>
+<li><p>优势：简单方便，几乎不用自身做什么工作； </p>
+</li>
+<li><p>劣势：渠道多了，打包还是太慢了…..</p>
+</li>
+</ul>
+<h2 id="python脚本实现-打包"><a href="#python脚本实现-打包" class="headerlink" title="python脚本实现 打包"></a>python脚本实现 打包</h2><ul>
+<li><p>python是一款应用非常广泛的脚本程序语言，谷歌公司的网页就是用python编写。python在生物信息、统计、网页制作、计算等多个领域都体现出了强大的功能。python和其他脚本语言如java、R、Perl 一样，都可以直接在命令行里运行脚本程序。</p>
+</li>
+<li><p>看了说明, 无非就是写一个脚本把APK包解压,写入文件,在压缩,这样每一个APK包内都会有一个渠道文件,在Apk启动时读取该文件。</p>
+</li>
+<li><p>写python脚本 我喜欢使用 <a href="http://www.sublimetext.com/2" target="_blank" rel="external">Sublime Text 2</a></p>
+</li>
+<li><p>我使用 pyhon版本 Python 2.7.10</p>
+</li>
+</ul>
+<h3 id="创建文件"><a href="#创建文件" class="headerlink" title="创建文件"></a>创建文件</h3><ul>
+<li><p>位置无所谓了，不过我喜欢创建在项目的根目录</p>
+</li>
+<li><p>创建渠道列表文件 channellist.txt //名字自己起</p>
+</li>
+</ul>
+<p><img src="https://skyJinc.github.io/images/android多渠道打包/4.png" alt="tu"></p>
+<h3 id="通过ST2写Python脚本"><a href="#通过ST2写Python脚本" class="headerlink" title="通过ST2写Python脚本"></a>通过ST2写Python脚本</h3><ul>
+<li>创建Python文件 和 空文件(主要用于写入文件）</li>
+</ul>
+<p><img src="https://skyJinc.github.io/images/android多渠道打包/5.png" alt="tu"></p>
+<h4 id="sky-py"><a href="#sky-py" class="headerlink" title="sky.py"></a>sky.py</h4><pre><code>#!/usr/bin/python
+# coding=utf-8
+import sys
+import zipfile
+import shutil
+import os
+# 定义 日志类
+class Log(object):
+    RED     = &apos;\033[31m&apos;
+    GREEN   = &apos;\033[32m&apos;
+    YELLOW  = &apos;\033[33m&apos;
+    MAGENTA = &apos;\033[35m&apos;
+    RESET   = &apos;\033[0m&apos;
+
+    @staticmethod
+    def skyPrint(s, color = None):
+        if color and sys.stdout.isatty() and sys.platform != &apos;win32&apos;:
+            print(color + s + Log.RESET)
+        else:
+            print(s)
+
+    @staticmethod     
+    def d(s):
+        Log.skyPrint(s, Log.MAGENTA)
+
+
+    @staticmethod   
+    def i(s):
+        Log.skyPrint(s, Log.GREEN)
+
+    @staticmethod
+    def w(s):
+        Log.skyPrint(s, Log.YELLOW)
+
+    @staticmethod
+    def e(s):
+        Log.skyPrint(s, Log.RED)
+
+# 空文件 便于写入此空文件到apk包中作为channel文件
+src_empty_file = &apos;./channel/skychannelname.txt&apos;
+# 创建一个空文件（不存在则创建）
+f = open(src_empty_file, &apos;w&apos;) 
+f.close()
+
+apkpath = &apos;./app/build/outputs/apk/&apos;
+# 获取指定目录中所有的apk源包
+src_apks = []
+def gci(filepath):
+#遍历filepath下所有文件，包括子目录
+  files = os.listdir(filepath)
+  for file in files:
+    fi_d = os.path.join(filepath,file)            
+    if os.path.isfile(fi_d):
+       filename = os.path.basename(file)
+       if &apos;unaligned.apk&apos; in filename:
+          Log.d(&quot;exclude unaligned.apk:%s\n&quot; %filename)  
+       else:  
+          extension = os.path.splitext(file)[1][1:] 
+          if extension in &apos;apk&apos;:
+             src_apks.append(fi_d)
+
+
+#获取apkpath下的apk文件
+gci(apkpath)
+
+Log.d(&quot;source apks:%s\n&quot; %src_apks)
+
+# 获取渠道列表
+channel_file = &apos;./channel/channellist.txt&apos;
+f = open(channel_file)
+lines = f.readlines()
+f.close()
+
+Log.d(&quot;channel list:%s\n&quot; %lines)
+
+for src_apk in src_apks:
+    # file name (with extension)
+    src_apk_file_name = os.path.basename(src_apk)
+    # 分割文件名与后缀
+    temp_list = os.path.splitext(src_apk_file_name)
+    # name without extension
+    src_apk_name = temp_list[0]
+    # 后缀名，包含.   例如: &quot;.apk &quot;
+    src_apk_extension = temp_list[1]
+
+    # 创建生成目录,与文件名相关
+    output_dir = apkpath + &apos;channel_&apos; + src_apk_name + &apos;/&apos;
+
+    Log.d(&quot;output_dir:%s\n&quot; %output_dir)
+
+    # 目录不存在则创建
+    if not os.path.exists(output_dir):
+        os.mkdir(output_dir)
+
+    # 遍历渠道号并创建对应渠道号的apk文件
+    for line in lines:
+        # 获取当前渠道号，因为从渠道文件中获得带有\n,所有strip一下
+        target_channel = line.strip()
+        # 拼接对应渠道号的apk
+        target_apk = output_dir + src_apk_name + &quot;-&quot; + target_channel + src_apk_extension
+
+        Log.d(&quot;target channel apk:%s\n&quot; %target_apk)
+
+        # 拷贝建立新apk
+        shutil.copy(src_apk,  target_apk)
+        # zip获取新建立的apk文件
+        zipped = zipfile.ZipFile(target_apk, &apos;a&apos;, zipfile.ZIP_DEFLATED)
+        # 初始化渠道信息
+        empty_channel_file = &quot;META-INF/skychannelname-{channel}&quot;.format(channel = target_channel)
+        # 写入渠道信息
+        zipped.write(src_empty_file, empty_channel_file)
+        # 关闭zip流
+        zipped.close()
+</code></pre><ul>
+<li><p>看代码费劲的话,用ST2看…</p>
+<p><img src="https://skyJinc.github.io/images/android多渠道打包/3.png" alt="tu"></p>
+</li>
+<li><p>不了解Python的人自行百度学习..</p>
+</li>
+<li>为了不会Python的人，大概说一下注意的地方<br><img src="https://skyJinc.github.io/images/android多渠道打包/7.png" alt="tu"><br><img src="https://skyJinc.github.io/images/android多渠道打包/8.png" alt="tu"><br><img src="https://skyJinc.github.io/images/android多渠道打包/9.png" alt="tu"></li>
+</ul>
+<h3 id="执行脚本"><a href="#执行脚本" class="headerlink" title="执行脚本"></a>执行脚本</h3><pre><code>//使用gradle打包  
+gradle clean assembleRelease
+
+//使用python执行 python脚本 - 因为我的sky.py在SkyApp根目录 使用 AS里Terminal执行
+python channel/sky.py 
+</code></pre><p><img src="https://skyJinc.github.io/images/android多渠道打包/18.png" alt="tu"></p>
+<p>是不是很简单？ 这样就生成完了所有渠道包</p>
+<p><img src="https://skyJinc.github.io/images/android多渠道打包/17.png" alt="tu"></p>
+<h3 id="验证"><a href="#验证" class="headerlink" title="验证"></a>验证</h3><p>安装自己看网站吧</p>
+<p><a href="https://ibotpeaches.github.io/Apktool/install/" target="_blank" rel="external">Apktool</a> 大家因该很熟悉，反编译使用</p>
+<pre><code>mac os
+
+sudo mv file /usr/local/bin
+
+sudo chmod a+x file
+
+apktool d xxx.apk
+</code></pre><p>很简单…我们找一个 上面生成的渠道apk 进行反编译</p>
+<p><img src="https://skyJinc.github.io/images/android多渠道打包/19.png" alt="tu"></p>
+<p>我们反编译了 sky_fir.apk 这个渠道包</p>
+<p><img src="https://skyJinc.github.io/images/android多渠道打包/20.png" alt="tu"></p>
+<p>可以看到我们写入的渠道文件已经生成了。。</p>
+<h3 id="写代码"><a href="#写代码" class="headerlink" title="写代码"></a>写代码</h3><p>前面准备工作做完了,开始写代码获取渠道信息吧</p>
+<p>我把渠道当成一个管理渠道的工具，所以结合Sky架构 定义manage方式 来编写</p>
+<h4 id="创建"><a href="#创建" class="headerlink" title="创建"></a>创建</h4><p><img src="https://skyJinc.github.io/images/android多渠道打包/10.png" alt="tu"></p>
+<pre><code>package sky.skyapp.helper.modules;
+
+import android.content.Context;
+import android.content.pm.ApplicationInfo;
+import android.text.TextUtils;
+
+import org.apache.commons.lang3.StringUtils;
+
+import java.io.IOException;
+import java.util.Enumeration;
+import java.util.zip.ZipEntry;
+import java.util.zip.ZipFile;
+
+/**
+ * @创建人 sky
+ * @创建时间 16/9/10 下午12:03
+ * @类描述
+ */
+public class ChannelManage {
+
+    // 渠道KEY
+    private static final String    CHANNEL_KEY        = &quot;skychannelname&quot;;
+
+    // 默认渠道
+    private static final String    DEFAULT_CHANNEL    = &quot;sky&quot;;
+
+    private String                mChannel;
+
+    public ChannelManage(Context context) {
+        mChannel = getChannelFromApk(context, CHANNEL_KEY);
+        if (StringUtils.isEmpty(mChannel)) {
+            mChannel = DEFAULT_CHANNEL;
+        }
+    }
+
+    /**
+     * 获取渠道
+     * 
+     * @return
+     */
+    public String getChannel() {
+        return mChannel;
+    }
+
+    /**
+     * 从apk中获取版本信息
+     *
+     * @param context
+     * @param channelKey
+     * @return
+     */
+    private static String getChannelFromApk(Context context, String channelKey) {
+        long startTime = System.currentTimeMillis();
+        // 从apk包中获取
+        ApplicationInfo appinfo = context.getApplicationInfo();
+        String sourceDir = appinfo.sourceDir;
+        // 默认放在meta-inf/里， 所以需要再拼接一下
+        String key = &quot;META-INF/&quot; + channelKey;
+        String ret = &quot;&quot;;
+        ZipFile zipfile = null;
+        try {
+            zipfile = new ZipFile(sourceDir);
+            Enumeration&lt;?&gt; entries = zipfile.entries();
+            while (entries.hasMoreElements()) {
+                ZipEntry entry = ((ZipEntry) entries.nextElement());
+                String entryName = entry.getName();
+                if (entryName.startsWith(key)) {
+                    ret = entryName;
+                    break;
+                }
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        } finally {
+            if (zipfile != null) {
+                try {
+                    zipfile.close();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            }
+        }
+        String channel = &quot;&quot;;
+        if (StringUtils.isNotBlank(ret)) {
+            String[] split = ret.split(&quot;_&quot;);
+            channel = split[1];
+            System.out.println(&quot;-----------------------------&quot;);
+            System.out.println(&quot;渠道号：&quot; + channel + &quot;，解压获取渠道号耗时:&quot; + (System.currentTimeMillis() - startTime) + &quot;ms&quot;);
+            System.out.println(&quot;-----------------------------&quot;);
+        } else {
+            System.out.println(&quot;未解析到相应的渠道号，使用默认内部渠道号&quot;);
+            channel = DEFAULT_CHANNEL;
+        }
+        return channel;
+}
+}
+</code></pre><ul>
+<li>说明:</li>
+</ul>
+<ol>
+<li><strong><em>skychannelname</em></strong> 就是写入的文件key,一定要一致</li>
+<li>下面图这一部分，根据自己定的规则来写吧。SkyApp 规则很简单<br><img src="https://skyJinc.github.io/images/android多渠道打包/11.png" alt="tu"></li>
+</ol>
+<h4 id="sky架构定义manage"><a href="#sky架构定义manage" class="headerlink" title="sky架构定义manage:"></a>sky架构定义manage:</h4><p><img src="https://skyJinc.github.io/images/android多渠道打包/12.png" alt="tu"><br><img src="https://skyJinc.github.io/images/android多渠道打包/13.png" alt="tu"></p>
+<ul>
+<li>这样MyProHelper里就有了渠道管理功能</li>
+</ul>
+<h4 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h4><ul>
+<li>界面</li>
+</ul>
+<p><img src="https://skyJinc.github.io/images/android多渠道打包/14.png" alt="tu"></p>
+<ul>
+<li>点击事件</li>
+</ul>
+<p><img src="https://skyJinc.github.io/images/android多渠道打包/15.png" alt="tu"></p>
+<h2 id="Jenkins-进行多渠道打包"><a href="#Jenkins-进行多渠道打包" class="headerlink" title="Jenkins 进行多渠道打包"></a>Jenkins 进行多渠道打包</h2><p>前面有一篇文章<strong><em>可持续集成架构</em></strong>的文章已经说了怎么搭建</p>
+<p><a href="http://www.jincanshen.com/2016/08/22/%E5%8F%AF%E6%8C%81%E7%BB%AD%E9%9B%86%E6%88%90/">连接</a></p>
+<ul>
+<li>配置Jenkins 执行python脚本 实现多渠道打包</li>
+</ul>
+<p>看过前面文章的大家应该很清楚了。。</p>
+<p><img src="https://skyJinc.github.io/images/android多渠道打包/21.png" alt="tu"><br><img src="https://skyJinc.github.io/images/android多渠道打包/22.png" alt="tu"><br><img src="https://skyJinc.github.io/images/android多渠道打包/23.png" alt="tu"></p>
+<ul>
+<li>linux</li>
+</ul>
+<p><img src="https://skyJinc.github.io/images/android多渠道打包/24.png" alt="tu"></p>
+<ul>
+<li>mac</li>
+</ul>
+<p><img src="https://skyJinc.github.io/images/android多渠道打包/25.png" alt="tu"> </p>
+<p><img src="https://skyJinc.github.io/images/android多渠道打包/26.png" alt="tu"> </p>
+<p><img src="https://skyJinc.github.io/images/android多渠道打包/27.png" alt="tu"> </p>
+<ul>
+<li>多了一个    app-release-unaligned.apk 包 很烦人通过gradle 删除</li>
+</ul>
+<p><img src="https://skyJinc.github.io/images/android多渠道打包/28.png" alt="tu"> </p>
+<ul>
+<li>或者使用命令删除</li>
+</ul>
+<p><img src="https://skyJinc.github.io/images/android多渠道打包/29.png" alt="tu"></p>
+<h2 id="Jenkins-参数化构建"><a href="#Jenkins-参数化构建" class="headerlink" title="Jenkins 参数化构建"></a>Jenkins 参数化构建</h2><h3 id="SVN配置"><a href="#SVN配置" class="headerlink" title="SVN配置"></a>SVN配置</h3><ul>
+<li>设置参数<br><img src="https://skyJinc.github.io/images/android多渠道打包/30.png" alt="tu"></li>
+<li>gradle 配置参数 -  命令 <strong>-P</strong> 表示定义参数<br><img src="https://skyJinc.github.io/images/android多渠道打包/32.png" alt="tu"></li>
+<li><p>SVN 配置<br><img src="https://skyJinc.github.io/images/android多渠道打包/31.png" alt="tu"></p>
+</li>
+<li><p>执行<br><img src="https://skyJinc.github.io/images/android多渠道打包/33.png" alt="tu"></p>
+</li>
+<li><p>说明： 根据版本不同可以打包不同的包，或者之前版本的包</p>
+</li>
+</ul>
+<h3 id="GIT配置"><a href="#GIT配置" class="headerlink" title="GIT配置"></a>GIT配置</h3><ul>
+<li>设置参数</li>
+</ul>
+<p><img src="https://skyJinc.github.io/images/android多渠道打包/34.png" alt="tu"></p>
+<ul>
+<li>gradle 配置参数 -  命令 <strong>-P</strong> 表示定义参数</li>
+</ul>
+<p><img src="https://skyJinc.github.io/images/android多渠道打包/37.png" alt="tu"></p>
+<ul>
+<li>GIT 配置</li>
+</ul>
+<p><img src="https://skyJinc.github.io/images/android多渠道打包/35.png" alt="tu"></p>
+<ul>
+<li>GIT 配置命令说明</li>
+</ul>
+<p><img src="https://skyJinc.github.io/images/android多渠道打包/36.png" alt="tu"></p>
+<ul>
+<li>执行</li>
+</ul>
+<p><img src="https://skyJinc.github.io/images/android多渠道打包/38.png" alt="tu"></p>
+<h3 id="项目配置"><a href="#项目配置" class="headerlink" title="项目配置"></a>项目配置</h3><p><img src="https://skyJinc.github.io/images/android多渠道打包/39.png" alt="tu"></p>
+<h3 id="结果"><a href="#结果" class="headerlink" title="结果"></a>结果</h3><ul>
+<li><p>因为我只有Git环境, 结果是Git配置后的～ SVN 没搭，不过在公司有SVN配置后可以使用。。。</p>
+</li>
+<li><p>SkyApp项目之前Tag版本没有设置Gradle配置所以无法使用</p>
+</li>
+</ul>
+<p><img src="https://skyJinc.github.io/images/android多渠道打包/40.png" alt="tu"></p>
+<h2 id="结尾"><a href="#结尾" class="headerlink" title="结尾"></a>结尾</h2><p>希望转发或者分享的时候 备注一下 来源…. 原创很费劲的。。。</p>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+  <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+    <div>坚持原创技术分享，您的支持将鼓励我继续创作！</div>
+    <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+      <span>赏</span>
+    </button>
+    <div id="QR" style="display: none;">
+      
+      
+        <div id="alipay" style="display: inline-block">
+          <img id="alipay_qr" src="https://raw.githubusercontent.com/skyJinc/skyJinc.github.io/master/images/about/my_zfb.JPG" alt="skyJC Alipay"/>
+          <p>支付宝打赏</p>
+        </div>
+      
+    </div>
+  </div>
+
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/打包方式/" rel="tag">#打包方式</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2016/09/08/SDKMan管理gradle版本-Groovy-与-Gradle-基础/" rel="next" title="SDKMan管理gradle版本 与 Groovy 基础">
+                <i class="fa fa-chevron-left"></i> SDKMan管理gradle版本 与 Groovy 基础
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2016/09/14/Android属性动画用法/" rel="prev" title="Android属性动画用法">
+                Android属性动画用法 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div class="ds-thread" data-thread-key="2016/09/10/多渠道打包方式/"
+           data-title="多渠道打包方式" data-url="http://www.jincanshen.com/2016/09/10/多渠道打包方式/">
+      </div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel ">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/my/avatar.jpg"
+               alt="skyJC" />
+          <p class="site-author-name" itemprop="name">skyJC</p>
+          <p class="site-description motion-element" itemprop="description">Android探索的道路，是否愿意陪我一起？</p>
+        </div>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">21</span>
+              <span class="site-state-item-name">日志</span>
+            </a>
+          </div>
+
+          
+            <div class="site-state-item site-state-categories">
+              
+                <span class="site-state-item-count">2</span>
+                <span class="site-state-item-name">分类</span>
+              
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              
+                <span class="site-state-item-count">15</span>
+                <span class="site-state-item-name">标签</span>
+              
+            </div>
+          
+
+        </nav>
+
+        
+          <div class="feed-link motion-element">
+            <a href="/atom.xml" rel="alternate">
+              <i class="fa fa-rss"></i>
+              RSS
+            </a>
+          </div>
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/skyJinc/" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-fw fa-github"></i>
+                  
+                  GitHub
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+
+      </section>
+
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#通过配置gradle脚本实现多渠道打包"><span class="nav-number">1.</span> <span class="nav-text">通过配置gradle脚本实现多渠道打包</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#在Androidmanifest-xml中定义mate-data标签"><span class="nav-number">1.1.</span> <span class="nav-text">在Androidmanifest.xml中定义mate-data标签</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#在build-gradle下的productFlavors定义渠道号："><span class="nav-number">1.2.</span> <span class="nav-text">在build.gradle下的productFlavors定义渠道号：</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#使用第三方打包工具"><span class="nav-number">2.</span> <span class="nav-text">使用第三方打包工具</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#python脚本实现-打包"><span class="nav-number">3.</span> <span class="nav-text">python脚本实现 打包</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#创建文件"><span class="nav-number">3.1.</span> <span class="nav-text">创建文件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#通过ST2写Python脚本"><span class="nav-number">3.2.</span> <span class="nav-text">通过ST2写Python脚本</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#sky-py"><span class="nav-number">3.2.1.</span> <span class="nav-text">sky.py</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#执行脚本"><span class="nav-number">3.3.</span> <span class="nav-text">执行脚本</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#验证"><span class="nav-number">3.4.</span> <span class="nav-text">验证</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#写代码"><span class="nav-number">3.5.</span> <span class="nav-text">写代码</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#创建"><span class="nav-number">3.5.1.</span> <span class="nav-text">创建</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#sky架构定义manage"><span class="nav-number">3.5.2.</span> <span class="nav-text">sky架构定义manage:</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#使用"><span class="nav-number">3.5.3.</span> <span class="nav-text">使用</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Jenkins-进行多渠道打包"><span class="nav-number">4.</span> <span class="nav-text">Jenkins 进行多渠道打包</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Jenkins-参数化构建"><span class="nav-number">5.</span> <span class="nav-text">Jenkins 参数化构建</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#SVN配置"><span class="nav-number">5.1.</span> <span class="nav-text">SVN配置</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#GIT配置"><span class="nav-number">5.2.</span> <span class="nav-text">GIT配置</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#项目配置"><span class="nav-number">5.3.</span> <span class="nav-text">项目配置</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#结果"><span class="nav-number">5.4.</span> <span class="nav-text">结果</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#结尾"><span class="nav-number">6.</span> <span class="nav-text">结尾</span></a></li></ol></div>
+            
+          </div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
+</script>
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2016</span>
+   &nbsp; - &nbsp; 
+  <span class="author">
+    <i class="fa fa-android"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">skyJC</span>  
+</div>
+
+<div class="powered-by">
+  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Mist
+  </a>
+</div>
+<span id="busuanzi_container_site_pv">
+  &nbsp; | &nbsp;本站总访问量 <span id="busuanzi_value_site_pv"></span> 次
+</span>
+
+        
+
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/vendors/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.0.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.0.1"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.0.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.0.1"></script>
+
+
+
+  
+
+  
+    
+  
+
+  <script type="text/javascript">
+    var duoshuoQuery = {short_name:"jincanshen"};
+    (function() {
+      var ds = document.createElement('script');
+      ds.type = 'text/javascript';ds.async = true;
+      ds.id = 'duoshuo-script';
+      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+      ds.charset = 'UTF-8';
+      (document.getElementsByTagName('head')[0]
+      || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+  </script>
+
+  
+    
+    <script src="/vendors/ua-parser-js/dist/ua-parser.min.js?v=0.7.9"></script>
+    <script src="/js/src/hook-duoshuo.js"></script>
+  
+
+
+
+
+
+
+  
+  
+
+  
+
+  
+
+  
+  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.1.js"></script>
+  <script>AV.initialize("Ub5AU6hooUtI4dFRojnFK6Bf-gzGzoHsz", "M68V3yowbmzfADkpMNBgNwxE");</script>
+  <script>
+    function showTime(Counter) {
+      var query = new AV.Query(Counter);
+      var entries = [];
+      var $visitors = $(".leancloud_visitors");
+
+      $visitors.each(function () {
+        entries.push( $(this).attr("id").trim() );
+      });
+
+      query.containedIn('url', entries);
+      query.find()
+        .done(function (results) {
+          var COUNT_CONTAINER_REF = '.leancloud-visitors-count';
+
+          if (results.length === 0) {
+            $visitors.find(COUNT_CONTAINER_REF).text(0);
+            return;
+          }
+
+          for (var i = 0; i < results.length; i++) {
+            var item = results[i];
+            var url = item.get('url');
+            var time = item.get('time');
+            var element = document.getElementById(url);
+
+            $(element).find(COUNT_CONTAINER_REF).text(time);
+          }
+          for(var i = 0; i < entries.length; i++) {
+            var url = entries[i];
+            var element = document.getElementById(url);
+            var countSpan = $(element).find(COUNT_CONTAINER_REF);
+            if( countSpan.text() == '') {
+              countSpan.text(0);
+            }
+          }
+        })
+        .fail(function (object, error) {
+          console.log("Error: " + error.code + " " + error.message);
+        });
+    }
+
+    function addCount(Counter) {
+      var $visitors = $(".leancloud_visitors");
+      var url = $visitors.attr('id').trim();
+      var title = $visitors.attr('data-flag-title').trim();
+      var query = new AV.Query(Counter);
+
+      query.equalTo("url", url);
+      query.find({
+        success: function(results) {
+          if (results.length > 0) {
+            var counter = results[0];
+            counter.fetchWhenSave(true);
+            counter.increment("time");
+            counter.save(null, {
+              success: function(counter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(counter.get('time'));
+              },
+              error: function(counter, error) {
+                console.log('Failed to save Visitor num, with error message: ' + error.message);
+              }
+            });
+          } else {
+            var newcounter = new Counter();
+            /* Set ACL */
+            var acl = new AV.ACL();
+            acl.setPublicReadAccess(true);
+            acl.setPublicWriteAccess(true);
+            newcounter.setACL(acl);
+            /* End Set ACL */
+            newcounter.set("title", title);
+            newcounter.set("url", url);
+            newcounter.set("time", 1);
+            newcounter.save(null, {
+              success: function(newcounter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(newcounter.get('time'));
+              },
+              error: function(newcounter, error) {
+                console.log('Failed to create');
+              }
+            });
+          }
+        },
+        error: function(error) {
+          console.log('Error:' + error.code + " " + error.message);
+        }
+      });
+    }
+
+    $(function() {
+      var Counter = AV.Object.extend("Counter");
+      if ($('.leancloud_visitors').length == 1) {
+        addCount(Counter);
+      } else if ($('.post-title-link').length > 1) {
+        showTime(Counter);
+      }
+    });
+  </script>
+
+
+
+  
+</body>
+</html>

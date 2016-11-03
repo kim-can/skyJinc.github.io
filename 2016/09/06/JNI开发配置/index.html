@@ -1,0 +1,923 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/vendors/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="JNI," />
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="skyJC" type="application/atom+xml" />
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.0.1" />
+
+
+
+
+
+
+<meta name="description" content="介绍
+什么是NDK？
+ NDK全称是Native Development Kit，NDK提供了一系列的工具，帮助开发者快速开发C（或C++）的动态库，并能自动将so和java应用一起打包成apk。NDK集成了交叉编译器（交叉编译器需要UNIX或LINUX系统环境），并提供了相应的mk文件隔离CPU、平台、ABI等差异，开发人员只需要简单修改mk文件（指出“哪些文件需要编译”、“编译特性要求”等），">
+<meta property="og:type" content="article">
+<meta property="og:title" content="JNI配置和开发">
+<meta property="og:url" content="http://www.jincanshen.com/2016/09/06/JNI开发配置/index.html">
+<meta property="og:site_name" content="skyJC">
+<meta property="og:description" content="介绍
+什么是NDK？
+ NDK全称是Native Development Kit，NDK提供了一系列的工具，帮助开发者快速开发C（或C++）的动态库，并能自动将so和java应用一起打包成apk。NDK集成了交叉编译器（交叉编译器需要UNIX或LINUX系统环境），并提供了相应的mk文件隔离CPU、平台、ABI等差异，开发人员只需要简单修改mk文件（指出“哪些文件需要编译”、“编译特性要求”等），">
+<meta property="og:image" content="https://skyJinc.github.io/images/NDK开发/1.png">
+<meta property="og:image" content="https://skyJinc.github.io/images/NDK开发/2.png">
+<meta property="og:image" content="https://skyJinc.github.io/images/NDK开发/3.png">
+<meta property="og:image" content="https://skyJinc.github.io/images/NDK开发/4.png">
+<meta property="og:image" content="https://skyJinc.github.io/images/NDK开发/5.png">
+<meta property="og:image" content="https://skyJinc.github.io/images/NDK开发/6.png">
+<meta property="og:image" content="https://skyJinc.github.io/images/NDK开发/7.png">
+<meta property="og:image" content="https://skyJinc.github.io/images/NDK开发/8.png">
+<meta property="og:image" content="https://skyJinc.github.io/images/NDK开发/9.png">
+<meta property="og:image" content="https://skyJinc.github.io/images/NDK开发/10.png">
+<meta property="og:image" content="https://skyJinc.github.io/images/NDK开发/11.png">
+<meta property="og:image" content="https://skyJinc.github.io/images/NDK开发/12.png">
+<meta property="og:image" content="https://skyJinc.github.io/images/NDK开发/13.png">
+<meta property="og:image" content="https://skyJinc.github.io/images/NDK开发/14.png">
+<meta property="og:image" content="https://skyJinc.github.io/images/NDK开发/15.png">
+<meta property="og:updated_time" content="2016-09-26T13:23:19.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="JNI配置和开发">
+<meta name="twitter:description" content="介绍
+什么是NDK？
+ NDK全称是Native Development Kit，NDK提供了一系列的工具，帮助开发者快速开发C（或C++）的动态库，并能自动将so和java应用一起打包成apk。NDK集成了交叉编译器（交叉编译器需要UNIX或LINUX系统环境），并提供了相应的mk文件隔离CPU、平台、ABI等差异，开发人员只需要简单修改mk文件（指出“哪些文件需要编译”、“编译特性要求”等），">
+<meta name="twitter:image" content="https://skyJinc.github.io/images/NDK开发/1.png">
+
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    scheme: 'Mist',
+    sidebar: {"position":"left","display":"post"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: 0,
+      author: '博主'
+    }
+  };
+</script>
+
+
+
+
+  <link rel="canonical" href="http://www.jincanshen.com/2016/09/06/JNI开发配置/"/>
+
+  <title> JNI配置和开发 | skyJC </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "//hm.baidu.com/hm.js?2a10d2b4376486788ac2a9adf0cd5fd5";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+ 
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">skyJC</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle">Android探索的道路，是否愿意陪我一起？</p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-bank"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-bars"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user-secret"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="st-search-show-outputs">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <form class="site-search-form">
+  <input type="text" id="st-search-input" class="st-search-input st-default-search-input" />
+</form>
+
+<script type="text/javascript">
+  (function(w,d,t,u,n,s,e){w['SwiftypeObject']=n;w[n]=w[n]||function(){
+    (w[n].q=w[n].q||[]).push(arguments);};s=d.createElement(t);
+    e=d.getElementsByTagName(t)[0];s.async=1;s.src=u;e.parentNode.insertBefore(s,e);
+  })(window,document,'script','//s.swiftypecdn.com/install/v2/st.js','_st');
+
+  _st('install', 'fkf54id-fNsrLXkekAVV','2.0.0');
+</script>
+
+
+
+    </div>
+  
+</nav>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="//schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                JNI配置和开发
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-09-06T19:54:49+08:00" content="2016-09-06">
+              2016-09-06
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/Android/" itemprop="url" rel="index">
+                    <span itemprop="name">Android</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/09/06/JNI开发配置/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/09/06/JNI开发配置/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+             <span id="/2016/09/06/JNI开发配置/" class="leancloud_visitors" data-flag-title="JNI配置和开发">
+               &nbsp; | &nbsp;
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               <span class="post-meta-item-text">阅读次数 </span>
+               <span class="leancloud-visitors-count"></span>
+              </span>
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h2 id="介绍"><a href="#介绍" class="headerlink" title="介绍"></a>介绍</h2><ul>
+<li><p>什么是NDK？</p>
+<p> NDK全称是Native Development Kit，NDK提供了一系列的工具，帮助开发者快速开发C（或C++）的动态库，并能自动将so和java应用一起打包成apk。NDK集成了交叉编译器（交叉编译器需要UNIX或LINUX系统环境），并提供了相应的mk文件隔离CPU、平台、ABI等差异，开发人员只需要简单修改mk文件（指出“哪些文件需要编译”、“编译特性要求”等），就可以创建出so。</p>
+</li>
+</ul>
+<a id="more"></a>
+<ul>
+<li><p>为什么使用NDK？</p>
+<p> 1.代码的保护。由于apk的java层代码很容易被反编译，而C/C++库反汇难度较大。</p>
+<p> 2.可以方便地使用现存的开源库。大部分现存的开源库都是用C/C++代码编写的。</p>
+<p> 3.提高程序的执行效率。将要求高性能的应用逻辑使用C开发，从而提高应用程序的执行效率。</p>
+<p> 4.便于移植。用C/C++写得库可以方便在其他的嵌入式平台上再次使用。</p>
+</li>
+<li><p>什么是JNI？</p>
+<p>  JNI全称为：Java Native Interface。JNI 是本地编程接口，它使得在 Java 虚拟机内部运行的     Java 代码能够与用其它语言(如 C、C++)编写的代码进行交互。</p>
+</li>
+<li><p>为什么使用JNI？</p>
+<p>   JNI的目的是使java方法能够调用c实现的一些函数。</p>
+</li>
+<li><p>安卓中的so文件是什么？</p>
+<p> Android中用到的so文件是一个c++的函数库。在android的JNI中，要先将相应的C语言打包成so库，    然后导入到lib文件夹中供java调用。</p>
+</li>
+</ul>
+<h2 id="AS-安装-NDK"><a href="#AS-安装-NDK" class="headerlink" title="AS 安装 NDK"></a>AS 安装 NDK</h2><p>Android Studio安装(需翻墙)</p>
+<h3 id="AndroidDevTools-安装"><a href="#AndroidDevTools-安装" class="headerlink" title="AndroidDevTools 安装"></a>AndroidDevTools 安装</h3><p><a href="http://www.androiddevtools.cn/" target="_blank" rel="external">下载地址</a></p>
+<p><img src="https://skyJinc.github.io/images/NDK开发/1.png" alt="tu"></p>
+<p><img src="https://skyJinc.github.io/images/NDK开发/2.png" alt="tu"></p>
+<ul>
+<li>下载完成后，将NDK解压到某个文件夹下，打开Android Studio，选择File-&gt;Project Structure</li>
+</ul>
+<p><img src="https://skyJinc.github.io/images/NDK开发/3.png" alt="tu"></p>
+<h2 id="开发"><a href="#开发" class="headerlink" title="开发"></a>开发</h2><p>新建一个项目，这里我使用<a href="https://github.com/skyJinc/SkyNDK" target="_blank" rel="external">SkyNDK</a>项目来说明</p>
+<h3 id="gradle-properties-配置"><a href="#gradle-properties-配置" class="headerlink" title="gradle.properties 配置"></a>gradle.properties 配置</h3><pre><code>android.useDeprecatedNdk=true
+</code></pre><h3 id="local-properties中加入ndk和sdk"><a href="#local-properties中加入ndk和sdk" class="headerlink" title="local.properties中加入ndk和sdk"></a>local.properties中加入ndk和sdk</h3><pre><code>ndk.dir=/Users/sky/dev/sdk/ndk-bundle
+sdk.dir=/Users/sky/dev/sdk
+
+当然这里使用的是我的本地的路径， 这个配置AS都会自动生成，如果没有生成，就手动添加吧
+</code></pre><h3 id="app文件夹下的build-gradle中的defaultConfig里加入如下代码"><a href="#app文件夹下的build-gradle中的defaultConfig里加入如下代码" class="headerlink" title="app文件夹下的build.gradle中的defaultConfig里加入如下代码"></a>app文件夹下的build.gradle中的defaultConfig里加入如下代码</h3><pre><code>ndk{    
+    moduleName &quot;sky&quot;       //生成的so文件名字，调用C程序的代码中会用到该名字
+    abiFilters &quot;armeabi&quot;, &quot;armeabi-v7a&quot;, &quot;x86&quot; //输出指定三种平台下的so库
+}
+</code></pre><p>SkyNDK<br><img src="https://skyJinc.github.io/images/NDK开发/4.png" alt="tu"></p>
+<h3 id="创建布局-编写代码"><a href="#创建布局-编写代码" class="headerlink" title="创建布局 编写代码"></a>创建布局 编写代码</h3><p><img src="https://skyJinc.github.io/images/NDK开发/5.png" alt="tu"></p>
+<p><img src="https://skyJinc.github.io/images/NDK开发/6.png" alt="tu"></p>
+<ul>
+<li>直接引用将来生成的 <strong><em>skyNDK.so</em></strong> </li>
+<li>声明将来要生成的本地方法 <strong><em>public native String getSkyNDKText();</em></strong></li>
+</ul>
+<h3 id="生成-h头文件"><a href="#生成-h头文件" class="headerlink" title="生成.h头文件"></a>生成.h头文件</h3><p>进入Android Studio底部的Terminal 执行代码</p>
+<pre><code>cd app/src/main/java
+javah -jni 包名+类名
+
+说明： 
+第一行 是要进入到你的项目java目录下
+第二行 SkyNDK项目 完整命令
+javah -jni sky.skyndk.MainActivity
+</code></pre><p>执行完以后会生成 如下：</p>
+<p><img src="https://skyJinc.github.io/images/NDK开发/7.png" alt="tu"></p>
+<h3 id="新建JNI文件夹"><a href="#新建JNI文件夹" class="headerlink" title="新建JNI文件夹"></a>新建JNI文件夹</h3><p><img src="https://skyJinc.github.io/images/NDK开发/8.png" alt="tu"></p>
+<p><img src="https://skyJinc.github.io/images/NDK开发/9.png" alt="tu"></p>
+<ul>
+<li>把生成的 <strong><em>.h</em></strong> 头文件移动到 该目录下</li>
+</ul>
+<p><img src="https://skyJinc.github.io/images/NDK开发/10.png" alt="tu"></p>
+<h3 id="新建-c-文件"><a href="#新建-c-文件" class="headerlink" title="新建 .c 文件"></a>新建 <strong><em>.c</em></strong> 文件</h3><p><img src="https://skyJinc.github.io/images/NDK开发/11.png" alt="tu"></p>
+<p><img src="https://skyJinc.github.io/images/NDK开发/12.png" alt="tu"></p>
+<h3 id="写C代码"><a href="#写C代码" class="headerlink" title="写C代码"></a>写C代码</h3><pre><code>//引入上面生成的头文件，并实现头文件中声明的方法
+#include &quot;sky_skyndk_MainActivity.h&quot;
+JNIEXPORT jstring JNICALL Java_sky_skyndk_MainActivity_getSkyNDKText
+        (JNIEnv *env, jobject obj){
+    char *str=&quot;我是skyJC, 这里是C语言返回的内容&quot;;
+    return (*env)-&gt;NewStringUTF(env, str);
+}
+</code></pre><p><img src="https://skyJinc.github.io/images/NDK开发/13.png" alt="tu"></p>
+<h3 id="执行"><a href="#执行" class="headerlink" title="执行"></a>执行</h3><pre><code>AndroidStudio
+
+Build-&gt;Clean Project
+Build-&gt;ReBuild Project
+</code></pre><p><img src="https://skyJinc.github.io/images/NDK开发/14.png" alt="tu"></p>
+<ul>
+<li>生成ndk</li>
+</ul>
+<p><img src="https://skyJinc.github.io/images/NDK开发/15.png" alt="tu"></p>
+<h2 id="说明"><a href="#说明" class="headerlink" title="说明"></a>说明</h2><p>这里只是简单的教你如何快速的编写，因为我们是预先定义.so和 本地方法名，通过命令生成头文件。。</p>
+<p>C++ 教程 网上很多.. 很多的时候核心业务都需要使用C++ 来提高效率和安全性</p>
+<p>有时间我会写一篇关于C++开发的文章</p>
+<p><a href="https://github.com/skyJinc/SkyNDK" target="_blank" rel="external">SkyNDK Demo</a></p>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+  <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+    <div>坚持原创技术分享，您的支持将鼓励我继续创作！</div>
+    <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+      <span>赏</span>
+    </button>
+    <div id="QR" style="display: none;">
+      
+      
+        <div id="alipay" style="display: inline-block">
+          <img id="alipay_qr" src="https://raw.githubusercontent.com/skyJinc/skyJinc.github.io/master/images/about/my_zfb.JPG" alt="skyJC Alipay"/>
+          <p>支付宝打赏</p>
+        </div>
+      
+    </div>
+  </div>
+
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/JNI/" rel="tag">#JNI</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2016/09/03/GitHub-Android持续集成/" rel="next" title="GitHub-Android持续集成">
+                <i class="fa fa-chevron-left"></i> GitHub-Android持续集成
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2016/09/08/Android-设计和断点调式/" rel="prev" title="Android 设计和断点调式">
+                Android 设计和断点调式 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div class="ds-thread" data-thread-key="2016/09/06/JNI开发配置/"
+           data-title="JNI配置和开发" data-url="http://www.jincanshen.com/2016/09/06/JNI开发配置/">
+      </div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel ">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/my/avatar.jpg"
+               alt="skyJC" />
+          <p class="site-author-name" itemprop="name">skyJC</p>
+          <p class="site-description motion-element" itemprop="description">Android探索的道路，是否愿意陪我一起？</p>
+        </div>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">21</span>
+              <span class="site-state-item-name">日志</span>
+            </a>
+          </div>
+
+          
+            <div class="site-state-item site-state-categories">
+              
+                <span class="site-state-item-count">2</span>
+                <span class="site-state-item-name">分类</span>
+              
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              
+                <span class="site-state-item-count">15</span>
+                <span class="site-state-item-name">标签</span>
+              
+            </div>
+          
+
+        </nav>
+
+        
+          <div class="feed-link motion-element">
+            <a href="/atom.xml" rel="alternate">
+              <i class="fa fa-rss"></i>
+              RSS
+            </a>
+          </div>
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/skyJinc/" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-fw fa-github"></i>
+                  
+                  GitHub
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+
+      </section>
+
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#介绍"><span class="nav-number">1.</span> <span class="nav-text">介绍</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#AS-安装-NDK"><span class="nav-number">2.</span> <span class="nav-text">AS 安装 NDK</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#AndroidDevTools-安装"><span class="nav-number">2.1.</span> <span class="nav-text">AndroidDevTools 安装</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#开发"><span class="nav-number">3.</span> <span class="nav-text">开发</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#gradle-properties-配置"><span class="nav-number">3.1.</span> <span class="nav-text">gradle.properties 配置</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#local-properties中加入ndk和sdk"><span class="nav-number">3.2.</span> <span class="nav-text">local.properties中加入ndk和sdk</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#app文件夹下的build-gradle中的defaultConfig里加入如下代码"><span class="nav-number">3.3.</span> <span class="nav-text">app文件夹下的build.gradle中的defaultConfig里加入如下代码</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#创建布局-编写代码"><span class="nav-number">3.4.</span> <span class="nav-text">创建布局 编写代码</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#生成-h头文件"><span class="nav-number">3.5.</span> <span class="nav-text">生成.h头文件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#新建JNI文件夹"><span class="nav-number">3.6.</span> <span class="nav-text">新建JNI文件夹</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#新建-c-文件"><span class="nav-number">3.7.</span> <span class="nav-text">新建 .c 文件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#写C代码"><span class="nav-number">3.8.</span> <span class="nav-text">写C代码</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#执行"><span class="nav-number">3.9.</span> <span class="nav-text">执行</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#说明"><span class="nav-number">4.</span> <span class="nav-text">说明</span></a></li></ol></div>
+            
+          </div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
+</script>
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2016</span>
+   &nbsp; - &nbsp; 
+  <span class="author">
+    <i class="fa fa-android"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">skyJC</span>  
+</div>
+
+<div class="powered-by">
+  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Mist
+  </a>
+</div>
+<span id="busuanzi_container_site_pv">
+  &nbsp; | &nbsp;本站总访问量 <span id="busuanzi_value_site_pv"></span> 次
+</span>
+
+        
+
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/vendors/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.0.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.0.1"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.0.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.0.1"></script>
+
+
+
+  
+
+  
+    
+  
+
+  <script type="text/javascript">
+    var duoshuoQuery = {short_name:"jincanshen"};
+    (function() {
+      var ds = document.createElement('script');
+      ds.type = 'text/javascript';ds.async = true;
+      ds.id = 'duoshuo-script';
+      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+      ds.charset = 'UTF-8';
+      (document.getElementsByTagName('head')[0]
+      || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+  </script>
+
+  
+    
+    <script src="/vendors/ua-parser-js/dist/ua-parser.min.js?v=0.7.9"></script>
+    <script src="/js/src/hook-duoshuo.js"></script>
+  
+
+
+
+
+
+
+  
+  
+
+  
+
+  
+
+  
+  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.1.js"></script>
+  <script>AV.initialize("Ub5AU6hooUtI4dFRojnFK6Bf-gzGzoHsz", "M68V3yowbmzfADkpMNBgNwxE");</script>
+  <script>
+    function showTime(Counter) {
+      var query = new AV.Query(Counter);
+      var entries = [];
+      var $visitors = $(".leancloud_visitors");
+
+      $visitors.each(function () {
+        entries.push( $(this).attr("id").trim() );
+      });
+
+      query.containedIn('url', entries);
+      query.find()
+        .done(function (results) {
+          var COUNT_CONTAINER_REF = '.leancloud-visitors-count';
+
+          if (results.length === 0) {
+            $visitors.find(COUNT_CONTAINER_REF).text(0);
+            return;
+          }
+
+          for (var i = 0; i < results.length; i++) {
+            var item = results[i];
+            var url = item.get('url');
+            var time = item.get('time');
+            var element = document.getElementById(url);
+
+            $(element).find(COUNT_CONTAINER_REF).text(time);
+          }
+          for(var i = 0; i < entries.length; i++) {
+            var url = entries[i];
+            var element = document.getElementById(url);
+            var countSpan = $(element).find(COUNT_CONTAINER_REF);
+            if( countSpan.text() == '') {
+              countSpan.text(0);
+            }
+          }
+        })
+        .fail(function (object, error) {
+          console.log("Error: " + error.code + " " + error.message);
+        });
+    }
+
+    function addCount(Counter) {
+      var $visitors = $(".leancloud_visitors");
+      var url = $visitors.attr('id').trim();
+      var title = $visitors.attr('data-flag-title').trim();
+      var query = new AV.Query(Counter);
+
+      query.equalTo("url", url);
+      query.find({
+        success: function(results) {
+          if (results.length > 0) {
+            var counter = results[0];
+            counter.fetchWhenSave(true);
+            counter.increment("time");
+            counter.save(null, {
+              success: function(counter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(counter.get('time'));
+              },
+              error: function(counter, error) {
+                console.log('Failed to save Visitor num, with error message: ' + error.message);
+              }
+            });
+          } else {
+            var newcounter = new Counter();
+            /* Set ACL */
+            var acl = new AV.ACL();
+            acl.setPublicReadAccess(true);
+            acl.setPublicWriteAccess(true);
+            newcounter.setACL(acl);
+            /* End Set ACL */
+            newcounter.set("title", title);
+            newcounter.set("url", url);
+            newcounter.set("time", 1);
+            newcounter.save(null, {
+              success: function(newcounter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(newcounter.get('time'));
+              },
+              error: function(newcounter, error) {
+                console.log('Failed to create');
+              }
+            });
+          }
+        },
+        error: function(error) {
+          console.log('Error:' + error.code + " " + error.message);
+        }
+      });
+    }
+
+    $(function() {
+      var Counter = AV.Object.extend("Counter");
+      if ($('.leancloud_visitors').length == 1) {
+        addCount(Counter);
+      } else if ($('.post-title-link').length > 1) {
+        showTime(Counter);
+      }
+    });
+  </script>
+
+
+
+  
+</body>
+</html>

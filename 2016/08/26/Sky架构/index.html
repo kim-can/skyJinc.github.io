@@ -1,0 +1,1168 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/vendors/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="架构," />
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="skyJC" type="application/atom+xml" />
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.0.1" />
+
+
+
+
+
+
+<meta name="description" content="无论MVC或是MVP模式都不可避免地存在一个弊端：额外的代码复杂度及学习成本">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Sky架构简单使用">
+<meta property="og:url" content="http://www.jincanshen.com/2016/08/26/Sky架构/index.html">
+<meta property="og:site_name" content="skyJC">
+<meta property="og:description" content="无论MVC或是MVP模式都不可避免地存在一个弊端：额外的代码复杂度及学习成本">
+<meta property="og:image" content="https://skyJinc.github.io/images/sky架构/2.png">
+<meta property="og:image" content="https://skyJinc.github.io/images/sky架构/3.png">
+<meta property="og:image" content="https://skyJinc.github.io/images/sky架构/4.png">
+<meta property="og:image" content="https://skyJinc.github.io/images/sky架构/5.png">
+<meta property="og:image" content="https://skyJinc.github.io/images/sky架构/6.png">
+<meta property="og:image" content="https://skyJinc.github.io/images/sky架构/7.png">
+<meta property="og:image" content="https://skyJinc.github.io/images/sky架构/8.png">
+<meta property="og:image" content="https://skyJinc.github.io/images/sky架构/11.png">
+<meta property="og:image" content="https://skyJinc.github.io/images/sky架构/9.png">
+<meta property="og:image" content="https://skyJinc.github.io/images/sky架构/10.png">
+<meta property="og:image" content="https://skyJinc.github.io/images/sky架构/12.png">
+<meta property="og:image" content="https://skyJinc.github.io/images/sky架构/13.png">
+<meta property="og:image" content="https://skyJinc.github.io/images/sky架构/14.png">
+<meta property="og:image" content="https://skyJinc.github.io/images/sky架构/15.png">
+<meta property="og:image" content="https://skyJinc.github.io/images/sky架构/16.png">
+<meta property="og:image" content="https://skyJinc.github.io/images/sky架构/17.png">
+<meta property="og:image" content="https://skyJinc.github.io/images/sky架构/18.png">
+<meta property="og:image" content="https://skyJinc.github.io/images/sky架构/19.png">
+<meta property="og:image" content="https://skyJinc.github.io/images/sky架构/20.png">
+<meta property="og:image" content="https://skyJinc.github.io/images/sky架构/21.png">
+<meta property="og:image" content="https://skyJinc.github.io/images/sky架构/22.png">
+<meta property="og:image" content="https://skyJinc.github.io/images/sky架构/23.png">
+<meta property="og:image" content="https://skyJinc.github.io/images/sky架构/24.png">
+<meta property="og:image" content="https://skyJinc.github.io/images/sky架构/25.png">
+<meta property="og:image" content="https://skyJinc.github.io/images/sky架构/26.png">
+<meta property="og:image" content="https://skyJinc.github.io/images/sky架构/27.png">
+<meta property="og:image" content="https://skyJinc.github.io/images/sky架构/28.png">
+<meta property="og:image" content="https://skyJinc.github.io/images/sky架构/29.png">
+<meta property="og:image" content="https://skyJinc.github.io/images/sky架构/31.png">
+<meta property="og:image" content="https://skyJinc.github.io/images/sky架构/32.png">
+<meta property="og:image" content="https://skyJinc.github.io/images/sky架构/33.png">
+<meta property="og:image" content="https://skyJinc.github.io/images/sky架构/34.png">
+<meta property="og:image" content="https://skyJinc.github.io/images/sky架构/35.png">
+<meta property="og:image" content="https://skyJinc.github.io/images/sky架构/36.png">
+<meta property="og:image" content="https://skyJinc.github.io/images/sky架构/37.png">
+<meta property="og:image" content="https://skyJinc.github.io/images/sky架构/38.png">
+<meta property="og:image" content="https://skyJinc.github.io/images/sky架构/39.png">
+<meta property="og:image" content="https://skyJinc.github.io/images/sky架构/40.png">
+<meta property="og:image" content="https://skyJinc.github.io/images/sky架构/41.png">
+<meta property="og:image" content="https://skyJinc.github.io/images/sky架构/42.png">
+<meta property="og:image" content="https://skyJinc.github.io/images/sky架构/43.png">
+<meta property="og:image" content="https://skyJinc.github.io/images/sky架构/44.png">
+<meta property="og:image" content="https://skyJinc.github.io/images/sky架构/45.png">
+<meta property="og:image" content="https://skyJinc.github.io/images/sky架构/46.png">
+<meta property="og:image" content="https://skyJinc.github.io/images/sky架构/47.png">
+<meta property="og:image" content="https://skyJinc.github.io/images/sky架构/48.png">
+<meta property="og:updated_time" content="2016-09-26T13:23:36.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Sky架构简单使用">
+<meta name="twitter:description" content="无论MVC或是MVP模式都不可避免地存在一个弊端：额外的代码复杂度及学习成本">
+<meta name="twitter:image" content="https://skyJinc.github.io/images/sky架构/2.png">
+
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    scheme: 'Mist',
+    sidebar: {"position":"left","display":"post"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: 0,
+      author: '博主'
+    }
+  };
+</script>
+
+
+
+
+  <link rel="canonical" href="http://www.jincanshen.com/2016/08/26/Sky架构/"/>
+
+  <title> Sky架构简单使用 | skyJC </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "//hm.baidu.com/hm.js?2a10d2b4376486788ac2a9adf0cd5fd5";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+ 
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">skyJC</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle">Android探索的道路，是否愿意陪我一起？</p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-bank"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-bars"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user-secret"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="st-search-show-outputs">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <form class="site-search-form">
+  <input type="text" id="st-search-input" class="st-search-input st-default-search-input" />
+</form>
+
+<script type="text/javascript">
+  (function(w,d,t,u,n,s,e){w['SwiftypeObject']=n;w[n]=w[n]||function(){
+    (w[n].q=w[n].q||[]).push(arguments);};s=d.createElement(t);
+    e=d.getElementsByTagName(t)[0];s.async=1;s.src=u;e.parentNode.insertBefore(s,e);
+  })(window,document,'script','//s.swiftypecdn.com/install/v2/st.js','_st');
+
+  _st('install', 'fkf54id-fNsrLXkekAVV','2.0.0');
+</script>
+
+
+
+    </div>
+  
+</nav>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="//schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                Sky架构简单使用
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-08-26T12:15:32+08:00" content="2016-08-26">
+              2016-08-26
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/Android/" itemprop="url" rel="index">
+                    <span itemprop="name">Android</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/08/26/Sky架构/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/08/26/Sky架构/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+             <span id="/2016/08/26/Sky架构/" class="leancloud_visitors" data-flag-title="Sky架构简单使用">
+               &nbsp; | &nbsp;
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               <span class="post-meta-item-text">阅读次数 </span>
+               <span class="leancloud-visitors-count"></span>
+              </span>
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>无论MVC或是MVP模式都不可避免地存在一个弊端：<br><code>额外的代码复杂度及学习成本</code></p>
+<a id="more"></a>
+<h2 id="MVP和MVC"><a href="#MVP和MVC" class="headerlink" title="MVP和MVC"></a>MVP和MVC</h2><p>无论MVC或是MVP模式都不可避免地存在一个弊端：<br><code>额外的代码复杂度及学习成本</code></p>
+<h3 id="MVC"><a href="#MVC" class="headerlink" title="MVC"></a>MVC</h3><pre><code>1、View接受用户的交互请求
+2、View将请求转交给Controller
+3、Controller操作Model进行数据更新
+4、数据更新之后，Model通知View数据变化
+5、View显示更新之后的数据
+</code></pre><p><img src="https://skyJinc.github.io/images/sky架构/2.png" alt="图1"></p>
+<h3 id="MVP"><a href="#MVP" class="headerlink" title="MVP"></a>MVP</h3><pre><code>1、View接受用户的交互请求
+2、View将请求转交给Presenter
+3、Presenter操作Model进行数据库更新
+4、数据更新之后，Model通知Presenter数据发生变化
+5、Presenter更新View的数据
+</code></pre><p><img src="https://skyJinc.github.io/images/sky架构/3.png" alt="图1"></p>
+<p>说明：presenter  我这里说要用biz(business)代替</p>
+<h2 id="Sky简介"><a href="#Sky简介" class="headerlink" title="Sky简介"></a>Sky简介</h2><p>开头已经说了，无论MVC或是MVP模式都不可避免地存在一个弊端：<code>额外的代码复杂度及学习成本</code>  </p>
+<p>Sky开发架构都优化了那些问题</p>
+<h3 id="第一个"><a href="#第一个" class="headerlink" title="第一个"></a>第一个</h3><p>因为通过接口交互，所以每一个View(Activity,Fragment,DialogFragment…) 都会多一个IView接口，一个IBiz和实现类Biz.</p>
+<p>以Activity为例, 文件数量从1个变成了4个.<br><img src="https://skyJinc.github.io/images/sky架构/4.png" alt="图1"></p>
+<p>Sky架构做了调整，采用一个Java文件  包含 接口 和 类</p>
+<p><img src="https://skyJinc.github.io/images/sky架构/5.png" alt="图1"></p>
+<p>这里要说到Java文件的限制，一个类文件只能有一个<strong><em>public class</em></strong> 而Activity在AndroidManifest里必须是public，所以业务接口(IBiz)可以声明成public，而Activity不可以</p>
+<p>Biz<br><img src="https://skyJinc.github.io/images/sky架构/6.png" alt="图1"></p>
+<p>Activity<br><img src="https://skyJinc.github.io/images/sky架构/7.png" alt="图1"></p>
+<h3 id="第二个"><a href="#第二个" class="headerlink" title="第二个"></a>第二个</h3><p>activity 和 biz 依赖的问题</p>
+<p>正常的依赖关系<br>Activity<br><img src="https://skyJinc.github.io/images/sky架构/8.png" alt="图1"><br>Biz<br><img src="https://skyJinc.github.io/images/sky架构/11.png" alt="图1"></p>
+<p>Sky架构做了调整，采用泛型+注解方式依赖</p>
+<p>Activity<br><img src="https://skyJinc.github.io/images/sky架构/9.png" alt="图1"></p>
+<p>Biz<br><img src="https://skyJinc.github.io/images/sky架构/10.png" alt="图1"></p>
+<h4 id="Impl-注解"><a href="#Impl-注解" class="headerlink" title="@Impl  注解"></a>@Impl  注解</h4><p>可以看到Activity接口和Biz接口中都注解了@Impl(实现类.class)</p>
+<p>通过@Impl 获取实现类class 获取实例</p>
+<p><img src="https://skyJinc.github.io/images/sky架构/12.png" alt="图1"></p>
+<h3 id="第三个"><a href="#第三个" class="headerlink" title="第三个"></a>第三个</h3><p>SKYHelper 提供一下接口方便全局使用</p>
+<pre><code>display(Class&lt;D&gt; eClass)；跳转
+
+biz(Class&lt;B&gt; service)； 业务
+
+isExist(Class&lt;B&gt; service)； 业务类存不存在(因为业务类是根据View声明周期走)
+
+bizList(Class&lt;B&gt; service)； 业务类 批量获取
+
+common(Class&lt;B&gt; service)； 公共业务
+
+http(Class&lt;H&gt; httpClazz)； 网络
+
+interfaces(Class&lt;I&gt; implClazz)； 接口
+
+screenHelper();Activity 管理器
+
+threadPoolHelper()； 线程池管理器 
+
+mainLooper()；主线程
+
+downloader()； 下载管理器
+
+toast()；提示信息
+
+contact()； 系统通讯录管理器
+
+fileCacheManage()； 文件缓存管理器
+</code></pre><p>-帮助类可以自定义，保留以上的接口，自定义helper</p>
+<p>-继承 SKYModulesManage  和 SKYHelper 来自定义</p>
+<p>例子 自定义数据库管理</p>
+<p><img src="https://skyJinc.github.io/images/sky架构/13.png" alt="图1"></p>
+<p><img src="https://skyJinc.github.io/images/sky架构/14.png" alt="图1"></p>
+<p><img src="https://skyJinc.github.io/images/sky架构/15.png" alt="图1"></p>
+<p>注意 ： SKYModulesManage 不用关心单例和重复创建的问题，因为统一由Application管理，当然也可以不继承SKYModulesManage 自己来处理 </p>
+<h3 id="第四个"><a href="#第四个" class="headerlink" title="第四个"></a>第四个</h3><p>1.View（Activity,Fragment,DialogFragment）,Biz, Display(跳转调度), Commom(公共业务)，http, 还是以@Impl注解的接口都被代理， 进行解析方法注解</p>
+<p>2.因为解析每一个方法的注解，比较耗时，采用了缓存策略,缓存接口的每一个方法，不会进行第二次解析…(思路来自<a href="https://github.com/square/retrofit" target="_blank" rel="external">retrofit</a>)</p>
+<p>3.除了View和Biz的实例（创建和销毁），缓存是跟着View生命周期走，其他的都实例缓存都统一由缓存管理器进行统一管理</p>
+<h2 id="SKY简单使用"><a href="#SKY简单使用" class="headerlink" title="SKY简单使用"></a>SKY简单使用</h2><h3 id="引用"><a href="#引用" class="headerlink" title="引用"></a>引用</h3><p>架构里使用<a href="https://github.com/JakeWharton/butterknife" target="_blank" rel="external">butterknife</a> 所以 需要指定的插件</p>
+<p> <strong><em>classpath ‘com.neenbedankt.gradle.plugins:android-apt:1.8’</em></strong></p>
+<h4 id="第一种引用方式"><a href="#第一种引用方式" class="headerlink" title="第一种引用方式"></a>第一种引用方式</h4><p>第一步 - Project-build.gradle</p>
+<pre><code>buildscript {
+    repositories {
+        jcenter()
+    }
+    dependencies {
+        classpath &apos;com.android.tools.build:gradle:2.1.2&apos;
+        classpath &apos;com.neenbedankt.gradle.plugins:android-apt:1.8&apos;
+    }
+}        
+
+allprojects {
+    repositories {
+        jcenter()
+        //远程仓库
+        maven { url &quot;https://github.com/J2W/mvn-repo-j2w/raw/master/repository&quot; }
+   ｝
+｝
+</code></pre><p>第二步 - App-build.gradle:</p>
+<pre><code>apply plugin: &apos;android-apt&apos;
+
+dependencies {
+       compile fileTree(dir: &apos;libs&apos;, include: [&apos;*.jar&apos;])
+       compile &apos;jc:sky:1.4&apos;//请看github最新版本
+    apt &apos;com.jakewharton:butterknife-compiler:8.2.1&apos;
+}
+</code></pre><h4 id="第二种引用方式"><a href="#第二种引用方式" class="headerlink" title="第二种引用方式"></a>第二种引用方式</h4><p>第一步 - Project-build.gradle 文件</p>
+<pre><code>allprojects {
+    repositories {
+        ...
+        maven { url &quot;https://jitpack.io&quot; }
+    }
+}
+</code></pre><p>第二步 - App-build.gradle:</p>
+<pre><code> dependencies {
+     ompile &apos;com.github.skyJinc:sky:1.5&apos;
+}  
+</code></pre><h3 id="初始化"><a href="#初始化" class="headerlink" title="初始化"></a>初始化</h3><p>实现 ISKYBind </p>
+<pre><code>//架构日志开关
+boolean isLogOpen();
+
+ //网络适配器
+Retrofit getRestAdapter(Builder var1);
+
+//方法拦截器
+SKYMethods getMethodInterceptor(jc.sky.modules.methodProxy.SKYMethods.Builder var1);
+
+//核心 -  配置管理器
+SKYModulesManage getModulesManage();
+
+
+//在Application的onCreate里绑定
+Application - onCreate -&gt; SKYHelper.bind(ISKYBind)
+</code></pre><p>实现类可以是Application 也可以自定义</p>
+<p>以Demo项目为例子</p>
+<p><img src="https://skyJinc.github.io/images/sky架构/16.png" alt="图1"></p>
+<h3 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h3><p>创建Activity和Biz 手动创建很麻烦，所以 我写了一个模板 </p>
+<p>AndroidStudio -&gt;设置-&gt; Editor-&gt;File And Code Templates</p>
+<p>Activity模板例子  <strong><em><a href="https://github.com/skyJinc/sky/wiki/%E7%BB%93%E6%9E%84%E6%A8%A1%E6%9D%BF" target="_blank" rel="external">参考</a></em></strong></p>
+<pre><code>import android.os.Bundle;
+import jc.sky.core.Impl;
+import jc.sky.view.SKYBuilder;
+import jc.sky.view.SKYActivity;
+
+/**
+ * @创建人 ${USER}
+ * @创建时间 ${DATE} ${TIME}
+ * @类描述 一句话描述你的UI
+ */
+public class ${NAME}Activity extends SKYActivity&lt;I${NAME}Biz&gt; implements I${NAME}Activity {
+
+    @Override protected SKYBuilder build(SKYBuilder skyBuilder) {
+        return skyBuilder;
+    }
+
+    @Override protected void initData(Bundle bundle) {
+
+    }
+
+}
+@Impl(${NAME}Activity.class)
+interface I${NAME}Activity {
+
+}
+</code></pre><p><img src="https://skyJinc.github.io/images/sky架构/17.png" alt="图1"></p>
+<p>####开始写业务</p>
+<p>#####创建<br>继承 SKYActivity - 采用了建造者模式 进行配置</p>
+<p>页面<br><img src="https://skyJinc.github.io/images/sky架构/18.png" alt="图1"></p>
+<p>Activity<br><img src="https://skyJinc.github.io/images/sky架构/19.png" alt="图1"></p>
+<p>SKYBuilder 里有很多配置，主要的是 layoutId 设置布局文件</p>
+<p>Biz<br><img src="https://skyJinc.github.io/images/sky架构/20.png" alt="图1"></p>
+<h5 id="业务逻辑-注解使用"><a href="#业务逻辑-注解使用" class="headerlink" title="业务逻辑 - 注解使用"></a>业务逻辑 - 注解使用</h5><p>登陆后打印账号和密码，模拟网络请求 延迟3秒钟<br><img src="https://skyJinc.github.io/images/sky架构/21.png" alt="图1"><br><img src="https://skyJinc.github.io/images/sky架构/22.png" alt="图1"></p>
+<p>这里你们会看到 这个不是在主线程执行 线程等待嘛？<br>是的, 所以我们需要给业务接口增加注释，告诉它你是需要在子线程执行的</p>
+<p><img src="https://skyJinc.github.io/images/sky架构/23.png" alt="图1"></p>
+<p>提供了三种线程池</p>
+<pre><code>HTTP 专门提供给网络请求使用
+WORK 专门给IO操作，数据库查询等使用
+SINGLEWORK 专门给需要队列形式，一个一个执行使用（比如数据库插入操作，必须是队列形式）
+</code></pre><h5 id="业务逻辑-如何回调"><a href="#业务逻辑-如何回调" class="headerlink" title="业务逻辑 - 如何回调"></a>业务逻辑 - 如何回调</h5><p>Activity 和 Biz　是如何互相调用　和　访问的呢？</p>
+<p>在注解使用中　我们看到Activity 点击事件 调用了<strong><em>biz()</em></strong>.login() 来执行业务</p>
+<p>在biz里 可以使用 <strong><em>ui()</em></strong> 来进行回调</p>
+<p>在View层接口里 声明两个接口，一个是用于开关进度条，一个是用于修改登陆按钮名称</p>
+<p><img src="https://skyJinc.github.io/images/sky架构/24.png" alt="图1"></p>
+<p>biz 里 进行调用</p>
+<p><img src="https://skyJinc.github.io/images/sky架构/25.png" alt="图1"></p>
+<p>可能有人会问，在子线程里 修改Button的名字 会报错的，因为只有在主线程修改。。。</p>
+<p>是的, 可是运行Demo你会发现居然是可以的，因为仔细看过上面介绍的朋友会知道，我们View层和Biz层 都被动态代理了，所以 调用UI() 会自动判定是在主线程还是子线程</p>
+<h5 id="业务逻辑-防止重复执行"><a href="#业务逻辑-防止重复执行" class="headerlink" title="业务逻辑 - 防止重复执行"></a>业务逻辑 - 防止重复执行</h5><p>很多开发的时候大家为了防止一个业务多次调用，会通过各种方式 来判定这个方法有没有在执行，如果在执行，就忽略掉～～</p>
+<p>sky架构的所有业务接口都是防止重复执行的</p>
+<p><img src="https://skyJinc.github.io/images/sky架构/26.png" alt="图1"></p>
+<p>循环调用了三次，只有一次执行成功，因为防止重复执行，所以只有方法真正执行完毕后才能继续调用，也可以注解允许重复执行，<strong><em>@Repeat(true)</em></strong> 默认是fasle</p>
+<p><img src="https://skyJinc.github.io/images/sky架构/27.png" alt="图1"></p>
+<h5 id="业务逻辑-列表页"><a href="#业务逻辑-列表页" class="headerlink" title="业务逻辑 - 列表页"></a>业务逻辑 - 列表页</h5><p>创建列表页面  我使用的是mac所以快捷键是 command + n  选择SKYActivity 和 SKYIBiz-Activity , 也可以直接选择对应的包，调出菜单</p>
+<p><img src="https://skyJinc.github.io/images/sky架构/28.png" alt="图1"></p>
+<p>输入名字</p>
+<p><img src="https://skyJinc.github.io/images/sky架构/29.png" alt="图1"></p>
+<p>创建适配器</p>
+<pre><code>继承 SKYRVAdapter&lt;Model,Holder&gt;
+
+
+model
+
+/**
+ * @创建人 sky
+ * @创建时间 16/8/27 上午11:59
+ * @类描述
+ */
+public class ListModel {
+
+    public String title;
+}
+
+/**
+ * holder
+ */
+public class ItemHolder extends SKYHolder&lt;ListModel&gt; {
+
+    public ItemHolder(View view) {
+        super(view);
+    }
+
+    @Override public void bindData(ListModel listModel, int i) {
+
+    }
+}
+</code></pre><p><img src="https://skyJinc.github.io/images/sky架构/31.png" alt="图1"></p>
+<p>这里使用了<a href="https://github.com/JakeWharton/butterknife" target="_blank" rel="external">butterknife</a> 插件</p>
+<p><img src="https://skyJinc.github.io/images/sky架构/32.png" alt="图1"></p>
+<p><img src="https://skyJinc.github.io/images/sky架构/33.png" alt="图1"></p>
+<p><img src="https://skyJinc.github.io/images/sky架构/34.png" alt="图1"></p>
+<p>builder里配置</p>
+<p><img src="https://skyJinc.github.io/images/sky架构/35.png" alt="图1"></p>
+<p>开始写业务</p>
+<p>View层接口定义 </p>
+<pre><code>//设置数据
+void setData(List&lt;ListModel&gt; listModelList);
+</code></pre><p>Biz层接口定义</p>
+<pre><code>/**
+ * 加载数据
+ */
+@Background(BackgroundType.WORK) void loadData();
+</code></pre><p><img src="https://skyJinc.github.io/images/sky架构/36.png" alt="图1"></p>
+<p><img src="https://skyJinc.github.io/images/sky架构/37.png" alt="图1"></p>
+<h5 id="业务逻辑-display-跳转调度-拦截器"><a href="#业务逻辑-display-跳转调度-拦截器" class="headerlink" title="业务逻辑 - display 跳转调度  拦截器"></a>业务逻辑 - display 跳转调度  拦截器</h5><p>个人比较喜欢 把跳转写到当前类，模仿fragment 写法</p>
+<p><img src="https://skyJinc.github.io/images/sky架构/38.png" alt="图1"></p>
+<p>display里包含了所有intent 和 fragment 方法</p>
+<p><img src="https://skyJinc.github.io/images/sky架构/39.png" alt="图1"></p>
+<p>为什么要使用display来跳转呢？ </p>
+<p>如果需求是 想拦截跳转前 验证是否登陆 该如何处理？</p>
+<p>Sky架构– ISKYBind 接口里 设置 display拦截器 </p>
+<p>这里有Display Start和End 拦截器 根据需求我们设置Start拦截器</p>
+<p><img src="https://skyJinc.github.io/images/sky架构/40.png" alt="图1"></p>
+<p>定义拦截器</p>
+<p><img src="https://skyJinc.github.io/images/sky架构/41.png" alt="图1"></p>
+<p>设置拦截器</p>
+<p><img src="https://skyJinc.github.io/images/sky架构/42.png" alt="图1"></p>
+<p>我们在loginActivity 页面 点击登陆以后 跳转到 ListActivity里</p>
+<p><img src="https://skyJinc.github.io/images/sky架构/43.png" alt="图1"></p>
+<h5 id="业务逻辑-拦截器"><a href="#业务逻辑-拦截器" class="headerlink" title="业务逻辑 - 拦截器"></a>业务逻辑 - 拦截器</h5><p><img src="https://skyJinc.github.io/images/sky架构/44.png" alt="图1"></p>
+<p>跟display类似，通过demo 项目自己可以研究一下，根据不同业务需求来添加拦截器</p>
+<h5 id="业务逻辑-视图切换"><a href="#业务逻辑-视图切换" class="headerlink" title="业务逻辑 - 视图切换"></a>业务逻辑 - 视图切换</h5><p><img src="https://skyJinc.github.io/images/sky架构/45.png" alt="图1"></p>
+<pre><code> //进度布局
+void layoutLoadingId(@LayoutRes int layoutId);
+//错误布局
+void layoutEmptyId(@LayoutRes int layoutId);
+//业务错误布局
+void layoutBizErrorId(@LayoutRes int layoutId);
+//网络错误布局
+void layoutHttpErrorId(@LayoutRes int layoutId);
+
+Activity里调用 调用来切换
+showHttpError();
+showContent();
+showLoading();
+showEmpty();
+showBizError();
+</code></pre><p>注:sky架构采用 ViewStub 延迟加载</p>
+<p>单个Activity布局设置，如果想所有的View层布局都有默认布局？</p>
+<p>实现 SKYIViewCommon 接口</p>
+<pre><code>@Override
+public int layoutLoading() {
+    return 0;
+}
+
+@Override
+public int layoutEmpty() {
+    return 0;
+}
+
+@Override
+public int layoutBizError() {
+    return 0;
+}
+
+@Override
+public int layoutHttpError() {
+    return 0;
+}
+</code></pre><p>绑定<br><img src="https://skyJinc.github.io/images/sky架构/46.png" alt="图1"></p>
+<p>优先级: 设置单个activity优先，如果activity没有设置，获取全局默认布局</p>
+<h5 id="业务逻辑-全局Biz-执行业务"><a href="#业务逻辑-全局Biz-执行业务" class="headerlink" title="业务逻辑 - 全局Biz 执行业务"></a>业务逻辑 - 全局Biz 执行业务</h5><p>例子，LoginActivity页面登陆后 跳转到 ListActivity页面 获取数据后，通知LoginActivity 修改按钮名称</p>
+<p>改进一下Demo </p>
+<p>我们在ListBiz里 调用 LoginBiz的业务 告诉它进行刷新</p>
+<p>写一个业务接口 更新按钮的<br><img src="https://skyJinc.github.io/images/sky架构/47.png" alt="图1"></p>
+<p><img src="https://skyJinc.github.io/images/sky架构/48.png" alt="图1"></p>
+<p>说明: 在任何都可以调用业务接口， </p>
+<pre><code>SKYHelper.biz(ILoginBiz.class)；
+
+参数可以是任何业务接口的class, 不必担心返回空值，因为已经做了处理，因为biz的生命周期是跟着View层走，所以如果你调用了已经销毁的Biz业务，它会执行空方法，不会报空指针异常。。
+</code></pre><h5 id="业务逻辑-公共业务接口-ICommon"><a href="#业务逻辑-公共业务接口-ICommon" class="headerlink" title="业务逻辑 - 公共业务接口 ICommon"></a>业务逻辑 - 公共业务接口 ICommon</h5><p>没有View层，只有业务逻辑 可以定义公共的业务接口进行业务的执行</p>
+<p>后续版本会根据 <a href="https://github.com/google/agera" target="_blank" rel="external">agera</a> 进行修改，采用 观察者模式 进行获取数据，更新界面</p>
+<h2 id="结尾"><a href="#结尾" class="headerlink" title="结尾"></a>结尾</h2><p>还有一些使用我没有进行说明，比如 下拉刷新，分页加载，toolbar 绑定等等…<br>可以看源代码的 <strong><em><a href="https://github.com/skyJinc/sky/blob/master/app/src/main/java/jc/sky/view/SKYBuilder.java" target="_blank" rel="external">SKYBuilder</a></em></strong> </p>
+<p>下载Demo 看看 调试调试。。。<br><a href="https://github.com/skyJinc/SkyApp" target="_blank" rel="external">DEMO</a></p>
+<p>原理和实现 都会在后续的文章写出来。。。。</p>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+  <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+    <div>坚持原创技术分享，您的支持将鼓励我继续创作！</div>
+    <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+      <span>赏</span>
+    </button>
+    <div id="QR" style="display: none;">
+      
+      
+        <div id="alipay" style="display: inline-block">
+          <img id="alipay_qr" src="https://raw.githubusercontent.com/skyJinc/skyJinc.github.io/master/images/about/my_zfb.JPG" alt="skyJC Alipay"/>
+          <p>支付宝打赏</p>
+        </div>
+      
+    </div>
+  </div>
+
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/架构/" rel="tag">#架构</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2016/08/22/可持续集成/" rel="next" title="Mac + Jenkins + Gradle + Git = 可持续集成架构搭建">
+                <i class="fa fa-chevron-left"></i> Mac + Jenkins + Gradle + Git = 可持续集成架构搭建
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2016/09/01/Android-Gradle根据变量打包Apk/" rel="prev" title="Android:Gradle根据变量打包Apk">
+                Android:Gradle根据变量打包Apk <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div class="ds-thread" data-thread-key="2016/08/26/Sky架构/"
+           data-title="Sky架构简单使用" data-url="http://www.jincanshen.com/2016/08/26/Sky架构/">
+      </div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel ">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/my/avatar.jpg"
+               alt="skyJC" />
+          <p class="site-author-name" itemprop="name">skyJC</p>
+          <p class="site-description motion-element" itemprop="description">Android探索的道路，是否愿意陪我一起？</p>
+        </div>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">21</span>
+              <span class="site-state-item-name">日志</span>
+            </a>
+          </div>
+
+          
+            <div class="site-state-item site-state-categories">
+              
+                <span class="site-state-item-count">2</span>
+                <span class="site-state-item-name">分类</span>
+              
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              
+                <span class="site-state-item-count">15</span>
+                <span class="site-state-item-name">标签</span>
+              
+            </div>
+          
+
+        </nav>
+
+        
+          <div class="feed-link motion-element">
+            <a href="/atom.xml" rel="alternate">
+              <i class="fa fa-rss"></i>
+              RSS
+            </a>
+          </div>
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/skyJinc/" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-fw fa-github"></i>
+                  
+                  GitHub
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+
+      </section>
+
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#MVP和MVC"><span class="nav-number">1.</span> <span class="nav-text">MVP和MVC</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#MVC"><span class="nav-number">1.1.</span> <span class="nav-text">MVC</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#MVP"><span class="nav-number">1.2.</span> <span class="nav-text">MVP</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Sky简介"><span class="nav-number">2.</span> <span class="nav-text">Sky简介</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#第一个"><span class="nav-number">2.1.</span> <span class="nav-text">第一个</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#第二个"><span class="nav-number">2.2.</span> <span class="nav-text">第二个</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Impl-注解"><span class="nav-number">2.2.1.</span> <span class="nav-text">@Impl  注解</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#第三个"><span class="nav-number">2.3.</span> <span class="nav-text">第三个</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#第四个"><span class="nav-number">2.4.</span> <span class="nav-text">第四个</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#SKY简单使用"><span class="nav-number">3.</span> <span class="nav-text">SKY简单使用</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#引用"><span class="nav-number">3.1.</span> <span class="nav-text">引用</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#第一种引用方式"><span class="nav-number">3.1.1.</span> <span class="nav-text">第一种引用方式</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#第二种引用方式"><span class="nav-number">3.1.2.</span> <span class="nav-text">第二种引用方式</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#初始化"><span class="nav-number">3.2.</span> <span class="nav-text">初始化</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#使用"><span class="nav-number">3.3.</span> <span class="nav-text">使用</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#业务逻辑-注解使用"><span class="nav-number">3.3.0.1.</span> <span class="nav-text">业务逻辑 - 注解使用</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#业务逻辑-如何回调"><span class="nav-number">3.3.0.2.</span> <span class="nav-text">业务逻辑 - 如何回调</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#业务逻辑-防止重复执行"><span class="nav-number">3.3.0.3.</span> <span class="nav-text">业务逻辑 - 防止重复执行</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#业务逻辑-列表页"><span class="nav-number">3.3.0.4.</span> <span class="nav-text">业务逻辑 - 列表页</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#业务逻辑-display-跳转调度-拦截器"><span class="nav-number">3.3.0.5.</span> <span class="nav-text">业务逻辑 - display 跳转调度  拦截器</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#业务逻辑-拦截器"><span class="nav-number">3.3.0.6.</span> <span class="nav-text">业务逻辑 - 拦截器</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#业务逻辑-视图切换"><span class="nav-number">3.3.0.7.</span> <span class="nav-text">业务逻辑 - 视图切换</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#业务逻辑-全局Biz-执行业务"><span class="nav-number">3.3.0.8.</span> <span class="nav-text">业务逻辑 - 全局Biz 执行业务</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#业务逻辑-公共业务接口-ICommon"><span class="nav-number">3.3.0.9.</span> <span class="nav-text">业务逻辑 - 公共业务接口 ICommon</span></a></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#结尾"><span class="nav-number">4.</span> <span class="nav-text">结尾</span></a></li></ol></div>
+            
+          </div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
+</script>
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2016</span>
+   &nbsp; - &nbsp; 
+  <span class="author">
+    <i class="fa fa-android"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">skyJC</span>  
+</div>
+
+<div class="powered-by">
+  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Mist
+  </a>
+</div>
+<span id="busuanzi_container_site_pv">
+  &nbsp; | &nbsp;本站总访问量 <span id="busuanzi_value_site_pv"></span> 次
+</span>
+
+        
+
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/vendors/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.0.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.0.1"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.0.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.0.1"></script>
+
+
+
+  
+
+  
+    
+  
+
+  <script type="text/javascript">
+    var duoshuoQuery = {short_name:"jincanshen"};
+    (function() {
+      var ds = document.createElement('script');
+      ds.type = 'text/javascript';ds.async = true;
+      ds.id = 'duoshuo-script';
+      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+      ds.charset = 'UTF-8';
+      (document.getElementsByTagName('head')[0]
+      || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+  </script>
+
+  
+    
+    <script src="/vendors/ua-parser-js/dist/ua-parser.min.js?v=0.7.9"></script>
+    <script src="/js/src/hook-duoshuo.js"></script>
+  
+
+
+
+
+
+
+  
+  
+
+  
+
+  
+
+  
+  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.1.js"></script>
+  <script>AV.initialize("Ub5AU6hooUtI4dFRojnFK6Bf-gzGzoHsz", "M68V3yowbmzfADkpMNBgNwxE");</script>
+  <script>
+    function showTime(Counter) {
+      var query = new AV.Query(Counter);
+      var entries = [];
+      var $visitors = $(".leancloud_visitors");
+
+      $visitors.each(function () {
+        entries.push( $(this).attr("id").trim() );
+      });
+
+      query.containedIn('url', entries);
+      query.find()
+        .done(function (results) {
+          var COUNT_CONTAINER_REF = '.leancloud-visitors-count';
+
+          if (results.length === 0) {
+            $visitors.find(COUNT_CONTAINER_REF).text(0);
+            return;
+          }
+
+          for (var i = 0; i < results.length; i++) {
+            var item = results[i];
+            var url = item.get('url');
+            var time = item.get('time');
+            var element = document.getElementById(url);
+
+            $(element).find(COUNT_CONTAINER_REF).text(time);
+          }
+          for(var i = 0; i < entries.length; i++) {
+            var url = entries[i];
+            var element = document.getElementById(url);
+            var countSpan = $(element).find(COUNT_CONTAINER_REF);
+            if( countSpan.text() == '') {
+              countSpan.text(0);
+            }
+          }
+        })
+        .fail(function (object, error) {
+          console.log("Error: " + error.code + " " + error.message);
+        });
+    }
+
+    function addCount(Counter) {
+      var $visitors = $(".leancloud_visitors");
+      var url = $visitors.attr('id').trim();
+      var title = $visitors.attr('data-flag-title').trim();
+      var query = new AV.Query(Counter);
+
+      query.equalTo("url", url);
+      query.find({
+        success: function(results) {
+          if (results.length > 0) {
+            var counter = results[0];
+            counter.fetchWhenSave(true);
+            counter.increment("time");
+            counter.save(null, {
+              success: function(counter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(counter.get('time'));
+              },
+              error: function(counter, error) {
+                console.log('Failed to save Visitor num, with error message: ' + error.message);
+              }
+            });
+          } else {
+            var newcounter = new Counter();
+            /* Set ACL */
+            var acl = new AV.ACL();
+            acl.setPublicReadAccess(true);
+            acl.setPublicWriteAccess(true);
+            newcounter.setACL(acl);
+            /* End Set ACL */
+            newcounter.set("title", title);
+            newcounter.set("url", url);
+            newcounter.set("time", 1);
+            newcounter.save(null, {
+              success: function(newcounter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(newcounter.get('time'));
+              },
+              error: function(newcounter, error) {
+                console.log('Failed to create');
+              }
+            });
+          }
+        },
+        error: function(error) {
+          console.log('Error:' + error.code + " " + error.message);
+        }
+      });
+    }
+
+    $(function() {
+      var Counter = AV.Object.extend("Counter");
+      if ($('.leancloud_visitors').length == 1) {
+        addCount(Counter);
+      } else if ($('.post-title-link').length > 1) {
+        showTime(Counter);
+      }
+    });
+  </script>
+
+
+
+  
+</body>
+</html>

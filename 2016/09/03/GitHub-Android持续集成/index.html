@@ -1,0 +1,1057 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/vendors/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="打包方式," />
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="skyJC" type="application/atom+xml" />
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.0.1" />
+
+
+
+
+
+
+<meta name="description" content="Travis CITravis CI，是一个专门为开源项目打造的持续集成环境。
+如果你有一个放在github上的开源项目，Travis CI简直就是一个完美的CI选择。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="GitHub-Android持续集成">
+<meta property="og:url" content="http://www.jincanshen.com/2016/09/03/GitHub-Android持续集成/index.html">
+<meta property="og:site_name" content="skyJC">
+<meta property="og:description" content="Travis CITravis CI，是一个专门为开源项目打造的持续集成环境。
+如果你有一个放在github上的开源项目，Travis CI简直就是一个完美的CI选择。">
+<meta property="og:image" content="https://skyJinc.github.io/images/github集成测试/1.png">
+<meta property="og:image" content="https://skyJinc.github.io/images/github集成测试/2.png">
+<meta property="og:image" content="https://skyJinc.github.io/images/github集成测试/3.png">
+<meta property="og:image" content="https://skyJinc.github.io/images/github集成测试/4.png">
+<meta property="og:image" content="https://skyJinc.github.io/images/github集成测试/5.png">
+<meta property="og:image" content="https://skyJinc.github.io/images/github集成测试/6.png">
+<meta property="og:image" content="https://skyJinc.github.io/images/github集成测试/7.png">
+<meta property="og:image" content="https://skyJinc.github.io/images/github集成测试/8.png">
+<meta property="og:image" content="https://skyJinc.github.io/images/github集成测试/9.png">
+<meta property="og:image" content="https://skyJinc.github.io/images/github集成测试/10.png">
+<meta property="og:image" content="https://skyJinc.github.io/images/github集成测试/11.png">
+<meta property="og:image" content="https://skyJinc.github.io/images/github集成测试/12.png">
+<meta property="og:image" content="https://skyJinc.github.io/images/github集成测试/13.png">
+<meta property="og:updated_time" content="2016-09-26T13:22:57.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="GitHub-Android持续集成">
+<meta name="twitter:description" content="Travis CITravis CI，是一个专门为开源项目打造的持续集成环境。
+如果你有一个放在github上的开源项目，Travis CI简直就是一个完美的CI选择。">
+<meta name="twitter:image" content="https://skyJinc.github.io/images/github集成测试/1.png">
+
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    scheme: 'Mist',
+    sidebar: {"position":"left","display":"post"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: 0,
+      author: '博主'
+    }
+  };
+</script>
+
+
+
+
+  <link rel="canonical" href="http://www.jincanshen.com/2016/09/03/GitHub-Android持续集成/"/>
+
+  <title> GitHub-Android持续集成 | skyJC </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "//hm.baidu.com/hm.js?2a10d2b4376486788ac2a9adf0cd5fd5";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+ 
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">skyJC</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle">Android探索的道路，是否愿意陪我一起？</p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-bank"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-bars"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user-secret"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="st-search-show-outputs">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <form class="site-search-form">
+  <input type="text" id="st-search-input" class="st-search-input st-default-search-input" />
+</form>
+
+<script type="text/javascript">
+  (function(w,d,t,u,n,s,e){w['SwiftypeObject']=n;w[n]=w[n]||function(){
+    (w[n].q=w[n].q||[]).push(arguments);};s=d.createElement(t);
+    e=d.getElementsByTagName(t)[0];s.async=1;s.src=u;e.parentNode.insertBefore(s,e);
+  })(window,document,'script','//s.swiftypecdn.com/install/v2/st.js','_st');
+
+  _st('install', 'fkf54id-fNsrLXkekAVV','2.0.0');
+</script>
+
+
+
+    </div>
+  
+</nav>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="//schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                GitHub-Android持续集成
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-09-03T15:13:22+08:00" content="2016-09-03">
+              2016-09-03
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/Android/" itemprop="url" rel="index">
+                    <span itemprop="name">Android</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/09/03/GitHub-Android持续集成/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/09/03/GitHub-Android持续集成/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+             <span id="/2016/09/03/GitHub-Android持续集成/" class="leancloud_visitors" data-flag-title="GitHub-Android持续集成">
+               &nbsp; | &nbsp;
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               <span class="post-meta-item-text">阅读次数 </span>
+               <span class="leancloud-visitors-count"></span>
+              </span>
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="Travis-CI"><a href="#Travis-CI" class="headerlink" title="Travis CI"></a><a href="https://travis-ci.org/" target="_blank" rel="external">Travis CI</a></h1><p>Travis CI，是一个专门为开源项目打造的持续集成环境。</p>
+<p>如果你有一个放在github上的开源项目，Travis CI简直就是一个完美的CI选择。</p>
+<a id="more"></a>
+<p>支持很多语言</p>
+<pre><code>Android
+C
+C#
+C++
+Clojure
+Crystal
+D
+Dart
+Erlang
+Elixir
+F#
+Go
+Groovy
+Haskell
+Haxe
+Java
+JavaScript (with Node.js)
+Julia
+Objective-C
+Perl
+Perl6
+PHP
+Python
+R
+Ruby
+Rust
+Scala
+Smalltalk
+Visual Basic
+</code></pre><p><a href="https://docs.travis-ci.com/user/languages/android/" target="_blank" rel="external">Android版 配置教程</a></p>
+<h2 id="MAC-安装-Travis-CLI"><a href="#MAC-安装-Travis-CLI" class="headerlink" title="MAC 安装 Travis - CLI"></a>MAC 安装 Travis - CLI</h2><p>Travis 是Ruby写的 所以安装吧…<br>首先需要安装Ruby, 你可以通过运行ruby -v 检查系统是否安装Ruby:</p>
+<pre><code>#执行
+ruby -v
+
+#显示
+ruby 2.0.0p645 (2015-04-13 revision 50299) [universal.x86_64-darwin15]
+
+#执行
+gem install travis -v 1.8.0 --no-rdoc --no-ri
+
+#执行
+travis version
+#显示
+1.8.0
+
+提示： 诶 gem 安装比较慢 ，可能没反应，其实等会儿就好了。。。
+如果出现权限问题 gem install 前面 加sudo
+</code></pre><h2 id="开始集成"><a href="#开始集成" class="headerlink" title="开始集成"></a>开始集成</h2><p>登陆网站 <a href="https://travis-ci.org/" target="_blank" rel="external">travis-ci</a></p>
+<h3 id="登陆后"><a href="#登陆后" class="headerlink" title="登陆后"></a>登陆后</h3><p><img src="https://skyJinc.github.io/images/github集成测试/1.png" alt="tu"></p>
+<h3 id="同步"><a href="#同步" class="headerlink" title="同步"></a>同步</h3><p><img src="https://skyJinc.github.io/images/github集成测试/2.png" alt="tu"></p>
+<h3 id="开启"><a href="#开启" class="headerlink" title="开启"></a>开启</h3><p><img src="https://skyJinc.github.io/images/github集成测试/3.png" alt="tu"></p>
+<h3 id="创建-travis-yml"><a href="#创建-travis-yml" class="headerlink" title="创建  .travis.yml"></a>创建  <strong><em>.travis.yml</em></strong></h3><p><a href="https://docs.travis-ci.com/user/languages/android/" target="_blank" rel="external">Android配置教程</a></p>
+<p>Travis的配置文件是使用 yml 一种标记语言编写的，如果有想了解的，可以自行搜索。</p>
+<p>下面我们详细讲解上面脚本里面的元素都是代表什么意思。</p>
+<h4 id="首先设置我们的语言，现在是Android应用"><a href="#首先设置我们的语言，现在是Android应用" class="headerlink" title="首先设置我们的语言，现在是Android应用"></a>首先设置我们的语言，现在是Android应用</h4><pre><code>language: android
+</code></pre><h4 id="后面设置我们需用到Android里面相关的编译模块"><a href="#后面设置我们需用到Android里面相关的编译模块" class="headerlink" title="后面设置我们需用到Android里面相关的编译模块"></a>后面设置我们需用到Android里面相关的编译模块</h4><pre><code>language: android   # 声明构建语言环境
+
+notifications:      # 每次构建的时候是否通知，如果不想收到通知邮箱
+  email: false
+
+sudo: false         # 开启基于容器的Travis CI任务，让编译效率更高。
+
+android:            # 配置信息
+  components:
+    - tools
+    - build-tools-23.0.2              
+    - android-23                     
+    - extra-android-m2repository     # Android Support Repository
+    - extra-android-support          # Support Library
+
+before_install:     
+ - chmod +x gradlew  # 改变gradlew的访问权限
+
+script:              # 执行:下面的命令
+  - ./gradlew assembleRelease  
+
+before_deploy:       # 部署之前
+  # 使用 mv 命令进行修改apk文件的名字
+  - mv app/build/outputs/apk/app-release.apk app/build/outputs/apk/buff.apk  
+
+deploy:              # 部署
+  provider: releases # 部署到GitHub Release，除此之外，Travis CI还支持发布到fir.im、AWS、Google App Engine等
+  api_key:           # 填写GitHub的token （Settings -&gt; Personal access tokens -&gt; Generate new token）
+    secure: 7f4dc45a19f742dce39cbe4d1e5852xxxxxxxxx 
+  file: app/build/outputs/apk/buff.apk   # 部署文件路径
+  skip_cleanup: true     # 设置为true以跳过清理,不然apk文件就会被清理
+  on:     # 发布时机           
+    tags: true       # tags设置为true表示只有在有tag的情况下才部署
+</code></pre><h4 id="默认travis-会接受所有的-Licenses-但是你也可以定义自己的白名单"><a href="#默认travis-会接受所有的-Licenses-但是你也可以定义自己的白名单" class="headerlink" title="默认travis 会接受所有的 Licenses,但是你也可以定义自己的白名单"></a>默认travis 会接受所有的 Licenses,但是你也可以定义自己的白名单</h4><pre><code>language: android
+android:
+  components:
+    - build-tools-20.0.0
+    - android-L
+    - add-on
+    - extra
+  licenses:
+    - &apos;android-sdk-preview-license-52d11cd2&apos;
+    - &apos;android-sdk-license-.+&apos;
+    - &apos;google-gdk-license-.+&apos;    
+</code></pre><h4 id="添加模拟器"><a href="#添加模拟器" class="headerlink" title="添加模拟器"></a>添加模拟器</h4><pre><code># Emulator Management: Create, Start and Wait
+before_script:
+# 修改你的 gradlew的权限，默认gradlew没有权限执行的
+- chmod +x gradlew
+- echo no | android create avd --force -n test -t android-22 --abi armeabi-v7a
+- emulator -avd test -no-audio -no-window &amp;
+- android-wait-for-emulator
+- adb shell input keyevent 82 &amp;
+</code></pre><h4 id="构建的时候，你肯定希望有一个干净的系统，所有需要清除缓存"><a href="#构建的时候，你肯定希望有一个干净的系统，所有需要清除缓存" class="headerlink" title="构建的时候，你肯定希望有一个干净的系统，所有需要清除缓存"></a>构建的时候，你肯定希望有一个干净的系统，所有需要清除缓存</h4><pre><code>before_cache:
+- rm -f $HOME/.gradle/caches/modules-2/modules-2.lock
+cache:
+directories:
+- $HOME/.gradle/caches/
+- $HOME/.gradle/wrapper/
+</code></pre><h4 id="JDK版本"><a href="#JDK版本" class="headerlink" title="JDK版本"></a>JDK版本</h4><pre><code>jdk:
+- oraclejdk8
+- oraclejdk7
+- openjdk6
+</code></pre><h3 id="SkyApp项目中完整配置"><a href="#SkyApp项目中完整配置" class="headerlink" title="SkyApp项目中完整配置"></a><a href="https://github.com/skyJinc/SkyApp" target="_blank" rel="external">SkyApp项目</a>中完整配置</h3><pre><code>language: android
+jdk: oraclejdk8
+sudo: false
+android:
+  components:
+  - platform-tools
+  - tools
+  - build-tools-24.0.0
+  - android-24
+  - android-22
+  - extra-android-m2repository
+  - sys-img-armeabi-v7a-android-22
+before_cache:
+- rm -f $HOME/.gradle/caches/modules-2/modules-2.lock
+cache:
+  directories:
+  - $HOME/.gradle/caches/
+  - $HOME/.gradle/wrapper/
+before_install:
+  - wget http://services.gradle.org/distributions/gradle-2.14-bin.zip
+  - unzip gradle-2.14-bin.zip
+  - export GRADLE_HOME=$PWD/gradle-2.14
+  - export PATH=$GRADLE_HOME/bin:$PATH
+  - gem install fir-cli
+
+after_deploy:
+  - fir p app/build/outputs/apk/app-release.apk -T $FIR_TOKEN -c &quot;`git cat-file tag $TRAVIS_TAG`&quot;
+
+
+script: gradle assembleRelease
+
+deploy:
+  provider: releases
+  api_key:
+    secure: Kjd3GltyVjkEaaToNY8L3JHzCSCfawpx1Mmd4vbbBmwVBVt3qBlDqRhEh8KYeZB1jeh935BxJetw6OAakJPrVbgOa2EjLRSfcAaxMo7AWDrrdoef4SZU8pPXCF9nJ0xoq4ysACPyabjukemsk8ydE4/b/4vjPt/z1eVBRzep00mLNqsCbWiNtp2B+xBzOu1ueHABjIjq25dKD2MFUUEJqKcaZNV8s3P0JZLZcyWnJ9MlZxCesbcDFacCfDFg6SzlD8LahuSRmeH8qnw8vLRMitrNV/o5YcSn5a6ygOJaI9gYp8X3sVVjIPCRtPuBRR7XMVEhzXVfRbPsKbU4xxp7Zvmxz17HVyCkRLq6Qulz4nQ2twcepElxnTPIVWyATz97ZCmCfsGaSUqiZBu5LHGCUPOfsU/oD7seMhJMzaEg8g2N9ySv2Mgp8ZRmr28zsB53gCHzOty3FNVh4FkszsJ1mXUfj8ZF9DpUdJt90vL/nWVy8x4BZ0i5LoMCVUGA2PtEVyVsziM62kVxFhd7tFYwvpXAzChgsxOZBQKwO2cW3Pr6VE/6j9dFqy6teI8jrsas6oc9R1TQ6YFFmVw1RU4cCJuujqsAzW3T/LLviHvCO6Pow8v9RZS0fRqzhJLAeDAtAfjfsfvzT/6S8fCKDjVtUn44kbjvMi2MIh5f2nZjSUo=
+  file: app/build/outputs/apk/app-release.apk
+  skip_cleanup: true
+  on:
+    repo: skyJinc/SkyApp
+</code></pre><h3 id="查看测试结果"><a href="#查看测试结果" class="headerlink" title="查看测试结果"></a>查看测试结果</h3><ul>
+<li><p>执行<strong><em>gradle build connectedCheck</em></strong> </p>
+</li>
+<li><p>提交到github后 会自动开始进行测试</p>
+</li>
+</ul>
+<p><img src="https://skyJinc.github.io/images/github集成测试/4.png" alt="tu"><br><img src="https://skyJinc.github.io/images/github集成测试/5.png" alt="tu"></p>
+<h3 id="权限问题"><a href="#权限问题" class="headerlink" title="权限问题"></a>权限问题</h3><ul>
+<li>测试结果如果类似以下配置</li>
+</ul>
+<p><img src="https://skyJinc.github.io/images/github集成测试/6.png" alt="tu"></p>
+<p>按照提示 <strong><em>.travis.yml</em></strong> 里增加 </p>
+<pre><code>sudo: required
+</code></pre><p><img src="https://skyJinc.github.io/images/github集成测试/7.png" alt="tu"></p>
+<h3 id="Gradle问题"><a href="#Gradle问题" class="headerlink" title="Gradle问题"></a>Gradle问题</h3><h4 id="项目中自带gradle"><a href="#项目中自带gradle" class="headerlink" title="项目中自带gradle"></a>项目中自带gradle</h4><p><img src="https://skyJinc.github.io/images/github集成测试/8.png" alt="tu"></p>
+<p>这个时候需要权限 所以 要加载</p>
+<pre><code>before_install:
+    #- chmod +x gradlew
+</code></pre><h4 id="项目中不带gradle"><a href="#项目中不带gradle" class="headerlink" title="项目中不带gradle"></a>项目中不带gradle</h4><p>因为我在SkyApp项目中没有添加 gradle ，采用了本地Gradle方式 所以 需要指定 <strong><em>Travis</em></strong> 的gradle版本</p>
+<pre><code>before_install:
+    #- chmod +x gradlew
+    - wget http://services.gradle.org/distributions/gradle-2.14-bin.zip
+    - unzip gradle-2.14-bin.zip
+    - export GRADLE_HOME=$PWD/gradle-2.14
+    - export PATH=$GRADLE_HOME/bin:$PATH
+</code></pre><p>SkyApp使用了Gradle2.14</p>
+<p>提交到github后, 重新进行测试</p>
+<h2 id="发布"><a href="#发布" class="headerlink" title="发布"></a>发布</h2><h3 id="Travis-Ci自动发布安装apk文件到Github-Release"><a href="#Travis-Ci自动发布安装apk文件到Github-Release" class="headerlink" title="Travis Ci自动发布安装apk文件到Github Release"></a>Travis Ci自动发布安装apk文件到Github Release</h3><p>Travis CI的script部分运行成功后，可以通过配置文件进入到发布阶段。下面是一个Travis CI发布的示例</p>
+<pre><code>deploy:
+  provider: releases
+  user: &quot;GITHUB USERNAME&quot;
+  password: &quot;GITHUB PASSWORD&quot;
+  file: app/build/outputs/apk/app-release.apk
+  skip_cleanup: true
+  on:
+      tags: true
+</code></pre><ul>
+<li>provider：发布目标为Github Release</li>
+<li>Github用户名和密码，因为Travis CI要上传APK文件，因此需要有Github项目的写入权限</li>
+<li>file： 发布文件，输入文件路径即可</li>
+<li>skip_cleanup: 默认情况下Travis CI在完成编译后会清除所有生成的文件，因此需要将skip_cleanup设置为true来忽略此操作。</li>
+<li>on： 发布的时机，这里配置为tags: true，即只在有tag的情况下才发布。</li>
+</ul>
+<p>这边直接暴露了Github密码是我们更加不能接受的。更好的做法是在Github -&gt; settings -&gt; Personal access tokens 生成一个只能访问当前项目并只有读取权限的Github Access Token，并通过Travis CI将Access Token加密。好在Travis CLI中已经可以通过一行指令做好这一切：</p>
+<pre><code>#第一步安装已经完毕后，进入SkyApp 执行以下命令
+travis setup release
+</code></pre><p>根据提示填写上述配置项目的信息后，Travis CLI会自动在.travis.yml文件中生成好所有的配置项：</p>
+<pre><code>deploy:
+  provider: releases
+  api_key:
+    secure: Kjd3GltyVjkEaaToNY8L3JHzCSCfawpx1Mmd4vbbBmwVBVt3qBlDqRhEh8KYeZB1jeh935BxJetw6OAakJPrVbgOa2EjLRSfcAaxMo7AWDrrdoef4SZU8pPXCF9nJ0xoq4ysACPyabjukemsk8ydE4/b/4vjPt/z1eVBRzep00mLNqsCbWiNtp2B+xBzOu1ueHABjIjq25dKD2MFUUEJqKcaZNV8s3P0JZLZcyWnJ9MlZxCesbcDFacCfDFg6SzlD8LahuSRmeH8qnw8vLRMitrNV/o5YcSn5a6ygOJaI9gYp8X3sVVjIPCRtPuBRR7XMVEhzXVfRbPsKbU4xxp7Zvmxz17HVyCkRLq6Qulz4nQ2twcepElxnTPIVWyATz97ZCmCfsGaSUqiZBu5LHGCUPOfsU/oD7seMhJMzaEg8g2N9ySv2Mgp8ZRmr28zsB53gCHzOty3FNVh4FkszsJ1mXUfj8ZF9DpUdJt90vL/nWVy8x4BZ0i5LoMCVUGA2PtEVyVsziM62kVxFhd7tFYwvpXAzChgsxOZBQKwO2cW3Pr6VE/6j9dFqy6teI8jrsas6oc9R1TQ6YFFmVw1RU4cCJuujqsAzW3T/LLviHvCO6Pow8v9RZS0fRqzhJLAeDAtAfjfsfvzT/6S8fCKDjVtUn44kbjvMi2MIh5f2nZjSUo=
+  file: app/build/outputs/apk/app-release.apk
+  on:
+    repo: skyJinc/SkyApp
+</code></pre><h3 id="自动发布安装apk文件到fir-im"><a href="#自动发布安装apk文件到fir-im" class="headerlink" title="自动发布安装apk文件到fir.im"></a>自动发布安装apk文件到fir.im</h3><h4 id="登陆fir-im-复制api"><a href="#登陆fir-im-复制api" class="headerlink" title="登陆fir.im 复制api"></a>登陆fir.im 复制api</h4><p><img src="https://skyJinc.github.io/images/github集成测试/9.png" alt="tu"><br><img src="https://skyJinc.github.io/images/github集成测试/10.png" alt="tu"></p>
+<h4 id="到travis-》-你的项目-进行设置"><a href="#到travis-》-你的项目-进行设置" class="headerlink" title="到travis -》 你的项目 进行设置"></a>到travis -》 你的项目 进行设置</h4><p><img src="https://skyJinc.github.io/images/github集成测试/11.png" alt="tu"></p>
+<h4 id="travis-yml-里添加-以下代码"><a href="#travis-yml-里添加-以下代码" class="headerlink" title=".travis.yml 里添加 以下代码"></a>.travis.yml 里添加 以下代码</h4><pre><code>before_install:
+    - gem install fir-cli
+after_deploy:
+    - fir p app/build/outputs/apk/app-release.apk -T $FIR_TOKEN -c &quot;`git cat-file tag $TRAVIS_TAG`&quot;
+</code></pre><p> 注意: FIR_TOKEN 是你在 travis 添加的key</p>
+<h4 id="发布以后的结果"><a href="#发布以后的结果" class="headerlink" title="发布以后的结果"></a>发布以后的结果</h4><p>GitHub</p>
+<p><img src="https://skyJinc.github.io/images/github集成测试/12.png" alt="tu"></p>
+<p>Fir.im</p>
+<p><img src="https://skyJinc.github.io/images/github集成测试/13.png" alt="tu"></p>
+<h2 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h2><p>如果有问题, 留言提给我。 我会随时查看帮你解答</p>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+  <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+    <div>坚持原创技术分享，您的支持将鼓励我继续创作！</div>
+    <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+      <span>赏</span>
+    </button>
+    <div id="QR" style="display: none;">
+      
+      
+        <div id="alipay" style="display: inline-block">
+          <img id="alipay_qr" src="https://raw.githubusercontent.com/skyJinc/skyJinc.github.io/master/images/about/my_zfb.JPG" alt="skyJC Alipay"/>
+          <p>支付宝打赏</p>
+        </div>
+      
+    </div>
+  </div>
+
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/打包方式/" rel="tag">#打包方式</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2016/09/01/Github-制作开源依赖库/" rel="next" title="Github-制作开源依赖库">
+                <i class="fa fa-chevron-left"></i> Github-制作开源依赖库
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2016/09/06/JNI开发配置/" rel="prev" title="JNI配置和开发">
+                JNI配置和开发 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div class="ds-thread" data-thread-key="2016/09/03/GitHub-Android持续集成/"
+           data-title="GitHub-Android持续集成" data-url="http://www.jincanshen.com/2016/09/03/GitHub-Android持续集成/">
+      </div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel ">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/my/avatar.jpg"
+               alt="skyJC" />
+          <p class="site-author-name" itemprop="name">skyJC</p>
+          <p class="site-description motion-element" itemprop="description">Android探索的道路，是否愿意陪我一起？</p>
+        </div>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">21</span>
+              <span class="site-state-item-name">日志</span>
+            </a>
+          </div>
+
+          
+            <div class="site-state-item site-state-categories">
+              
+                <span class="site-state-item-count">2</span>
+                <span class="site-state-item-name">分类</span>
+              
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              
+                <span class="site-state-item-count">15</span>
+                <span class="site-state-item-name">标签</span>
+              
+            </div>
+          
+
+        </nav>
+
+        
+          <div class="feed-link motion-element">
+            <a href="/atom.xml" rel="alternate">
+              <i class="fa fa-rss"></i>
+              RSS
+            </a>
+          </div>
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/skyJinc/" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-fw fa-github"></i>
+                  
+                  GitHub
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+
+      </section>
+
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Travis-CI"><span class="nav-number">1.</span> <span class="nav-text">Travis CI</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#MAC-安装-Travis-CLI"><span class="nav-number">1.1.</span> <span class="nav-text">MAC 安装 Travis - CLI</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#开始集成"><span class="nav-number">1.2.</span> <span class="nav-text">开始集成</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#登陆后"><span class="nav-number">1.2.1.</span> <span class="nav-text">登陆后</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#同步"><span class="nav-number">1.2.2.</span> <span class="nav-text">同步</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#开启"><span class="nav-number">1.2.3.</span> <span class="nav-text">开启</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#创建-travis-yml"><span class="nav-number">1.2.4.</span> <span class="nav-text">创建  .travis.yml</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#首先设置我们的语言，现在是Android应用"><span class="nav-number">1.2.4.1.</span> <span class="nav-text">首先设置我们的语言，现在是Android应用</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#后面设置我们需用到Android里面相关的编译模块"><span class="nav-number">1.2.4.2.</span> <span class="nav-text">后面设置我们需用到Android里面相关的编译模块</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#默认travis-会接受所有的-Licenses-但是你也可以定义自己的白名单"><span class="nav-number">1.2.4.3.</span> <span class="nav-text">默认travis 会接受所有的 Licenses,但是你也可以定义自己的白名单</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#添加模拟器"><span class="nav-number">1.2.4.4.</span> <span class="nav-text">添加模拟器</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#构建的时候，你肯定希望有一个干净的系统，所有需要清除缓存"><span class="nav-number">1.2.4.5.</span> <span class="nav-text">构建的时候，你肯定希望有一个干净的系统，所有需要清除缓存</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#JDK版本"><span class="nav-number">1.2.4.6.</span> <span class="nav-text">JDK版本</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#SkyApp项目中完整配置"><span class="nav-number">1.2.5.</span> <span class="nav-text">SkyApp项目中完整配置</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#查看测试结果"><span class="nav-number">1.2.6.</span> <span class="nav-text">查看测试结果</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#权限问题"><span class="nav-number">1.2.7.</span> <span class="nav-text">权限问题</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Gradle问题"><span class="nav-number">1.2.8.</span> <span class="nav-text">Gradle问题</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#项目中自带gradle"><span class="nav-number">1.2.8.1.</span> <span class="nav-text">项目中自带gradle</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#项目中不带gradle"><span class="nav-number">1.2.8.2.</span> <span class="nav-text">项目中不带gradle</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#发布"><span class="nav-number">1.3.</span> <span class="nav-text">发布</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Travis-Ci自动发布安装apk文件到Github-Release"><span class="nav-number">1.3.1.</span> <span class="nav-text">Travis Ci自动发布安装apk文件到Github Release</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#自动发布安装apk文件到fir-im"><span class="nav-number">1.3.2.</span> <span class="nav-text">自动发布安装apk文件到fir.im</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#登陆fir-im-复制api"><span class="nav-number">1.3.2.1.</span> <span class="nav-text">登陆fir.im 复制api</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#到travis-》-你的项目-进行设置"><span class="nav-number">1.3.2.2.</span> <span class="nav-text">到travis -》 你的项目 进行设置</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#travis-yml-里添加-以下代码"><span class="nav-number">1.3.2.3.</span> <span class="nav-text">.travis.yml 里添加 以下代码</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#发布以后的结果"><span class="nav-number">1.3.2.4.</span> <span class="nav-text">发布以后的结果</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#问题"><span class="nav-number">1.4.</span> <span class="nav-text">问题</span></a></li></ol></li></ol></div>
+            
+          </div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
+</script>
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2016</span>
+   &nbsp; - &nbsp; 
+  <span class="author">
+    <i class="fa fa-android"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">skyJC</span>  
+</div>
+
+<div class="powered-by">
+  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Mist
+  </a>
+</div>
+<span id="busuanzi_container_site_pv">
+  &nbsp; | &nbsp;本站总访问量 <span id="busuanzi_value_site_pv"></span> 次
+</span>
+
+        
+
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/vendors/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.0.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.0.1"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.0.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.0.1"></script>
+
+
+
+  
+
+  
+    
+  
+
+  <script type="text/javascript">
+    var duoshuoQuery = {short_name:"jincanshen"};
+    (function() {
+      var ds = document.createElement('script');
+      ds.type = 'text/javascript';ds.async = true;
+      ds.id = 'duoshuo-script';
+      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+      ds.charset = 'UTF-8';
+      (document.getElementsByTagName('head')[0]
+      || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+  </script>
+
+  
+    
+    <script src="/vendors/ua-parser-js/dist/ua-parser.min.js?v=0.7.9"></script>
+    <script src="/js/src/hook-duoshuo.js"></script>
+  
+
+
+
+
+
+
+  
+  
+
+  
+
+  
+
+  
+  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.1.js"></script>
+  <script>AV.initialize("Ub5AU6hooUtI4dFRojnFK6Bf-gzGzoHsz", "M68V3yowbmzfADkpMNBgNwxE");</script>
+  <script>
+    function showTime(Counter) {
+      var query = new AV.Query(Counter);
+      var entries = [];
+      var $visitors = $(".leancloud_visitors");
+
+      $visitors.each(function () {
+        entries.push( $(this).attr("id").trim() );
+      });
+
+      query.containedIn('url', entries);
+      query.find()
+        .done(function (results) {
+          var COUNT_CONTAINER_REF = '.leancloud-visitors-count';
+
+          if (results.length === 0) {
+            $visitors.find(COUNT_CONTAINER_REF).text(0);
+            return;
+          }
+
+          for (var i = 0; i < results.length; i++) {
+            var item = results[i];
+            var url = item.get('url');
+            var time = item.get('time');
+            var element = document.getElementById(url);
+
+            $(element).find(COUNT_CONTAINER_REF).text(time);
+          }
+          for(var i = 0; i < entries.length; i++) {
+            var url = entries[i];
+            var element = document.getElementById(url);
+            var countSpan = $(element).find(COUNT_CONTAINER_REF);
+            if( countSpan.text() == '') {
+              countSpan.text(0);
+            }
+          }
+        })
+        .fail(function (object, error) {
+          console.log("Error: " + error.code + " " + error.message);
+        });
+    }
+
+    function addCount(Counter) {
+      var $visitors = $(".leancloud_visitors");
+      var url = $visitors.attr('id').trim();
+      var title = $visitors.attr('data-flag-title').trim();
+      var query = new AV.Query(Counter);
+
+      query.equalTo("url", url);
+      query.find({
+        success: function(results) {
+          if (results.length > 0) {
+            var counter = results[0];
+            counter.fetchWhenSave(true);
+            counter.increment("time");
+            counter.save(null, {
+              success: function(counter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(counter.get('time'));
+              },
+              error: function(counter, error) {
+                console.log('Failed to save Visitor num, with error message: ' + error.message);
+              }
+            });
+          } else {
+            var newcounter = new Counter();
+            /* Set ACL */
+            var acl = new AV.ACL();
+            acl.setPublicReadAccess(true);
+            acl.setPublicWriteAccess(true);
+            newcounter.setACL(acl);
+            /* End Set ACL */
+            newcounter.set("title", title);
+            newcounter.set("url", url);
+            newcounter.set("time", 1);
+            newcounter.save(null, {
+              success: function(newcounter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(newcounter.get('time'));
+              },
+              error: function(newcounter, error) {
+                console.log('Failed to create');
+              }
+            });
+          }
+        },
+        error: function(error) {
+          console.log('Error:' + error.code + " " + error.message);
+        }
+      });
+    }
+
+    $(function() {
+      var Counter = AV.Object.extend("Counter");
+      if ($('.leancloud_visitors').length == 1) {
+        addCount(Counter);
+      } else if ($('.post-title-link').length > 1) {
+        showTime(Counter);
+      }
+    });
+  </script>
+
+
+
+  
+</body>
+</html>
