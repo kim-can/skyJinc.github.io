@@ -230,7 +230,7 @@
     <link href="http://www.jincanshen.com/2016/10/29/Android-greendao3-0/"/>
     <id>http://www.jincanshen.com/2016/10/29/Android-greendao3-0/</id>
     <published>2016-10-29T07:17:21.000Z</published>
-    <updated>2016-10-29T08:37:31.000Z</updated>
+    <updated>2016-11-07T06:57:57.000Z</updated>
     
     <content type="html"><![CDATA[<p>greenDao2.0 时代的时候 教程太多，所以就没有写..</p>
 <p>现在greenDao3.0了, 而且用法有点变化… 所以简单些一下用法</p>
@@ -318,7 +318,11 @@
 <li>greenDao3.0支持加密 在3.0.1进行了合并</li>
 </ul>
 <figure class="highlight gradle"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//没合并前gradle引用</span></div><div class="line"><span class="keyword">compile</span> <span class="string">'net.zetetic:android-database-sqlcipher:3.5.2'</span></div></pre></td></tr></table></figure>
-<h2 id="结尾"><a href="#结尾" class="headerlink" title="结尾"></a>结尾</h2><p>使用了官方的demo 所以没有自己建项目,进行图文解说…</p>
+<h2 id="结尾"><a href="#结尾" class="headerlink" title="结尾"></a>结尾</h2><ul>
+<li>如果出现以下错误，说明 没有引入加密依赖库,所以还是老实的吧sqlcipheer加上吧</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">java.lang.NoClassDefFoundError: org.greenrobot.greendao.database.DatabaseOpenHelper$EncryptedHelper</div></pre></td></tr></table></figure>
+<p>使用了官方的demo 所以没有自己建项目,进行图文解说…</p>
 <p><a href="https://github.com/greenrobot/greenDAO/tree/master/examples/DaoExample/src/main" target="_blank" rel="external">demo地址</a></p>
 ]]></content>
     
