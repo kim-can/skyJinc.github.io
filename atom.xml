@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://www.jincanshen.com/"/>
-  <updated>2016-11-16T15:12:48.000Z</updated>
+  <updated>2016-11-17T01:53:15.000Z</updated>
   <id>http://www.jincanshen.com/</id>
   
   <author>
@@ -16,11 +16,81 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>Android-投屏</title>
+    <link href="http://www.jincanshen.com/2016/11/17/Android-%E6%8A%95%E5%B1%8F/"/>
+    <id>http://www.jincanshen.com/2016/11/17/Android-投屏/</id>
+    <published>2016-11-17T01:22:05.000Z</published>
+    <updated>2016-11-17T01:53:15.000Z</updated>
+    
+    <content type="html"><![CDATA[<p>想要演示App，结果没有像iphone一样可以直接投屏到mac电脑上…..</p>
+<p>还好有公司已经开发出软件来支持这个了…</p>
+<p>网上教程很多， 我只是记录一下我的方式，挺简单的…</p>
+<a id="more"></a>
+<h2 id="检查手机是否开启-WebGL渲染"><a href="#检查手机是否开启-WebGL渲染" class="headerlink" title="检查手机是否开启 WebGL渲染"></a>检查手机是否开启 WebGL渲染</h2><ul>
+<li>开chrome浏览器, 输入<a href="chrome://gpu/" target="_blank" rel="external">chrome://gpu/</a>查看是否开启</li>
+</ul>
+<p><img src="https://skyJinc.github.io/images/vysor/7.png" alt="tu"></p>
+<ul>
+<li>如果vysor显示如下, 你就要想办法开启这个了。。。</li>
+</ul>
+<p><img src="https://skyJinc.github.io/images/vysor/8.png" alt="tu"></p>
+<ul>
+<li>开chrome浏览器, 输入<a href="chrome://flags" target="_blank" rel="external">chrome://flags</a> 启动就好, 然后再次查看是否开启webGL</li>
+</ul>
+<p><img src="https://skyJinc.github.io/images/vysor/9.png" alt="tu"></p>
+<h2 id="Vysor"><a href="#Vysor" class="headerlink" title="Vysor"></a>Vysor</h2><p><a href="http://www.vysor.io/" target="_blank" rel="external">官方地址</a></p>
+<ul>
+<li>可以直接安装, 不过我还是喜欢用Chrome浏览器插件，帮助我们快速的集成…</li>
+</ul>
+<p>首先要去下载插件, 当然需要翻墙… 想知道怎么反向 点连接</p>
+<p><a href="http://www.jincanshen.com/2016/11/01/VPN%E4%B9%8BBanwagon%E5%92%8CShadowsockes/">翻墙教程</a></p>
+<ul>
+<li>chrome浏览器插件商城</li>
+</ul>
+<p><a href="https://chrome.google.com/webstore/search/vysor?hl=zh-CN" target="_blank" rel="external">地址</a></p>
+<ul>
+<li>搜索vysor, 安装好以后 mac 上会有这个图标的程序</li>
+</ul>
+<p><img src="https://skyJinc.github.io/images/vysor/1.png" alt="tu"><br><img src="https://skyJinc.github.io/images/vysor/2.png" alt="tu"></p>
+<ul>
+<li>启动后</li>
+</ul>
+<p><img src="https://skyJinc.github.io/images/vysor/3.png" alt="tu"></p>
+<ul>
+<li>点击搜索设备，这里我连接了乐视的手机</li>
+</ul>
+<p><img src="https://skyJinc.github.io/images/vysor/4.png" alt="tu"></p>
+<ul>
+<li>这个时候会出现以下画面，并且手机会自动安装vysor软件</li>
+</ul>
+<p><img src="https://skyJinc.github.io/images/vysor/5.png" alt="tu"></p>
+<ul>
+<li>安装好以后 拿手机 或者电脑就可以操作了。。</li>
+</ul>
+<p><img src="https://skyJinc.github.io/images/vysor/6.png" alt="tu"></p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;想要演示App，结果没有像iphone一样可以直接投屏到mac电脑上…..&lt;/p&gt;
+&lt;p&gt;还好有公司已经开发出软件来支持这个了…&lt;/p&gt;
+&lt;p&gt;网上教程很多， 我只是记录一下我的方式，挺简单的…&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="Android" scheme="http://www.jincanshen.com/categories/Android/"/>
+    
+    
+      <category term="投屏" scheme="http://www.jincanshen.com/tags/%E6%8A%95%E5%B1%8F/"/>
+    
+  </entry>
+  
+  <entry>
     <title>Android-privoxy</title>
     <link href="http://www.jincanshen.com/2016/11/16/Android-privoxy/"/>
     <id>http://www.jincanshen.com/2016/11/16/Android-privoxy/</id>
     <published>2016-11-16T13:14:57.000Z</published>
-    <updated>2016-11-16T15:12:48.000Z</updated>
+    <updated>2016-11-16T15:15:08.000Z</updated>
     
     <content type="html"><![CDATA[<p>有这样的需求</p>
 <ul>
@@ -3425,53 +3495,6 @@ public int layoutHttpError() {
     
     
       <category term="架构" scheme="http://www.jincanshen.com/tags/%E6%9E%B6%E6%9E%84/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Mac + Jenkins + Gradle + Git = 可持续集成架构搭建</title>
-    <link href="http://www.jincanshen.com/2016/08/22/%E5%8F%AF%E6%8C%81%E7%BB%AD%E9%9B%86%E6%88%90/"/>
-    <id>http://www.jincanshen.com/2016/08/22/可持续集成/</id>
-    <published>2016-08-22T02:45:26.000Z</published>
-    <updated>2016-10-13T09:27:23.000Z</updated>
-    
-    <content type="html"><![CDATA[<p>简化打包流程…</p>
-<a id="more"></a>
-<h3 id="Tomact"><a href="#Tomact" class="headerlink" title="Tomact"></a>Tomact</h3><p><a href="http://tomcat.apache.org/" target="_blank" rel="external">下载地址</a></p>
-<p>Mac 记得下载.gz</p>
-<p>为了方便 我设置了环境变量</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">mac 命令</div><div class="line">1.vim .bash_profile</div><div class="line">2.export PATH=$&#123;PATH&#125;:你的路径/apache-tomcat-9.0.0/bin</div><div class="line">3.保存退出 :wq</div><div class="line">4.生效 source .bash_profile</div><div class="line">5.启动 startup.sh</div></pre></td></tr></table></figure>
-<p><a href="http://localhost:8080" target="_blank" rel="external">查看Tomcat是否启动</a></p>
-<h3 id="Jenkins安装"><a href="#Jenkins安装" class="headerlink" title="Jenkins安装"></a>Jenkins安装</h3><p><a href="http://mirrors.jenkins-ci.org/war/latest/jenkins.war" target="_blank" rel="external">下载地址</a></p>
-<p>将下载的jenkins.war包直接放到tomcat下的webapps目录，启动tomcat即可安装完成</p>
-<p><a href="http://localhost:8080/jenkins/" target="_blank" rel="external">查看Jenins</a></p>
-<p>如果显示一下内容<br><img src="https://skyJinc.github.io/images/jenkins/1.png" alt="图1"></p>
-<p>按照提示我们执行mac命令 <code>cat /var/lib/jenkins/secrets/initialAdminPassword</code> 得到Administrator password，输入后点击Continue，如下：<br><img src="https://skyJinc.github.io/images/jenkins/4.png" alt="图"><br>剩下的等 安装好插件就好～</p>
-<h3 id="Jenkins设置"><a href="#Jenkins设置" class="headerlink" title="Jenkins设置"></a>Jenkins设置</h3><h4 id="系统设置-gt-SDK"><a href="#系统设置-gt-SDK" class="headerlink" title="系统设置 -&gt; SDK"></a>系统设置 -&gt; SDK</h4><p><img src="https://skyJinc.github.io/images/jenkins/3.png" alt="图"></p>
-<h4 id="管理插件-安装插件"><a href="#管理插件-安装插件" class="headerlink" title="管理插件 - 安装插件"></a>管理插件 - 安装插件</h4><p><img src="https://skyJinc.github.io/images/jenkins/6.png" alt="图"></p>
-<h4 id="编辑插件内容"><a href="#编辑插件内容" class="headerlink" title="编辑插件内容"></a>编辑插件内容</h4><p><img src="https://skyJinc.github.io/images/jenkins/7.png" alt="图"></p>
-<h3 id="开始构建"><a href="#开始构建" class="headerlink" title="开始构建"></a>开始构建</h3><h4 id="1-新建"><a href="#1-新建" class="headerlink" title="1.新建"></a>1.新建</h4><p><img src="https://skyJinc.github.io/images/jenkins/8.png" alt="图"></p>
-<h4 id="2-设置参数"><a href="#2-设置参数" class="headerlink" title="2.设置参数"></a>2.设置参数</h4><p><img src="https://skyJinc.github.io/images/jenkins/9.png" alt="图"></p>
-<h4 id="3-设置源码"><a href="#3-设置源码" class="headerlink" title="3.设置源码"></a>3.设置源码</h4><p>说明：这里我主要是用了github和SSH密钥，如果使用svn 或者 git 账号和密码方式，自行增加，不会的留言提问哈。。<br><img src="https://skyJinc.github.io/images/jenkins/10.png" alt="图"></p>
-<h4 id="4-设置源码"><a href="#4-设置源码" class="headerlink" title="4.设置源码"></a>4.设置源码</h4><p><img src="https://skyJinc.github.io/images/jenkins/11.png" alt="图"></p>
-<h4 id="5-输出内容过滤"><a href="#5-输出内容过滤" class="headerlink" title="5.输出内容过滤"></a>5.输出内容过滤</h4><p><img src="https://skyJinc.github.io/images/jenkins/12.png" alt="图"></p>
-<h4 id="6-开始构建"><a href="#6-开始构建" class="headerlink" title="6.开始构建"></a>6.开始构建</h4><p><img src="https://skyJinc.github.io/images/jenkins/13.png" alt="图1"></p>
-<h4 id="7-查看构建内容"><a href="#7-查看构建内容" class="headerlink" title="7.查看构建内容"></a>7.查看构建内容</h4><p><img src="https://skyJinc.github.io/images/jenkins/14.png" alt="图1"></p>
-<h3 id="待更新"><a href="#待更新" class="headerlink" title="待更新"></a>待更新</h3><p><a href="http://www.jincanshen.com/2016/09/10/%E5%A4%9A%E6%B8%A0%E9%81%93%E6%89%93%E5%8C%85%E6%96%B9%E5%BC%8F/">1.多渠道打包配置 -（使用python 往APK添加渠道文件）</a></p>
-<p>2.svn 构建配置</p>
-<p>3.构建成功后发送邮件配置</p>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;简化打包流程…&lt;/p&gt;
-    
-    </summary>
-    
-      <category term="Android" scheme="http://www.jincanshen.com/categories/Android/"/>
-    
-    
-      <category term="打包方式" scheme="http://www.jincanshen.com/tags/%E6%89%93%E5%8C%85%E6%96%B9%E5%BC%8F/"/>
     
   </entry>
   
