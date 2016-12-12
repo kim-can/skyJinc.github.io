@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://www.jincanshen.com/"/>
-  <updated>2016-11-17T01:53:15.000Z</updated>
+  <updated>2016-12-12T13:28:28.000Z</updated>
   <id>http://www.jincanshen.com/</id>
   
   <author>
@@ -14,6 +14,88 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>IDEA-初探JavaWeb</title>
+    <link href="http://www.jincanshen.com/2016/12/12/IDEA-%E5%88%9D%E6%8E%A2JavaWeb/"/>
+    <id>http://www.jincanshen.com/2016/12/12/IDEA-初探JavaWeb/</id>
+    <published>2016-12-12T12:51:44.000Z</published>
+    <updated>2016-12-12T13:28:28.000Z</updated>
+    
+    <content type="html"><![CDATA[<p>hello, all</p>
+<p>因为工作原因，好久没更新了, 最近想学习一下javaweb写接口，当然现在最好的编译工具是IDEA,  所以首先写一个helloword来打下基础….</p>
+<p>android 还会继续更新,  来日方长…</p>
+<a id="more"></a>
+<h2 id="准备工作"><a href="#准备工作" class="headerlink" title="准备工作"></a>准备工作</h2><h3 id="IDEA"><a href="#IDEA" class="headerlink" title="IDEA"></a>IDEA</h3><p><a href="https://www.jetbrains.com/idea/download/?fromIDE=#" target="_blank" rel="external">下载地址</a></p>
+<ul>
+<li>如果想要越狱版本</li>
+<li>复制 <code>c918</code></li>
+<li><a href="https://pan.baidu.com/share/init?shareid=2303613121&amp;uk=4185473307" target="_blank" rel="external">提取</a></li>
+</ul>
+<h3 id="Tomcat"><a href="#Tomcat" class="headerlink" title="Tomcat"></a>Tomcat</h3><p><a href="http://tomcat.apache.org/download-90.cgi" target="_blank" rel="external">下载地址</a></p>
+<h3 id="添加Tomcat-和-jdk"><a href="#添加Tomcat-和-jdk" class="headerlink" title="添加Tomcat 和 jdk"></a>添加Tomcat 和 jdk</h3><ul>
+<li>打开IDEA</li>
+</ul>
+<p><img src="https://skyJinc.github.io/images/idea-helloword/1.png" alt="tu"></p>
+<ul>
+<li>进入Configure-&gt;Preferences</li>
+</ul>
+<p><img src="https://skyJinc.github.io/images/idea-helloword/5.png" alt="tu"></p>
+<ul>
+<li>添加Tomcat</li>
+</ul>
+<p><img src="https://skyJinc.github.io/images/idea-helloword/2.png" alt="tu"></p>
+<ul>
+<li>添加jdk</li>
+</ul>
+<p><img src="https://skyJinc.github.io/images/idea-helloword/6.png" alt="tu"></p>
+<p><img src="https://skyJinc.github.io/images/idea-helloword/3.png" alt="tu"></p>
+<p><img src="https://skyJinc.github.io/images/idea-helloword/4.png" alt="tu"></p>
+<h3 id="创建项目-和-运行"><a href="#创建项目-和-运行" class="headerlink" title="创建项目 和 运行"></a>创建项目 和 运行</h3><ul>
+<li>创建新项目</li>
+</ul>
+<p><img src="https://skyJinc.github.io/images/idea-helloword/7.png" alt="tu"></p>
+<ul>
+<li>选择项目类型</li>
+</ul>
+<p><img src="https://skyJinc.github.io/images/idea-helloword/8.png" alt="tu"></p>
+<ul>
+<li>选择目录和项目名称</li>
+</ul>
+<p><img src="https://skyJinc.github.io/images/idea-helloword/9.png" alt="tu"></p>
+<ul>
+<li>创建包 和 类 </li>
+</ul>
+<p><img src="https://skyJinc.github.io/images/idea-helloword/10.png" alt="tu"></p>
+<ul>
+<li>编辑页面，并如何使用</li>
+</ul>
+<p><img src="https://skyJinc.github.io/images/idea-helloword/11.png" alt="tu"></p>
+<ul>
+<li>运行</li>
+</ul>
+<p><img src="https://skyJinc.github.io/images/idea-helloword/12.png" alt="tu"></p>
+<ul>
+<li>显示</li>
+</ul>
+<p><img src="https://skyJinc.github.io/images/idea-helloword/13.png" alt="tu"></p>
+<h2 id="结尾"><a href="#结尾" class="headerlink" title="结尾"></a>结尾</h2><p>很简单, 不过万事开头难, 第一步我已经完成了 你呢….</p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;hello, all&lt;/p&gt;
+&lt;p&gt;因为工作原因，好久没更新了, 最近想学习一下javaweb写接口，当然现在最好的编译工具是IDEA,  所以首先写一个helloword来打下基础….&lt;/p&gt;
+&lt;p&gt;android 还会继续更新,  来日方长…&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="server" scheme="http://www.jincanshen.com/categories/server/"/>
+    
+    
+      <category term="idea,javaweb" scheme="http://www.jincanshen.com/tags/idea-javaweb/"/>
+    
+  </entry>
   
   <entry>
     <title>Android-投屏</title>
@@ -3166,335 +3248,6 @@ app-releaseTest.apk
     
     
       <category term="打包方式" scheme="http://www.jincanshen.com/tags/%E6%89%93%E5%8C%85%E6%96%B9%E5%BC%8F/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Sky架构简单使用</title>
-    <link href="http://www.jincanshen.com/2016/08/26/Sky%E6%9E%B6%E6%9E%84/"/>
-    <id>http://www.jincanshen.com/2016/08/26/Sky架构/</id>
-    <published>2016-08-26T04:15:32.000Z</published>
-    <updated>2016-09-26T13:23:36.000Z</updated>
-    
-    <content type="html"><![CDATA[<p>无论MVC或是MVP模式都不可避免地存在一个弊端：<br><code>额外的代码复杂度及学习成本</code></p>
-<a id="more"></a>
-<h2 id="MVP和MVC"><a href="#MVP和MVC" class="headerlink" title="MVP和MVC"></a>MVP和MVC</h2><p>无论MVC或是MVP模式都不可避免地存在一个弊端：<br><code>额外的代码复杂度及学习成本</code></p>
-<h3 id="MVC"><a href="#MVC" class="headerlink" title="MVC"></a>MVC</h3><pre><code>1、View接受用户的交互请求
-2、View将请求转交给Controller
-3、Controller操作Model进行数据更新
-4、数据更新之后，Model通知View数据变化
-5、View显示更新之后的数据
-</code></pre><p><img src="https://skyJinc.github.io/images/sky架构/2.png" alt="图1"></p>
-<h3 id="MVP"><a href="#MVP" class="headerlink" title="MVP"></a>MVP</h3><pre><code>1、View接受用户的交互请求
-2、View将请求转交给Presenter
-3、Presenter操作Model进行数据库更新
-4、数据更新之后，Model通知Presenter数据发生变化
-5、Presenter更新View的数据
-</code></pre><p><img src="https://skyJinc.github.io/images/sky架构/3.png" alt="图1"></p>
-<p>说明：presenter  我这里说要用biz(business)代替</p>
-<h2 id="Sky简介"><a href="#Sky简介" class="headerlink" title="Sky简介"></a>Sky简介</h2><p>开头已经说了，无论MVC或是MVP模式都不可避免地存在一个弊端：<code>额外的代码复杂度及学习成本</code>  </p>
-<p>Sky开发架构都优化了那些问题</p>
-<h3 id="第一个"><a href="#第一个" class="headerlink" title="第一个"></a>第一个</h3><p>因为通过接口交互，所以每一个View(Activity,Fragment,DialogFragment…) 都会多一个IView接口，一个IBiz和实现类Biz.</p>
-<p>以Activity为例, 文件数量从1个变成了4个.<br><img src="https://skyJinc.github.io/images/sky架构/4.png" alt="图1"></p>
-<p>Sky架构做了调整，采用一个Java文件  包含 接口 和 类</p>
-<p><img src="https://skyJinc.github.io/images/sky架构/5.png" alt="图1"></p>
-<p>这里要说到Java文件的限制，一个类文件只能有一个<strong><em>public class</em></strong> 而Activity在AndroidManifest里必须是public，所以业务接口(IBiz)可以声明成public，而Activity不可以</p>
-<p>Biz<br><img src="https://skyJinc.github.io/images/sky架构/6.png" alt="图1"></p>
-<p>Activity<br><img src="https://skyJinc.github.io/images/sky架构/7.png" alt="图1"></p>
-<h3 id="第二个"><a href="#第二个" class="headerlink" title="第二个"></a>第二个</h3><p>activity 和 biz 依赖的问题</p>
-<p>正常的依赖关系<br>Activity<br><img src="https://skyJinc.github.io/images/sky架构/8.png" alt="图1"><br>Biz<br><img src="https://skyJinc.github.io/images/sky架构/11.png" alt="图1"></p>
-<p>Sky架构做了调整，采用泛型+注解方式依赖</p>
-<p>Activity<br><img src="https://skyJinc.github.io/images/sky架构/9.png" alt="图1"></p>
-<p>Biz<br><img src="https://skyJinc.github.io/images/sky架构/10.png" alt="图1"></p>
-<h4 id="Impl-注解"><a href="#Impl-注解" class="headerlink" title="@Impl  注解"></a>@Impl  注解</h4><p>可以看到Activity接口和Biz接口中都注解了@Impl(实现类.class)</p>
-<p>通过@Impl 获取实现类class 获取实例</p>
-<p><img src="https://skyJinc.github.io/images/sky架构/12.png" alt="图1"></p>
-<h3 id="第三个"><a href="#第三个" class="headerlink" title="第三个"></a>第三个</h3><p>SKYHelper 提供一下接口方便全局使用</p>
-<pre><code>display(Class&lt;D&gt; eClass)；跳转
-
-biz(Class&lt;B&gt; service)； 业务
-
-isExist(Class&lt;B&gt; service)； 业务类存不存在(因为业务类是根据View声明周期走)
-
-bizList(Class&lt;B&gt; service)； 业务类 批量获取
-
-common(Class&lt;B&gt; service)； 公共业务
-
-http(Class&lt;H&gt; httpClazz)； 网络
-
-interfaces(Class&lt;I&gt; implClazz)； 接口
-
-screenHelper();Activity 管理器
-
-threadPoolHelper()； 线程池管理器 
-
-mainLooper()；主线程
-
-downloader()； 下载管理器
-
-toast()；提示信息
-
-contact()； 系统通讯录管理器
-
-fileCacheManage()； 文件缓存管理器
-</code></pre><p>-帮助类可以自定义，保留以上的接口，自定义helper</p>
-<p>-继承 SKYModulesManage  和 SKYHelper 来自定义</p>
-<p>例子 自定义数据库管理</p>
-<p><img src="https://skyJinc.github.io/images/sky架构/13.png" alt="图1"></p>
-<p><img src="https://skyJinc.github.io/images/sky架构/14.png" alt="图1"></p>
-<p><img src="https://skyJinc.github.io/images/sky架构/15.png" alt="图1"></p>
-<p>注意 ： SKYModulesManage 不用关心单例和重复创建的问题，因为统一由Application管理，当然也可以不继承SKYModulesManage 自己来处理 </p>
-<h3 id="第四个"><a href="#第四个" class="headerlink" title="第四个"></a>第四个</h3><p>1.View（Activity,Fragment,DialogFragment）,Biz, Display(跳转调度), Commom(公共业务)，http, 还是以@Impl注解的接口都被代理， 进行解析方法注解</p>
-<p>2.因为解析每一个方法的注解，比较耗时，采用了缓存策略,缓存接口的每一个方法，不会进行第二次解析…(思路来自<a href="https://github.com/square/retrofit" target="_blank" rel="external">retrofit</a>)</p>
-<p>3.除了View和Biz的实例（创建和销毁），缓存是跟着View生命周期走，其他的都实例缓存都统一由缓存管理器进行统一管理</p>
-<h2 id="SKY简单使用"><a href="#SKY简单使用" class="headerlink" title="SKY简单使用"></a>SKY简单使用</h2><h3 id="引用"><a href="#引用" class="headerlink" title="引用"></a>引用</h3><p>架构里使用<a href="https://github.com/JakeWharton/butterknife" target="_blank" rel="external">butterknife</a> 所以 需要指定的插件</p>
-<p> <strong><em>classpath ‘com.neenbedankt.gradle.plugins:android-apt:1.8’</em></strong></p>
-<h4 id="第一种引用方式"><a href="#第一种引用方式" class="headerlink" title="第一种引用方式"></a>第一种引用方式</h4><p>第一步 - Project-build.gradle</p>
-<pre><code>buildscript {
-    repositories {
-        jcenter()
-    }
-    dependencies {
-        classpath &apos;com.android.tools.build:gradle:2.1.2&apos;
-        classpath &apos;com.neenbedankt.gradle.plugins:android-apt:1.8&apos;
-    }
-}        
-
-allprojects {
-    repositories {
-        jcenter()
-        //远程仓库
-        maven { url &quot;https://github.com/J2W/mvn-repo-j2w/raw/master/repository&quot; }
-   ｝
-｝
-</code></pre><p>第二步 - App-build.gradle:</p>
-<pre><code>apply plugin: &apos;android-apt&apos;
-
-dependencies {
-       compile fileTree(dir: &apos;libs&apos;, include: [&apos;*.jar&apos;])
-       compile &apos;jc:sky:1.4&apos;//请看github最新版本
-    apt &apos;com.jakewharton:butterknife-compiler:8.2.1&apos;
-}
-</code></pre><h4 id="第二种引用方式"><a href="#第二种引用方式" class="headerlink" title="第二种引用方式"></a>第二种引用方式</h4><p>第一步 - Project-build.gradle 文件</p>
-<pre><code>allprojects {
-    repositories {
-        ...
-        maven { url &quot;https://jitpack.io&quot; }
-    }
-}
-</code></pre><p>第二步 - App-build.gradle:</p>
-<pre><code> dependencies {
-     ompile &apos;com.github.skyJinc:sky:1.5&apos;
-}  
-</code></pre><h3 id="初始化"><a href="#初始化" class="headerlink" title="初始化"></a>初始化</h3><p>实现 ISKYBind </p>
-<pre><code>//架构日志开关
-boolean isLogOpen();
-
- //网络适配器
-Retrofit getRestAdapter(Builder var1);
-
-//方法拦截器
-SKYMethods getMethodInterceptor(jc.sky.modules.methodProxy.SKYMethods.Builder var1);
-
-//核心 -  配置管理器
-SKYModulesManage getModulesManage();
-
-
-//在Application的onCreate里绑定
-Application - onCreate -&gt; SKYHelper.bind(ISKYBind)
-</code></pre><p>实现类可以是Application 也可以自定义</p>
-<p>以Demo项目为例子</p>
-<p><img src="https://skyJinc.github.io/images/sky架构/16.png" alt="图1"></p>
-<h3 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h3><p>创建Activity和Biz 手动创建很麻烦，所以 我写了一个模板 </p>
-<p>AndroidStudio -&gt;设置-&gt; Editor-&gt;File And Code Templates</p>
-<p>Activity模板例子  <strong><em><a href="https://github.com/skyJinc/sky/wiki/%E7%BB%93%E6%9E%84%E6%A8%A1%E6%9D%BF" target="_blank" rel="external">参考</a></em></strong></p>
-<pre><code>import android.os.Bundle;
-import jc.sky.core.Impl;
-import jc.sky.view.SKYBuilder;
-import jc.sky.view.SKYActivity;
-
-/**
- * @创建人 ${USER}
- * @创建时间 ${DATE} ${TIME}
- * @类描述 一句话描述你的UI
- */
-public class ${NAME}Activity extends SKYActivity&lt;I${NAME}Biz&gt; implements I${NAME}Activity {
-
-    @Override protected SKYBuilder build(SKYBuilder skyBuilder) {
-        return skyBuilder;
-    }
-
-    @Override protected void initData(Bundle bundle) {
-
-    }
-
-}
-@Impl(${NAME}Activity.class)
-interface I${NAME}Activity {
-
-}
-</code></pre><p><img src="https://skyJinc.github.io/images/sky架构/17.png" alt="图1"></p>
-<p>####开始写业务</p>
-<p>#####创建<br>继承 SKYActivity - 采用了建造者模式 进行配置</p>
-<p>页面<br><img src="https://skyJinc.github.io/images/sky架构/18.png" alt="图1"></p>
-<p>Activity<br><img src="https://skyJinc.github.io/images/sky架构/19.png" alt="图1"></p>
-<p>SKYBuilder 里有很多配置，主要的是 layoutId 设置布局文件</p>
-<p>Biz<br><img src="https://skyJinc.github.io/images/sky架构/20.png" alt="图1"></p>
-<h5 id="业务逻辑-注解使用"><a href="#业务逻辑-注解使用" class="headerlink" title="业务逻辑 - 注解使用"></a>业务逻辑 - 注解使用</h5><p>登陆后打印账号和密码，模拟网络请求 延迟3秒钟<br><img src="https://skyJinc.github.io/images/sky架构/21.png" alt="图1"><br><img src="https://skyJinc.github.io/images/sky架构/22.png" alt="图1"></p>
-<p>这里你们会看到 这个不是在主线程执行 线程等待嘛？<br>是的, 所以我们需要给业务接口增加注释，告诉它你是需要在子线程执行的</p>
-<p><img src="https://skyJinc.github.io/images/sky架构/23.png" alt="图1"></p>
-<p>提供了三种线程池</p>
-<pre><code>HTTP 专门提供给网络请求使用
-WORK 专门给IO操作，数据库查询等使用
-SINGLEWORK 专门给需要队列形式，一个一个执行使用（比如数据库插入操作，必须是队列形式）
-</code></pre><h5 id="业务逻辑-如何回调"><a href="#业务逻辑-如何回调" class="headerlink" title="业务逻辑 - 如何回调"></a>业务逻辑 - 如何回调</h5><p>Activity 和 Biz　是如何互相调用　和　访问的呢？</p>
-<p>在注解使用中　我们看到Activity 点击事件 调用了<strong><em>biz()</em></strong>.login() 来执行业务</p>
-<p>在biz里 可以使用 <strong><em>ui()</em></strong> 来进行回调</p>
-<p>在View层接口里 声明两个接口，一个是用于开关进度条，一个是用于修改登陆按钮名称</p>
-<p><img src="https://skyJinc.github.io/images/sky架构/24.png" alt="图1"></p>
-<p>biz 里 进行调用</p>
-<p><img src="https://skyJinc.github.io/images/sky架构/25.png" alt="图1"></p>
-<p>可能有人会问，在子线程里 修改Button的名字 会报错的，因为只有在主线程修改。。。</p>
-<p>是的, 可是运行Demo你会发现居然是可以的，因为仔细看过上面介绍的朋友会知道，我们View层和Biz层 都被动态代理了，所以 调用UI() 会自动判定是在主线程还是子线程</p>
-<h5 id="业务逻辑-防止重复执行"><a href="#业务逻辑-防止重复执行" class="headerlink" title="业务逻辑 - 防止重复执行"></a>业务逻辑 - 防止重复执行</h5><p>很多开发的时候大家为了防止一个业务多次调用，会通过各种方式 来判定这个方法有没有在执行，如果在执行，就忽略掉～～</p>
-<p>sky架构的所有业务接口都是防止重复执行的</p>
-<p><img src="https://skyJinc.github.io/images/sky架构/26.png" alt="图1"></p>
-<p>循环调用了三次，只有一次执行成功，因为防止重复执行，所以只有方法真正执行完毕后才能继续调用，也可以注解允许重复执行，<strong><em>@Repeat(true)</em></strong> 默认是fasle</p>
-<p><img src="https://skyJinc.github.io/images/sky架构/27.png" alt="图1"></p>
-<h5 id="业务逻辑-列表页"><a href="#业务逻辑-列表页" class="headerlink" title="业务逻辑 - 列表页"></a>业务逻辑 - 列表页</h5><p>创建列表页面  我使用的是mac所以快捷键是 command + n  选择SKYActivity 和 SKYIBiz-Activity , 也可以直接选择对应的包，调出菜单</p>
-<p><img src="https://skyJinc.github.io/images/sky架构/28.png" alt="图1"></p>
-<p>输入名字</p>
-<p><img src="https://skyJinc.github.io/images/sky架构/29.png" alt="图1"></p>
-<p>创建适配器</p>
-<pre><code>继承 SKYRVAdapter&lt;Model,Holder&gt;
-
-
-model
-
-/**
- * @创建人 sky
- * @创建时间 16/8/27 上午11:59
- * @类描述
- */
-public class ListModel {
-
-    public String title;
-}
-
-/**
- * holder
- */
-public class ItemHolder extends SKYHolder&lt;ListModel&gt; {
-
-    public ItemHolder(View view) {
-        super(view);
-    }
-
-    @Override public void bindData(ListModel listModel, int i) {
-
-    }
-}
-</code></pre><p><img src="https://skyJinc.github.io/images/sky架构/31.png" alt="图1"></p>
-<p>这里使用了<a href="https://github.com/JakeWharton/butterknife" target="_blank" rel="external">butterknife</a> 插件</p>
-<p><img src="https://skyJinc.github.io/images/sky架构/32.png" alt="图1"></p>
-<p><img src="https://skyJinc.github.io/images/sky架构/33.png" alt="图1"></p>
-<p><img src="https://skyJinc.github.io/images/sky架构/34.png" alt="图1"></p>
-<p>builder里配置</p>
-<p><img src="https://skyJinc.github.io/images/sky架构/35.png" alt="图1"></p>
-<p>开始写业务</p>
-<p>View层接口定义 </p>
-<pre><code>//设置数据
-void setData(List&lt;ListModel&gt; listModelList);
-</code></pre><p>Biz层接口定义</p>
-<pre><code>/**
- * 加载数据
- */
-@Background(BackgroundType.WORK) void loadData();
-</code></pre><p><img src="https://skyJinc.github.io/images/sky架构/36.png" alt="图1"></p>
-<p><img src="https://skyJinc.github.io/images/sky架构/37.png" alt="图1"></p>
-<h5 id="业务逻辑-display-跳转调度-拦截器"><a href="#业务逻辑-display-跳转调度-拦截器" class="headerlink" title="业务逻辑 - display 跳转调度  拦截器"></a>业务逻辑 - display 跳转调度  拦截器</h5><p>个人比较喜欢 把跳转写到当前类，模仿fragment 写法</p>
-<p><img src="https://skyJinc.github.io/images/sky架构/38.png" alt="图1"></p>
-<p>display里包含了所有intent 和 fragment 方法</p>
-<p><img src="https://skyJinc.github.io/images/sky架构/39.png" alt="图1"></p>
-<p>为什么要使用display来跳转呢？ </p>
-<p>如果需求是 想拦截跳转前 验证是否登陆 该如何处理？</p>
-<p>Sky架构– ISKYBind 接口里 设置 display拦截器 </p>
-<p>这里有Display Start和End 拦截器 根据需求我们设置Start拦截器</p>
-<p><img src="https://skyJinc.github.io/images/sky架构/40.png" alt="图1"></p>
-<p>定义拦截器</p>
-<p><img src="https://skyJinc.github.io/images/sky架构/41.png" alt="图1"></p>
-<p>设置拦截器</p>
-<p><img src="https://skyJinc.github.io/images/sky架构/42.png" alt="图1"></p>
-<p>我们在loginActivity 页面 点击登陆以后 跳转到 ListActivity里</p>
-<p><img src="https://skyJinc.github.io/images/sky架构/43.png" alt="图1"></p>
-<h5 id="业务逻辑-拦截器"><a href="#业务逻辑-拦截器" class="headerlink" title="业务逻辑 - 拦截器"></a>业务逻辑 - 拦截器</h5><p><img src="https://skyJinc.github.io/images/sky架构/44.png" alt="图1"></p>
-<p>跟display类似，通过demo 项目自己可以研究一下，根据不同业务需求来添加拦截器</p>
-<h5 id="业务逻辑-视图切换"><a href="#业务逻辑-视图切换" class="headerlink" title="业务逻辑 - 视图切换"></a>业务逻辑 - 视图切换</h5><p><img src="https://skyJinc.github.io/images/sky架构/45.png" alt="图1"></p>
-<pre><code> //进度布局
-void layoutLoadingId(@LayoutRes int layoutId);
-//错误布局
-void layoutEmptyId(@LayoutRes int layoutId);
-//业务错误布局
-void layoutBizErrorId(@LayoutRes int layoutId);
-//网络错误布局
-void layoutHttpErrorId(@LayoutRes int layoutId);
-
-Activity里调用 调用来切换
-showHttpError();
-showContent();
-showLoading();
-showEmpty();
-showBizError();
-</code></pre><p>注:sky架构采用 ViewStub 延迟加载</p>
-<p>单个Activity布局设置，如果想所有的View层布局都有默认布局？</p>
-<p>实现 SKYIViewCommon 接口</p>
-<pre><code>@Override
-public int layoutLoading() {
-    return 0;
-}
-
-@Override
-public int layoutEmpty() {
-    return 0;
-}
-
-@Override
-public int layoutBizError() {
-    return 0;
-}
-
-@Override
-public int layoutHttpError() {
-    return 0;
-}
-</code></pre><p>绑定<br><img src="https://skyJinc.github.io/images/sky架构/46.png" alt="图1"></p>
-<p>优先级: 设置单个activity优先，如果activity没有设置，获取全局默认布局</p>
-<h5 id="业务逻辑-全局Biz-执行业务"><a href="#业务逻辑-全局Biz-执行业务" class="headerlink" title="业务逻辑 - 全局Biz 执行业务"></a>业务逻辑 - 全局Biz 执行业务</h5><p>例子，LoginActivity页面登陆后 跳转到 ListActivity页面 获取数据后，通知LoginActivity 修改按钮名称</p>
-<p>改进一下Demo </p>
-<p>我们在ListBiz里 调用 LoginBiz的业务 告诉它进行刷新</p>
-<p>写一个业务接口 更新按钮的<br><img src="https://skyJinc.github.io/images/sky架构/47.png" alt="图1"></p>
-<p><img src="https://skyJinc.github.io/images/sky架构/48.png" alt="图1"></p>
-<p>说明: 在任何都可以调用业务接口， </p>
-<pre><code>SKYHelper.biz(ILoginBiz.class)；
-
-参数可以是任何业务接口的class, 不必担心返回空值，因为已经做了处理，因为biz的生命周期是跟着View层走，所以如果你调用了已经销毁的Biz业务，它会执行空方法，不会报空指针异常。。
-</code></pre><h5 id="业务逻辑-公共业务接口-ICommon"><a href="#业务逻辑-公共业务接口-ICommon" class="headerlink" title="业务逻辑 - 公共业务接口 ICommon"></a>业务逻辑 - 公共业务接口 ICommon</h5><p>没有View层，只有业务逻辑 可以定义公共的业务接口进行业务的执行</p>
-<p>后续版本会根据 <a href="https://github.com/google/agera" target="_blank" rel="external">agera</a> 进行修改，采用 观察者模式 进行获取数据，更新界面</p>
-<h2 id="结尾"><a href="#结尾" class="headerlink" title="结尾"></a>结尾</h2><p>还有一些使用我没有进行说明，比如 下拉刷新，分页加载，toolbar 绑定等等…<br>可以看源代码的 <strong><em><a href="https://github.com/skyJinc/sky/blob/master/app/src/main/java/jc/sky/view/SKYBuilder.java" target="_blank" rel="external">SKYBuilder</a></em></strong> </p>
-<p>下载Demo 看看 调试调试。。。<br><a href="https://github.com/skyJinc/SkyApp" target="_blank" rel="external">DEMO</a></p>
-<p>原理和实现 都会在后续的文章写出来。。。。</p>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;无论MVC或是MVP模式都不可避免地存在一个弊端：&lt;br&gt;&lt;code&gt;额外的代码复杂度及学习成本&lt;/code&gt;&lt;/p&gt;
-    
-    </summary>
-    
-      <category term="Android" scheme="http://www.jincanshen.com/categories/Android/"/>
-    
-    
-      <category term="架构" scheme="http://www.jincanshen.com/tags/%E6%9E%B6%E6%9E%84/"/>
     
   </entry>
   
