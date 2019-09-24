@@ -86,16 +86,14 @@
 
 
 
-<meta name="description" content="首先我说明一下什么是多渠道打包？
-国内存在着众多的Android应用市场，为了统计不同安卓应用市场的下载量一个个性化统计需求，需要为每个应用市场的Android包设定一个可以区分应用市场的标识，这个为Android包设定应用市场标识的过程就是多渠道打包。
-废话介绍…忽略吧… 主要看内容">
+<meta name="description" content="首先我说明一下什么是多渠道打包？ 国内存在着众多的Android应用市场，为了统计不同安卓应用市场的下载量一个个性化统计需求，需要为每个应用市场的Android包设定一个可以区分应用市场的标识，这个为Android包设定应用市场标识的过程就是多渠道打包。 废话介绍…忽略吧… 主要看内容">
+<meta name="keywords" content="打包方式">
 <meta property="og:type" content="article">
 <meta property="og:title" content="多渠道打包方式">
 <meta property="og:url" content="http://www.jincanshen.com/2016/09/10/多渠道打包方式/index.html">
 <meta property="og:site_name" content="skyJC">
-<meta property="og:description" content="首先我说明一下什么是多渠道打包？
-国内存在着众多的Android应用市场，为了统计不同安卓应用市场的下载量一个个性化统计需求，需要为每个应用市场的Android包设定一个可以区分应用市场的标识，这个为Android包设定应用市场标识的过程就是多渠道打包。
-废话介绍…忽略吧… 主要看内容">
+<meta property="og:description" content="首先我说明一下什么是多渠道打包？ 国内存在着众多的Android应用市场，为了统计不同安卓应用市场的下载量一个个性化统计需求，需要为每个应用市场的Android包设定一个可以区分应用市场的标识，这个为Android包设定应用市场标识的过程就是多渠道打包。 废话介绍…忽略吧… 主要看内容">
+<meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="https://skyJinc.github.io/images/android多渠道打包/1.png">
 <meta property="og:image" content="https://skyJinc.github.io/images/android多渠道打包/2.png">
 <meta property="og:image" content="https://skyJinc.github.io/images/android多渠道打包/4.png">
@@ -137,9 +135,7 @@
 <meta property="og:updated_time" content="2016-09-26T13:21:08.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="多渠道打包方式">
-<meta name="twitter:description" content="首先我说明一下什么是多渠道打包？
-国内存在着众多的Android应用市场，为了统计不同安卓应用市场的下载量一个个性化统计需求，需要为每个应用市场的Android包设定一个可以区分应用市场的标识，这个为Android包设定应用市场标识的过程就是多渠道打包。
-废话介绍…忽略吧… 主要看内容">
+<meta name="twitter:description" content="首先我说明一下什么是多渠道打包？ 国内存在着众多的Android应用市场，为了统计不同安卓应用市场的下载量一个个性化统计需求，需要为每个应用市场的Android包设定一个可以区分应用市场的标识，这个为Android包设定应用市场标识的过程就是多渠道打包。 废话介绍…忽略吧… 主要看内容">
 <meta name="twitter:image" content="https://skyJinc.github.io/images/android多渠道打包/1.png">
 
 
@@ -384,7 +380,7 @@
 <a id="more"></a>
 <p>主要是想说一下，现在比较流行的几种多渠道打包方式，如果我没写到的，而且有新的打包方式 留言给我哈。。</p>
 <h2 id="通过配置gradle脚本实现多渠道打包"><a href="#通过配置gradle脚本实现多渠道打包" class="headerlink" title="通过配置gradle脚本实现多渠道打包"></a>通过配置gradle脚本实现多渠道打包</h2><p>使用Android Studio的编译工具gradle配合使用的，其核心原理就是通过脚本修改AndroidManifest.xml中的mate-date内容，执行N次打包签名操作。</p>
-<p>以<a href="https://github.com/skyJinc/SkyApp" target="_blank" rel="external">SkyApp</a>项目为例子</p>
+<p>以<a href="https://github.com/skyJinc/SkyApp" target="_blank" rel="noopener">SkyApp</a>项目为例子</p>
 <h3 id="在Androidmanifest-xml中定义mate-data标签"><a href="#在Androidmanifest-xml中定义mate-data标签" class="headerlink" title="在Androidmanifest.xml中定义mate-data标签"></a>在Androidmanifest.xml中定义mate-data标签</h3><pre><code>&lt;application
     android:name=&quot;.SkyTestApplication&quot;
     android:allowBackup=&quot;true&quot;
@@ -433,7 +429,7 @@
 </li>
 <li><p>看了说明, 无非就是写一个脚本把APK包解压,写入文件,在压缩,这样每一个APK包内都会有一个渠道文件,在Apk启动时读取该文件。</p>
 </li>
-<li><p>写python脚本 我喜欢使用 <a href="http://www.sublimetext.com/2" target="_blank" rel="external">Sublime Text 2</a></p>
+<li><p>写python脚本 我喜欢使用 <a href="http://www.sublimetext.com/2" target="_blank" rel="noopener">Sublime Text 2</a></p>
 </li>
 <li><p>我使用 pyhon版本 Python 2.7.10</p>
 </li>
@@ -579,7 +575,7 @@ python channel/sky.py
 <p>是不是很简单？ 这样就生成完了所有渠道包</p>
 <p><img src="https://skyJinc.github.io/images/android多渠道打包/17.png" alt="tu"></p>
 <h3 id="验证"><a href="#验证" class="headerlink" title="验证"></a>验证</h3><p>安装自己看网站吧</p>
-<p><a href="https://ibotpeaches.github.io/Apktool/install/" target="_blank" rel="external">Apktool</a> 大家因该很熟悉，反编译使用</p>
+<p><a href="https://ibotpeaches.github.io/Apktool/install/" target="_blank" rel="noopener">Apktool</a> 大家因该很熟悉，反编译使用</p>
 <pre><code>mac os
 
 sudo mv file /usr/local/bin
@@ -988,7 +984,7 @@ public class ChannelManage {
 <div class="copyright">
   
   &copy; 
-  <span itemprop="copyrightYear">2018</span>
+  <span itemprop="copyrightYear">2019</span>
    &nbsp; - &nbsp; 
   <span class="author">
     <i class="fa fa-android"></i>

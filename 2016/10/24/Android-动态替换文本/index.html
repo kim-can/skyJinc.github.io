@@ -86,19 +86,18 @@
 
 
 
-<meta name="description" content="需求是: 用5分钟的时间写一个简单的Android的string.xml替换文本教程…
-问题：如果要把 5 和 Android 动态替换 如何实现？">
+<meta name="description" content="需求是: 用5分钟的时间写一个简单的Android的string.xml替换文本教程… 问题：如果要把 5 和 Android 动态替换 如何实现？">
+<meta name="keywords" content="资源替换">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Android 动态替换文本">
 <meta property="og:url" content="http://www.jincanshen.com/2016/10/24/Android-动态替换文本/index.html">
 <meta property="og:site_name" content="skyJC">
-<meta property="og:description" content="需求是: 用5分钟的时间写一个简单的Android的string.xml替换文本教程…
-问题：如果要把 5 和 Android 动态替换 如何实现？">
+<meta property="og:description" content="需求是: 用5分钟的时间写一个简单的Android的string.xml替换文本教程… 问题：如果要把 5 和 Android 动态替换 如何实现？">
+<meta property="og:locale" content="zh-Hans">
 <meta property="og:updated_time" content="2016-10-24T14:55:55.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Android 动态替换文本">
-<meta name="twitter:description" content="需求是: 用5分钟的时间写一个简单的Android的string.xml替换文本教程…
-问题：如果要把 5 和 Android 动态替换 如何实现？">
+<meta name="twitter:description" content="需求是: 用5分钟的时间写一个简单的Android的string.xml替换文本教程… 问题：如果要把 5 和 Android 动态替换 如何实现？">
 
 
 
@@ -339,9 +338,9 @@
         <p>需求是: 用5分钟的时间写一个简单的Android的string.xml替换文本教程…</p>
 <p>问题：如果要把 5 和 Android 动态替换 如何实现？</p>
 <a id="more"></a>
-<h2 id="string-xml"><a href="#string-xml" class="headerlink" title="string.xml"></a>string.xml</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&lt;string name=&quot;demo&quot;&gt;用%1$d分钟的时间写一个简单的%2$s的string.xml替换文本教程...&lt;/string&gt;</div></pre></td></tr></table></figure>
-<h2 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">String input = getResources().getString(R.string.demo);</div><div class="line">String ouput = String.format(input, 5,&quot;Android&quot;);</div></pre></td></tr></table></figure>
-<h2 id="说明"><a href="#说明" class="headerlink" title="说明"></a>说明</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">%1$d：1是指位置1，小写d是指定替换类型为整数。</div><div class="line">%2$s：2是指位置2，小写s是指定替换类型为字符串。</div></pre></td></tr></table></figure>
+<h2 id="string-xml"><a href="#string-xml" class="headerlink" title="string.xml"></a>string.xml</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;string name=&quot;demo&quot;&gt;用%1$d分钟的时间写一个简单的%2$s的string.xml替换文本教程...&lt;/string&gt;</span><br></pre></td></tr></table></figure>
+<h2 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">String input = getResources().getString(R.string.demo);</span><br><span class="line">String ouput = String.format(input, 5,&quot;Android&quot;);</span><br></pre></td></tr></table></figure>
+<h2 id="说明"><a href="#说明" class="headerlink" title="说明"></a>说明</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">%1$d：1是指位置1，小写d是指定替换类型为整数。</span><br><span class="line">%2$s：2是指位置2，小写s是指定替换类型为字符串。</span><br></pre></td></tr></table></figure>
 <h2 id="结尾"><a href="#结尾" class="headerlink" title="结尾"></a>结尾</h2><p>简单的也要记录, 省的自己忘记</p>
 
       
@@ -557,7 +556,7 @@
 <div class="copyright">
   
   &copy; 
-  <span itemprop="copyrightYear">2018</span>
+  <span itemprop="copyrightYear">2019</span>
    &nbsp; - &nbsp; 
   <span class="author">
     <i class="fa fa-android"></i>

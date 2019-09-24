@@ -86,16 +86,14 @@
 
 
 
-<meta name="description" content="介绍
-什么是NDK？
- NDK全称是Native Development Kit，NDK提供了一系列的工具，帮助开发者快速开发C（或C++）的动态库，并能自动将so和java应用一起打包成apk。NDK集成了交叉编译器（交叉编译器需要UNIX或LINUX系统环境），并提供了相应的mk文件隔离CPU、平台、ABI等差异，开发人员只需要简单修改mk文件（指出“哪些文件需要编译”、“编译特性要求”等），">
+<meta name="description" content="介绍 什么是NDK？  NDK全称是Native Development Kit，NDK提供了一系列的工具，帮助开发者快速开发C（或C++）的动态库，并能自动将so和java应用一起打包成apk。NDK集成了交叉编译器（交叉编译器需要UNIX或LINUX系统环境），并提供了相应的mk文件隔离CPU、平台、ABI等差异，开发人员只需要简单修改mk文件（指出“哪些文件需要编译”、“编译特性要求”等），">
+<meta name="keywords" content="JNI">
 <meta property="og:type" content="article">
 <meta property="og:title" content="JNI配置和开发">
 <meta property="og:url" content="http://www.jincanshen.com/2016/09/06/JNI开发配置/index.html">
 <meta property="og:site_name" content="skyJC">
-<meta property="og:description" content="介绍
-什么是NDK？
- NDK全称是Native Development Kit，NDK提供了一系列的工具，帮助开发者快速开发C（或C++）的动态库，并能自动将so和java应用一起打包成apk。NDK集成了交叉编译器（交叉编译器需要UNIX或LINUX系统环境），并提供了相应的mk文件隔离CPU、平台、ABI等差异，开发人员只需要简单修改mk文件（指出“哪些文件需要编译”、“编译特性要求”等），">
+<meta property="og:description" content="介绍 什么是NDK？  NDK全称是Native Development Kit，NDK提供了一系列的工具，帮助开发者快速开发C（或C++）的动态库，并能自动将so和java应用一起打包成apk。NDK集成了交叉编译器（交叉编译器需要UNIX或LINUX系统环境），并提供了相应的mk文件隔离CPU、平台、ABI等差异，开发人员只需要简单修改mk文件（指出“哪些文件需要编译”、“编译特性要求”等），">
+<meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="https://skyJinc.github.io/images/NDK开发/1.png">
 <meta property="og:image" content="https://skyJinc.github.io/images/NDK开发/2.png">
 <meta property="og:image" content="https://skyJinc.github.io/images/NDK开发/3.png">
@@ -114,9 +112,7 @@
 <meta property="og:updated_time" content="2016-09-26T13:23:19.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="JNI配置和开发">
-<meta name="twitter:description" content="介绍
-什么是NDK？
- NDK全称是Native Development Kit，NDK提供了一系列的工具，帮助开发者快速开发C（或C++）的动态库，并能自动将so和java应用一起打包成apk。NDK集成了交叉编译器（交叉编译器需要UNIX或LINUX系统环境），并提供了相应的mk文件隔离CPU、平台、ABI等差异，开发人员只需要简单修改mk文件（指出“哪些文件需要编译”、“编译特性要求”等），">
+<meta name="twitter:description" content="介绍 什么是NDK？  NDK全称是Native Development Kit，NDK提供了一系列的工具，帮助开发者快速开发C（或C++）的动态库，并能自动将so和java应用一起打包成apk。NDK集成了交叉编译器（交叉编译器需要UNIX或LINUX系统环境），并提供了相应的mk文件隔离CPU、平台、ABI等差异，开发人员只需要简单修改mk文件（指出“哪些文件需要编译”、“编译特性要求”等），">
 <meta name="twitter:image" content="https://skyJinc.github.io/images/NDK开发/1.png">
 
 
@@ -379,14 +375,14 @@
 </li>
 </ul>
 <h2 id="AS-安装-NDK"><a href="#AS-安装-NDK" class="headerlink" title="AS 安装 NDK"></a>AS 安装 NDK</h2><p>Android Studio安装(需翻墙)</p>
-<h3 id="AndroidDevTools-安装"><a href="#AndroidDevTools-安装" class="headerlink" title="AndroidDevTools 安装"></a>AndroidDevTools 安装</h3><p><a href="http://www.androiddevtools.cn/" target="_blank" rel="external">下载地址</a></p>
+<h3 id="AndroidDevTools-安装"><a href="#AndroidDevTools-安装" class="headerlink" title="AndroidDevTools 安装"></a>AndroidDevTools 安装</h3><p><a href="http://www.androiddevtools.cn/" target="_blank" rel="noopener">下载地址</a></p>
 <p><img src="https://skyJinc.github.io/images/NDK开发/1.png" alt="tu"></p>
 <p><img src="https://skyJinc.github.io/images/NDK开发/2.png" alt="tu"></p>
 <ul>
 <li>下载完成后，将NDK解压到某个文件夹下，打开Android Studio，选择File-&gt;Project Structure</li>
 </ul>
 <p><img src="https://skyJinc.github.io/images/NDK开发/3.png" alt="tu"></p>
-<h2 id="开发"><a href="#开发" class="headerlink" title="开发"></a>开发</h2><p>新建一个项目，这里我使用<a href="https://github.com/skyJinc/SkyNDK" target="_blank" rel="external">SkyNDK</a>项目来说明</p>
+<h2 id="开发"><a href="#开发" class="headerlink" title="开发"></a>开发</h2><p>新建一个项目，这里我使用<a href="https://github.com/skyJinc/SkyNDK" target="_blank" rel="noopener">SkyNDK</a>项目来说明</p>
 <h3 id="gradle-properties-配置"><a href="#gradle-properties-配置" class="headerlink" title="gradle.properties 配置"></a>gradle.properties 配置</h3><pre><code>android.useDeprecatedNdk=true
 </code></pre><h3 id="local-properties中加入ndk和sdk"><a href="#local-properties中加入ndk和sdk" class="headerlink" title="local.properties中加入ndk和sdk"></a>local.properties中加入ndk和sdk</h3><pre><code>ndk.dir=/Users/sky/dev/sdk/ndk-bundle
 sdk.dir=/Users/sky/dev/sdk
@@ -441,7 +437,7 @@ Build-&gt;ReBuild Project
 <h2 id="说明"><a href="#说明" class="headerlink" title="说明"></a>说明</h2><p>这里只是简单的教你如何快速的编写，因为我们是预先定义.so和 本地方法名，通过命令生成头文件。。</p>
 <p>C++ 教程 网上很多.. 很多的时候核心业务都需要使用C++ 来提高效率和安全性</p>
 <p>有时间我会写一篇关于C++开发的文章</p>
-<p><a href="https://github.com/skyJinc/SkyNDK" target="_blank" rel="external">SkyNDK Demo</a></p>
+<p><a href="https://github.com/skyJinc/SkyNDK" target="_blank" rel="noopener">SkyNDK Demo</a></p>
 
       
     </div>
@@ -656,7 +652,7 @@ Build-&gt;ReBuild Project
 <div class="copyright">
   
   &copy; 
-  <span itemprop="copyrightYear">2018</span>
+  <span itemprop="copyrightYear">2019</span>
    &nbsp; - &nbsp; 
   <span class="author">
     <i class="fa fa-android"></i>

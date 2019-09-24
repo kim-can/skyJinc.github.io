@@ -87,11 +87,13 @@
 
 
 <meta name="description" content="简化打包流程…">
+<meta name="keywords" content="打包方式">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Windows + Jenkins + Gradle + Git = 可持续集成架构搭建">
 <meta property="og:url" content="http://www.jincanshen.com/2016/10/13/可持续集成(Windows)/index.html">
 <meta property="og:site_name" content="skyJC">
 <meta property="og:description" content="简化打包流程…">
+<meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="https://skyJinc.github.io/images/jenkins-win/3.png">
 <meta property="og:image" content="https://skyJinc.github.io/images/jenkins-win/5.png">
 <meta property="og:image" content="https://skyJinc.github.io/images/jenkins-win/4.png">
@@ -361,7 +363,7 @@
 <h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><p>因为我的电脑是mac，正好公司里有windows服务器，远程连接一下，进行配置</p>
 <p>系统: windows 7 , 64位</p>
 <h3 id="JDK-安装"><a href="#JDK-安装" class="headerlink" title="JDK 安装"></a>JDK 安装</h3><p>可执行文件 直接安装就好了。。</p>
-<p><a href="http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html" target="_blank" rel="external">下载地址</a></p>
+<p><a href="http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html" target="_blank" rel="noopener">下载地址</a></p>
 <p><img src="https://skyJinc.github.io/images/jenkins-win/3.png" alt="tu"></p>
 <h4 id="环境变量"><a href="#环境变量" class="headerlink" title="环境变量"></a>环境变量</h4><pre><code>1，新建 JAVA_HOME，变量值：
 D:\Java\jdk1.8.0_101
@@ -375,7 +377,7 @@ D:\Java\jdk1.8.0_101
 <p><img src="https://skyJinc.github.io/images/jenkins-win/5.png" alt="tu"></p>
 <pre><code>执行 java -version
 </code></pre><p><img src="https://skyJinc.github.io/images/jenkins-win/4.png" alt="tu"></p>
-<h3 id="Tomact"><a href="#Tomact" class="headerlink" title="Tomact"></a>Tomact</h3><p><a href="http://tomcat.apache.org/" target="_blank" rel="external">下载地址</a></p>
+<h3 id="Tomact"><a href="#Tomact" class="headerlink" title="Tomact"></a>Tomact</h3><p><a href="http://tomcat.apache.org/" target="_blank" rel="noopener">下载地址</a></p>
 <p>Tomcat9</p>
 <p><img src="https://skyJinc.github.io/images/jenkins-win/1.png" alt="tu"></p>
 <p>我放到了D盘，解压后，记住路径要配置环境变量</p>
@@ -393,23 +395,23 @@ D:\tomcat9\apache-tomcat-9.0.0.M11
 
 
 //关闭 shutdown
-</code></pre><p><a href="http://localhost:8080" target="_blank" rel="external">查看地址</a></p>
-<h3 id="Jenkins安装"><a href="#Jenkins安装" class="headerlink" title="Jenkins安装"></a>Jenkins安装</h3><p><a href="http://mirrors.jenkins-ci.org/war/latest/jenkins.war" target="_blank" rel="external">下载地址</a></p>
+</code></pre><p><a href="http://localhost:8080" target="_blank" rel="noopener">查看地址</a></p>
+<h3 id="Jenkins安装"><a href="#Jenkins安装" class="headerlink" title="Jenkins安装"></a>Jenkins安装</h3><p><a href="http://mirrors.jenkins-ci.org/war/latest/jenkins.war" target="_blank" rel="noopener">下载地址</a></p>
 <p>将下载的jenkins.war包直接放到tomcat下的webapps目录，启动tomcat即可安装完成</p>
-<p><a href="http://localhost:8080/jenkins/" target="_blank" rel="external">查看Jenins</a></p>
+<p><a href="http://localhost:8080/jenkins/" target="_blank" rel="noopener">查看Jenins</a></p>
 <p>如果显示一下内容<br><img src="https://skyJinc.github.io/images/jenkins/1.png" alt="图1"></p>
 <p>这里红色部分地址不打一样，直接进入到红色地址里，用记事本打开，复制内容到输入框里就可以了～～</p>
-<h3 id="Jenkins设置"><a href="#Jenkins设置" class="headerlink" title="Jenkins设置"></a>Jenkins设置</h3><h4 id="SDK"><a href="#SDK" class="headerlink" title="SDK"></a>SDK</h4><p><a href="https://developer.android.com/studio/index.html" target="_blank" rel="external">SDK下载地址</a></p>
+<h3 id="Jenkins设置"><a href="#Jenkins设置" class="headerlink" title="Jenkins设置"></a>Jenkins设置</h3><h4 id="SDK"><a href="#SDK" class="headerlink" title="SDK"></a>SDK</h4><p><a href="https://developer.android.com/studio/index.html" target="_blank" rel="noopener">SDK下载地址</a></p>
 <p>直接下载SDKManage就好</p>
 <p><img src="https://skyJinc.github.io/images/jenkins-win/6.png" alt="tu"></p>
 <p>下载安装以后，对应的android所需的下载一下<br><img src="https://skyJinc.github.io/images/jenkins-win/7.png" alt="tu"></p>
 <p>设置SDK</p>
 <p><img src="https://skyJinc.github.io/images/jenkins-win/8.png" alt="tu"></p>
-<h4 id="JDK"><a href="#JDK" class="headerlink" title="JDK"></a>JDK</h4><p><a href="http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html" target="_blank" rel="external">下载地址</a></p>
+<h4 id="JDK"><a href="#JDK" class="headerlink" title="JDK"></a>JDK</h4><p><a href="http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html" target="_blank" rel="noopener">下载地址</a></p>
 <p>JDK地址是本地安装好的地址</p>
 <p>系统管理-&gt;Global Tool Configuration</p>
 <p><img src="https://skyJinc.github.io/images/jenkins-win/9.png" alt="tu"></p>
-<h4 id="GIT"><a href="#GIT" class="headerlink" title="GIT"></a>GIT</h4><p><a href="https://git-scm.com/downloads" target="_blank" rel="external">下载地址</a></p>
+<h4 id="GIT"><a href="#GIT" class="headerlink" title="GIT"></a>GIT</h4><p><a href="https://git-scm.com/downloads" target="_blank" rel="noopener">下载地址</a></p>
 <h5 id="配置环境变量"><a href="#配置环境变量" class="headerlink" title="配置环境变量"></a>配置环境变量</h5><pre><code>1，打开PATH，添加变量值：
 D:\Program Files\Git\cmd
 </code></pre><h5 id="测试环境变量是否成功-1"><a href="#测试环境变量是否成功-1" class="headerlink" title="测试环境变量是否成功"></a>测试环境变量是否成功</h5><pre><code>git --version
@@ -418,7 +420,7 @@ D:\Program Files\Git\cmd
 <p><img src="https://skyJinc.github.io/images/jenkins-win/11.png" alt="tu"></p>
 <h4 id="Gradle"><a href="#Gradle" class="headerlink" title="Gradle"></a>Gradle</h4><p>我这里是让插件帮我去下载了，手动配置 自行解决吧，很好配置或者看mac版是怎么配置的</p>
 <p><img src="https://skyJinc.github.io/images/jenkins-win/12.png" alt="tu"></p>
-<h4 id="Python打多渠道"><a href="#Python打多渠道" class="headerlink" title="Python打多渠道"></a>Python打多渠道</h4><p><a href="https://www.python.org/" target="_blank" rel="external">下载地址</a></p>
+<h4 id="Python打多渠道"><a href="#Python打多渠道" class="headerlink" title="Python打多渠道"></a>Python打多渠道</h4><p><a href="https://www.python.org/" target="_blank" rel="noopener">下载地址</a></p>
 <h5 id="配置环境变量-1"><a href="#配置环境变量-1" class="headerlink" title="配置环境变量"></a>配置环境变量</h5><p>地址是我安装python的位置，自己的位置自行替换</p>
 <pre><code>1，打开PATH，添加变量值：
 D:\Python27
@@ -648,7 +650,7 @@ D:\Python27
 <div class="copyright">
   
   &copy; 
-  <span itemprop="copyrightYear">2018</span>
+  <span itemprop="copyrightYear">2019</span>
    &nbsp; - &nbsp; 
   <span class="author">
     <i class="fa fa-android"></i>

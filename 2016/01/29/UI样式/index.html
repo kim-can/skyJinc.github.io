@@ -86,16 +86,14 @@
 
 
 
-<meta name="description" content="Material Design时代官方Material Design详细介绍文档：http://www.google.com/design/spec/material-design/introduction.html
-官方Blog关于Material Design的专题文章一共有三篇：
-AppCompat v21 — Material Design for Pre-Lollipop Devices">
+<meta name="description" content="Material Design时代官方Material Design详细介绍文档：http://www.google.com/design/spec/material-design/introduction.html 官方Blog关于Material Design的专题文章一共有三篇： AppCompat v21 — Material Design for Pre-Lollipop Devices">
+<meta name="keywords" content="UI">
 <meta property="og:type" content="article">
 <meta property="og:title" content="UI样式">
 <meta property="og:url" content="http://www.jincanshen.com/2016/01/29/UI样式/index.html">
 <meta property="og:site_name" content="skyJC">
-<meta property="og:description" content="Material Design时代官方Material Design详细介绍文档：http://www.google.com/design/spec/material-design/introduction.html
-官方Blog关于Material Design的专题文章一共有三篇：
-AppCompat v21 — Material Design for Pre-Lollipop Devices">
+<meta property="og:description" content="Material Design时代官方Material Design详细介绍文档：http://www.google.com/design/spec/material-design/introduction.html 官方Blog关于Material Design的专题文章一共有三篇： AppCompat v21 — Material Design for Pre-Lollipop Devices">
+<meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="http://img.blog.csdn.net/20141101114107468">
 <meta property="og:image" content="http://img.blog.csdn.net/20141101191330069">
 <meta property="og:image" content="http://img.blog.csdn.net/20141101191449453">
@@ -123,9 +121,7 @@ AppCompat v21 — Material Design for Pre-Lollipop Devices">
 <meta property="og:updated_time" content="2016-09-26T13:23:50.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="UI样式">
-<meta name="twitter:description" content="Material Design时代官方Material Design详细介绍文档：http://www.google.com/design/spec/material-design/introduction.html
-官方Blog关于Material Design的专题文章一共有三篇：
-AppCompat v21 — Material Design for Pre-Lollipop Devices">
+<meta name="twitter:description" content="Material Design时代官方Material Design详细介绍文档：http://www.google.com/design/spec/material-design/introduction.html 官方Blog关于Material Design的专题文章一共有三篇： AppCompat v21 — Material Design for Pre-Lollipop Devices">
 <meta name="twitter:image" content="http://img.blog.csdn.net/20141101114107468">
 
 
@@ -364,11 +360,11 @@ AppCompat v21 — Material Design for Pre-Lollipop Devices">
       
 
       
-        <h2 id="Material-Design时代"><a href="#Material-Design时代" class="headerlink" title="Material Design时代"></a>Material Design时代</h2><p>官方Material Design详细介绍文档：<a href="http://www.google.com/design/spec/material-design/introduction.html" target="_blank" rel="external">http://www.google.com/design/spec/material-design/introduction.html</a></p>
+        <h2 id="Material-Design时代"><a href="#Material-Design时代" class="headerlink" title="Material Design时代"></a>Material Design时代</h2><p>官方Material Design详细介绍文档：<a href="http://www.google.com/design/spec/material-design/introduction.html" target="_blank" rel="noopener">http://www.google.com/design/spec/material-design/introduction.html</a></p>
 <p>官方Blog关于Material Design的专题文章一共有三篇：</p>
-<p><a href="http://android-developers.blogspot.jp/2014/10/appcompat-v21-material-design-for-pre.html" target="_blank" rel="external">AppCompat v21 — Material Design for Pre-Lollipop Devices!</a></p>
-<p><a href="http://android-developers.blogspot.jp/2014/10/implementing-material-design-in-your.html" target="_blank" rel="external">Implementing material design in your Android app</a></p>
-<p><a href="http://android-developers.blogspot.jp/2014/10/material-design-on-android-checklist.html" target="_blank" rel="external">Material Design on Android Checklist</a></p>
+<p><a href="http://android-developers.blogspot.jp/2014/10/appcompat-v21-material-design-for-pre.html" target="_blank" rel="noopener">AppCompat v21 — Material Design for Pre-Lollipop Devices!</a></p>
+<p><a href="http://android-developers.blogspot.jp/2014/10/implementing-material-design-in-your.html" target="_blank" rel="noopener">Implementing material design in your Android app</a></p>
+<p><a href="http://android-developers.blogspot.jp/2014/10/material-design-on-android-checklist.html" target="_blank" rel="noopener">Material Design on Android Checklist</a></p>
 <a id="more"></a>
 <h2 id="第一篇"><a href="#第一篇" class="headerlink" title="第一篇"></a>第一篇</h2><h3 id="Tangible-Surfaces-有型的外观"><a href="#Tangible-Surfaces-有型的外观" class="headerlink" title="Tangible Surfaces 有型的外观"></a>Tangible Surfaces 有型的外观</h3><p>UI由数字化的纸墨构成。表层和它带有的阴影为应用提供了可视化的效果。你可以触摸并观察他的运动，这个数字化的设计具有移动，扩张，或者转换的能力，帮助你创建灵活的UI。</p>
 <h4 id="Shadows"><a href="#Shadows" class="headerlink" title="Shadows"></a>Shadows</h4><p>表面的位置和深度导致了在亮度和阴影方面的微弱变化。新的elevation 属性允许你在Z轴上指定View的位置，然后框架会为该View底部的items加上实时的动态阴影。你可以在布局中明确的以dp为单位设置它的高度。</p>
@@ -451,7 +447,7 @@ startRadius,  // radius of the starting mask
 endRadius);   // radius of the final mask
 reveal.start();
 </code></pre><h5 id="Interpolators-插值器"><a href="#Interpolators-插值器" class="headerlink" title="Interpolators 插值器"></a>Interpolators 插值器</h5><p><img src="http://img.blog.csdn.net/20141101114835989" alt="tu"></p>
-<p>运动应该是慎重的，平滑且精确的。而不是简单的渐入渐出。在 Material Design中，对象更倾向于快速的并舒适的启动。通过下面的示例可以看到，在将要到达终点前的那段位置花费了更少的时间。总的来说，用户不会等待较长时间，运动的负面效果就变得最小化了。有一种新的插值器，可以达到这种效果<a href="https://developer.android.com/reference/android/R.interpolator.html?utm_campaign=L-Developer-launch#fast_out_slow_in" target="_blank" rel="external">https://developer.android.com/reference/android/R.interpolator.html?utm_campaign=L-Developer-launch#fast_out_slow_in</a></p>
+<p>运动应该是慎重的，平滑且精确的。而不是简单的渐入渐出。在 Material Design中，对象更倾向于快速的并舒适的启动。通过下面的示例可以看到，在将要到达终点前的那段位置花费了更少的时间。总的来说，用户不会等待较长时间，运动的负面效果就变得最小化了。有一种新的插值器，可以达到这种效果<a href="https://developer.android.com/reference/android/R.interpolator.html?utm_campaign=L-Developer-launch#fast_out_slow_in" target="_blank" rel="noopener">https://developer.android.com/reference/android/R.interpolator.html?utm_campaign=L-Developer-launch#fast_out_slow_in</a></p>
 <p>对于进入和退出屏幕效果，请分别参考：  linear-out-slow-in 和 fast-out-linear-in interpolators respectively.</p>
 <h4 id="Adaptive-Design-and-UI-Patterns"><a href="#Adaptive-Design-and-UI-Patterns" class="headerlink" title="Adaptive Design (and UI Patterns)"></a>Adaptive Design (and UI Patterns)</h4><p>material 最终的核心概念是创建一种自适应于不同大小形状设备的设计，从手表到TV。自适应设计技术帮助我们实现了不同的设备但相同的底层系统体现为不同的View。每个View对那个设备来说，都是量身定做的。色彩，图片，层次，空间的相对关系都保持不变。material design 系统提供了便利的组件和模式帮你构建一个如此有扩展性的设计</p>
 <p>Toolbar</p>
@@ -480,11 +476,11 @@ reveal.start();
 <p>InCode: 通过Palette support library来实现。</p>
 <p>Signature element: 使用material design的icon</p>
 <p>icons 的使用请遵从 system icon guidelines，标准的icons请使用material design的icon，（这个已经在GitHub中开源）</p>
-<p>向导：<a href="http://www.google.com/design/spec/style/icons.html#icons-system-icons" target="_blank" rel="external">http://www.google.com/design/spec/style/icons.html#icons-system-icons</a></p>
-<p>资源：<a href="http://www.google.com/design/spec/resources/sticker-sheets.html#sticker-sheets-components" target="_blank" rel="external">http://www.google.com/design/spec/resources/sticker-sheets.html#sticker-sheets-components</a></p>
+<p>向导：<a href="http://www.google.com/design/spec/style/icons.html#icons-system-icons" target="_blank" rel="noopener">http://www.google.com/design/spec/style/icons.html#icons-system-icons</a></p>
+<p>资源：<a href="http://www.google.com/design/spec/resources/sticker-sheets.html#sticker-sheets-components" target="_blank" rel="noopener">http://www.google.com/design/spec/resources/sticker-sheets.html#sticker-sheets-components</a></p>
 <p>照片通常是沉浸并且是全屏的，比如，对于详情的界面，使用一种边缘到边缘的模式，甚至可以出现在app bar或者 status bar的底部。</p>
-<p>In code: 新的 Toolbar widget 可以是透明的并且直接放在你的布局中，对于status bar的问题,看以参考在Stack Overflow 上的相关问题：<a href="http://stackoverflow.com/questions/26440879/how-do-i-use-drawerlayout-to-display-over-the-actionbar-toolbar-and-under-the-st/26440880" target="_blank" rel="external">StackOverflow</a></p>
-<h3 id="Signature-element-适当的尺寸"><a href="#Signature-element-适当的尺寸" class="headerlink" title="Signature element: 适当的尺寸"></a>Signature element: 适当的尺寸</h3><p>合适的地方，text内容，app titles,应该对齐3个keylines<br><a href="http://www.google.com/design/spec/layout/metrics-and-keylines.html#metrics-and-keylines-keylines-and-spacing" target="_blank" rel="external">官网</a></p>
+<p>In code: 新的 Toolbar widget 可以是透明的并且直接放在你的布局中，对于status bar的问题,看以参考在Stack Overflow 上的相关问题：<a href="http://stackoverflow.com/questions/26440879/how-do-i-use-drawerlayout-to-display-over-the-actionbar-toolbar-and-under-the-st/26440880" target="_blank" rel="noopener">StackOverflow</a></p>
+<h3 id="Signature-element-适当的尺寸"><a href="#Signature-element-适当的尺寸" class="headerlink" title="Signature element: 适当的尺寸"></a>Signature element: 适当的尺寸</h3><p>合适的地方，text内容，app titles,应该对齐3个keylines<br><a href="http://www.google.com/design/spec/layout/metrics-and-keylines.html#metrics-and-keylines-keylines-and-spacing" target="_blank" rel="noopener">官网</a></p>
 <p>在手机上，那些 keylines 距离左边是16dp和72dp，距离屏幕右边缘是16dp。在平板上是24dp和80dp。</p>
 <p>UI元素的对齐方式和大小应该根据一个8dp的网格。比如，app bar在手机上为56dp，在平板上是64dp。Padding和Margins可以使用像：8dp,16dp,24dp的值等等，更精确的text位置是使用一个4dp的网格<br><img src="http://img.blog.csdn.net/20141101115351141" alt="tu"></p>
 <h2 id="第三篇"><a href="#第三篇" class="headerlink" title="第三篇"></a>第三篇</h2><h3 id="Keylines"><a href="#Keylines" class="headerlink" title="Keylines"></a>Keylines</h3><h4 id="Authentic-Motion-真实的动效-1"><a href="#Authentic-Motion-真实的动效-1" class="headerlink" title="Authentic Motion 真实的动效"></a>Authentic Motion 真实的动效</h4><p>在不同的app上下文和状态下，动效可以提供一种可视化和连贯的体验。通过小规模的使用切换动画可以增加一些情趣。而不是为了动效而动效。总的来说，UI和内容元素不会简单的消失或者出现，它们会以动画的方式移动入到一个单元或者单独的出现。</p>
@@ -502,58 +498,58 @@ reveal.start();
 <p>InCode：icon的变化可以通过AnimatedStateListDrawable 和相应的XML文件来实现，你可以在Google I/O app源码中找到。它支持了动画的vector图标。</p>
 <p>动画和切换通常在300ms内。</p>
 <p>交叉淡入淡出通常被平移和滑动切换代替：竖直的滑动产生的底部导航，水平滑动产生的侧面导航。对于滑动的转换，加速和微小的减速要好于简单的线性移动。</p>
-<p><a href="http://www.google.com/design/spec/animation/authentic-motion.html#" target="_blank" rel="external">参考</a></p>
+<p><a href="http://www.google.com/design/spec/animation/authentic-motion.html#" target="_blank" rel="noopener">参考</a></p>
 <h4 id="Adaptive-Design（UI-Patterns）"><a href="#Adaptive-Design（UI-Patterns）" class="headerlink" title="Adaptive Design（UI Patterns）"></a>Adaptive Design（UI Patterns）</h4><p>有型的外表，大胆的图形设计，加上有意义的动画效果带来了一种连贯跨设备的体验，无论在手机，平板，笔记本，TV，可穿戴设备，汽车上，等都有同样的体验效果。另外，下面的关键的UI 设计模式有助于在不同设备之间建立一种连贯的体验。</p>
 <p>app使用了响应式设计，确保了在不同尺寸的屏幕和不同的方向上能够适当的布局。可以参考平板App样式的清单表去优化那些面向平板的App</p>
-<p><a href="http://developer.android.com/distribute/essentials/quality/tablets.html" target="_blank" rel="external">参考</a></p>
+<p><a href="http://developer.android.com/distribute/essentials/quality/tablets.html" target="_blank" rel="noopener">参考</a></p>
 <p>在material design中，详情界面的切换通常都是“Hero”动画的。在多面板布局中，app可以使用多个toobar去代替一些下一步的相关操作。</p>
 <h4 id="Signature-element-FAB"><a href="#Signature-element-FAB" class="headerlink" title="Signature element: FAB"></a>Signature element: FAB</h4><p>如果合适的话，App推荐floating action button作为一个屏幕上的关键操作。FAB是一个圆形外表，附带有阴影，表面色彩采用亮色，强调色。它可以用于执行一些主要的操作，比如，发送，撰写，创建，添加，或者搜索，大约8dp的elevation。通常悬浮在屏幕的右下角，或者边界的中心位置。<br><img src="http://img.blog.csdn.net/20141101115728968" alt="tu"></p>
 <h3 id="App-Bar"><a href="#App-Bar" class="headerlink" title="App Bar"></a>App Bar</h3><h4 id="Signature-element"><a href="#Signature-element" class="headerlink" title="Signature element:"></a>Signature element:</h4><p>App使用了标准的Android App bar，这个App Bar没有使用app图标。颜色和印刷效果替代了品牌的推广。这个App Bar带有阴影，或者拥有一个带有阴影的表层。通常App Bar 4dp elevation。</p>
 <p>InCode：在5.0中使用新的ToolBar Widget引入到View层级视图中。AppCompat提供了兼容的android.support.v7.widget.Toolbar来实现它。</p>
 <p>app bar可能是标准高度的2到3倍，在滑动的时候，app bar可以恢复到正常高度。</p>
 <p>app bar在有些情况下可以完全透明，可以在一个图片之上附有text和操作，比如Google Play Newsstand 应用</p>
-<p><a href="http://www.google.com/design/spec/style/imagery.html#imagery-principles" target="_blank" rel="external">参考</a></p>
+<p><a href="http://www.google.com/design/spec/style/imagery.html#imagery-principles" target="_blank" rel="noopener">参考</a></p>
 <h4 id="App-bar-title"><a href="#App-bar-title" class="headerlink" title="App bar title"></a>App bar title</h4><p>InCode：在使用Toobar widge的时候，请使用 android:contentInsetStart属性。</p>
 <p>在适当的时候，往下滑的时候，app bar可以滑出屏幕，为内容留下更多垂直方向的空间。往上滑动的时候，app bar可以恢复显示。（这个式样：quickReturn）</p>
-<h4 id="Tabs"><a href="#Tabs" class="headerlink" title="Tabs"></a>Tabs</h4><p>Signature element:Tabs应该遵从最新的 material design 设计风格。在垂直方向没有分割线，如果app使用了top-level的话，tab可以作为app bar的一部分<br><a href="http://www.google.com/design/spec/components/tabs.html#tabs-usage" target="_blank" rel="external">参考</a></p>
+<h4 id="Tabs"><a href="#Tabs" class="headerlink" title="Tabs"></a>Tabs</h4><p>Signature element:Tabs应该遵从最新的 material design 设计风格。在垂直方向没有分割线，如果app使用了top-level的话，tab可以作为app bar的一部分<br><a href="http://www.google.com/design/spec/components/tabs.html#tabs-usage" target="_blank" rel="noopener">参考</a></p>
 <p>InCode: 可以参考在SDK中的示例 SlidingTabsBasic 或者Google I/O app source（My Schedule 部分）另外加上 前两天分享的 SlidingTabStrip</p>
 <p>Tabs应该支持手势滑动</p>
 <p>InCode: 所有的Tabs应该使用support lib中的ViewPager 控件</p>
 <p>在选中Tabs时，应该有一个前部颜色的变化或者使用强调色彩的颜色条。在tabs滑动的时候，这个线条应该平滑的响应。<br><img src="http://img.blog.csdn.net/20141101115903609" alt="tu"></p>
-<h4 id="抽屉导航"><a href="#抽屉导航" class="headerlink" title="抽屉导航"></a>抽屉导航</h4><p>在app bar最左边的icon是一个抽屉的指示器。<a href="http://www.google.com/design/spec/layout/structure.html#structure-app-bar" target="_blank" rel="external">参考</a></p>
+<h4 id="抽屉导航"><a href="#抽屉导航" class="headerlink" title="抽屉导航"></a>抽屉导航</h4><p>在app bar最左边的icon是一个抽屉的指示器。<a href="http://www.google.com/design/spec/layout/structure.html#structure-app-bar" target="_blank" rel="noopener">参考</a></p>
 <p>app icon 在app bar中是不可见的。可选择的，在早期版本中，如果app拥有一个抽屉，那么最左边的app icon会保留并且会变窄，比如在4.0中。</p>
 <p>标准的抽屉：在手机上不要宽于320dp，在平板上不要宽于400dp,但是不要小于屏幕宽度 – 标准的toolbar高度，比如在Nexus5中：360dp – 56dp = 304dp</p>
 <p>每一个抽屉条目的应该沿着grid网格，所有的行高为 48dp，上下8dp边距。</p>
-<p>Text 和 icon 应该沿着主线<br><img src="http://img.blog.csdn.net/20141101115945093" alt="tu"><br>越来越多的App来自google play生态系统将会更新到Material Design，预期2014冬季对于Android的设计来说是一个大的变更期。更多关于Material design设计资源，可以参考<a href="https://www.youtube.com/playlist?list=PLOU2XLYxmsIJFcNKpAV9B_aQmz2h68fw_" target="_blank" rel="external">YouTube</a>视频</p>
+<p>Text 和 icon 应该沿着主线<br><img src="http://img.blog.csdn.net/20141101115945093" alt="tu"><br>越来越多的App来自google play生态系统将会更新到Material Design，预期2014冬季对于Android的设计来说是一个大的变更期。更多关于Material design设计资源，可以参考<a href="https://www.youtube.com/playlist?list=PLOU2XLYxmsIJFcNKpAV9B_aQmz2h68fw_" target="_blank" rel="noopener">YouTube</a>视频</p>
 <h2 id="第四篇"><a href="#第四篇" class="headerlink" title="第四篇"></a>第四篇</h2><h3 id="Material-Design开发资源"><a href="#Material-Design开发资源" class="headerlink" title="Material Design开发资源"></a>Material Design开发资源</h3><p>官方：</p>
-<p><a href="http://www.google.com/design/spec/material-design/introduction.html" target="_blank" rel="external">Material Design介绍</a></p>
-<p><a href="https://github.com/google/material-design-icons" target="_blank" rel="external">设计资源</a></p>
-<p><a href="https://github.com/google/iosched" target="_blank" rel="external">App:Google  2014</a></p>
-<h4 id="视频教程"><a href="#视频教程" class="headerlink" title="视频教程:"></a>视频教程:</h4><p><a href="https://www.youtube.com/watch?v=97SWYiRtF0Y&amp;feature=youtu.be" target="_blank" rel="external">视频1</a></p>
-<p><a href="https://www.youtube.com/watch?v=S3H7nJ4QaD8" target="_blank" rel="external">视频2</a></p>
-<h4 id="示例集合"><a href="#示例集合" class="headerlink" title="示例集合"></a>示例集合</h4><p><a href="https://github.com/rahulparsani/google-io-2014-compat" target="_blank" rel="external">示例</a></p>
+<p><a href="http://www.google.com/design/spec/material-design/introduction.html" target="_blank" rel="noopener">Material Design介绍</a></p>
+<p><a href="https://github.com/google/material-design-icons" target="_blank" rel="noopener">设计资源</a></p>
+<p><a href="https://github.com/google/iosched" target="_blank" rel="noopener">App:Google  2014</a></p>
+<h4 id="视频教程"><a href="#视频教程" class="headerlink" title="视频教程:"></a>视频教程:</h4><p><a href="https://www.youtube.com/watch?v=97SWYiRtF0Y&amp;feature=youtu.be" target="_blank" rel="noopener">视频1</a></p>
+<p><a href="https://www.youtube.com/watch?v=S3H7nJ4QaD8" target="_blank" rel="noopener">视频2</a></p>
+<h4 id="示例集合"><a href="#示例集合" class="headerlink" title="示例集合"></a>示例集合</h4><p><a href="https://github.com/rahulparsani/google-io-2014-compat" target="_blank" rel="noopener">示例</a></p>
 <p><img src="http://img.blog.csdn.net/20141031174001295?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQveHVzaHVhaWM=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/Center" alt="tu"></p>
 <p><img src="http://img.blog.csdn.net/20141031173911125?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQveHVzaHVhaWM=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/Center" alt="tu"></p>
 <p><img src="http://img.blog.csdn.net/20141031174045849?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQveHVzaHVhaWM=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/Center" alt="tu"></p>
-<h4 id="第三方资源"><a href="#第三方资源" class="headerlink" title="第三方资源"></a>第三方资源</h4><p><a href="https://github.com/gabrielemariotti/cardslib" target="_blank" rel="external">地址</a></p>
+<h4 id="第三方资源"><a href="#第三方资源" class="headerlink" title="第三方资源"></a>第三方资源</h4><p><a href="https://github.com/gabrielemariotti/cardslib" target="_blank" rel="noopener">地址</a></p>
 <p><img src="http://img.blog.csdn.net/20141101111954464" alt="tu"></p>
-<p><a href="https://github.com/telly/FloatingAction" target="_blank" rel="external">地址</a></p>
+<p><a href="https://github.com/telly/FloatingAction" target="_blank" rel="noopener">地址</a></p>
 <p><img src="http://img.blog.csdn.net/20141031175941780" alt="tu"></p>
-<p><a href="https://github.com/markushi/android-ui" target="_blank" rel="external">地址</a></p>
+<p><a href="https://github.com/markushi/android-ui" target="_blank" rel="noopener">地址</a></p>
 <p><img src="http://img.blog.csdn.net/20141101082913420?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQveHVzaHVhaWM=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/Center" alt="tu"></p>
 <p><img src="http://img.blog.csdn.net/20141031180256125" alt="tu"></p>
-<p><a href="https://github.com/ikimuhendis/LDrawer" target="_blank" rel="external">地址</a></p>
+<p><a href="https://github.com/ikimuhendis/LDrawer" target="_blank" rel="noopener">地址</a></p>
 <p><img src="http://img.blog.csdn.net/20141031181405906" alt="tu"></p>
-<p><a href="https://github.com/markushi/android-ui" target="_blank" rel="external">地址</a></p>
+<p><a href="https://github.com/markushi/android-ui" target="_blank" rel="noopener">地址</a></p>
 <p><img src="http://img.blog.csdn.net/20141101093222308" alt="tu"></p>
-<p><a href="https://github.com/andkulikov/transitions-everywhere" target="_blank" rel="external">地址</a></p>
+<p><a href="https://github.com/andkulikov/transitions-everywhere" target="_blank" rel="noopener">地址</a></p>
 <p><img src="http://img.blog.csdn.net/20141101111313106" alt="tu"></p>
-<p><a href="https://github.com/lewisjdeane/L-Dialogs" target="_blank" rel="external">地址</a></p>
+<p><a href="https://github.com/lewisjdeane/L-Dialogs" target="_blank" rel="noopener">地址</a></p>
 <p><img src="http://img.blog.csdn.net/20141031174950203" alt="tu"></p>
 <h2 id="特别感谢"><a href="#特别感谢" class="headerlink" title="特别感谢"></a>特别感谢</h2><p><strong><em>lightSky</em></strong></p>
 <p>学到了很多，谢谢，以下是他的搜集的MaterialDesign 和 个人博客</p>
-<p><a href="https://github.com/lightSky/Awesome-MaterialDesign" target="_blank" rel="external">Github</a></p>
-<p><a href="http://weibo.com/lightSkyStreet" target="_blank" rel="external">个人博客</a></p>
+<p><a href="https://github.com/lightSky/Awesome-MaterialDesign" target="_blank" rel="noopener">Github</a></p>
+<p><a href="http://weibo.com/lightSkyStreet" target="_blank" rel="noopener">个人博客</a></p>
 
       
     </div>
@@ -768,7 +764,7 @@ reveal.start();
 <div class="copyright">
   
   &copy; 
-  <span itemprop="copyrightYear">2018</span>
+  <span itemprop="copyrightYear">2019</span>
    &nbsp; - &nbsp; 
   <span class="author">
     <i class="fa fa-android"></i>

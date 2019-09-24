@@ -87,11 +87,13 @@
 
 
 <meta name="description" content="无论MVC或是MVP模式都不可避免地存在一个弊端：额外的代码复杂度及学习成本">
+<meta name="keywords" content="架构">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Sky架构简单使用">
 <meta property="og:url" content="http://www.jincanshen.com/2016/08/26/Sky架构/index.html">
 <meta property="og:site_name" content="skyJC">
 <meta property="og:description" content="无论MVC或是MVP模式都不可避免地存在一个弊端：额外的代码复杂度及学习成本">
+<meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="https://skyJinc.github.io/images/sky架构/2.png">
 <meta property="og:image" content="https://skyJinc.github.io/images/sky架构/3.png">
 <meta property="og:image" content="https://skyJinc.github.io/images/sky架构/4.png">
@@ -449,9 +451,9 @@ fileCacheManage()； 文件缓存管理器
 <p><img src="https://skyJinc.github.io/images/sky架构/15.png" alt="图1"></p>
 <p>注意 ： SKYModulesManage 不用关心单例和重复创建的问题，因为统一由Application管理，当然也可以不继承SKYModulesManage 自己来处理 </p>
 <h3 id="第四个"><a href="#第四个" class="headerlink" title="第四个"></a>第四个</h3><p>1.View（Activity,Fragment,DialogFragment）,Biz, Display(跳转调度), Commom(公共业务)，http, 还是以@Impl注解的接口都被代理， 进行解析方法注解</p>
-<p>2.因为解析每一个方法的注解，比较耗时，采用了缓存策略,缓存接口的每一个方法，不会进行第二次解析…(思路来自<a href="https://github.com/square/retrofit" target="_blank" rel="external">retrofit</a>)</p>
+<p>2.因为解析每一个方法的注解，比较耗时，采用了缓存策略,缓存接口的每一个方法，不会进行第二次解析…(思路来自<a href="https://github.com/square/retrofit" target="_blank" rel="noopener">retrofit</a>)</p>
 <p>3.除了View和Biz的实例（创建和销毁），缓存是跟着View生命周期走，其他的都实例缓存都统一由缓存管理器进行统一管理</p>
-<h2 id="SKY简单使用"><a href="#SKY简单使用" class="headerlink" title="SKY简单使用"></a>SKY简单使用</h2><h3 id="引用"><a href="#引用" class="headerlink" title="引用"></a>引用</h3><p>架构里使用<a href="https://github.com/JakeWharton/butterknife" target="_blank" rel="external">butterknife</a> 所以 需要指定的插件</p>
+<h2 id="SKY简单使用"><a href="#SKY简单使用" class="headerlink" title="SKY简单使用"></a>SKY简单使用</h2><h3 id="引用"><a href="#引用" class="headerlink" title="引用"></a>引用</h3><p>架构里使用<a href="https://github.com/JakeWharton/butterknife" target="_blank" rel="noopener">butterknife</a> 所以 需要指定的插件</p>
 <p> <strong><em>classpath ‘com.neenbedankt.gradle.plugins:android-apt:1.8’</em></strong></p>
 <h4 id="第一种引用方式"><a href="#第一种引用方式" class="headerlink" title="第一种引用方式"></a>第一种引用方式</h4><p>第一步 - Project-build.gradle</p>
 <pre><code>buildscript {
@@ -511,7 +513,7 @@ Application - onCreate -&gt; SKYHelper.bind(ISKYBind)
 <p><img src="https://skyJinc.github.io/images/sky架构/16.png" alt="图1"></p>
 <h3 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h3><p>创建Activity和Biz 手动创建很麻烦，所以 我写了一个模板 </p>
 <p>AndroidStudio -&gt;设置-&gt; Editor-&gt;File And Code Templates</p>
-<p>Activity模板例子  <strong><em><a href="https://github.com/skyJinc/sky/wiki/%E7%BB%93%E6%9E%84%E6%A8%A1%E6%9D%BF" target="_blank" rel="external">参考</a></em></strong></p>
+<p>Activity模板例子  <strong><em><a href="https://github.com/skyJinc/sky/wiki/%E7%BB%93%E6%9E%84%E6%A8%A1%E6%9D%BF" target="_blank" rel="noopener">参考</a></em></strong></p>
 <pre><code>import android.os.Bundle;
 import jc.sky.core.Impl;
 import jc.sky.view.SKYBuilder;
@@ -599,7 +601,7 @@ public class ItemHolder extends SKYHolder&lt;ListModel&gt; {
     }
 }
 </code></pre><p><img src="https://skyJinc.github.io/images/sky架构/31.png" alt="图1"></p>
-<p>这里使用了<a href="https://github.com/JakeWharton/butterknife" target="_blank" rel="external">butterknife</a> 插件</p>
+<p>这里使用了<a href="https://github.com/JakeWharton/butterknife" target="_blank" rel="noopener">butterknife</a> 插件</p>
 <p><img src="https://skyJinc.github.io/images/sky架构/32.png" alt="图1"></p>
 <p><img src="https://skyJinc.github.io/images/sky架构/33.png" alt="图1"></p>
 <p><img src="https://skyJinc.github.io/images/sky架构/34.png" alt="图1"></p>
@@ -683,9 +685,9 @@ public int layoutHttpError() {
 
 参数可以是任何业务接口的class, 不必担心返回空值，因为已经做了处理，因为biz的生命周期是跟着View层走，所以如果你调用了已经销毁的Biz业务，它会执行空方法，不会报空指针异常。。
 </code></pre><h5 id="业务逻辑-公共业务接口-ICommon"><a href="#业务逻辑-公共业务接口-ICommon" class="headerlink" title="业务逻辑 - 公共业务接口 ICommon"></a>业务逻辑 - 公共业务接口 ICommon</h5><p>没有View层，只有业务逻辑 可以定义公共的业务接口进行业务的执行</p>
-<p>后续版本会根据 <a href="https://github.com/google/agera" target="_blank" rel="external">agera</a> 进行修改，采用 观察者模式 进行获取数据，更新界面</p>
-<h2 id="结尾"><a href="#结尾" class="headerlink" title="结尾"></a>结尾</h2><p>还有一些使用我没有进行说明，比如 下拉刷新，分页加载，toolbar 绑定等等…<br>可以看源代码的 <strong><em><a href="https://github.com/skyJinc/sky/blob/master/app/src/main/java/jc/sky/view/SKYBuilder.java" target="_blank" rel="external">SKYBuilder</a></em></strong> </p>
-<p>下载Demo 看看 调试调试。。。<br><a href="https://github.com/skyJinc/SkyApp" target="_blank" rel="external">DEMO</a></p>
+<p>后续版本会根据 <a href="https://github.com/google/agera" target="_blank" rel="noopener">agera</a> 进行修改，采用 观察者模式 进行获取数据，更新界面</p>
+<h2 id="结尾"><a href="#结尾" class="headerlink" title="结尾"></a>结尾</h2><p>还有一些使用我没有进行说明，比如 下拉刷新，分页加载，toolbar 绑定等等…<br>可以看源代码的 <strong><em><a href="https://github.com/skyJinc/sky/blob/master/app/src/main/java/jc/sky/view/SKYBuilder.java" target="_blank" rel="noopener">SKYBuilder</a></em></strong> </p>
+<p>下载Demo 看看 调试调试。。。<br><a href="https://github.com/skyJinc/SkyApp" target="_blank" rel="noopener">DEMO</a></p>
 <p>原理和实现 都会在后续的文章写出来。。。。</p>
 
       
@@ -901,7 +903,7 @@ public int layoutHttpError() {
 <div class="copyright">
   
   &copy; 
-  <span itemprop="copyrightYear">2018</span>
+  <span itemprop="copyrightYear">2019</span>
    &nbsp; - &nbsp; 
   <span class="author">
     <i class="fa fa-android"></i>

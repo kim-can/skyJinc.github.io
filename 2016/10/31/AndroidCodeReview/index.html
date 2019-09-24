@@ -86,24 +86,14 @@
 
 
 
-<meta name="description" content="首先需要知道什么是Code Review和我们使用它的目的是什么。
-Code Review是一种用来确认方案设计和代码实现的质量保证机制，通过这个机制我们可以对代码，测试过程和注释进行检查。
-Code Review主要用来在软件工程过程中改进代码质量，通过Code Review可以达到如下目的：
-
-在项目早期就能够发现代码中的BUG
-
-帮助初级开发人员学习高级开发人员的经验，达到知识共享">
+<meta name="description" content="首先需要知道什么是Code Review和我们使用它的目的是什么。 Code Review是一种用来确认方案设计和代码实现的质量保证机制，通过这个机制我们可以对代码，测试过程和注释进行检查。 Code Review主要用来在软件工程过程中改进代码质量，通过Code Review可以达到如下目的：  在项目早期就能够发现代码中的BUG  帮助初级开发人员学习高级开发人员的经验，达到知识共享">
+<meta name="keywords" content="review代码">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Android-CodeReview">
 <meta property="og:url" content="http://www.jincanshen.com/2016/10/31/AndroidCodeReview/index.html">
 <meta property="og:site_name" content="skyJC">
-<meta property="og:description" content="首先需要知道什么是Code Review和我们使用它的目的是什么。
-Code Review是一种用来确认方案设计和代码实现的质量保证机制，通过这个机制我们可以对代码，测试过程和注释进行检查。
-Code Review主要用来在软件工程过程中改进代码质量，通过Code Review可以达到如下目的：
-
-在项目早期就能够发现代码中的BUG
-
-帮助初级开发人员学习高级开发人员的经验，达到知识共享">
+<meta property="og:description" content="首先需要知道什么是Code Review和我们使用它的目的是什么。 Code Review是一种用来确认方案设计和代码实现的质量保证机制，通过这个机制我们可以对代码，测试过程和注释进行检查。 Code Review主要用来在软件工程过程中改进代码质量，通过Code Review可以达到如下目的：  在项目早期就能够发现代码中的BUG  帮助初级开发人员学习高级开发人员的经验，达到知识共享">
+<meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="https://skyJinc.github.io/images/codereview/1.png">
 <meta property="og:image" content="https://skyJinc.github.io/images/codereview/2.png">
 <meta property="og:image" content="https://skyJinc.github.io/images/codereview/3.png">
@@ -121,13 +111,7 @@ Code Review主要用来在软件工程过程中改进代码质量，通过Code R
 <meta property="og:updated_time" content="2016-11-02T07:22:39.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Android-CodeReview">
-<meta name="twitter:description" content="首先需要知道什么是Code Review和我们使用它的目的是什么。
-Code Review是一种用来确认方案设计和代码实现的质量保证机制，通过这个机制我们可以对代码，测试过程和注释进行检查。
-Code Review主要用来在软件工程过程中改进代码质量，通过Code Review可以达到如下目的：
-
-在项目早期就能够发现代码中的BUG
-
-帮助初级开发人员学习高级开发人员的经验，达到知识共享">
+<meta name="twitter:description" content="首先需要知道什么是Code Review和我们使用它的目的是什么。 Code Review是一种用来确认方案设计和代码实现的质量保证机制，通过这个机制我们可以对代码，测试过程和注释进行检查。 Code Review主要用来在软件工程过程中改进代码质量，通过Code Review可以达到如下目的：  在项目早期就能够发现代码中的BUG  帮助初级开发人员学习高级开发人员的经验，达到知识共享">
 <meta name="twitter:image" content="https://skyJinc.github.io/images/codereview/1.png">
 
 
@@ -379,11 +363,11 @@ Code Review主要用来在软件工程过程中改进代码质量，通过Code R
 <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>找了一段时间， 一直没发现好的软件，来进行code review。</p>
 <p>经人介绍，Upsource 使用以后 果然不错..操作简单..</p>
 <p>主要是这个安装和使用，这个软件的文章太少,写一个比较常用的使用教程 和 安装步骤</p>
-<h2 id="Upsource-安装"><a href="#Upsource-安装" class="headerlink" title="Upsource 安装"></a>Upsource 安装</h2><p><a href="https://www.jetbrains.com/upsource/download/" target="_blank" rel="external">下载地址</a></p>
+<h2 id="Upsource-安装"><a href="#Upsource-安装" class="headerlink" title="Upsource 安装"></a>Upsource 安装</h2><p><a href="https://www.jetbrains.com/upsource/download/" target="_blank" rel="noopener">下载地址</a></p>
 <ul>
 <li>下载后解压， 里面有一个文件 <code>README.txt</code></li>
 </ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div></pre></td><td class="code"><pre><div class="line">Running Upsource</div><div class="line">================</div><div class="line"></div><div class="line"># Usage</div><div class="line"></div><div class="line">## Windows 系统</div><div class="line">Run `&lt;home&gt;\bin\upsource.bat start` from the command line to start Upsource.</div><div class="line"></div><div class="line">On first start the welcome page will open in the default browser.</div><div class="line"></div><div class="line">## Linux 和 mac 系统</div><div class="line"></div><div class="line">Run `&lt;home&gt;/bin/upsource.sh start` from the command line to start Upsource.</div><div class="line">Run `&lt;home&gt;/bin/upsource.sh stop` to stop it.</div><div class="line"></div><div class="line"># Default credentials</div><div class="line"></div><div class="line">Login: admin</div><div class="line">Password: admin</div><div class="line"></div><div class="line"># Installation and administration guide</div><div class="line"></div><div class="line">https://www.jetbrains.com/help/upsource/3.5</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">Running Upsource</span><br><span class="line">================</span><br><span class="line"></span><br><span class="line"># Usage</span><br><span class="line"></span><br><span class="line">## Windows 系统</span><br><span class="line">Run `&lt;home&gt;\bin\upsource.bat start` from the command line to start Upsource.</span><br><span class="line"></span><br><span class="line">On first start the welcome page will open in the default browser.</span><br><span class="line"></span><br><span class="line">## Linux 和 mac 系统</span><br><span class="line"></span><br><span class="line">Run `&lt;home&gt;/bin/upsource.sh start` from the command line to start Upsource.</span><br><span class="line">Run `&lt;home&gt;/bin/upsource.sh stop` to stop it.</span><br><span class="line"></span><br><span class="line"># Default credentials</span><br><span class="line"></span><br><span class="line">Login: admin</span><br><span class="line">Password: admin</span><br><span class="line"></span><br><span class="line"># Installation and administration guide</span><br><span class="line"></span><br><span class="line">https://www.jetbrains.com/help/upsource/3.5</span><br></pre></td></tr></table></figure>
 <ul>
 <li>执行 <code>&lt;home&gt;\bin\upsource.bat start</code> 后会自动弹出初始化页面</li>
 </ul>
@@ -445,7 +429,7 @@ Code Review主要用来在软件工程过程中改进代码质量，通过Code R
 <ul>
 <li>执行以下命令</li>
 </ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">1. &lt;home&gt;/bin/upsource.sh stop</div><div class="line">2. &lt;home&gt;/bin/upsource.sh configure --listen-port 8080 --base-url http://10.71.172.215:8080</div><div class="line">3. &lt;home&gt;/bin/upsource.sh start</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">1. &lt;home&gt;/bin/upsource.sh stop</span><br><span class="line">2. &lt;home&gt;/bin/upsource.sh configure --listen-port 8080 --base-url http://10.71.172.215:8080</span><br><span class="line">3. &lt;home&gt;/bin/upsource.sh start</span><br></pre></td></tr></table></figure>
 <h2 id="结尾"><a href="#结尾" class="headerlink" title="结尾"></a>结尾</h2><p>只是简单的说明了使用方式,里面还有很多好玩的,可以自己去探索吧。。</p>
 
       
@@ -661,7 +645,7 @@ Code Review主要用来在软件工程过程中改进代码质量，通过Code R
 <div class="copyright">
   
   &copy; 
-  <span itemprop="copyrightYear">2018</span>
+  <span itemprop="copyrightYear">2019</span>
    &nbsp; - &nbsp; 
   <span class="author">
     <i class="fa fa-android"></i>

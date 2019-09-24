@@ -87,11 +87,13 @@
 
 
 <meta name="description" content="简化打包流程…">
+<meta name="keywords" content="打包方式">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Mac + Jenkins + Gradle + Git = 可持续集成架构搭建">
 <meta property="og:url" content="http://www.jincanshen.com/2016/08/22/可持续集成/index.html">
 <meta property="og:site_name" content="skyJC">
 <meta property="og:description" content="简化打包流程…">
+<meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="https://skyJinc.github.io/images/jenkins/1.png">
 <meta property="og:image" content="https://skyJinc.github.io/images/jenkins/4.png">
 <meta property="og:image" content="https://skyJinc.github.io/images/jenkins/3.png">
@@ -348,14 +350,14 @@
       
         <p>简化打包流程…</p>
 <a id="more"></a>
-<h3 id="Tomact"><a href="#Tomact" class="headerlink" title="Tomact"></a>Tomact</h3><p><a href="http://tomcat.apache.org/" target="_blank" rel="external">下载地址</a></p>
+<h3 id="Tomact"><a href="#Tomact" class="headerlink" title="Tomact"></a>Tomact</h3><p><a href="http://tomcat.apache.org/" target="_blank" rel="noopener">下载地址</a></p>
 <p>Mac 记得下载.gz</p>
 <p>为了方便 我设置了环境变量</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">mac 命令</div><div class="line">1.vim .bash_profile</div><div class="line">2.export PATH=$&#123;PATH&#125;:你的路径/apache-tomcat-9.0.0/bin</div><div class="line">3.保存退出 :wq</div><div class="line">4.生效 source .bash_profile</div><div class="line">5.启动 startup.sh</div></pre></td></tr></table></figure>
-<p><a href="http://localhost:8080" target="_blank" rel="external">查看Tomcat是否启动</a></p>
-<h3 id="Jenkins安装"><a href="#Jenkins安装" class="headerlink" title="Jenkins安装"></a>Jenkins安装</h3><p><a href="http://mirrors.jenkins-ci.org/war/latest/jenkins.war" target="_blank" rel="external">下载地址</a></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">mac 命令</span><br><span class="line">1.vim .bash_profile</span><br><span class="line">2.export PATH=$&#123;PATH&#125;:你的路径/apache-tomcat-9.0.0/bin</span><br><span class="line">3.保存退出 :wq</span><br><span class="line">4.生效 source .bash_profile</span><br><span class="line">5.启动 startup.sh</span><br></pre></td></tr></table></figure>
+<p><a href="http://localhost:8080" target="_blank" rel="noopener">查看Tomcat是否启动</a></p>
+<h3 id="Jenkins安装"><a href="#Jenkins安装" class="headerlink" title="Jenkins安装"></a>Jenkins安装</h3><p><a href="http://mirrors.jenkins-ci.org/war/latest/jenkins.war" target="_blank" rel="noopener">下载地址</a></p>
 <p>将下载的jenkins.war包直接放到tomcat下的webapps目录，启动tomcat即可安装完成</p>
-<p><a href="http://localhost:8080/jenkins/" target="_blank" rel="external">查看Jenins</a></p>
+<p><a href="http://localhost:8080/jenkins/" target="_blank" rel="noopener">查看Jenins</a></p>
 <p>如果显示一下内容<br><img src="https://skyJinc.github.io/images/jenkins/1.png" alt="图1"></p>
 <p>按照提示我们执行mac命令 <code>cat /var/lib/jenkins/secrets/initialAdminPassword</code> 得到Administrator password，输入后点击Continue，如下：<br><img src="https://skyJinc.github.io/images/jenkins/4.png" alt="图"><br>剩下的等 安装好插件就好～</p>
 <h3 id="Jenkins设置"><a href="#Jenkins设置" class="headerlink" title="Jenkins设置"></a>Jenkins设置</h3><h4 id="系统设置-gt-SDK"><a href="#系统设置-gt-SDK" class="headerlink" title="系统设置 -&gt; SDK"></a>系统设置 -&gt; SDK</h4><p><img src="https://skyJinc.github.io/images/jenkins/3.png" alt="图"></p>
@@ -564,7 +566,7 @@
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#Tomact"><span class="nav-number">1.</span> <span class="nav-text">Tomact</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Jenkins安装"><span class="nav-number">2.</span> <span class="nav-text">Jenkins安装</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Jenkins设置"><span class="nav-number">3.</span> <span class="nav-text">Jenkins设置</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#系统设置-gt-SDK"><span class="nav-number">3.1.</span> <span class="nav-text">系统设置 -> SDK</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#管理插件-安装插件"><span class="nav-number">3.2.</span> <span class="nav-text">管理插件 - 安装插件</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#编辑插件内容"><span class="nav-number">3.3.</span> <span class="nav-text">编辑插件内容</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#开始构建"><span class="nav-number">4.</span> <span class="nav-text">开始构建</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-新建"><span class="nav-number">4.1.</span> <span class="nav-text">1.新建</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-设置参数"><span class="nav-number">4.2.</span> <span class="nav-text">2.设置参数</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-设置源码"><span class="nav-number">4.3.</span> <span class="nav-text">3.设置源码</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4-设置源码"><span class="nav-number">4.4.</span> <span class="nav-text">4.设置源码</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#5-输出内容过滤"><span class="nav-number">4.5.</span> <span class="nav-text">5.输出内容过滤</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#6-开始构建"><span class="nav-number">4.6.</span> <span class="nav-text">6.开始构建</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#7-查看构建内容"><span class="nav-number">4.7.</span> <span class="nav-text">7.查看构建内容</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#待更新"><span class="nav-number">5.</span> <span class="nav-text">待更新</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#Tomact"><span class="nav-number">1.</span> <span class="nav-text">Tomact</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Jenkins安装"><span class="nav-number">2.</span> <span class="nav-text">Jenkins安装</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Jenkins设置"><span class="nav-number">3.</span> <span class="nav-text">Jenkins设置</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#系统设置-gt-SDK"><span class="nav-number">3.1.</span> <span class="nav-text">系统设置 -&gt; SDK</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#管理插件-安装插件"><span class="nav-number">3.2.</span> <span class="nav-text">管理插件 - 安装插件</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#编辑插件内容"><span class="nav-number">3.3.</span> <span class="nav-text">编辑插件内容</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#开始构建"><span class="nav-number">4.</span> <span class="nav-text">开始构建</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-新建"><span class="nav-number">4.1.</span> <span class="nav-text">1.新建</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-设置参数"><span class="nav-number">4.2.</span> <span class="nav-text">2.设置参数</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-设置源码"><span class="nav-number">4.3.</span> <span class="nav-text">3.设置源码</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4-设置源码"><span class="nav-number">4.4.</span> <span class="nav-text">4.设置源码</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#5-输出内容过滤"><span class="nav-number">4.5.</span> <span class="nav-text">5.输出内容过滤</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#6-开始构建"><span class="nav-number">4.6.</span> <span class="nav-text">6.开始构建</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#7-查看构建内容"><span class="nav-number">4.7.</span> <span class="nav-text">7.查看构建内容</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#待更新"><span class="nav-number">5.</span> <span class="nav-text">待更新</span></a></li></ol></div>
             
           </div>
         </section>
@@ -585,7 +587,7 @@
 <div class="copyright">
   
   &copy; 
-  <span itemprop="copyrightYear">2018</span>
+  <span itemprop="copyrightYear">2019</span>
    &nbsp; - &nbsp; 
   <span class="author">
     <i class="fa fa-android"></i>
